@@ -17,7 +17,7 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `skill:closeout` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:design-review` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:handoff` | in | `dir:.claude` | map/dirs.json:7 |
-| `skill:market-scan` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:shared-market-scan` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:site-protection` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:summon` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:tier` | in | `dir:.claude` | map/dirs.json:7 |
@@ -175,9 +175,9 @@ flowchart LR
 | `intent:ingest` | routes | `skill:upstream-intake` | router/intents.d/upstream.json:35 |
 | `intent:ingest` | routes | `tool:tools/upstream/upstream_checks.py` | router/intents.d/upstream.json:37 |
 | `intent:map-regen` | routes | `tool:tools/map/map_check.py` | router/intents.d/map.json:63 |
-| `intent:market-scan` | routes | `skill:market-scan` | router/intents.d/research.json:5 |
-| `intent:market-scan` | routes | `tool:tools/research/sizing.py` | router/intents.d/research.json:25 |
 | `intent:recall` | routes | `tool:tools/brain.py` | router/intents.d/brain.json:11 |
+| `intent:shared-market-scan` | routes | `skill:shared-market-scan` | router/intents.d/research.json:5 |
+| `intent:shared-market-scan` | routes | `tool:tools/research/sizing.py` | router/intents.d/research.json:25 |
 | `intent:site-protection` | routes | `skill:site-protection` | router/intents.d/protect.json:5 |
 | `intent:site-protection` | routes | `tool:tools/protect/self_check.py` | router/intents.d/protect.json:34 |
 | `intent:where` | routes | `tool:tools/map/gen_atlas.py` | router/intents.d/map.json:38 |
@@ -192,8 +192,8 @@ flowchart LR
 | `skill:design-review` | runs | `tool:tools/design/detector/detect.py` | .claude/skills/design-review/SKILL.md:12 |
 | `skill:design-review` | runs | `tool:tools/design/handoff.py` | .claude/skills/design-review/SKILL.md:20 |
 | `skill:handoff` | runs | `tool:tools/station_audit.py` | .claude/skills/handoff/SKILL.md:19 |
-| `skill:market-scan` | runs | `tool:tools/research/custody.py` | .claude/skills/market-scan/SKILL.md:14 |
-| `skill:market-scan` | runs | `tool:tools/research/sizing.py` | .claude/skills/market-scan/SKILL.md:20 |
+| `skill:shared-market-scan` | runs | `tool:tools/research/custody.py` | .claude/skills/shared-market-scan/SKILL.md:14 |
+| `skill:shared-market-scan` | runs | `tool:tools/research/sizing.py` | .claude/skills/shared-market-scan/SKILL.md:20 |
 | `skill:site-protection` | runs | `tool:tools/protect/self_check.py` | .claude/skills/site-protection/SKILL.md:17 |
 | `skill:upstream-intake` | runs | `tool:tools/kit/bootstrap.py` | .claude/skills/upstream-intake/SKILL.md:11 |
 | `skill:upstream-intake` | runs | `tool:tools/station_audit.py` | .claude/skills/upstream-intake/SKILL.md:60 |
@@ -271,7 +271,7 @@ flowchart LR
 | `tool:tools/kit/sync.py` | runs | `tool:tools/upstream/skill_routes.py` | tools/kit/sync.py:50 |
 | `tool:tools/map/_common.py` | runs | `tool:tools/gov/_gov.py` | tools/map/_common.py:8 |
 | `tool:tools/map/gen_solutions.py` | runs | `tool:tools/map/find.py` | tools/map/gen_solutions.py:32 |
-| `tool:tools/map/gen_station_map.py` | runs | `tool:tools/kit/sync.py` | tools/map/gen_station_map.py:139 |
+| `tool:tools/map/gen_station_map.py` | runs | `tool:tools/kit/sync.py` | tools/map/gen_station_map.py:155 |
 | `tool:tools/map/hooks/deny_generated_edit.py` | runs | `tool:tools/map/gen_atlas.py` | tools/map/hooks/deny_generated_edit.py:90 |
 | `tool:tools/map/hooks/deny_generated_edit.py` | runs | `tool:tools/map/gen_solutions.py` | tools/map/hooks/deny_generated_edit.py:89 |
 | `tool:tools/map/hooks/deny_generated_edit.py` | runs | `tool:tools/map/map_check.py` | tools/map/hooks/deny_generated_edit.py:80 |

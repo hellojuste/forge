@@ -7,7 +7,7 @@
    "owner": "tools/research/sizing.py",
    "pointers": [
     "tools/research/custody.py",
-    ".claude/skills/market-scan/SKILL.md"
+    ".claude/skills/shared-market-scan/SKILL.md"
    ],
    "enforcement": {
     "kind": "check",

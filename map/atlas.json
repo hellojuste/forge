@@ -207,25 +207,25 @@
    "token": "tools/map/map_check.py"
   },
   {
-   "evidence": "router/intents.d/research.json:5",
-   "from": "intent:market-scan",
-   "kind": "routes",
-   "to": "skill:market-scan",
-   "token": "\"market-scan\""
-  },
-  {
-   "evidence": "router/intents.d/research.json:25",
-   "from": "intent:market-scan",
-   "kind": "routes",
-   "to": "tool:tools/research/sizing.py",
-   "token": "tools/research/sizing.py"
-  },
-  {
    "evidence": "router/intents.d/brain.json:11",
    "from": "intent:recall",
    "kind": "routes",
    "to": "tool:tools/brain.py",
    "token": "tools/brain.py"
+  },
+  {
+   "evidence": "router/intents.d/research.json:5",
+   "from": "intent:shared-market-scan",
+   "kind": "routes",
+   "to": "skill:shared-market-scan",
+   "token": "\"shared-market-scan\""
+  },
+  {
+   "evidence": "router/intents.d/research.json:25",
+   "from": "intent:shared-market-scan",
+   "kind": "routes",
+   "to": "tool:tools/research/sizing.py",
+   "token": "tools/research/sizing.py"
   },
   {
    "evidence": "router/intents.d/protect.json:5",
@@ -355,21 +355,21 @@
   },
   {
    "evidence": "map/dirs.json:7",
-   "from": "skill:market-scan",
+   "from": "skill:shared-market-scan",
    "kind": "in",
    "to": "dir:.claude",
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/skills/market-scan/SKILL.md:14",
-   "from": "skill:market-scan",
+   "evidence": ".claude/skills/shared-market-scan/SKILL.md:14",
+   "from": "skill:shared-market-scan",
    "kind": "runs",
    "to": "tool:tools/research/custody.py",
    "token": "tools/research/custody.py"
   },
   {
-   "evidence": ".claude/skills/market-scan/SKILL.md:20",
-   "from": "skill:market-scan",
+   "evidence": ".claude/skills/shared-market-scan/SKILL.md:20",
+   "from": "skill:shared-market-scan",
    "kind": "runs",
    "to": "tool:tools/research/sizing.py",
    "token": "tools/research/sizing.py"
@@ -1628,7 +1628,7 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/map/gen_station_map.py:139",
+   "evidence": "tools/map/gen_station_map.py:155",
    "from": "tool:tools/map/gen_station_map.py",
    "kind": "runs",
    "to": "tool:tools/kit/sync.py",
@@ -2347,15 +2347,15 @@
   },
   {
    "class": "intent",
-   "id": "intent:market-scan",
-   "label": "market-scan",
-   "source": "router/intents.d/research.json"
-  },
-  {
-   "class": "intent",
    "id": "intent:recall",
    "label": "recall",
    "source": "router/intents.d/brain.json"
+  },
+  {
+   "class": "intent",
+   "id": "intent:shared-market-scan",
+   "label": "shared-market-scan",
+   "source": "router/intents.d/research.json"
   },
   {
    "class": "intent",
@@ -2395,9 +2395,9 @@
   },
   {
    "class": "skill",
-   "id": "skill:market-scan",
-   "label": "market-scan",
-   "source": ".claude/skills/market-scan/SKILL.md"
+   "id": "skill:shared-market-scan",
+   "label": "shared-market-scan",
+   "source": ".claude/skills/shared-market-scan/SKILL.md"
   },
   {
    "class": "skill",

@@ -56,8 +56,8 @@
   ".claude/skills/handoff/SKILL.md": {
    "sha256": "e724c4df5289a035e6c01a707c3c1cd422123178ff6a46195e6dcddc2ecb55bb"
   },
-  ".claude/skills/market-scan/SKILL.md": {
-   "sha256": "99e7904a8dbcc463225655f54bba7d716d5dbeee73d4d093b4b47941a244b9c8"
+  ".claude/skills/shared-market-scan/SKILL.md": {
+   "sha256": "b67d6267e68da32c142e8c5f8ff1dd91e49ff2d2724099c42b34fcc0b251c994"
   },
   ".claude/skills/site-protection/SKILL.md": {
    "sha256": "3db49c7aa257a1900a2f7f12410f71d0b69025a7abdb11be0c0c722f75ee3e6e"
@@ -220,7 +220,7 @@
    "sha256": "479965e7ad244f6f3009aece8c6586491bc44d62136e0bde991385d8eb858b6f"
   },
   "governance/DECISIONS.md": {
-   "sha256": "bf1ec41cc7203ec29a03c2eed0893eb542254bb9577f05babb2db5e915728786"
+   "sha256": "3f62d8a6e84ea6447e0347fbe4dcc044a467ddee3f583b2f785a1422f376f535"
   },
   "governance/DEFECTS.md": {
    "sha256": "07358be17a209e3afa48f726671a0d3d81bf8532b8f30e60fc27648d667194bc"
@@ -233,7 +233,7 @@
   },
   "governance/OWNERSHIP.md": {
    "generated": true,
-   "sha256": "dea01ba01b8684e189fab19d1c21c7be653e417fd4659f0fe0566f790d6e55dd"
+   "sha256": "f77314ef9e01accf1281e938dd14503cf8ddfe423137671aa519dc5f1ae3def4"
   },
   "governance/RELEASES.json": {
    "sha256": "4c47df15f368fa31dfcddc94cee9bb635236151b50f216c15bea92859faa8d7c"
@@ -272,7 +272,7 @@
    "sha256": "8b4679776454109a2e67443a318d0748db43b746204a421bbbd31beca0b7b625"
   },
   "governance/rules.d/research.json": {
-   "sha256": "a2523ae1a8314491369c271da1fe6276fb9693c907d51287a08502082c8e26f7"
+   "sha256": "d56850b25eaaa29cd758cf753b7a16c8a6f09fd1e6d24d21e27b567f00aadd8b"
   },
   "governance/rules.d/upstream.json": {
    "sha256": "63516b7dff4abc96febcf55eb8d501a6c50799345416f28f98063d7785f0c1ab"
@@ -282,7 +282,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "2110e77ccce248e02843cfd6d9008cbc35e6a53dc7348a16ba770af205c69dbc"
+   "sha256": "9648127f4645fd9efd5acf6ccd701a20e292259a2bf8a3dedd8cfb437ad49ce4"
   },
   "map/README.md": {
    "generated": true,
@@ -290,7 +290,7 @@
   },
   "map/SOLUTIONS.md": {
    "generated": true,
-   "sha256": "16ae6e9d62f1ab7a72823ddc756b16d60ed2b7d0de3499c85bb5f631a375a880"
+   "sha256": "2e2f0a2e2be576a590eb39e29d24cebee508ecf99307a51c457fde7260704268"
   },
   "map/STATIONS.md": {
    "generated": true,
@@ -298,13 +298,13 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "b1117d68f46e4a03810f43201a592c0172f7bc5642de77899dea02826e9664d7"
+   "sha256": "3e3d7273de79ea438ebbe36d8317fb15088419f8098396fa652197f042362b22"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
   },
   "map/catalog.json": {
-   "sha256": "87011f70a1a1c896d5c56351d21ad0d4af5dfebade003464c713bc5abdfb7f93"
+   "sha256": "3ef3dbdea2cca4fa4e5c3085a7fe44a41499cbf28fc06cee140cb10d2ad7cc9f"
   },
   "map/dirs.json": {
    "sha256": "02d23166e74dfb54d2e8cc90cd86123012e2ebc9e460cfe8c098dc1707d1cf07"
@@ -317,7 +317,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "ef55234c1635b113e19848d088c80525f3f58708ecaa950a6be583bb77df34e3"
+   "sha256": "bb6b033ce7545de74851687c836ce3b09567573a6dcd084f0b1c11aa1eacae92"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -372,13 +372,13 @@
    "sha256": "6ae04499ef18a95d03da32cee863d9d6f1c9149303e2afcc1de5618930cb7312"
   },
   "router/intents.d/research.json": {
-   "sha256": "b3ad36743c66c2fea7f3553e97a12a93e4336bc59cde71bcb4beb4e60e6fade2"
+   "sha256": "deba523df66e51a38f014e08c6a5c70874e40e8ab7de56c6c3efe939b16755ca"
   },
   "router/intents.d/upstream.json": {
    "sha256": "28ec200b6b4cbdb956b9520b6ae3662d6ba3ecdd23992ce22af226ea7b57e99f"
   },
   "router/intents.json": {
-   "sha256": "0e7f479a7376d226259ba2c79ecbcaf36f168140c74c392f8e6988d3da693e6a"
+   "sha256": "c6ed1091a810e102ce537cffbd7a43299f1cfa80edeb11a3d30b749ad509192c"
   },
   "router/kit_tree.json": {
    "sha256": "84ea800dc17bbc00906f86c526b7a682a507567b5257c4f70ac3edf0f3e8be58"
@@ -1225,7 +1225,7 @@
    "sha256": "aef4b5158acf595d0ef2c35fba50acc12a63df1cb20121bad9077a289bba17d0"
   },
   "tools/gov/_gov.py": {
-   "sha256": "fc79f5703226c3c3053a33f0513d2e38a793ae956da686c0a006ac0f8596e546"
+   "sha256": "8e1c9d421919781a5d2e53b99564aec53d5090d2a25b2fd93c1f9c686247b7c6"
   },
   "tools/gov/carry_design.py": {
    "sha256": "5380176a6592e603a0e4c430587eee871401015632444e41a41459441318c2b7"
@@ -1297,7 +1297,7 @@
    "sha256": "e4831fec94f7f76b427ad3c29b7a3e8207e5bcb498905cc1b24d9312bc26f9d9"
   },
   "tools/map/gen_station_map.py": {
-   "sha256": "f885eb1d8d2259f59f25e6f39f4cfe04efdd0062f7485e32e50c2ac1fda431c8"
+   "sha256": "df9a86d06257be946eef17b67b2dbcffd230d96ddf09433bd1d49e9f57ac9335"
   },
   "tools/map/hooks/deny_generated_edit.py": {
    "sha256": "6b6b7e8a3be96cf7db70d437a50ef52850874218c9a7ed64fdb92926ed4f170c"
@@ -1348,7 +1348,7 @@
    "sha256": "27ccf3ff13ed40c0a84907669073cab29f325dc00af3e7b70a447c1dcd67eb6b"
   },
   "tools/research/sizing.py": {
-   "sha256": "eb8a49599a6be3680fb7de8303d800b7d979fbf9da64681b13abbada4a1165f4"
+   "sha256": "d478e717936acc92307cc6ed5782c2648e651cbf46b473aad38089e7b8e54dcc"
   },
   "tools/station_audit.py": {
    "sha256": "09eda400404a5adbe0ffb5e65e135b4afd40944e7651be0a847b24246e51cf0c"

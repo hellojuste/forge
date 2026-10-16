@@ -193,7 +193,7 @@
    "governance-admin",
    "build",
    "site-protection",
-   "market-scan",
+   "shared-market-scan",
    "design-review",
    "recall",
    "handoff",
@@ -204,7 +204,7 @@
    "map-regen",
    "conversational"
   ],
-  "reason": "cost if the gather is SKIPPED, highest first: a station's live-surface intent (station:* = every contributed_by station row, and on main every kit_tree leaf) can touch money, clients or a quarantined tree; a skipped ingest lands unneutralised upstream agent files; a skipped find rebuilds what exists; governance-admin edits a rule without its owner; build without prior art; recall re-derives a known result; a skipped handoff loses the session's state; delegate without /summon multiplies every mistake; a skipped checkpoint loses the durable record of a commit; closeout, where and map-regen cost one re-run. reconcile-01 (DEC-core-0011): site-protection (a skipped gather probes a host the operator may not own), market-scan (an unsourced number reaches a deliverable) and design-review (a build ships unmeasured) sit after build.",
+  "reason": "cost if the gather is SKIPPED, highest first: a station's live-surface intent (station:* = every contributed_by station row, and on main every kit_tree leaf) can touch money, clients or a quarantined tree; a skipped ingest lands unneutralised upstream agent files; a skipped find rebuilds what exists; governance-admin edits a rule without its owner; build without prior art; recall re-derives a known result; a skipped handoff loses the session's state; delegate without /summon multiplies every mistake; a skipped checkpoint loses the durable record of a commit; closeout, where and map-regen cost one re-run. reconcile-01 (DEC-core-0011): site-protection (a skipped gather probes a host the operator may not own), shared-market-scan (an unsourced number reaches a deliverable) and design-review (a build ships unmeasured) sit after build.",
   "multi_intent_cap": 3,
   "_why_doc": "CRITIC F2 (2026-10-16): the cap refused one-sentence prompts ('build an MVP for my invoicing venture'). It now applies only when the prompt looks like a pasted document: >= doc_min_newlines newlines, or >= doc_min_clauses clauses AND > doc_min_chars characters. Below that the matched intents are ranked (order, claims, hits).",
   "doc_min_newlines": 3,

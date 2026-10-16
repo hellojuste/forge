@@ -142,7 +142,7 @@ _are the generated maps and indexes true to the tree right now?_
 
 _size a market or scan competitors with every figure sourced, denominated and re-derivable_
 
-- `.claude/skills/market-scan/SKILL.md` — market-scan skill (working): size a market or scan competitors with sourced, denominated figures in any station
+- `.claude/skills/shared-market-scan/SKILL.md` — shared-market-scan skill (working): size a market or scan competitors with sourced, denominated figures in any station
 - `tools/research/custody.py` — chain of custody (working): sources/claims/ToS records: re-hash captures, re-find quotes, uncited lines, planted-defect proof
 - `tools/research/sizing.py` — market-scan sizing (working): sized-claim rules for a market record (source, n, unit, geography, arithmetic, both approaches, UNSOURCED never summed, NC lane refused); scan is audit row market_scan · see also tools/research/custody.py
 

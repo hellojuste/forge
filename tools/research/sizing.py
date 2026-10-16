@@ -2,7 +2,7 @@
 """sizing.py — the shared market-scan check: every market figure carries its source, n, unit, geography and arithmetic. Stdlib only.
 
 owner: governance/rules.d/research.json R-research-market-scan (check `market_scan`; commons since reconcile-01,
-DEC-core-0011) · callers: skill market-scan (every station), research's market-scan workflow + deliverables.py · kit-authored
+DEC-core-0011) · callers: skill shared-market-scan (every station), research's market-scan workflow + deliverables.py · kit-authored
 
 Earned by: research pass 2 (PRIME 2026-10-16 item 5): career and venture will call the same market-scan capability as
 research, so its rules live in one importable, directory-agnostic module instead of inside deliverables.py. It runs on

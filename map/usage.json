@@ -203,10 +203,10 @@
     }
    ]
   },
-  ".claude/skills/market-scan/SKILL.md": {
+  ".claude/skills/shared-market-scan/SKILL.md": {
    "cold": null,
    "hand": [],
-   "home": "/market-scan",
+   "home": "/shared-market-scan",
    "kind": "skill",
    "triggers": [
     {
@@ -1455,8 +1455,8 @@
    "kind": "tool",
    "triggers": [
     {
-     "evidence": ".claude/skills/market-scan/SKILL.md:14",
-     "ref": ".claude/skills/market-scan/SKILL.md",
+     "evidence": ".claude/skills/shared-market-scan/SKILL.md:14",
+     "ref": ".claude/skills/shared-market-scan/SKILL.md",
      "source": "skill"
     }
    ]
@@ -1483,13 +1483,13 @@
      "source": "router"
     },
     {
-     "evidence": ".claude/skills/market-scan/SKILL.md:11",
-     "ref": ".claude/skills/market-scan/SKILL.md",
+     "evidence": ".claude/skills/shared-market-scan/SKILL.md:11",
+     "ref": ".claude/skills/shared-market-scan/SKILL.md",
      "source": "skill"
     },
     {
-     "evidence": ".claude/skills/market-scan/SKILL.md:20",
-     "ref": ".claude/skills/market-scan/SKILL.md",
+     "evidence": ".claude/skills/shared-market-scan/SKILL.md:20",
+     "ref": ".claude/skills/shared-market-scan/SKILL.md",
      "source": "skill"
     }
    ]

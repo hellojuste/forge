@@ -1021,7 +1021,7 @@
    "status": "working",
    "title": "market-scan sizing"
   },
-  ".claude/skills/market-scan/SKILL.md": {
+  ".claude/skills/shared-market-scan/SKILL.md": {
    "doc": null,
    "kin": [],
    "purpose": "size a market or scan competitors with sourced, denominated figures in any station",
@@ -1030,7 +1030,7 @@
     "market-scan"
    ],
    "status": "working",
-   "title": "market-scan skill"
+   "title": "shared-market-scan skill"
   }
  },
  "exclusions": [

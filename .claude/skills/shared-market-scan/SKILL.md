@@ -1,8 +1,8 @@
 ---
-name: market-scan
+name: shared-market-scan
 description: Size a market or scan competitors from public sources with every figure sourced, denominated and re-checked by the shared sizing + custody tools (venture, career, research).
 ---
-# market-scan — sized claims with custody, any station (commons; owner governance/rules.d/research.json R-research-market-scan)
+# shared-market-scan — sized claims with custody, any station (commons; owner governance/rules.d/research.json R-research-market-scan)
 
 Research owns the method depth (and the NC lane); this skill is the shared floor so venture decisions and career
 targeting use numbers that can be re-derived.
