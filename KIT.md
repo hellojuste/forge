@@ -88,5 +88,6 @@ whose copy differs fails `commons_drift`) or GENERATED (first 3 lines declare it
 | `licences.json` | licence class per repo + nested licences that govern held subtrees | hand |
 | `telemetry.json` | telemetry rows, all `verified: false` until proven | hand + block E merges station rows |
 | `attic.json`, `quarantine.json` | attic rows; quarantined paths and their gates | hand |
-| `skill_assignment.json` + `SKILL_CENSUS.yml` | GENERATED transcription of the plan's 360 skill rows + the census it was built from | `skills_index.py --write-assignment` |
+| `skills_plan.json` | the plan's `skills_assignment` (defaults, exceptions, canonical choices, 360 rows) carried in the kit, with dated `amendments` rows (AMEND-skills-0001: row 17 `.github/skills/custom-fields-development` is a mirror) | hand, by an amendments row; `python3 tools/upstream/skill_routes.py verify --plan registry/skills_plan.json --census <SKILL_CENSUS.yml> --clones <dir>` |
+| `skill_assignment.json` + `SKILL_CENSUS.yml` | GENERATED transcription of `skills_plan.json`'s 360 skill rows + the census it was built from; GPL-family and CC-BY-NC rows ship no description prose (NONPERMISSIVE_PROSE_WITHHELD) | `skills_index.py --write-assignment --plan registry/skills_plan.json --census <SKILL_CENSUS.yml>` |
 | `skills_index.json` (+ `SKILLS_INDEX.md`) | GENERATED routing state of all 360 rows | `skills_index.py --write --from-git .` |

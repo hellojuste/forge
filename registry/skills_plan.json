@@ -1,0 +1,3621 @@
+{
+ "_source": "design/kit_plan.yml -> skills_assignment (branch claude/stable-kit-design, 2026-10-16), copied whole into the kit so the kit carries its own plan; the ONE source of truth for registry/skill_assignment.json (python3 tools/kit/skills_index.py --write-assignment --plan registry/skills_plan.json --census <SKILL_CENSUS.yml>) and for python3 tools/upstream/skill_routes.py verify --plan registry/skills_plan.json. Amend by an amendments row, never by a silent edit.",
+ "amendments": [
+  {
+   "id": "AMEND-skills-0001",
+   "date": "2026-10-16",
+   "row": "17:.github/skills/custom-fields-development/SKILL.md",
+   "before": [
+    "17:.github/skills/custom-fields-development/SKILL.md",
+    "venture",
+    "variant",
+    "17:.claude/skills/custom-fields-development/SKILL.md",
+    "upstream/relaticle~relaticle/.github/skills/custom-fields-development/SKILL.md",
+    "file"
+   ],
+   "after": [
+    "17:.github/skills/custom-fields-development/SKILL.md",
+    "venture",
+    "mirror",
+    "17:.claude/skills/custom-fields-development/SKILL.md",
+    null,
+    "none"
+   ],
+   "also": {
+    "classified": "variant 26 -> 25, mirror 17 -> 18",
+    "per_station.venture": "variant 6 -> 5, mirror 2 -> 3",
+    "unique_accounting": {
+     "before": "338 unique = 307 canonical + 26 variant + 4 fixture + 1 symlink (.grok career-ops: census counted the link text as unique content)"
+    },
+    "non_canonical_or_file_only": "same row -> mirror"
+   },
+   "why": "plan/registry row 17 (REPRODUCE, SAFETY and LEAN known open item): the .github/ copy differs from 17:.claude/skills/custom-fields-development/SKILL.md only by a trailing newline, so skill_routes.py verify (ws_norm_sha, fix2-commons 5) recomputes it as a mirror routed to the .claude/ canonical; the plan said variant. The venture station's router/skills.json row for this id must match: kind mirror, route_to the .claude/ canonical, no keywords of its own."
+  }
+ ],
+ "skills_assignment": {
+  "census": "SKILL_CENSUS.yml (360 files; 338 unique by content; 22 byte mirrors; 9 frontmatter unparsed)",
+  "classified": {
+   "canonical": 307,
+   "fixture": 4,
+   "mirror": 18,
+   "symlink": 6,
+   "variant": 25
+  },
+  "classification_rule": "canonical = the one routed copy; mirror = census mirror_of (byte-identical); symlink = git mode 120000 (blob is the link text) -> routes to the target; variant = same (repo,name), different bytes -> routes to canonical but keeps its own row and held file; fixture = test/eval fixture path -> held file only, routed as fixture",
+  "per_station": {
+   "markets": {
+    "canonical": 91
+   },
+   "client-bi": {
+    "canonical": 1
+   },
+   "venture": {
+    "canonical": 124,
+    "mirror": 3,
+    "variant": 5
+   },
+   "career": {
+    "canonical": 41,
+    "mirror": 7,
+    "symlink": 6
+   },
+   "studio": {
+    "canonical": 16,
+    "variant": 20,
+    "fixture": 2,
+    "mirror": 2
+   },
+   "research": {
+    "canonical": 12
+   },
+   "forge": {
+    "canonical": 21,
+    "fixture": 2,
+    "mirror": 6
+   },
+   "quarantine": {
+    "canonical": 1
+   }
+  },
+  "defaults": [
+   {
+    "repo_id": 1,
+    "repo": "Imbad0202/academic-research-skills",
+    "station": "research",
+    "lane": "nc-lane"
+   },
+   {
+    "repo_id": 2,
+    "repo": "MadsLorentzen/ai-job-search",
+    "station": "career",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 3,
+    "repo": "phuryn/pm-skills",
+    "station": "venture",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 4,
+    "repo": "supabase/supabase",
+    "station": "venture",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 6,
+    "repo": "santifer/career-ops",
+    "station": "career",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 7,
+    "repo": "amruthpillai/reactive-resume",
+    "station": "career",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 8,
+    "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+    "station": "quarantine",
+    "lane": "upstream"
+   },
+   {
+    "repo_id": 10,
+    "repo": "Paramchoudhary/ResumeSkills",
+    "station": "career",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 11,
+    "repo": "emilkowalski/skills",
+    "station": "studio",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 12,
+    "repo": "pbakaus/impeccable",
+    "station": "studio",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 13,
+    "repo": "frappe/erpnext",
+    "station": "client-bi",
+    "lane": "upstream"
+   },
+   {
+    "repo_id": 14,
+    "repo": "makeplane/plane",
+    "station": "venture",
+    "lane": "upstream"
+   },
+   {
+    "repo_id": 15,
+    "repo": "triggerdotdev/trigger.dev",
+    "station": "venture",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 17,
+    "repo": "relaticle/relaticle",
+    "station": "venture",
+    "lane": "upstream"
+   },
+   {
+    "repo_id": 18,
+    "repo": "styler-ai/ProjectAtlas",
+    "station": "forge",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 19,
+    "repo": "evo-hq/evo",
+    "station": "forge",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 20,
+    "repo": "langchain-ai/openwiki",
+    "station": "forge",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 21,
+    "repo": "morluto/rea",
+    "station": "forge",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 23,
+    "repo": "HKUDS/Vibe-Trading",
+    "station": "markets",
+    "lane": "repertoire"
+   },
+   {
+    "repo_id": 25,
+    "repo": "danny-avila/LibreChat",
+    "station": "forge",
+    "lane": "repertoire"
+   }
+  ],
+  "exceptions": [
+   {
+    "repo_id": 3,
+    "path_prefix": "pm-market-research/",
+    "station": "research",
+    "reason": "market research from public sources is an investigation verb on a public noun (decision tree Q6); research also owns market-scan",
+    "census_ids": [
+     "3:pm-market-research/skills/competitor-analysis/SKILL.md",
+     "3:pm-market-research/skills/customer-journey-map/SKILL.md",
+     "3:pm-market-research/skills/market-segments/SKILL.md",
+     "3:pm-market-research/skills/market-sizing/SKILL.md",
+     "3:pm-market-research/skills/sentiment-analysis/SKILL.md",
+     "3:pm-market-research/skills/user-personas/SKILL.md",
+     "3:pm-market-research/skills/user-segmentation/SKILL.md"
+    ]
+   },
+   {
+    "repo_id": 3,
+    "path_prefix": "pm-toolkit/skills/review-resume/",
+    "station": "career",
+    "reason": "a CV review acts on the operator's identity documents (decision tree Q4)",
+    "census_ids": [
+     "3:pm-toolkit/skills/review-resume/SKILL.md"
+    ]
+   },
+   {
+    "repo_id": 3,
+    "path_prefix": "pm-ai-shipping/",
+    "station": "forge",
+    "reason": "code-review / intended-vs-implemented / shipping-artifacts review agent-built code; forge owns arch-review and tool trials",
+    "census_ids": [
+     "3:pm-ai-shipping/skills/code-review/SKILL.md",
+     "3:pm-ai-shipping/skills/intended-vs-implemented/SKILL.md",
+     "3:pm-ai-shipping/skills/shipping-artifacts/SKILL.md"
+    ]
+   }
+  ],
+  "canonical_choices": [
+   {
+    "repo_id": 12,
+    "name": "impeccable",
+    "canonical": "12:plugin/skills/impeccable/SKILL.md",
+    "reason": "plugin/ copy resolves its scripts through ${CLAUDE_SKILL_DIR}, so it still works when relocated under repertoire/; the .claude/ copy hard-codes .claude/skills/impeccable/scripts (git diff HEAD:.claude/skills/impeccable/SKILL.md HEAD:plugin/skills/impeccable/SKILL.md)"
+   },
+   {
+    "repo_id": 15,
+    "name": "trigger-authoring-chat-agent",
+    "canonical": "15:packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+    "reason": "cli-v3 is the published CLI skill set with its own MIT LICENSE"
+   },
+   {
+    "repo_id": 15,
+    "name": "trigger-authoring-tasks",
+    "canonical": "15:packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+    "reason": "same"
+   },
+   {
+    "repo_id": 15,
+    "name": "trigger-chat-agent-advanced",
+    "canonical": "15:packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+    "reason": "same"
+   },
+   {
+    "repo_id": 15,
+    "name": "trigger-cost-savings",
+    "canonical": "15:packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+    "reason": "same"
+   },
+   {
+    "repo_id": 15,
+    "name": "trigger-realtime-and-frontend",
+    "canonical": "15:packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+    "reason": "same"
+   },
+   {
+    "repo_id": 17,
+    "name": "custom-fields-development",
+    "canonical": "17:.claude/skills/custom-fields-development/SKILL.md",
+    "reason": ".claude/ is the repo's primary agent folder; .github/ copy differs"
+   },
+   {
+    "repo_id": 19,
+    "name": "optimize",
+    "canonical": "19:plugins/evo/skills/optimize/SKILL.md",
+    "reason": "plugin skill; scripts/rlm_eval/baseline_SKILL.md is an eval fixture"
+   },
+   {
+    "repo_id": 6,
+    "name": "career-ops",
+    "canonical": "6:.agents/skills/career-ops/SKILL.md",
+    "reason": "the only mode-100644 file; the other six paths are mode-120000 symlinks whose blob is the link text (git ls-tree HEAD <path>)"
+   }
+  ],
+  "non_canonical_or_file_only": [
+   {
+    "census_id": "23:agent/SKILL.md",
+    "kind": "canonical",
+    "route_to": null,
+    "home": "markets",
+    "held_path": "repertoire/HKUDS~Vibe-Trading/agent/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "10:.agents/skills/executive-resume-writer/SKILL.md",
+    "kind": "mirror",
+    "route_to": "10:skills/executive-resume-writer/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 10:skills/executive-resume-writer/SKILL.md)"
+   },
+   {
+    "census_id": "10:.agents/skills/interview-prep-generator/SKILL.md",
+    "kind": "mirror",
+    "route_to": "10:skills/interview-prep-generator/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 10:skills/interview-prep-generator/SKILL.md)"
+   },
+   {
+    "census_id": "10:.agents/skills/job-description-analyzer/SKILL.md",
+    "kind": "mirror",
+    "route_to": "10:skills/job-description-analyzer/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 10:skills/job-description-analyzer/SKILL.md)"
+   },
+   {
+    "census_id": "10:.agents/skills/linkedin-profile-optimizer/SKILL.md",
+    "kind": "mirror",
+    "route_to": "10:skills/linkedin-profile-optimizer/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 10:skills/linkedin-profile-optimizer/SKILL.md)"
+   },
+   {
+    "census_id": "10:.agents/skills/offer-comparison-analyzer/SKILL.md",
+    "kind": "mirror",
+    "route_to": "10:skills/offer-comparison-analyzer/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 10:skills/offer-comparison-analyzer/SKILL.md)"
+   },
+   {
+    "census_id": "10:.agents/skills/portfolio-case-study-writer/SKILL.md",
+    "kind": "mirror",
+    "route_to": "10:skills/portfolio-case-study-writer/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 10:skills/portfolio-case-study-writer/SKILL.md)"
+   },
+   {
+    "census_id": "10:.agents/skills/reference-list-builder/SKILL.md",
+    "kind": "mirror",
+    "route_to": "10:skills/reference-list-builder/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 10:skills/reference-list-builder/SKILL.md)"
+   },
+   {
+    "census_id": "25:e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+    "kind": "fixture",
+    "route_to": null,
+    "home": "forge",
+    "held_path": "repertoire/danny-avila~LibreChat/e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "19:plugins/evo/npm/skills/discover/SKILL.md",
+    "kind": "mirror",
+    "route_to": "19:plugins/evo/skills/discover/SKILL.md",
+    "home": "forge",
+    "held_path": null,
+    "copy": "none (routes to 19:plugins/evo/skills/discover/SKILL.md)"
+   },
+   {
+    "census_id": "19:plugins/evo/npm/skills/infra-setup/SKILL.md",
+    "kind": "mirror",
+    "route_to": "19:plugins/evo/skills/infra-setup/SKILL.md",
+    "home": "forge",
+    "held_path": null,
+    "copy": "none (routes to 19:plugins/evo/skills/infra-setup/SKILL.md)"
+   },
+   {
+    "census_id": "19:plugins/evo/npm/skills/optimize/SKILL.md",
+    "kind": "mirror",
+    "route_to": "19:plugins/evo/skills/optimize/SKILL.md",
+    "home": "forge",
+    "held_path": null,
+    "copy": "none (routes to 19:plugins/evo/skills/optimize/SKILL.md)"
+   },
+   {
+    "census_id": "19:plugins/evo/npm/skills/report/SKILL.md",
+    "kind": "mirror",
+    "route_to": "19:plugins/evo/skills/report/SKILL.md",
+    "home": "forge",
+    "held_path": null,
+    "copy": "none (routes to 19:plugins/evo/skills/report/SKILL.md)"
+   },
+   {
+    "census_id": "19:plugins/evo/npm/skills/ship/SKILL.md",
+    "kind": "mirror",
+    "route_to": "19:plugins/evo/skills/ship/SKILL.md",
+    "home": "forge",
+    "held_path": null,
+    "copy": "none (routes to 19:plugins/evo/skills/ship/SKILL.md)"
+   },
+   {
+    "census_id": "19:plugins/evo/npm/skills/subagent/SKILL.md",
+    "kind": "mirror",
+    "route_to": "19:plugins/evo/skills/subagent/SKILL.md",
+    "home": "forge",
+    "held_path": null,
+    "copy": "none (routes to 19:plugins/evo/skills/subagent/SKILL.md)"
+   },
+   {
+    "census_id": "19:scripts/rlm_eval/baseline_SKILL.md",
+    "kind": "fixture",
+    "route_to": null,
+    "home": "forge",
+    "held_path": "repertoire/evo-hq~evo/scripts/rlm_eval/baseline_SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.agent/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.agent/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.agents/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.agents/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.claude/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/_upstream_claude/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.cursor/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.cursor/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.dsh/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.dsh/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.gemini/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.gemini/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.github/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.github/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.grok/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.grok/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.hermes/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.hermes/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.kiro/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.kiro/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.omp/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.omp/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.opencode/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.opencode/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.pi/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.pi/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.qoder/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.qoder/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.rovodev/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.rovodev/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.trae-cn/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.trae-cn/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.trae/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.trae/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.veto/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.veto/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:.vibe/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/.vibe/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:cursor-plugin/skills/impeccable/SKILL.md",
+    "kind": "variant",
+    "route_to": "12:plugin/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/cursor-plugin/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    "kind": "fixture",
+    "route_to": null,
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:tests/oracle/workspaces/ctx-pin/.claude/skills/audit/SKILL.md",
+    "kind": "fixture",
+    "route_to": null,
+    "home": "studio",
+    "held_path": "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/_upstream_claude/skills/audit/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "12:tests/oracle/workspaces/ctx-pin/.claude/skills/impeccable/SKILL.md",
+    "kind": "mirror",
+    "route_to": "12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": null,
+    "copy": "none (routes to 12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md)"
+   },
+   {
+    "census_id": "12:tests/oracle/workspaces/ctx-pin/.cursor/skills/impeccable/SKILL.md",
+    "kind": "mirror",
+    "route_to": "12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    "home": "studio",
+    "held_path": null,
+    "copy": "none (routes to 12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md)"
+   },
+   {
+    "census_id": "17:.github/skills/custom-fields-development/SKILL.md",
+    "kind": "mirror",
+    "route_to": "17:.claude/skills/custom-fields-development/SKILL.md",
+    "home": "venture",
+    "held_path": null,
+    "copy": "none"
+   },
+   {
+    "census_id": "17:.github/skills/livewire-development/SKILL.md",
+    "kind": "mirror",
+    "route_to": "17:.claude/skills/livewire-development/SKILL.md",
+    "home": "venture",
+    "held_path": null,
+    "copy": "none (routes to 17:.claude/skills/livewire-development/SKILL.md)"
+   },
+   {
+    "census_id": "17:.github/skills/tailwindcss-development/SKILL.md",
+    "kind": "mirror",
+    "route_to": "17:.claude/skills/tailwindcss-development/SKILL.md",
+    "home": "venture",
+    "held_path": null,
+    "copy": "none (routes to 17:.claude/skills/tailwindcss-development/SKILL.md)"
+   },
+   {
+    "census_id": "6:.antigravitycli/skills/career-ops/SKILL.md",
+    "kind": "symlink",
+    "route_to": "6:.agents/skills/career-ops/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   },
+   {
+    "census_id": "6:.claude/skills/career-ops/SKILL.md",
+    "kind": "symlink",
+    "route_to": "6:.agents/skills/career-ops/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   },
+   {
+    "census_id": "6:.grok/skills/career-ops/SKILL.md",
+    "kind": "symlink",
+    "route_to": "6:.agents/skills/career-ops/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   },
+   {
+    "census_id": "6:.kimi/skills/career-ops/SKILL.md",
+    "kind": "symlink",
+    "route_to": "6:.agents/skills/career-ops/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   },
+   {
+    "census_id": "6:.opencode/skills/career-ops/SKILL.md",
+    "kind": "symlink",
+    "route_to": "6:.agents/skills/career-ops/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   },
+   {
+    "census_id": "6:.qwen/skills/career-ops/SKILL.md",
+    "kind": "symlink",
+    "route_to": "6:.agents/skills/career-ops/SKILL.md",
+    "home": "career",
+    "held_path": null,
+    "copy": "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   },
+   {
+    "census_id": "15:packages/trigger-sdk/skills/trigger-authoring-chat-agent/SKILL.md",
+    "kind": "variant",
+    "route_to": "15:packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+    "home": "venture",
+    "held_path": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-authoring-chat-agent/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "15:packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md",
+    "kind": "variant",
+    "route_to": "15:packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+    "home": "venture",
+    "held_path": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "15:packages/trigger-sdk/skills/trigger-chat-agent-advanced/SKILL.md",
+    "kind": "variant",
+    "route_to": "15:packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+    "home": "venture",
+    "held_path": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-chat-agent-advanced/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "15:packages/trigger-sdk/skills/trigger-cost-savings/SKILL.md",
+    "kind": "variant",
+    "route_to": "15:packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+    "home": "venture",
+    "held_path": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-cost-savings/SKILL.md",
+    "copy": "file"
+   },
+   {
+    "census_id": "15:packages/trigger-sdk/skills/trigger-realtime-and-frontend/SKILL.md",
+    "kind": "variant",
+    "route_to": "15:packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+    "home": "venture",
+    "held_path": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-realtime-and-frontend/SKILL.md",
+    "copy": "file"
+   }
+  ],
+  "rows_format": [
+   "census_id",
+   "home",
+   "kind",
+   "route_to",
+   "held_path",
+   "copy"
+  ],
+  "rows": [
+   [
+    "23:agent/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/SKILL.md",
+    "file"
+   ],
+   [
+    "23:agent/src/skills/adr-hshare/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/adr-hshare/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/akshare/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/akshare/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/alpha-zoo/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/alpha-zoo/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/ashare-pre-st-filter/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ashare-pre-st-filter/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/asset-allocation/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/asset-allocation/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/backtest-diagnose/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/backtest-diagnose/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/behavioral-finance/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/behavioral-finance/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/bottleneck-hunter/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/bottleneck-hunter/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/candlestick/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/candlestick/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/ccxt/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ccxt/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/chanlun/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/chanlun/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/commodity-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/commodity-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/convertible-bond/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/convertible-bond/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/corporate-events/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/corporate-events/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/correlation-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/correlation-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/correlation-regime/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/correlation-regime/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/credit-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/credit-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/cross-market-strategy/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/cross-market-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/crypto-derivatives/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/crypto-derivatives/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/data-routing/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/data-routing/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/deep-company-series/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/deep-company-series/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/defi-yield/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/defi-yield/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/dividend-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/dividend-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/doc-reader/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/doc-reader/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/earnings-forecast/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/earnings-forecast/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/earnings-revision/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/earnings-revision/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/eastmoney/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/eastmoney/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/edgar-sec-filings/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/edgar-sec-filings/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/elliott-wave/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/elliott-wave/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/etf-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/etf-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/event-driven/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/event-driven/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/execution-model/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/execution-model/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/factor-research/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/factor-research/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/financial-statement/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/financial-statement/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/fund-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/fund-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/fundamental-filter/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/fundamental-filter/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/geopolitical-risk/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/geopolitical-risk/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/global-macro/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/global-macro/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/harmonic/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/harmonic/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/hedging-strategy/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/hedging-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/hk-connect-flow/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/hk-connect-flow/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/ichimoku/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ichimoku/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/investor-lenses/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/investor-lenses/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/liquidation-heatmap/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/liquidation-heatmap/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/macro-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/macro-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/management-deep-dive/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/management-deep-dive/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/market-microstructure/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/market-microstructure/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/minute-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/minute-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/ml-strategy/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ml-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/mootdx/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/mootdx/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/multi-factor/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/multi-factor/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/okx-market/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/okx-market/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/onchain-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/onchain-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/options-advanced/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/options-advanced/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/options-payoff/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/options-payoff/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/options-strategy/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/options-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/pair-trading/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/pair-trading/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/performance-attribution/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/performance-attribution/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/perp-funding-basis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/perp-funding-basis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/pine-script/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/pine-script/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/private-company-research/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/private-company-research/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/quant-statistics/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/quant-statistics/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/qveris/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/qveris/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/regulatory-knowledge/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/regulatory-knowledge/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/report-generate/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/report-generate/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/research-discipline/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/research-discipline/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/research-goal/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/research-goal/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/risk-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/risk-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/seasonal/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/seasonal/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/sec-edgar/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/sec-edgar/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/sector-rotation/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/sector-rotation/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/sentiment-analysis/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/sentiment-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/shadow-account/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/shadow-account/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/smc/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/smc/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/social-media-intelligence/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/social-media-intelligence/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/stablecoin-flow/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/stablecoin-flow/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/strategy-dev-manager/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/strategy-dev-manager/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/strategy-discovery/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/strategy-discovery/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/strategy-generate/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/strategy-generate/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/technical-basic/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/technical-basic/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/thesis-tracker/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/thesis-tracker/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/token-unlock-treasury/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/token-unlock-treasury/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/trade-journal/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/trade-journal/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/tushare/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/tushare/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/us-etf-flow/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/us-etf-flow/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/valuation-model/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/valuation-model/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/vnpy-export/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/vnpy-export/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/volatility/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/volatility/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/web-reader/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/web-reader/SKILL.md",
+    "dir"
+   ],
+   [
+    "23:agent/src/skills/yfinance/SKILL.md",
+    "markets",
+    "canonical",
+    null,
+    "repertoire/HKUDS~Vibe-Trading/agent/src/skills/yfinance/SKILL.md",
+    "dir"
+   ],
+   [
+    "1:academic-paper-reviewer/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "nc-lane/Imbad0202~academic-research-skills/academic-paper-reviewer/SKILL.md",
+    "dir"
+   ],
+   [
+    "1:academic-paper/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "nc-lane/Imbad0202~academic-research-skills/academic-paper/SKILL.md",
+    "dir"
+   ],
+   [
+    "1:academic-pipeline/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "nc-lane/Imbad0202~academic-research-skills/academic-pipeline/SKILL.md",
+    "dir"
+   ],
+   [
+    "1:deep-research/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "nc-lane/Imbad0202~academic-research-skills/deep-research/SKILL.md",
+    "dir"
+   ],
+   [
+    "1:sr-screener/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "nc-lane/Imbad0202~academic-research-skills/sr-screener/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.agents/skills/freehire-search/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/.agents/skills/freehire-search/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.agents/skills/jobbank-search/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobbank-search/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.agents/skills/jobdanmark-search/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobdanmark-search/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.agents/skills/jobindex-search/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobindex-search/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.agents/skills/jobnet-search/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobnet-search/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.agents/skills/linkedin-search/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/.agents/skills/linkedin-search/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.claude/skills/job-application-assistant/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/_upstream_claude/skills/job-application-assistant/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.claude/skills/job-scraper/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/_upstream_claude/skills/job-scraper/SKILL.md",
+    "dir"
+   ],
+   [
+    "2:.claude/skills/upskill/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/MadsLorentzen~ai-job-search/_upstream_claude/skills/upskill/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:.agents/skills/executive-resume-writer/SKILL.md",
+    "career",
+    "mirror",
+    "10:skills/executive-resume-writer/SKILL.md",
+    null,
+    "none (routes to 10:skills/executive-resume-writer/SKILL.md)"
+   ],
+   [
+    "10:.agents/skills/interview-prep-generator/SKILL.md",
+    "career",
+    "mirror",
+    "10:skills/interview-prep-generator/SKILL.md",
+    null,
+    "none (routes to 10:skills/interview-prep-generator/SKILL.md)"
+   ],
+   [
+    "10:.agents/skills/job-description-analyzer/SKILL.md",
+    "career",
+    "mirror",
+    "10:skills/job-description-analyzer/SKILL.md",
+    null,
+    "none (routes to 10:skills/job-description-analyzer/SKILL.md)"
+   ],
+   [
+    "10:.agents/skills/linkedin-profile-optimizer/SKILL.md",
+    "career",
+    "mirror",
+    "10:skills/linkedin-profile-optimizer/SKILL.md",
+    null,
+    "none (routes to 10:skills/linkedin-profile-optimizer/SKILL.md)"
+   ],
+   [
+    "10:.agents/skills/offer-comparison-analyzer/SKILL.md",
+    "career",
+    "mirror",
+    "10:skills/offer-comparison-analyzer/SKILL.md",
+    null,
+    "none (routes to 10:skills/offer-comparison-analyzer/SKILL.md)"
+   ],
+   [
+    "10:.agents/skills/portfolio-case-study-writer/SKILL.md",
+    "career",
+    "mirror",
+    "10:skills/portfolio-case-study-writer/SKILL.md",
+    null,
+    "none (routes to 10:skills/portfolio-case-study-writer/SKILL.md)"
+   ],
+   [
+    "10:.agents/skills/reference-list-builder/SKILL.md",
+    "career",
+    "mirror",
+    "10:skills/reference-list-builder/SKILL.md",
+    null,
+    "none (routes to 10:skills/reference-list-builder/SKILL.md)"
+   ],
+   [
+    "10:skills/academic-cv-builder/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/academic-cv-builder/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/application-form-filler/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/application-form-filler/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/career-changer-translator/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/career-changer-translator/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/cold-email-writer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/cold-email-writer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/cover-letter-generator/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/cover-letter-generator/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/creative-portfolio-resume/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/creative-portfolio-resume/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/executive-resume-writer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/executive-resume-writer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/interview-prep-generator/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/interview-prep-generator/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/job-description-analyzer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/job-description-analyzer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/linkedin-profile-optimizer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/linkedin-profile-optimizer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/offer-comparison-analyzer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/offer-comparison-analyzer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/portfolio-case-study-writer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/portfolio-case-study-writer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/reference-list-builder/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/reference-list-builder/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/resume-ats-optimizer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/resume-ats-optimizer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/resume-bullet-writer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/resume-bullet-writer/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/resume-formatter/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/resume-formatter/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/resume-quantifier/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/resume-quantifier/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/resume-section-builder/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/resume-section-builder/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/resume-tailor/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/resume-tailor/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/resume-version-manager/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/resume-version-manager/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/salary-negotiation-prep/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/salary-negotiation-prep/SKILL.md",
+    "dir"
+   ],
+   [
+    "10:skills/tech-resume-optimizer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/Paramchoudhary~ResumeSkills/skills/tech-resume-optimizer/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/interview-prep/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/interview-prep/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/job-application-manager/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/job-application-manager/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/mock-interview/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/mock-interview/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/offer-negotiation/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/offer-negotiation/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/resume-builder/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-builder/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/resume-bullet-writer/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-bullet-writer/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/resume-content-guide/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-content-guide/SKILL.md",
+    "dir"
+   ],
+   [
+    "7:plugins/reactive-resume/skills/resume-tailor/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-tailor/SKILL.md",
+    "dir"
+   ],
+   [
+    "25:.claude/skills/codebase-design/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+    "dir"
+   ],
+   [
+    "25:.claude/skills/improve-codebase-architecture/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md",
+    "dir"
+   ],
+   [
+    "25:e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+    "forge",
+    "fixture",
+    null,
+    "repertoire/danny-avila~LibreChat/e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+    "file"
+   ],
+   [
+    "11:skills/animate-expo/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/animate-expo/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/animate/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/animate/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/animation-performance/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/animation-performance/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/animation-vocabulary/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/animation-vocabulary/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/apple-design/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/apple-design/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/ask-sonner/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/ask-sonner/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/break-ui/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/break-ui/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/emil-design-eng/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/emil-design-eng/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/find-animation-opportunities/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/find-animation-opportunities/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/improve-animations/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/improve-animations/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/mobile-native/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/mobile-native/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/pick-ui-library/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/pick-ui-library/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/prototype/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/prototype/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/review-animations/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/review-animations/SKILL.md",
+    "dir"
+   ],
+   [
+    "11:skills/write-swift/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/emilkowalski~skills/skills/write-swift/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:plugins/evo/npm/skills/discover/SKILL.md",
+    "forge",
+    "mirror",
+    "19:plugins/evo/skills/discover/SKILL.md",
+    null,
+    "none (routes to 19:plugins/evo/skills/discover/SKILL.md)"
+   ],
+   [
+    "19:plugins/evo/npm/skills/infra-setup/SKILL.md",
+    "forge",
+    "mirror",
+    "19:plugins/evo/skills/infra-setup/SKILL.md",
+    null,
+    "none (routes to 19:plugins/evo/skills/infra-setup/SKILL.md)"
+   ],
+   [
+    "19:plugins/evo/npm/skills/optimize/SKILL.md",
+    "forge",
+    "mirror",
+    "19:plugins/evo/skills/optimize/SKILL.md",
+    null,
+    "none (routes to 19:plugins/evo/skills/optimize/SKILL.md)"
+   ],
+   [
+    "19:plugins/evo/npm/skills/report/SKILL.md",
+    "forge",
+    "mirror",
+    "19:plugins/evo/skills/report/SKILL.md",
+    null,
+    "none (routes to 19:plugins/evo/skills/report/SKILL.md)"
+   ],
+   [
+    "19:plugins/evo/npm/skills/ship/SKILL.md",
+    "forge",
+    "mirror",
+    "19:plugins/evo/skills/ship/SKILL.md",
+    null,
+    "none (routes to 19:plugins/evo/skills/ship/SKILL.md)"
+   ],
+   [
+    "19:plugins/evo/npm/skills/subagent/SKILL.md",
+    "forge",
+    "mirror",
+    "19:plugins/evo/skills/subagent/SKILL.md",
+    null,
+    "none (routes to 19:plugins/evo/skills/subagent/SKILL.md)"
+   ],
+   [
+    "19:plugins/evo/skills/discover/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/evo-hq~evo/plugins/evo/skills/discover/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:plugins/evo/skills/finetuning/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/evo-hq~evo/plugins/evo/skills/finetuning/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:plugins/evo/skills/infra-setup/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/evo-hq~evo/plugins/evo/skills/infra-setup/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:plugins/evo/skills/optimize/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:plugins/evo/skills/report/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/evo-hq~evo/plugins/evo/skills/report/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:plugins/evo/skills/ship/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/evo-hq~evo/plugins/evo/skills/ship/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:plugins/evo/skills/subagent/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/evo-hq~evo/plugins/evo/skills/subagent/SKILL.md",
+    "dir"
+   ],
+   [
+    "19:scripts/rlm_eval/baseline_SKILL.md",
+    "forge",
+    "fixture",
+    null,
+    "repertoire/evo-hq~evo/scripts/rlm_eval/baseline_SKILL.md",
+    "file"
+   ],
+   [
+    "8:invisible_engine_dots/skills/invisible-playwright/SKILL.md",
+    "quarantine",
+    "canonical",
+    null,
+    "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/invisible_engine_dots/skills/invisible-playwright/SKILL.md",
+    "dir"
+   ],
+   [
+    "13:.agents/skills/accounts-code-review/SKILL.md",
+    "client-bi",
+    "canonical",
+    null,
+    "upstream/frappe~erpnext/.agents/skills/accounts-code-review/SKILL.md",
+    "dir"
+   ],
+   [
+    "20:integrations/openwiki/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md",
+    "dir"
+   ],
+   [
+    "20:skills/mermaid-diagrams/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/langchain-ai~openwiki/skills/mermaid-diagrams/SKILL.md",
+    "dir"
+   ],
+   [
+    "20:skills/write-connector/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/langchain-ai~openwiki/skills/write-connector/SKILL.md",
+    "dir"
+   ],
+   [
+    "14:.claude/skills/branch-name/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/makeplane~plane/_upstream_claude/skills/branch-name/SKILL.md",
+    "dir"
+   ],
+   [
+    "14:.claude/skills/create-pull-request/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/makeplane~plane/_upstream_claude/skills/create-pull-request/SKILL.md",
+    "dir"
+   ],
+   [
+    "14:.claude/skills/react-doctor/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/makeplane~plane/_upstream_claude/skills/react-doctor/SKILL.md",
+    "dir"
+   ],
+   [
+    "14:.claude/skills/release-notes/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/makeplane~plane/_upstream_claude/skills/release-notes/SKILL.md",
+    "dir"
+   ],
+   [
+    "14:.claude/skills/translate/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/makeplane~plane/_upstream_claude/skills/translate/SKILL.md",
+    "dir"
+   ],
+   [
+    "21:.agents/skills/rea-changelog-update/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/morluto~rea/.agents/skills/rea-changelog-update/SKILL.md",
+    "dir"
+   ],
+   [
+    "21:.agents/skills/rea-ci-tests-audit/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/morluto~rea/.agents/skills/rea-ci-tests-audit/SKILL.md",
+    "dir"
+   ],
+   [
+    "21:.agents/skills/rea-tool-design/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/morluto~rea/.agents/skills/rea-tool-design/SKILL.md",
+    "dir"
+   ],
+   [
+    "21:.agents/skills/reverse-engineer-anything/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md",
+    "dir"
+   ],
+   [
+    "12:.agent/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.agent/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.agents/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.agents/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.claude/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/_upstream_claude/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.cursor/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.cursor/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.dsh/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.dsh/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.gemini/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.gemini/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.github/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.github/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.grok/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.grok/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.hermes/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.hermes/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.kiro/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.kiro/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.omp/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.omp/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.opencode/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.opencode/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.pi/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.pi/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.qoder/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.qoder/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.rovodev/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.rovodev/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.trae-cn/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.trae-cn/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.trae/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.trae/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.veto/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.veto/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:.vibe/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/.vibe/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:cursor-plugin/skills/impeccable/SKILL.md",
+    "studio",
+    "variant",
+    "12:plugin/skills/impeccable/SKILL.md",
+    "repertoire/pbakaus~impeccable/cursor-plugin/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:plugin/skills/impeccable/SKILL.md",
+    "studio",
+    "canonical",
+    null,
+    "repertoire/pbakaus~impeccable/plugin/skills/impeccable/SKILL.md",
+    "dir"
+   ],
+   [
+    "12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    "studio",
+    "fixture",
+    null,
+    "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    "file"
+   ],
+   [
+    "12:tests/oracle/workspaces/ctx-pin/.claude/skills/audit/SKILL.md",
+    "studio",
+    "fixture",
+    null,
+    "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/_upstream_claude/skills/audit/SKILL.md",
+    "file"
+   ],
+   [
+    "12:tests/oracle/workspaces/ctx-pin/.claude/skills/impeccable/SKILL.md",
+    "studio",
+    "mirror",
+    "12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    null,
+    "none (routes to 12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md)"
+   ],
+   [
+    "12:tests/oracle/workspaces/ctx-pin/.cursor/skills/impeccable/SKILL.md",
+    "studio",
+    "mirror",
+    "12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+    null,
+    "none (routes to 12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md)"
+   ],
+   [
+    "3:pm-ai-shipping/skills/code-review/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/code-review/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-ai-shipping/skills/intended-vs-implemented/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/intended-vs-implemented/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-ai-shipping/skills/shipping-artifacts/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/shipping-artifacts/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-data-analytics/skills/ab-test-analysis/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-data-analytics/skills/ab-test-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-data-analytics/skills/cohort-analysis/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-data-analytics/skills/cohort-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-data-analytics/skills/sql-queries/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-data-analytics/skills/sql-queries/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/brainstorm-okrs/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/brainstorm-okrs/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/create-prd/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/create-prd/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/dummy-dataset/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/dummy-dataset/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/job-stories/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/job-stories/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/outcome-roadmap/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/outcome-roadmap/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/pre-mortem/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/pre-mortem/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/prioritization-frameworks/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/prioritization-frameworks/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/release-notes/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/release-notes/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/retro/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/retro/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/sprint-plan/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/sprint-plan/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/stakeholder-map/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/stakeholder-map/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/strategy-red-team/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/strategy-red-team/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/summarize-meeting/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/summarize-meeting/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/test-scenarios/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/test-scenarios/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/user-stories/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/user-stories/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-execution/skills/wwas/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-execution/skills/wwas/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-go-to-market/skills/beachhead-segment/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-go-to-market/skills/beachhead-segment/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-go-to-market/skills/competitive-battlecard/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-go-to-market/skills/competitive-battlecard/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-go-to-market/skills/growth-loops/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-go-to-market/skills/growth-loops/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-go-to-market/skills/gtm-motions/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-go-to-market/skills/gtm-motions/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-go-to-market/skills/gtm-strategy/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-go-to-market/skills/gtm-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-go-to-market/skills/ideal-customer-profile/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-go-to-market/skills/ideal-customer-profile/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-market-research/skills/competitor-analysis/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-market-research/skills/competitor-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-market-research/skills/customer-journey-map/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-market-research/skills/customer-journey-map/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-market-research/skills/market-segments/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-market-research/skills/market-segments/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-market-research/skills/market-sizing/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-market-research/skills/market-sizing/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-market-research/skills/sentiment-analysis/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-market-research/skills/sentiment-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-market-research/skills/user-personas/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-market-research/skills/user-personas/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-market-research/skills/user-segmentation/SKILL.md",
+    "research",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-market-research/skills/user-segmentation/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-marketing-growth/skills/marketing-ideas/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/marketing-ideas/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-marketing-growth/skills/north-star-metric/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/north-star-metric/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-marketing-growth/skills/positioning-ideas/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/positioning-ideas/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-marketing-growth/skills/product-name/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/product-name/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-marketing-growth/skills/value-prop-statements/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/value-prop-statements/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/analyze-feature-requests/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/analyze-feature-requests/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/brainstorm-experiments-existing/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-experiments-existing/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/brainstorm-experiments-new/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-experiments-new/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/brainstorm-ideas-existing/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-ideas-existing/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/brainstorm-ideas-new/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-ideas-new/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/identify-assumptions-existing/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/identify-assumptions-existing/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/identify-assumptions-new/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/identify-assumptions-new/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/interview-script/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/interview-script/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/metrics-dashboard/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/metrics-dashboard/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/opportunity-solution-tree/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/opportunity-solution-tree/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/prioritize-assumptions/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/prioritize-assumptions/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/prioritize-features/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/prioritize-features/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-discovery/skills/summarize-interview/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-discovery/skills/summarize-interview/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/ansoff-matrix/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/ansoff-matrix/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/business-model/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/business-model/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/lean-canvas/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/lean-canvas/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/monetization-strategy/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/monetization-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/pestle-analysis/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/pestle-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/porters-five-forces/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/porters-five-forces/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/pricing-strategy/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/pricing-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/product-strategy/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/product-strategy/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/product-vision/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/product-vision/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/startup-canvas/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/startup-canvas/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/swot-analysis/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/swot-analysis/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-product-strategy/skills/value-proposition/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-product-strategy/skills/value-proposition/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-toolkit/skills/draft-nda/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-toolkit/skills/draft-nda/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-toolkit/skills/grammar-check/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-toolkit/skills/grammar-check/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-toolkit/skills/privacy-policy/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-toolkit/skills/privacy-policy/SKILL.md",
+    "dir"
+   ],
+   [
+    "3:pm-toolkit/skills/review-resume/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/phuryn~pm-skills/pm-toolkit/skills/review-resume/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/agent-browser-relaticle/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/agent-browser-relaticle/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/ai-sdk-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/ai-sdk-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/business-review/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/cashier-stripe-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/cashier-stripe-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/configuring-horizon/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/configuring-horizon/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/custom-fields-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/custom-fields-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/echo-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/echo-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/filament-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/filament-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/fortify-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/fortify-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/infer-conventions/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/infer-conventions/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/laravel-best-practices/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/laravel-best-practices/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/laravel-query-builder/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/laravel-query-builder/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/livewire-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/livewire-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/mcp-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/mcp-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/medialibrary-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/medialibrary-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/passport-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/passport-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/pennant-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/pennant-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/screenshot-with-callout/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/screenshot-with-callout/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/sluggable-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/sluggable-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/socialite-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/socialite-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/spatie-javascript/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-javascript/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/spatie-laravel-php/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-laravel-php/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/spatie-security/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-security/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/spatie-version-control/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-version-control/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/tailwindcss-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/tailwindcss-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.claude/skills/testing-best-practices/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/_upstream_claude/skills/testing-best-practices/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.github/skills/custom-fields-development/SKILL.md",
+    "venture",
+    "mirror",
+    "17:.claude/skills/custom-fields-development/SKILL.md",
+    null,
+    "none"
+   ],
+   [
+    "17:.github/skills/flowforge-development/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/.github/skills/flowforge-development/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.github/skills/livewire-development/SKILL.md",
+    "venture",
+    "mirror",
+    "17:.claude/skills/livewire-development/SKILL.md",
+    null,
+    "none (routes to 17:.claude/skills/livewire-development/SKILL.md)"
+   ],
+   [
+    "17:.github/skills/manual-testing/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "upstream/relaticle~relaticle/.github/skills/manual-testing/SKILL.md",
+    "dir"
+   ],
+   [
+    "17:.github/skills/tailwindcss-development/SKILL.md",
+    "venture",
+    "mirror",
+    "17:.claude/skills/tailwindcss-development/SKILL.md",
+    null,
+    "none (routes to 17:.claude/skills/tailwindcss-development/SKILL.md)"
+   ],
+   [
+    "6:.agents/skills/career-ops/SKILL.md",
+    "career",
+    "canonical",
+    null,
+    "repertoire/santifer~career-ops/.agents/skills/career-ops/SKILL.md",
+    "dir"
+   ],
+   [
+    "6:.antigravitycli/skills/career-ops/SKILL.md",
+    "career",
+    "symlink",
+    "6:.agents/skills/career-ops/SKILL.md",
+    null,
+    "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   ],
+   [
+    "6:.claude/skills/career-ops/SKILL.md",
+    "career",
+    "symlink",
+    "6:.agents/skills/career-ops/SKILL.md",
+    null,
+    "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   ],
+   [
+    "6:.grok/skills/career-ops/SKILL.md",
+    "career",
+    "symlink",
+    "6:.agents/skills/career-ops/SKILL.md",
+    null,
+    "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   ],
+   [
+    "6:.kimi/skills/career-ops/SKILL.md",
+    "career",
+    "symlink",
+    "6:.agents/skills/career-ops/SKILL.md",
+    null,
+    "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   ],
+   [
+    "6:.opencode/skills/career-ops/SKILL.md",
+    "career",
+    "symlink",
+    "6:.agents/skills/career-ops/SKILL.md",
+    null,
+    "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   ],
+   [
+    "6:.qwen/skills/career-ops/SKILL.md",
+    "career",
+    "symlink",
+    "6:.agents/skills/career-ops/SKILL.md",
+    null,
+    "none (routes to 6:.agents/skills/career-ops/SKILL.md)"
+   ],
+   [
+    "18:plugins/projectatlas/skills/projectatlas/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md",
+    "dir"
+   ],
+   [
+    "18:skills/codex-coding-plugin/SKILL.md",
+    "forge",
+    "canonical",
+    null,
+    "repertoire/styler-ai~ProjectAtlas/skills/codex-coding-plugin/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/api-types/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/api-types/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/ask-the-docs/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/ask-the-docs/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/clickhouse-logs-queries/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/clickhouse-logs-queries/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/copywriting/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/copywriting/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/dev-toolbar-review/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/dev-toolbar-review/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/edit-the-docs/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/edit-the-docs/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/pm-the-docs/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/pm-the-docs/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/react-hook-form/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/react-hook-form/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/review-the-docs/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/review-the-docs/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/safe-sql-execution/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/safe-sql-execution/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/studio-e2e-tests/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/studio-e2e-tests/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/studio-error-handling/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/studio-error-handling/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/studio-mock-api-tests/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/studio-mock-api-tests/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/studio-queries/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/studio-queries/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/studio-shortcuts/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/studio-shortcuts/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/studio-testing/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/studio-testing/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/studio-ui-patterns/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/studio-ui-patterns/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/telemetry-standards/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/telemetry-standards/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/test-the-docs/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/test-the-docs/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/vercel-composition-patterns/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/vercel-composition-patterns/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/vitest/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/vitest/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:.agents/skills/write-the-docs/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/.agents/skills/write-the-docs/SKILL.md",
+    "dir"
+   ],
+   [
+    "4:apps/studio/.claude/skills/explorer/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/supabase~supabase/apps/studio/_upstream_claude/skills/explorer/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:.claude/skills/drizzle/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/drizzle/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:.claude/skills/errors-api-e2e/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/errors-api-e2e/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:.claude/skills/span-timeline-events/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/span-timeline-events/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:.claude/skills/trigger-dev-tasks/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/trigger-dev-tasks/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:packages/cli-v3/skills/trigger-getting-started/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-getting-started/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+    "venture",
+    "canonical",
+    null,
+    "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+    "dir"
+   ],
+   [
+    "15:packages/trigger-sdk/skills/trigger-authoring-chat-agent/SKILL.md",
+    "venture",
+    "variant",
+    "15:packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+    "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-authoring-chat-agent/SKILL.md",
+    "file"
+   ],
+   [
+    "15:packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md",
+    "venture",
+    "variant",
+    "15:packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+    "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md",
+    "file"
+   ],
+   [
+    "15:packages/trigger-sdk/skills/trigger-chat-agent-advanced/SKILL.md",
+    "venture",
+    "variant",
+    "15:packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+    "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-chat-agent-advanced/SKILL.md",
+    "file"
+   ],
+   [
+    "15:packages/trigger-sdk/skills/trigger-cost-savings/SKILL.md",
+    "venture",
+    "variant",
+    "15:packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+    "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-cost-savings/SKILL.md",
+    "file"
+   ],
+   [
+    "15:packages/trigger-sdk/skills/trigger-realtime-and-frontend/SKILL.md",
+    "venture",
+    "variant",
+    "15:packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+    "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-realtime-and-frontend/SKILL.md",
+    "file"
+   ]
+  ],
+  "unique_accounting": "338 unique = 307 canonical + 25 variant + 4 fixture + 1 symlink + 1 whitespace-only mirror (17:.github/skills/custom-fields-development differs from its .claude/ canonical by a trailing newline; AMEND-skills-0001) (.grok career-ops symlink: census counted the link text as unique content)"
+ }
+}

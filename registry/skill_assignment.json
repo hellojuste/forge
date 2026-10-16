@@ -1,6 +1,6 @@
 {
  "_generated_by": "tools/kit/skills_index.py",
- "_source": "kit_plan.yml -> skills_assignment.rows (the ONE source of truth), normalised by NONROUTED_INHERIT (a mirror/symlink of a non-routed row inherits its kind, no route); regenerate with python3 tools/kit/skills_index.py --write-assignment --plan <kit_plan.yml> --census <SKILL_CENSUS.yml>",
+ "_source": "registry/skills_plan.json (kit_plan.yml -> skills_assignment, carried in the kit with its amendments) -> rows (the ONE source of truth), normalised by NONROUTED_INHERIT (a mirror/symlink of a non-routed row inherits its kind, no route); regenerate with python3 tools/kit/skills_index.py --write-assignment --plan registry/skills_plan.json --census <SKILL_CENSUS.yml>",
  "by_home": {
   "career": 54,
   "client-bi": 1,
@@ -14,12 +14,12 @@
  "by_kind": {
   "canonical": 307,
   "fixture": 6,
-  "mirror": 15,
+  "mirror": 16,
   "symlink": 6,
-  "variant": 26
+  "variant": 25
  },
  "census_copyleft_prose_withheld": {
-  "count": 37,
+  "count": 42,
   "ids": [
    "13:.agents/skills/accounts-code-review/SKILL.md",
    "14:.claude/skills/branch-name/SKILL.md",
@@ -57,17 +57,25 @@
    "17:.github/skills/flowforge-development/SKILL.md",
    "17:.github/skills/livewire-development/SKILL.md",
    "17:.github/skills/manual-testing/SKILL.md",
-   "17:.github/skills/tailwindcss-development/SKILL.md"
+   "17:.github/skills/tailwindcss-development/SKILL.md",
+   "1:academic-paper-reviewer/SKILL.md",
+   "1:academic-paper/SKILL.md",
+   "1:academic-pipeline/SKILL.md",
+   "1:deep-research/SKILL.md",
+   "1:sr-screener/SKILL.md"
   ],
-  "rule": "COPYLEFT_PROSE_WITHHELD: a GPL-family row ships description '' + description_withheld (licence, sha256 of the upstream text); every other key kept"
+  "rule": "NONPERMISSIVE_PROSE_WITHHELD: a GPL-family or CC-BY-NC row (licence from registry/sources.json, else the census repo_licence) ships description '' + description_withheld (licence, sha256 of the upstream text); every other key kept"
  },
  "census_file": "registry/SKILL_CENSUS.yml",
  "census_reader": "skill_routes.load_census",
- "census_sha256": "fae4a9bbce8cd80b0664dd683a35710bbc09c9bb37e1f235941eea11e03fd830",
+ "census_sha256": "2d5375a7914892890cf91655f09783cf33c11950ff28f21c93bc7f469404a44d",
  "denominator": 360,
  "inherited": [
   "12:tests/oracle/workspaces/ctx-pin/.claude/skills/impeccable/SKILL.md",
   "12:tests/oracle/workspaces/ctx-pin/.cursor/skills/impeccable/SKILL.md"
+ ],
+ "plan_amendments": [
+  "AMEND-skills-0001"
  ],
  "rows": [
   {
@@ -2535,11 +2543,11 @@
    "route_to": null
   },
   {
-   "copy": "file",
-   "held_path": "upstream/relaticle~relaticle/.github/skills/custom-fields-development/SKILL.md",
+   "copy": "none",
+   "held_path": null,
    "home": "venture",
    "id": "17:.github/skills/custom-fields-development/SKILL.md",
-   "kind": "variant",
+   "kind": "mirror",
    "route_to": "17:.claude/skills/custom-fields-development/SKILL.md"
   },
   {

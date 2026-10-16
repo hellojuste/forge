@@ -1061,7 +1061,7 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/kit/skills_index.py:61",
+   "evidence": "tools/kit/skills_index.py:62",
    "from": "tool:tools/kit/skills_index.py",
    "kind": "imports",
    "to": "tool:tools/kit/_kit.py",

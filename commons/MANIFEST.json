@@ -81,14 +81,14 @@
    "sha256": "6db25d299614afd6e4138ee9c303a755b2b115f926b82567fce6e53757ded346"
   },
   "KIT.md": {
-   "sha256": "b979a7341da0958512c3f423a7346e758f3b0733af882d20c7e53e999bc6659c"
+   "sha256": "7f1e924f443f7f4fa0bfe19469a50fb34f29c15e075b98abbc11f6c28f60ad29"
   },
   "README.md": {
    "sha256": "d10df1bf28b0548a426f884b23fc281554aa5c1ccc4b836705f21605b2f85bf5"
   },
   "SKILLS_INDEX.md": {
    "generated": true,
-   "sha256": "a81d25b9fa2fb0084d45e0e66e14340a6dc362b0b692adb34ada357276f91d11"
+   "sha256": "45b8c454d4a9a7097761fdcbc8a4f47d43a2b88a76f2ad06ebeac7e04e74b267"
   },
   "UNZIP.md": {
    "sha256": "00fb328ce46783d5e5d882191a663c930b5b4335da133b840321e882650c6d70"
@@ -254,7 +254,7 @@
   },
   "registry/SKILL_CENSUS.yml": {
    "generated": true,
-   "sha256": "fae4a9bbce8cd80b0664dd683a35710bbc09c9bb37e1f235941eea11e03fd830"
+   "sha256": "2d5375a7914892890cf91655f09783cf33c11950ff28f21c93bc7f469404a44d"
   },
   "registry/attic.json": {
    "sha256": "92d248a0ce5233b8d233a80604749c9b2ea825e3a42ba4f8b2b52877ee9adcb4"
@@ -270,11 +270,14 @@
   },
   "registry/skill_assignment.json": {
    "generated": true,
-   "sha256": "011998db38aeb73046874b3994a6687e1fe7db7d971dd7a0d5b9e64b5cf046ca"
+   "sha256": "d5abcaedb549efcf1cabf520f8d71e7e88e27180c467947918abed4b636b495a"
   },
   "registry/skills_index.json": {
    "generated": true,
-   "sha256": "39d6934f73b2dfb33b8ba823056dab97e58aea599874e1d65108a15666760aac"
+   "sha256": "6fa4e6d2edc29485c5133777e27c56eca1f562bee39142df8a271589f2c33324"
+  },
+  "registry/skills_plan.json": {
+   "sha256": "8cdd920620967782059efa15c8212596804c437fe82e956c379805050f22b6ae"
   },
   "registry/sources.json": {
    "sha256": "43fd9e92bb13bac0744c7b5989379eec8314467b1fc51a21851649351c5a4b0c"
@@ -352,7 +355,7 @@
    "sha256": "572c677de41bac830edade6224cb9baf07e53c254815f9c0b6ea045c1cabca03"
   },
   "tools/kit/skills_index.py": {
-   "sha256": "265bfa4c90c888ef1edfe1e86ecbeb8f6335e555b2f3b91b4a9c20bfb651c89a"
+   "sha256": "ceb292b6119c111c34eacd9da9d11e8709f769b1669f4d9e128c2b874c75c4c8"
   },
   "tools/kit/split.sh": {
    "sha256": "17593802cebc33e5856b36a5003d5ea2f3e0dc7f6cd0cda7a8ae201aaa8da4f6"
