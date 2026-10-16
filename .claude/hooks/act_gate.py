@@ -11,9 +11,13 @@ API: check(event, payload, station) -> None | {"decision": "ask", "reason": str}
   * Bash command text or an MCP tool name matching a station.json `irreversible_acts` regex (strings or
     {"pattern", "why"} rows) or a built-in: execute_trade, ultra_tools, mcp__.*gmail.*send, mcp__.*__send_.*,
     SendEmailTool, lago .*finali[sz]e, career-ops .*apply.
-  * AutoHedge patterns (execute_trade, ultra_tools) ask ONLY while the station `.env` or a study-lane
-    `study/*/.env` holds a NON-EMPTY SOLANA_PRIVATE_KEY (the file is read; the value is never printed). With the key
-    empty the code cannot sign, so studying it runs free.
+  * AutoHedge patterns (execute_trade, ultra_tools, `-m autohedge` / `import autohedge`) ask ONLY when the command
+    RUNS something (a runner — python, uv, node, bash ... — at command position of a segment, after `VAR=` prefixes,
+    `sudo`/`env`) AND a live key is armed. Live keys = station.json `live_keys` (default commons/defaults.json:
+    SOLANA_PRIVATE_KEY). Armed = NON-EMPTY in the station `.env` or a study-lane `study/*/.env` (the file is read),
+    in this process's environment (an exported key: autohedge/env_loader.py loads with override=False, so the shell
+    wins), or set inline in the command (`KEY=... python3 ...`, `export KEY=...`). The value is never printed.
+    Reading or grepping the signing code is study, not a run, and never asks (REPRODUCE F5, SAFETY 3 and 4).
 Release: the operator answers the ask; a governance/RELEASES.json row with scope `act_gate:<pattern>` (verbatim
 `words` + `locator`) turns that pattern into allow.
 Never denies (ORDER 5: the operator places things himself); an exception inside a module is reported by the dispatcher.
@@ -28,6 +32,7 @@ from pathlib import Path
 BUILTIN = [
     (r"\bexecute_trade\b", "AutoHedge execute_trade signs and sends a Jupiter swap (real funds)", "solana"),
     (r"\bultra_tools\b", "AutoHedge tools/ultra_tools.py reads SOLANA_PRIVATE_KEY and signs swaps", "solana"),
+    (r"(?:-m\s+|\bimport\s+|\bfrom\s+)autohedge\b", "runs the AutoHedge package, whose trade path signs with the live key", "solana"),
     (r"mcp__.*gmail.*send", "sends an email from the operator's account", None),
     (r"mcp__.*__send_.*", "an MCP send_* act leaves the machine", None),
     (r"\bSendEmailTool\b", "sends an email", None),
@@ -35,7 +40,42 @@ BUILTIN = [
     (r"\bcareer-ops\b.*\bapply", "submits a job application in the operator's name", None),
 ]
 KEY = "SOLANA_PRIVATE_KEY"
-RUNNER = re.compile(r"(?<![\w-])(python3?|python3\.\d+|uv|poetry|pipenv|pdm|node|deno|bun|bash|sh|zsh|swarms|autohedge)(?![\w-])")
+RUNNER = re.compile(r"(python3?|python3\.\d+|uv|uvx|poetry|pipenv|pdm|node|deno|bun|bash|sh|zsh|swarms|autohedge|pytest|ipython|jupyter)")
+SEG_SPLIT = re.compile(r"\|\||&&|;|\||\n|\$\(|`|&(?!>)")
+WRAPPERS = ("sudo", "env", "nohup", "time", "exec", "command", "xargs")
+
+
+def _segments(cmd):
+    """Quote-aware statements (_cmdscan.segments: `python3 -c "a; b"` stays one segment); regex split as a fallback."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import _cmdscan
+        return _cmdscan.segments(cmd or "")
+    except Exception:
+        return SEG_SPLIT.split(cmd or "")
+
+
+def live_keys(station):
+    return [k for k in (station.get("live_keys") or [KEY]) if k]
+
+
+def runs_code(cmd):
+    """True when some segment's command word is a runner (python, uv, node, bash, ...), after VAR= prefixes and wrappers."""
+    for seg in _segments(cmd):
+        toks = seg.strip().split()
+        while toks and (re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*=\S*", toks[0]) or toks[0] in WRAPPERS or toks[0] == "export"):
+            if toks[0] == "export":
+                toks = []
+                break
+            toks = toks[1:]
+        if toks and RUNNER.fullmatch(os.path.basename(toks[0].strip("'\"("))):
+            return True
+    return False
+
+
+def inline_armed(cmd, keys):
+    """Keys set to a non-empty value inside the command text itself (`KEY=v cmd`, `export KEY=v`)."""
+    return [k for k in keys if re.search(r"(?<![\w])%s=(?!['\"]?(?:\s|$|['\"]))\S" % re.escape(k), cmd or "")]
 
 
 def root_of(payload, station):
@@ -55,11 +95,14 @@ def _env_value_nonempty(path, name):
     return False
 
 
-def armed(root):
-    """Which .env files carry a non-empty signing key (paths only, never values)."""
+def armed(root, keys=(KEY,), environ=None):
+    """Where a live key is non-empty: .env paths and "process environment (<KEY>)" — names only, never values."""
     root = Path(root)
+    environ = os.environ if environ is None else environ
     cands = [root / ".env"] + sorted((root / "study").glob("*/.env")) if (root / "study").is_dir() else [root / ".env"]
-    return [str(p.relative_to(root)) for p in cands if p.is_file() and _env_value_nonempty(p, KEY)]
+    out = [str(p.relative_to(root)) for p in cands if p.is_file() and any(_env_value_nonempty(p, k) for k in keys)]
+    out += ["process environment (%s)" % k for k in keys if (environ.get(k) or "").strip()]
+    return out
 
 
 def patterns(station):
@@ -113,13 +156,15 @@ def check(event, payload, station):
             continue
         if not hit:
             continue
-        if needs == "solana":
-            if payload.get("tool_name") == "Bash" and not RUNNER.search(text):
+        if needs in ("solana", "live_key"):
+            if payload.get("tool_name") == "Bash" and not runs_code(text):
                 continue  # reading or grepping the signing code is study, not a run
-            keys = armed(root)
-            if not keys:
+            keys = live_keys(station)
+            where = armed(root, keys, station.get("_environ"))
+            where += ["inline in the command (%s)" % k for k in inline_armed(text, keys)]
+            if not where:
                 continue
-            why = "%s; %s is NON-EMPTY in %s" % (why, KEY, ", ".join(keys))
+            why = "%s; a live key is NON-EMPTY in %s" % (why, ", ".join(where))
         if released(root, "act_gate:" + pat, text):
             return None
         return {"decision": "ask",
@@ -151,8 +196,29 @@ def selftest():
         def c(tool, **ti):
             return check("PreToolUse", {"tool_name": tool, "tool_input": ti, "cwd": t}, st)
 
+        st["_environ"] = {}
         assert c("Bash", command="cd study/T~A && python -c 'from tools.ultra_tools import execute_trade'") is None, "disarmed: no ask"
         cases += 1
+        # REPRODUCE F5 / SAFETY 4: a key in the process environment or inline in the command arms the gate
+        st["_environ"] = {"SOLANA_PRIVATE_KEY": "abc"}
+        r = c("Bash", command="python3 -c 'from autohedge.tools.ultra_tools import execute_trade; execute_trade(1,2)'")
+        assert r and r["decision"] == "ask" and "process environment" in r["reason"] and "abc" not in r["reason"], r
+        assert c("Bash", command="python3 -m autohedge.main")["decision"] == "ask", "package run with an exported key"
+        st["_environ"] = {}
+        r = c("Bash", command="SOLANA_PRIVATE_KEY=5abc python3 -c \"from autohedge.tools.ultra_tools import execute_trade; execute_trade(1,2)\"")
+        assert r and r["decision"] == "ask" and "inline" in r["reason"] and "5abc" not in r["reason"], r
+        assert c("Bash", command="export SOLANA_PRIVATE_KEY=5abc; python3 study/T~A/autohedge/main.py --ultra_tools")["decision"] == "ask"
+        assert c("Bash", command="SOLANA_PRIVATE_KEY= python3 -c 'import ultra_tools'") is None, "empty inline value is disarmed"
+        st2 = dict(st, live_keys=["WALLET_PRIVATE_KEY"], _environ={"WALLET_PRIVATE_KEY": "x"})
+        assert check("PreToolUse", {"tool_name": "Bash", "tool_input": {"command": "uv run python -c 'import ultra_tools'"}}, st2)["decision"] == "ask", "configured live key"
+        # SAFETY 3: reads of the real held path never ask, even armed
+        st["_environ"] = {"SOLANA_PRIVATE_KEY": "abc"}
+        for rd in ("grep -n execute_trade study/The-Swarm-Corporation~AutoHedge/autohedge/tools/ultra_tools.py",
+                   "cat study/The-Swarm-Corporation~AutoHedge/autohedge/tools/ultra_tools.py | head -40",
+                   "rg -n 'import autohedge' study/", "sed -n 1,80p study/The-Swarm-Corporation~AutoHedge/autohedge/main.py"):
+            assert c("Bash", command=rd) is None, rd
+        st["_environ"] = {}
+        cases += 10
         (root / "study/T~A/.env").write_text("SOLANA_PRIVATE_KEY=  5abcSECRETvalue  # funded\n")
         r = c("Bash", command="python3 -c 'import ultra_tools; ultra_tools.execute_trade()'")
         assert r and r["decision"] == "ask" and "5abcSECRETvalue" not in r["reason"] and "study/T~A/.env" in r["reason"], r

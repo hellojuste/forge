@@ -473,7 +473,7 @@
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/hooks/quarantine_gate.py:211",
+   "evidence": ".claude/hooks/quarantine_gate.py:239",
    "from": "tool:.claude/hooks/quarantine_gate.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -1446,14 +1446,14 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/station_audit.py:323",
+   "evidence": "tools/station_audit.py:331",
    "from": "tool:tools/station_audit.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/context_threshold.py",
    "token": ".claude/hooks/context_threshold.py"
   },
   {
-   "evidence": "tools/station_audit.py:319",
+   "evidence": "tools/station_audit.py:327",
    "from": "tool:tools/station_audit.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/stop.py",

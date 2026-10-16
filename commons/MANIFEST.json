@@ -12,7 +12,7 @@
    "sha256": "33072fd2e744c86922cd5b596ddf0e01784019f890407d84a730480d8d27caec"
   },
   ".claude/hooks/act_gate.py": {
-   "sha256": "cc6ef72122eb785aa35163543d2588cbd4ce003935088bd2ffc548073904e77b"
+   "sha256": "983b8904881ef22e59e84e38b35d7dd711e1b3e69128f573fee617ab51239423"
   },
   ".claude/hooks/connector_scope.py": {
    "sha256": "d77981a9fdd88c71f844246bb752bc084d35bfc8487184cd9d2255a02616ed78"
@@ -33,7 +33,7 @@
    "sha256": "146f099407fc0db3d0fc6a47e9cca9611b368885dab71406ca5c73ff7e123c81"
   },
   ".claude/hooks/quarantine_gate.py": {
-   "sha256": "b89335e4883072c5ba05e8ac6cd4a201a40336db9642a38f173fcfa933730d00"
+   "sha256": "2211faddb1d7d27868479ef05de5318a64de1f87c88dfd96f4aae566b6281dd8"
   },
   ".claude/hooks/station_dispatch.py": {
    "sha256": "44b53f0fe5dc464ba40949cabc7c16e574e3a803f277883113619a1ef9115c36"
@@ -120,7 +120,7 @@
    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "commons/defaults.json": {
-   "sha256": "ea94872e6ce2dc682316f903770ea56ce15c23fa0300af18000173f20c7d2ee4"
+   "sha256": "442a439aa60f7864e4ef3ff8c38cb6fcd655daf5343b49c4824e230641213ce4"
   },
   "commons/packs/design/SHEET_GRAMMAR.md": {
    "sha256": "7d31a119376181ff1095c4bd30ecfe0a875fc13bdbc52cf1d6636f45cfd77869"
@@ -159,7 +159,7 @@
    "sha256": "ffa5185c3083b4e2dc4dd7e64e2c3c07836641a8924c71a9fa6d00d7ec5d362a"
   },
   "commons/schema/station.schema.json": {
-   "sha256": "f91e842eeccc8cb69687ccdb4b800efbec8a80f95d63385ff81ff7c9f968be75"
+   "sha256": "af3e1e9a251b158a3adb8c0c8c28dbfa1b669f273c65044dee6e8ad01e498ec7"
   },
   "commons/schema/telemetry.schema.json": {
    "sha256": "8c50bfa6895cab2db36c547b3ca803d51f0993822038f3cf91021c3daa8351ac"
@@ -212,7 +212,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "af1a82754ad1c33c38b29549572c391840531f3722168f8b0bd873b550d5301f"
+   "sha256": "c523ba8e4a7d50e93d524954daa93a5ac30ada32d782e534e4dd165e067bff1c"
   },
   "map/README.md": {
    "generated": true,
@@ -228,7 +228,7 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "1f524dcdb5c6ba92b952b06177b37cf44b65bdf24a8688abd98aaf4f8af2b5d1"
+   "sha256": "ee3da1eb86cd2bf78bac15002854a60c9bf922a6b9979f7e66385dce53c5219a"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
@@ -247,7 +247,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "007de5a0ae0cb4fdeb58fe4b5851284092ed75555e52c4cb983d1c7dbafca869"
+   "sha256": "c4f8f156cb0e75b74124c033571a208c986984a7b094fdc1677918cc28a5db82"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -400,7 +400,7 @@
    "sha256": "0381d73c446f469934968cdca90820382a4eef504b5c478e4d8b5fbb6904fb52"
   },
   "tools/station_audit.py": {
-   "sha256": "88b4778c2da31b81cd88ae8c61584bd33486f366b84827130c15a8cadb5fc153"
+   "sha256": "09eda400404a5adbe0ffb5e65e135b4afd40944e7651be0a847b24246e51cf0c"
   },
   "tools/upstream/_uplib.py": {
    "sha256": "5e578a6151acb63b309acb9ce6596cd9f606124c123da63e36081f3651fbf9dd"

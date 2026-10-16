@@ -14,7 +14,10 @@ API: check(event, payload, station) -> None | {"decision": "ask", "reason": str}
     docker (compose)? (up|run|build|start), docker-compose (up|run|build), make, cargo (build|run|install),
     bash|sh|zsh <script>, ./<script>, playwright install
   — AND the segment's working directory (tracking `cd` / `pushd` / `make -C` / `npm --prefix` / `--cwd` inside the
-  command) or one of its arguments resolves inside a station.json `quarantined` path.
+  command), one of its arguments, the value of a leading `VAR=value` prefix (split on `:`, so
+  `PYTHONPATH=study/x python3 -m pkg` counts), or a `-c`/`-e` code string that names the path as a substring
+  (`python3 -c "runpy.run_path('study/x/main.py')"`) resolves inside a station.json `quarantined` path. A bare `yarn`
+  or `bun` (which installs) is an install form (SAFETY 2).
   Reads (cat, less, grep, rg, git show, ls, find, head, wc) never ask.
 Release: the operator answers the ask; a governance/RELEASES.json row with scope `quarantine_gate:<path>` (verbatim
 `words` + `locator`) turns installs/runs in that path into allow.
@@ -34,6 +37,16 @@ PY_PKG = {"pip", "pip3", "uv", "poetry", "pipenv", "pdm"}
 PY_VERBS = {"install", "run", "sync", "add"}
 INTERP = {"python", "python3", "node", "deno", "ts-node", "tsx", "bash", "sh", "zsh"}
 DIRECT = {"npx", "pnpx", "bunx", "make", "gmake"}
+
+
+def _segments(cmd):
+    """Quote-aware statements (_cmdscan.segments: `python3 -c "a; b"` stays one segment); regex split as a fallback."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import _cmdscan
+        return _cmdscan.segments(cmd or "")
+    except Exception:
+        return SEG_SPLIT.split(cmd or "")
 
 
 def root_of(payload, station):
@@ -73,6 +86,8 @@ def run_form(toks):
     args = [a for a in toks[1:] if not a.startswith("-")]
     skip = {"--prefix", "-C", "--cwd", "--dir", "--directory", "--project", "-w", "--workspace", "--filter", "-f", "--file", "-p", "--project-name", "--env-file"}
     args = [a for i, a in enumerate(toks[1:]) if not a.startswith("-") and toks[i] not in skip]
+    if c in ("yarn", "bun") and not args:
+        return "%s (install)" % c
     if c in PKG and args and args[0] in PKG_VERBS:
         return "%s %s" % (c, args[0])
     if c in PY_PKG and args and args[0] in PY_VERBS:
@@ -112,7 +127,7 @@ def evaluate(cmd, cwd, root, qpaths):
     """[(label, quarantined path)] for each install/run segment that touches a quarantined path."""
     hits = []
     cur = Path(cwd).resolve()
-    for seg in SEG_SPLIT.split(cmd or ""):
+    for seg in _segments(cmd):
         seg = seg.strip()
         if not seg:
             continue
@@ -124,6 +139,12 @@ def evaluate(cmd, cwd, root, qpaths):
         if not label:
             continue
         dirs = [cur]
+        while toks and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*=.*", toks[0]):
+            for part in toks[0].split("=", 1)[1].split(":"):
+                if part.strip():
+                    dirs.append((cur / part).resolve())
+            toks = toks[1:]
+        codes = [toks[i + 1] for i, a in enumerate(toks[:-1]) if a in ("-c", "-e", "--eval", "-p", "--print")]
         for flag in ("-C", "--prefix", "--cwd", "--dir", "--directory", "--project", "-f", "--file"):
             if flag in toks and toks.index(flag) + 1 < len(toks):
                 dirs.append((cur / toks[toks.index(flag) + 1]).resolve())
@@ -136,7 +157,8 @@ def evaluate(cmd, cwd, root, qpaths):
             dirs.append((cur / toks[0]).resolve())
         for q in qpaths:
             qa = (root / q).resolve()
-            if any(_inside(d, qa) for d in dirs):
+            qs = q.rstrip("/")
+            if any(_inside(d, qa) for d in dirs) or any(qs in code for code in codes):
                 hits.append((label, q))
                 break
     return hits
@@ -197,6 +219,12 @@ def selftest():
             "bash upstream/jo-inc~camofox-browser/scripts/install.sh",
             "node upstream/getmaxun~maxun/server/src/index.js",
             "cd upstream/getmaxun~maxun && pip install -r requirements.txt",
+            "PYTHONPATH=study/T~A python3 -m autohedge.main",
+            "PYTHONPATH=/opt/lib:study/T~A python3 -m autohedge.main",
+            "python3 -c \"import runpy; runpy.run_path('study/T~A/example.py')\"",
+            "node -e \"require('./upstream/getmaxun~maxun/server/src/index.js')\"",
+            "cd upstream && cd jo-inc~camofox-browser && yarn",
+            "cd upstream/jo-inc~camofox-browser && bun",
         ]
         for cmd in asks:
             cwd = root / "upstream/jo-inc~camofox-browser" if cmd.startswith("npx") else None
@@ -211,6 +239,9 @@ def selftest():
             "python3 tools/station_audit.py",
             "git log --oneline -3",
             "node --version",
+            "yarn",  # bare yarn outside any quarantined path
+            "PYTHONPATH=tools python3 -m pytest",
+            "python3 -c 'print(1)'",
         ]
         for cmd in allows:
             assert c(cmd) is None, (cmd, c(cmd))

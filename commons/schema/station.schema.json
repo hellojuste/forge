@@ -35,6 +35,7 @@
    "PreToolUse": {"type": "array", "items": {"type": "string", "pattern": "^(station/)?[a-z_][a-z0-9_]*$"}}}},
   "skill_overrides": {"type": "object"},
   "quarantined": {"type": "array", "items": {"type": "string"}},
+  "live_keys": {"type": "array", "items": {"type": "string", "pattern": "^[A-Z_][A-Z0-9_]*$"}},
   "irreversible_acts": {"type": "array", "items": {"type": "string"}},
   "connectors_expected": {"type": "array", "items": {"type": "string"}},
   "connector_scope": {"type": "string", "enum": ["report", "deny"]},
