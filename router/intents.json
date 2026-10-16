@@ -1,60 +1,237 @@
 {
  "_why": "The commons router table (PROGRAMME_GOVERNANCE 3.12, LEAN CA-06 in JSON). Commons rows are edited on main only. Programmes add rows in router/intents.d/{map,brain,upstream}.json; a station adds router/intents.d/station.json (contributed_by: station) and router/skills.json (skill fall-through). Keywords are frozen before selftest prompts are written and never widened to fit one. The tie rule has ONE owner: this file.",
  "intents": [
-  {"name": "build", "description": "make a new tool, skill, hook, check or workflow",
+  {
+   "name": "build",
+   "description": "make a new tool, skill, hook, check or workflow",
    "contributed_by": "governance",
-   "router": {"keywords": ["build", "create", "scaffold", "implement"],
-              "phrases": ["new tool", "add a skill", "new skill", "new hook", "new check", "new workflow", "write a script"],
-              "path_patterns": ["tools/"], "file_types": [], "patterns": [],
-              "first_move": {"skill": "summon", "args": "the build item, after the prior-art gather",
-                             "inline_gather": "python3 tools/map/find.py <words>"}}},
-  {"name": "governance-admin", "description": "change or question a rule, decision, ledger row, defect or owner",
+   "router": {
+    "keywords": [
+     "build",
+     "create",
+     "scaffold",
+     "implement"
+    ],
+    "phrases": [
+     "new tool",
+     "add a skill",
+     "new skill",
+     "new hook",
+     "new check",
+     "new workflow",
+     "write a script"
+    ],
+    "path_patterns": [
+     "tools/"
+    ],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "summon",
+     "args": "the build item, after the prior-art gather",
+     "inline_gather": "python3 tools/map/find.py <words>"
+    }
+   }
+  },
+  {
+   "name": "governance-admin",
+   "description": "change or question a rule, decision, ledger row, defect or owner",
    "contributed_by": "governance",
-   "router": {"keywords": ["rule", "decision", "owner", "ownership", "ratify", "supersede", "superseded", "defect"],
-              "phrases": ["who owns", "the ledger", "ledger row", "station_ledger", "selflearning ledger", "governance ledger"],
-              "exclude": ["general ledger", "grootboek", "ledger account", "ledger accounts"], "path_patterns": ["governance/"], "file_types": [], "patterns": [],
-              "first_move": {"args": "then read the owner file named in governance/OWNERSHIP.md",
-                             "inline_gather": "python3 tools/station_audit.py -k rules -k decisions -k ledger"}}},
-  {"name": "closeout", "description": "close a work pass, rate it, pick the next step",
+   "router": {
+    "keywords": [
+     "rule",
+     "decision",
+     "owner",
+     "ownership",
+     "ratify",
+     "supersede",
+     "superseded",
+     "defect"
+    ],
+    "phrases": [
+     "who owns",
+     "the ledger",
+     "ledger row",
+     "station_ledger",
+     "selflearning ledger",
+     "governance ledger"
+    ],
+    "exclude": [
+     "general ledger",
+     "grootboek",
+     "ledger account",
+     "ledger accounts"
+    ],
+    "path_patterns": [
+     "governance/"
+    ],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "args": "then read the owner file named in governance/OWNERSHIP.md",
+     "inline_gather": "python3 tools/station_audit.py -k rules -k decisions -k ledger"
+    }
+   }
+  },
+  {
+   "name": "closeout",
+   "description": "close a work pass, rate it, pick the next step",
    "contributed_by": "governance",
-   "router": {"keywords": ["closeout"],
-              "phrases": ["close out", "wrap up", "what next", "what's next", "end the pass"],
-              "path_patterns": [], "file_types": [], "patterns": [],
-              "first_move": {"skill": "closeout", "args": "the pass just finished",
-                             "inline_gather": "python3 tools/station_audit.py --state"}}},
-  {"name": "handoff", "description": "hand the work to a fresh session (context running out, stopping mid-task)",
+   "router": {
+    "keywords": [
+     "closeout"
+    ],
+    "phrases": [
+     "close out",
+     "wrap up",
+     "what next",
+     "what's next",
+     "end the pass"
+    ],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "closeout",
+     "args": "the pass just finished",
+     "inline_gather": "python3 tools/station_audit.py --state"
+    }
+   }
+  },
+  {
+   "name": "handoff",
+   "description": "hand the work to a fresh session (context running out, stopping mid-task)",
    "contributed_by": "governance",
-   "router": {"keywords": ["handoff", "hand-off"],
-              "phrases": ["hand off", "hand over", "hand it over", "running out", "out of context", "new session", "fresh session", "pick this up later"],
-              "path_patterns": [], "file_types": [], "patterns": [],
-              "first_move": {"skill": "handoff", "args": "the work in flight",
-                             "inline_gather": "python3 tools/station_audit.py --state"}}},
-  {"name": "checkpoint", "description": "record a checkpoint the moment work becomes durable (a commit landed, a slice accepted)",
+   "router": {
+    "keywords": [
+     "handoff",
+     "hand-off"
+    ],
+    "phrases": [
+     "hand off",
+     "hand over",
+     "hand it over",
+     "running out",
+     "out of context",
+     "new session",
+     "fresh session",
+     "pick this up later"
+    ],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "handoff",
+     "args": "the work in flight",
+     "inline_gather": "python3 tools/station_audit.py --state"
+    }
+   }
+  },
+  {
+   "name": "checkpoint",
+   "description": "record a checkpoint the moment work becomes durable (a commit landed, a slice accepted)",
    "contributed_by": "governance",
-   "router": {"keywords": ["checkpoint"],
-              "phrases": ["commit landed", "slice accepted", "make this durable", "make it durable", "record progress"],
-              "path_patterns": [], "file_types": [], "patterns": [],
-              "first_move": {"skill": "checkpoint", "args": "the commit or accepted slice",
-                             "inline_gather": "git log --oneline -3"}}},
-  {"name": "delegate", "description": "spawn subagents, fan out, run or write a workflow",
+   "router": {
+    "keywords": [
+     "checkpoint"
+    ],
+    "phrases": [
+     "commit landed",
+     "slice accepted",
+     "make this durable",
+     "make it durable",
+     "record progress"
+    ],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "checkpoint",
+     "args": "the commit or accepted slice",
+     "inline_gather": "git log --oneline -3"
+    }
+   }
+  },
+  {
+   "name": "delegate",
+   "description": "spawn subagents, fan out, run or write a workflow",
    "contributed_by": "governance",
-   "router": {"keywords": ["subagent", "subagents", "workflow", "parallel", "delegate", "orchestrate"],
-              "phrases": ["fan out", "fan-out", "in parallel"],
-              "path_patterns": [".claude/workflows/"], "file_types": [".js"], "patterns": [],
-              "first_move": {"skill": "summon", "args": "the enumerated work list",
-                             "inline_gather": "python3 tools/station_audit.py --state"}}}
+   "router": {
+    "keywords": [
+     "subagent",
+     "subagents",
+     "workflow",
+     "parallel",
+     "delegate",
+     "orchestrate"
+    ],
+    "phrases": [
+     "fan out",
+     "fan-out",
+     "in parallel"
+    ],
+    "path_patterns": [
+     ".claude/workflows/"
+    ],
+    "file_types": [
+     ".js"
+    ],
+    "patterns": [],
+    "first_move": {
+     "skill": "summon",
+     "args": "the enumerated work list",
+     "inline_gather": "python3 tools/station_audit.py --state"
+    }
+   }
+  }
  ],
  "router_tie_rule": {
-  "order": ["station:*", "ingest", "find", "governance-admin", "build", "recall", "handoff", "delegate", "checkpoint", "closeout", "where", "map-regen", "conversational"],
-  "reason": "cost if the gather is SKIPPED, highest first: a station's live-surface intent (station:* = every contributed_by station row, and on main every kit_tree leaf) can touch money, clients or a quarantined tree; a skipped ingest lands unneutralised upstream agent files; a skipped find rebuilds what exists; governance-admin edits a rule without its owner; build without prior art; recall re-derives a known result; a skipped handoff loses the session's state; delegate without /summon multiplies every mistake; a skipped checkpoint loses the durable record of a commit; closeout, where and map-regen cost one re-run.",
+  "order": [
+   "station:*",
+   "ingest",
+   "find",
+   "governance-admin",
+   "build",
+   "site-protection",
+   "market-scan",
+   "design-review",
+   "recall",
+   "handoff",
+   "delegate",
+   "checkpoint",
+   "closeout",
+   "where",
+   "map-regen",
+   "conversational"
+  ],
+  "reason": "cost if the gather is SKIPPED, highest first: a station's live-surface intent (station:* = every contributed_by station row, and on main every kit_tree leaf) can touch money, clients or a quarantined tree; a skipped ingest lands unneutralised upstream agent files; a skipped find rebuilds what exists; governance-admin edits a rule without its owner; build without prior art; recall re-derives a known result; a skipped handoff loses the session's state; delegate without /summon multiplies every mistake; a skipped checkpoint loses the durable record of a commit; closeout, where and map-regen cost one re-run. reconcile-01 (DEC-core-0011): site-protection (a skipped gather probes a host the operator may not own), market-scan (an unsourced number reaches a deliverable) and design-review (a build ships unmeasured) sit after build.",
   "multi_intent_cap": 3,
   "_why_doc": "CRITIC F2 (2026-10-16): the cap refused one-sentence prompts ('build an MVP for my invoicing venture'). It now applies only when the prompt looks like a pasted document: >= doc_min_newlines newlines, or >= doc_min_clauses clauses AND > doc_min_chars characters. Below that the matched intents are ranked (order, claims, hits).",
   "doc_min_newlines": 3,
   "doc_min_clauses": 4,
   "doc_min_chars": 300
  },
- "harness_prefixes": ["<task-notification>", "<agent-message", "another claude session sent a message:", "<wake reason=", "<webhook-payload", "<child-session-event", "[workflow harness", "<system-reminder>", "<command-name>"],
- "negators": ["no", "never", "don't", "dont", "do not", "not", "without", "stop"],
+ "harness_prefixes": [
+  "<task-notification>",
+  "<agent-message",
+  "another claude session sent a message:",
+  "<wake reason=",
+  "<webhook-payload",
+  "<child-session-event",
+  "[workflow harness",
+  "<system-reminder>",
+  "<command-name>"
+ ],
+ "negators": [
+  "no",
+  "never",
+  "don't",
+  "dont",
+  "do not",
+  "not",
+  "without",
+  "stop"
+ ],
  "neg_window": 3,
  "max_out_bytes": 1200,
  "_why_skill_also_min_hits": "fix2-commons 6 (ROUTER SHADOWING): when an intent FIRST MOVE wins, the top router/skills.json match is ALSO printed as one SKILL: read line if its keyword+phrase hits reach this number (measured on the built stations: 79 of 81 shadowed skill positives score >= 2, 2 score 1). The FIRST MOVE stays first and stays the route; the tie order is unchanged.",

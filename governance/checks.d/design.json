@@ -1,0 +1,77 @@
+{
+ "_why": "design programme check rows (commons since reconcile-01, DEC-core-0011): the shared design engine built on station studio. Every station runs them; studio keeps its work-product rows (studio_work, studio_site, ...) in its station fragment.",
+ "checks": [
+  {
+   "name": "design_detector",
+   "cmd": [
+    "python3",
+    "tools/design/detector/detect.py",
+    "--check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "design",
+   "earned_by": "operator ask 2026-10-16 (rate designs with 'a py recreation of its rust engine', no upstream app at use time) proven on studio (59/59 rules, 209/209 set parity); reconcile-01 made it the kit's one detector so client-bi dashboards, venture product UI and career CV/portfolio are measured by the same rules. Fails when a rule loses its implementation or test, PORT_MAP.md drifts, or set-parity on impeccable's 209 fixtures falls under 0.95",
+   "selftest": [
+    "python3",
+    "tools/design/detector/detect.py",
+    "--selftest"
+   ],
+   "retires": "studio's station row studio_detector (moved here with R-studio-detector)",
+   "inputs": [
+    "tools/design/detector/**"
+   ],
+   "timeout_s": 300,
+   "gate_subcount": null
+  },
+  {
+   "name": "design_catalog",
+   "cmd": [
+    "python3",
+    "tools/design/design_catalog.py",
+    "--check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "design",
+   "earned_by": "operator decisions 2026-10-16 (local direction catalog + impeccable.style roll on by default): every direction must be buildable (AA ink pairs, body >= 16px, leading >= 1.4, no network fonts) and the roll client must stay opted out",
+   "selftest": [
+    "python3",
+    "tools/design/design_catalog.py",
+    "--selftest"
+   ],
+   "retires": "studio's station row studio_catalog (moved here with R-studio-roll)",
+   "inputs": [
+    "tools/design/design_catalog.py",
+    "tools/design/design_catalog.json",
+    "station.json"
+   ],
+   "timeout_s": 60,
+   "gate_subcount": null
+  },
+  {
+   "name": "design_handoff",
+   "cmd": [
+    "python3",
+    "tools/design/handoff.py",
+    "--check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "design",
+   "earned_by": "venture-v2 proposal 3 and client-bi-v2 (design tokens): two stations kept forks of one token-flattening rule; one owner holds the handoff format and the token schema (commons/schema/design_tokens.schema.json), and its selftest plants a missing part, a rework verdict, a non-AA pair and drifted tokens.css",
+   "selftest": [
+    "python3",
+    "tools/design/handoff.py",
+    "--selftest"
+   ],
+   "retires": "studio_lint's private handoff/token lints and venture mvp_static's token_leaves copy",
+   "inputs": [
+    "tools/design/handoff.py",
+    "tools/design/contrast.py",
+    "commons/schema/design_tokens.schema.json",
+    "commons/packs/design/HANDOFF.md",
+    "tools/design/fixtures/**"
+   ],
+   "timeout_s": 60,
+   "gate_subcount": null
+  }
+ ]
+}

@@ -703,9 +703,342 @@
    ],
    "status": "working",
    "title": "workflow checks"
+  },
+  "tools/design/contrast.py": {
+   "doc": ".claude/skills/palette-check/SKILL.md",
+   "kin": [],
+   "purpose": "stdlib WCAG 2.2 contrast ratio for a pair or a palette file; exit 1 on a failing pair",
+   "see_also": [],
+   "solves": [
+    "colour-contrast"
+   ],
+   "status": "working",
+   "title": "contrast tool"
+  },
+  "tools/design/detector/detect.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "the studio detector CLI: impeccable's 59 rules in stdlib Python over HTML/CSS (+ line-regex engine for css/jsx/vue/svelte/astro), optional rendered pass, JSON + text report, 0-100 scores, verdict exit code; --check is audit row design_detector",
+   "see_also": [
+    "tools/design/detector/PORT_MAP.md",
+    "governance/checks.d/design.json"
+   ],
+   "solves": [
+    "design-detector",
+    "ui-critique"
+   ],
+   "status": "working",
+   "title": "design detector (impeccable port)"
+  },
+  "tools/design/detector/engine.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [
+    "tools/design/detector/detect.py"
+   ],
+   "purpose": "loads a file or folder, builds the static context (DOM + cascade + style corpora), runs every rule module, applies inline ignores",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "detector engine"
+  },
+  "tools/design/detector/css.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [
+    "tools/design/detector/dom.py"
+   ],
+   "purpose": "stdlib CSS parser, selector matcher and static cascade (inheritance, var(), shorthands, @media at rest), length/colour helpers",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "static CSS cascade"
+  },
+  "tools/design/detector/dom.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [
+    "tools/design/detector/css.py"
+   ],
+   "purpose": "forgiving stdlib HTML DOM on html.parser (implied end tags, void elements, source lines)",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "static HTML DOM"
+  },
+  "tools/design/detector/color.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [
+    "tools/design/contrast.py"
+   ],
+   "purpose": "CSS colour parsing (hex, rgb, hsl, hwb, oklch, oklab, lab, lch, named), compositing, WCAG contrast, hue/chroma",
+   "see_also": [],
+   "solves": [
+    "design-detector",
+    "colour-contrast"
+   ],
+   "status": "working",
+   "title": "colour maths"
+  },
+  "tools/design/detector/score.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [
+    "tools/design/detector/detect.py"
+   ],
+   "purpose": "findings -> per-rule and per-category scores, readable report, verdict exit code; NOT RUN rules never count clean",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "detector scoring"
+  },
+  "tools/design/detector/rendered.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [
+    "tools/design/detector/detect.py"
+   ],
+   "purpose": "optional Playwright pass (only if already installed; every non-file request aborted): 10 layout/runtime rules at 1280 and 390 px",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "rendered checks"
+  },
+  "tools/design/detector/regex_engine.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [
+    "tools/design/detector/engine.py"
+   ],
+   "purpose": "upstream's line-regex engine for css/scss/sass/jsx/tsx/vue/svelte/astro sources",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "source regex engine"
+  },
+  "tools/design/detector/rules_color.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "colour rules: low-contrast, gray-on-color, gradient-text, ai-color-palette, cream, glows, halos, stripes, grids, clip-paths, buried rasters, design-system-color",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "colour rules"
+  },
+  "tools/design/detector/rules_layout.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "layout rules: side-tab, border accents, nested cards, icon tiles, hairline+wide shadow, cramped padding, clipped overflow, shape illustrations, broken images, spacing, design-system-radius",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "layout rules"
+  },
+  "tools/design/detector/rules_type.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "typography rules: overused font, flat hierarchy, italic serif display, eyebrows/kickers, numbered labels, oversized h1, tracking, leading, tiny/undersized text, caps, headings, design-system fonts",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "type rules"
+  },
+  "tools/design/detector/rules_motion_copy.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "motion and copy rules: bounce easing, pulsing dot, marquee, em-dash overuse, buzzwords, aphoristic cadence, theater phrases, repeated container text",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "motion + copy rules"
+  },
+  "tools/design/detector/ignores.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "upstream inline-ignore semantics (impeccable-disable comments, data-impeccable-ignore)",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "inline ignores"
+  },
+  "tools/design/detector/design_md.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "parse a DESIGN.md frontmatter (colors, typography, rounded) for the design-system rules",
+   "see_also": [],
+   "solves": [
+    "design-detector",
+    "design-handoff"
+   ],
+   "status": "working",
+   "title": "DESIGN.md parser"
+  },
+  "tools/design/detector/registry.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "the 59 upstream rule rows (registry.json) keyed by id",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "rule registry"
+  },
+  "tools/design/detector/tailwind.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "utility-class hook for the cascade (empty by design: upstream never maps Tailwind to computed styles)",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "tailwind hook"
+  },
+  "tools/design/detector/port_map.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "generates PORT_MAP.md (upstream rule -> our function -> tests -> parity) and checks it is fresh",
+   "see_also": [],
+   "solves": [
+    "design-detector",
+    "licence-compliance"
+   ],
+   "status": "working",
+   "title": "port map generator"
+  },
+  "tools/design/detector/__init__.py": {
+   "doc": "tools/design/detector/PORT_MAP.md",
+   "kin": [],
+   "purpose": "package marker for tools/design/detector",
+   "see_also": [],
+   "solves": [
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "detector package"
+  },
+  "tools/design/design_catalog.py": {
+   "doc": "STATION.md",
+   "kin": [
+    "tools/design/design_catalog.json"
+   ],
+   "purpose": "deal design-pass variant directions: seeded local catalog + impeccable.style roll (opted out, no project data, local fallback); --check validates the catalog",
+   "see_also": [
+    ".claude/workflows/design-pass.js"
+   ],
+   "solves": [
+    "design-method"
+   ],
+   "status": "working",
+   "title": "design direction catalog + roll client"
+  },
+  "tools/design/handoff.py": {
+   "doc": "commons/packs/design/HANDOFF.md",
+   "kin": [],
+   "purpose": "the handoff package format (9 parts) and design-token schema/flattening every station shares; --check is audit row design_handoff",
+   "see_also": [
+    "commons/schema/design_tokens.schema.json"
+   ],
+   "solves": [
+    "design-handoff",
+    "colour-contrast"
+   ],
+   "status": "working",
+   "title": "design handoff + tokens"
+  },
+  ".claude/skills/design-review/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "measured design verdict in any station: detector score, contrast pairs, tokens, handoff lint",
+   "see_also": [],
+   "solves": [
+    "ui-critique",
+    "design-detector"
+   ],
+   "status": "working",
+   "title": "design-review skill"
+  },
+  "tools/protect/self_check.py": {
+   "doc": "commons/packs/protection/PACK.md",
+   "kin": [],
+   "purpose": "passive exposure report for a site the operator owns (headers, robots, sitemap, rate-limit, bot-handling); refuses non-owned and broker hosts; check is audit row self_check",
+   "see_also": [],
+   "solves": [
+    "site-protection"
+   ],
+   "status": "working",
+   "title": "site self-check (own sites only)"
+  },
+  ".claude/skills/site-protection/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "apply the protection pack and run self_check on the operator's own staging host or local build before launch",
+   "see_also": [],
+   "solves": [
+    "site-protection"
+   ],
+   "status": "working",
+   "title": "site-protection skill"
+  },
+  "tools/research/custody.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "sources/claims/ToS records: re-hash captures, re-find quotes, uncited lines, planted-defect proof",
+   "see_also": [],
+   "solves": [
+    "market-scan"
+   ],
+   "status": "working",
+   "title": "chain of custody"
+  },
+  "tools/research/sizing.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "sized-claim rules for a market record (source, n, unit, geography, arithmetic, both approaches, UNSOURCED never summed, NC lane refused); scan is audit row market_scan",
+   "see_also": [
+    "tools/research/custody.py"
+   ],
+   "solves": [
+    "market-scan"
+   ],
+   "status": "working",
+   "title": "market-scan sizing"
+  },
+  ".claude/skills/market-scan/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "size a market or scan competitors with sourced, denominated figures in any station",
+   "see_also": [],
+   "solves": [
+    "market-scan"
+   ],
+   "status": "working",
+   "title": "market-scan skill"
   }
  },
- "exclusions": [],
+ "exclusions": [
+  {
+   "prefix": "tools/design/detector/tests/",
+   "reason": "detector tests and impeccable's vendored fixtures (Apache-2.0, tests/upstream/LICENSE); catalogued through tools/design/detector/detect.py"
+  }
+ ],
  "scope": [
   "tools/**/*.py",
   "tools/**/*.sh",

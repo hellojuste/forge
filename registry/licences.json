@@ -1,6 +1,6 @@
 {
  "_doc": "Licence per repo (root) plus nested licences that govern held subtrees (nearest LICENSE wins; KIT_PLAN 4.1). class drives the lane rule.",
- "denominator": 28,
+ "denominator": 30,
  "licences": [
   {
    "class": "non-commercial",
@@ -281,6 +281,26 @@
    "notice_file": null,
    "repo": "jo-inc/camofox-browser",
    "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "copyleft",
+   "id": 29,
+   "key": "getlago~lago-api",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "getlago/lago-api",
+   "rule": "bootstrap only (bare clone at the gitlink pin, never committed); read the analytics opt-out in place; station files cite, never copy"
+  },
+  {
+   "class": "copyleft",
+   "id": 30,
+   "key": "getlago~lago-front",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "getlago/lago-front",
+   "rule": "bootstrap only (bare clone at the gitlink pin, never committed); read the analytics opt-out in place; station files cite, never copy"
   }
  ],
  "nested": [

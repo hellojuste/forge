@@ -1,0 +1,23 @@
+{
+ "_why": "protection programme rules (commons since reconcile-01, DEC-core-0011). Station quarantine stays the study owner of the held evasion tools; the pack and the self-check are commons.",
+ "rules": [
+  {
+   "id": "R-protect-own-targets",
+   "headline": "The defensive self-check runs only on the operator's own sites (loopback, a local build, or a host in the station's work/protection/OWNED.txt), never a broker/exchange host, with no override; evasion tooling never leaves quarantine",
+   "owner": "tools/protect/self_check.py",
+   "pointers": [
+    "commons/packs/protection/PACK.md",
+    ".claude/skills/site-protection/SKILL.md"
+   ],
+   "enforcement": {
+    "kind": "check",
+    "ref": "self_check",
+    "by": "self_check"
+   },
+   "earned_by": "design/QUEUE.md Q4 rails (operator 2026-10-16): 'targets for any self-test are the operator's own only'; 'anything that touches broker/exchange accounts is out of scope'; 'evasion tooling never leaves quarantine' (R-quarantine-own-targets, DEC-quarantine-0006)",
+   "rung": "hard",
+   "since": "DEC-core-0011",
+   "upstream": "NEVER"
+  }
+ ]
+}

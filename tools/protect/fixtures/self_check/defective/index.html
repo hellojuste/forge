@@ -1,0 +1,20 @@
+<!doctype html>
+<!-- SYNTHETIC FIXTURE for tools/station/self_check.py --selftest. Planted defects, one per HARDENING_CHECKLIST row:
+     no CSP / nosniff / framing headers (H13), X-Powered-By and a versioned Server (H15), a cookie without flags (H14),
+     a POST form without a CSRF token (H16), a honeypot reachable by screen readers (FAIR), a navigator.webdriver gate
+     (H1), a fingerprint script (H2). Not a real site; served only on 127.0.0.1 by the selftest. -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Fixture shop (defective)</title></head>
+<body>
+<h1>Fixture shop</h1>
+<form method="post" action="/signup">
+  <label for="email">Email</label> <input id="email" name="email" type="email">
+  <input name="website_url" type="text" class="hp" style="display:none">
+  <button type="submit">Sign up</button>
+</form>
+<script>
+  if (navigator.webdriver) { document.body.innerHTML = "Bots not allowed"; }
+</script>
+<script src="/vendor/fingerprintjs.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+ "_why": "Design tokens every station shares (studio handoffs, venture MVPs, client-bi sheet grammar, career CV/portfolio): four required groups, each an object of leaves (string/number, or {value}), keys starting $ or _ are metadata. Flattened to CSS custom properties by tools/design/handoff.py token_leaves (--<group>-<name>). Owner: governance/rules.d/design.json R-design-handoff (reconcile-01).",
+ "type": "object",
+ "required": ["color", "font", "space", "radius"],
+ "properties": {
+  "color": {"type": "object"},
+  "font": {"type": "object"},
+  "space": {"type": "object"},
+  "radius": {"type": "object"},
+  "motion": {"type": "object"},
+  "shadow": {"type": "object"}
+ }
+}

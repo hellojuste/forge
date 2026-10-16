@@ -1,0 +1,7 @@
+/*
+  Content-Security-Policy: default-src 'self'; frame-ancestors 'none'; form-action 'self'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Set-Cookie: sid=fixture123; Path=/; Secure; HttpOnly; SameSite=Lax

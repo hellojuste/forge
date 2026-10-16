@@ -1,6 +1,6 @@
 {
  "_doc": "One row per tool with on-by-default (or possible) telemetry. verified flips to true ONLY with the file and line proving the switch AND the tool's own offline status run by the operator (J2 GA6). A workflow never starts a tool whose row is verified:false (wired by the equip block into service-up, wiki-gen, optimize-loop). Seeded from INV (c); station builders' returned rows are merged in block E.",
- "denominator": 11,
+ "denominator": 12,
  "rule": "never start a tool whose row is verified:false",
  "telemetry": [
   {
@@ -130,8 +130,8 @@
   },
   {
    "evidence": "crates/context/src/telemetry.rs (env_opts_out at :58; api_base https://impeccable.style/api at :44) + README engine \"roll\" request",
-   "note": "",
-   "opt_out": "env_opts_out(...) exists; the variable name it is called with is unread",
+   "note": "engine stays verified:false (studio-v2: the ENGINE was not what was proven; wf_sim engine_viol reads this flag). Opt-out text read at the pin by studio-v2, folded by reconcile-01.",
+   "opt_out": "DO_NOT_TRACK or IMPECCABLE_NO_TELEMETRY (env_opts_out, crates/context/src/telemetry.rs:58 and :77-78); \"telemetry\": false in ~/.impeccable/config.json or .impeccable/config(.local).json (:63-69); endpoint IMPECCABLE_API_URL default https://impeccable.style/api (:43-44); the roll is still sent when opted out, with X-Impeccable-Telemetry: off (:118-120, concept_seed.rs fetch_roll)",
    "opt_out_candidate_env": {},
    "repo": "pbakaus/impeccable",
    "station": "studio",
@@ -169,6 +169,17 @@
    "station": "venture",
    "tool": "trigger cli-v3",
    "verified": false
+  },
+  {
+   "evidence": "tools/design/design_catalog.py:93-129 (roll_request always sets X-Impeccable-Telemetry: off and a fresh random key; fetch_roll falls back to local) and :166-180 (choice_ping sends only with send=True and impeccable_roll.telemetry true); proven by python3 tools/design/design_catalog.py --selftest against a loopback stub",
+   "note": "the kit's own roll client (commons since reconcile-01; R-design-roll), not the impeccable engine; proposed by RETURNS/studio-v2.md",
+   "opt_out": "always sends X-Impeccable-Telemetry: off; the /api/chosen ping is never sent unless station.json impeccable_roll.telemetry is true (default false); design_catalog_sources without \"impeccable\" stops the roll entirely",
+   "opt_out_candidate_env": {},
+   "repo": "pbakaus/impeccable",
+   "station": "commons",
+   "tool": "design_catalog roll client",
+   "verified": true,
+   "evidence_line": "93-129"
   }
  ]
 }

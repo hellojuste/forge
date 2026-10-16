@@ -1,0 +1,29 @@
+{
+ "_why": "protection programme check rows (commons since reconcile-01, DEC-core-0011): the defensive self-check built on station quarantine, available to every station for the operator's OWN sites only.",
+ "checks": [
+  {
+   "name": "self_check",
+   "cmd": [
+    "python3",
+    "tools/protect/self_check.py",
+    "check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "protect",
+   "earned_by": "design/QUEUE.md Q4 defensive lane (operator 2026-10-16: 'i genuinely just dont want anyone - especially myself - to be exposed to unsafe behavior'); DEC-quarantine-0006 rails carried by R-protect-own-targets: the self-check runs only on the operator's own hosts (loopback, a local build, the station's work/protection/OWNED.txt), never a broker/exchange host, no override, and imports nothing from a held tree; this row pins OWNED.txt and the pack's rails, its selftest proves a non-owned target is refused before any request",
+   "selftest": [
+    "python3",
+    "tools/protect/self_check.py",
+    "--selftest"
+   ],
+   "retires": "quarantine's station row self_check (moved here)",
+   "inputs": [
+    "work/protection/**",
+    "commons/packs/protection/**",
+    "tools/protect/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  }
+ ]
+}

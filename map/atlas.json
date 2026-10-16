@@ -3,10 +3,10 @@
  "census": {
   "dir": 18,
   "hook": 12,
-  "intent": 11,
-  "skill": 6,
-  "tool": 52,
-  "total": 101,
+  "intent": 14,
+  "skill": 9,
+  "tool": 87,
+  "total": 142,
   "workflow": 2
  },
  "edges": [
@@ -95,53 +95,67 @@
    "token": ".claude/hooks/intent_router.py"
   },
   {
-   "evidence": "router/intents.json:9",
+   "evidence": "router/intents.json:30",
    "from": "intent:build",
    "kind": "routes",
    "to": "skill:summon",
    "token": "\"summon\""
   },
   {
-   "evidence": "router/intents.json:10",
+   "evidence": "router/intents.json:32",
    "from": "intent:build",
    "kind": "routes",
    "to": "tool:tools/map/find.py",
    "token": "tools/map/find.py"
   },
   {
-   "evidence": "router/intents.json:32",
+   "evidence": "router/intents.json:131",
    "from": "intent:checkpoint",
    "kind": "routes",
    "to": "skill:checkpoint",
    "token": "\"checkpoint\""
   },
   {
-   "evidence": "router/intents.json:18",
+   "evidence": "router/intents.json:77",
    "from": "intent:closeout",
    "kind": "routes",
    "to": "skill:closeout",
    "token": "\"closeout\""
   },
   {
-   "evidence": "router/intents.json:17",
+   "evidence": "router/intents.json:72",
    "from": "intent:closeout",
    "kind": "routes",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "router/intents.json:9",
+   "evidence": "router/intents.json:30",
    "from": "intent:delegate",
    "kind": "routes",
    "to": "skill:summon",
    "token": "\"summon\""
   },
   {
-   "evidence": "router/intents.json:17",
+   "evidence": "router/intents.json:72",
    "from": "intent:delegate",
    "kind": "routes",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "router/intents.d/design.json:5",
+   "from": "intent:design-review",
+   "kind": "routes",
+   "to": "skill:design-review",
+   "token": "\"design-review\""
+  },
+  {
+   "evidence": "router/intents.d/design.json:31",
+   "from": "intent:design-review",
+   "kind": "routes",
+   "to": "tool:tools/design/detector/detect.py",
+   "token": "tools/design/detector/detect.py"
   },
   {
    "evidence": "router/intents.d/map.json:11",
@@ -151,21 +165,21 @@
    "token": "tools/map/find.py"
   },
   {
-   "evidence": "router/intents.json:17",
+   "evidence": "router/intents.json:72",
    "from": "intent:governance-admin",
    "kind": "routes",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "router/intents.json:25",
+   "evidence": "router/intents.json:102",
    "from": "intent:handoff",
    "kind": "routes",
    "to": "skill:handoff",
    "token": "\"handoff\""
   },
   {
-   "evidence": "router/intents.json:17",
+   "evidence": "router/intents.json:72",
    "from": "intent:handoff",
    "kind": "routes",
    "to": "tool:tools/station_audit.py",
@@ -193,11 +207,39 @@
    "token": "tools/map/map_check.py"
   },
   {
+   "evidence": "router/intents.d/research.json:5",
+   "from": "intent:market-scan",
+   "kind": "routes",
+   "to": "skill:market-scan",
+   "token": "\"market-scan\""
+  },
+  {
+   "evidence": "router/intents.d/research.json:25",
+   "from": "intent:market-scan",
+   "kind": "routes",
+   "to": "tool:tools/research/sizing.py",
+   "token": "tools/research/sizing.py"
+  },
+  {
    "evidence": "router/intents.d/brain.json:11",
    "from": "intent:recall",
    "kind": "routes",
    "to": "tool:tools/brain.py",
    "token": "tools/brain.py"
+  },
+  {
+   "evidence": "router/intents.d/protect.json:5",
+   "from": "intent:site-protection",
+   "kind": "routes",
+   "to": "skill:site-protection",
+   "token": "\"site-protection\""
+  },
+  {
+   "evidence": "router/intents.d/protect.json:34",
+   "from": "intent:site-protection",
+   "kind": "routes",
+   "to": "tool:tools/protect/self_check.py",
+   "token": "tools/protect/self_check.py"
   },
   {
    "evidence": "router/intents.d/map.json:38",
@@ -264,6 +306,41 @@
   },
   {
    "evidence": "map/dirs.json:7",
+   "from": "skill:design-review",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/design-review/SKILL.md:15",
+   "from": "skill:design-review",
+   "kind": "runs",
+   "to": "tool:tools/design/contrast.py",
+   "token": "tools/design/contrast.py"
+  },
+  {
+   "evidence": ".claude/skills/design-review/SKILL.md:28",
+   "from": "skill:design-review",
+   "kind": "runs",
+   "to": "tool:tools/design/design_catalog.py",
+   "token": "tools/design/design_catalog.py"
+  },
+  {
+   "evidence": ".claude/skills/design-review/SKILL.md:12",
+   "from": "skill:design-review",
+   "kind": "runs",
+   "to": "tool:tools/design/detector/detect.py",
+   "token": "tools/design/detector/detect.py"
+  },
+  {
+   "evidence": ".claude/skills/design-review/SKILL.md:20",
+   "from": "skill:design-review",
+   "kind": "runs",
+   "to": "tool:tools/design/handoff.py",
+   "token": "tools/design/handoff.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
    "from": "skill:handoff",
    "kind": "in",
    "to": "dir:.claude",
@@ -275,6 +352,41 @@
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "skill:market-scan",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/market-scan/SKILL.md:14",
+   "from": "skill:market-scan",
+   "kind": "runs",
+   "to": "tool:tools/research/custody.py",
+   "token": "tools/research/custody.py"
+  },
+  {
+   "evidence": ".claude/skills/market-scan/SKILL.md:20",
+   "from": "skill:market-scan",
+   "kind": "runs",
+   "to": "tool:tools/research/sizing.py",
+   "token": "tools/research/sizing.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "skill:site-protection",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/site-protection/SKILL.md:17",
+   "from": "skill:site-protection",
+   "kind": "runs",
+   "to": "tool:tools/protect/self_check.py",
+   "token": "tools/protect/self_check.py"
   },
   {
    "evidence": "map/dirs.json:7",
@@ -544,97 +656,342 @@
   },
   {
    "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/contrast.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/design/contrast.py:4",
+   "from": "tool:tools/design/contrast.py",
+   "kind": "runs",
+   "to": "tool:tools/design/handoff.py",
+   "token": "tools/design/handoff.py"
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/design_catalog.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/__init__.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/color.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/css.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/design_md.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/detect.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/dom.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/engine.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/ignores.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/port_map.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/regex_engine.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/registry.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/rendered.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/rules_color.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/rules_layout.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/rules_motion_copy.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/design/detector/rules_motion_copy.py:12",
+   "from": "tool:tools/design/detector/rules_motion_copy.py",
+   "kind": "imports",
+   "to": "tool:tools/design/detector/ignores.py",
+   "token": "ignores"
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/rules_type.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/score.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tailwind.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/__init__.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/parity.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_css_lengths.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_fragments.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_regex_engine.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_rendered.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_rules_color.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_rules_layout.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_rules_motion_copy.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_rules_type.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/detector/tests/test_static_approx.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/design/handoff.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/design/handoff.py:314",
+   "from": "tool:tools/design/handoff.py",
+   "kind": "runs",
+   "to": "tool:tools/design/contrast.py",
+   "token": "tools/design/contrast.py"
+  },
+  {
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/gov/_gov.py",
    "kind": "in",
    "to": "dir:tools",
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/gov/_gov.py:468",
+   "evidence": "tools/gov/_gov.py:469",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/_cmdscan.py",
    "token": ".claude/hooks/_cmdscan.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:468",
+   "evidence": "tools/gov/_gov.py:469",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/_release.py",
    "token": ".claude/hooks/_release.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:468",
+   "evidence": "tools/gov/_gov.py:469",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/_report.py",
    "token": ".claude/hooks/_report.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:470",
+   "evidence": "tools/gov/_gov.py:471",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/context_threshold.py",
    "token": ".claude/hooks/context_threshold.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:469",
+   "evidence": "tools/gov/_gov.py:470",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/deny_destructive.py",
    "token": ".claude/hooks/deny_destructive.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:470",
+   "evidence": "tools/gov/_gov.py:471",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/deny_noted_defect.py",
    "token": ".claude/hooks/deny_noted_defect.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:469",
+   "evidence": "tools/gov/_gov.py:470",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/intent_router.py",
    "token": ".claude/hooks/intent_router.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:471",
+   "evidence": "tools/gov/_gov.py:472",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/station_dispatch.py",
    "token": ".claude/hooks/station_dispatch.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:471",
+   "evidence": "tools/gov/_gov.py:472",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/stop.py",
    "token": ".claude/hooks/stop.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:467",
+   "evidence": "tools/gov/_gov.py:468",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/gen_manifest.py",
    "token": "tools/gov/gen_manifest.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:466",
+   "evidence": "tools/gov/_gov.py:467",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/gen_ownership.py",
    "token": "tools/gov/gen_ownership.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:466",
+   "evidence": "tools/gov/_gov.py:467",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/gov_check.py",
    "token": "tools/gov/gov_check.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:467",
+   "evidence": "tools/gov/_gov.py:468",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/new_row.py",
@@ -648,7 +1005,7 @@
    "token": "tools/map/_common.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:466",
+   "evidence": "tools/gov/_gov.py:467",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -1482,6 +1839,34 @@
   },
   {
    "evidence": "map/dirs.json:199",
+   "from": "tool:tools/protect/self_check.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/research/custody.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/research/sizing.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/research/sizing.py:50",
+   "from": "tool:tools/research/sizing.py",
+   "kind": "imports",
+   "to": "tool:tools/research/custody.py",
+   "token": "custody"
+  },
+  {
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/station_audit.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1565,14 +1950,14 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/upstream/skill_routes.py:905",
+   "evidence": "tools/upstream/skill_routes.py:932",
    "from": "tool:tools/upstream/skill_routes.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/intent_router.py",
    "token": ".claude/hooks/intent_router.py"
   },
   {
-   "evidence": "tools/upstream/skill_routes.py:949",
+   "evidence": "tools/upstream/skill_routes.py:976",
    "from": "tool:tools/upstream/skill_routes.py",
    "kind": "runs",
    "to": "tool:tools/kit/skills_index.py",
@@ -1926,6 +2311,12 @@
   },
   {
    "class": "intent",
+   "id": "intent:design-review",
+   "label": "design-review",
+   "source": "router/intents.d/design.json"
+  },
+  {
+   "class": "intent",
    "id": "intent:find",
    "label": "find",
    "source": "router/intents.d/map.json"
@@ -1956,9 +2347,21 @@
   },
   {
    "class": "intent",
+   "id": "intent:market-scan",
+   "label": "market-scan",
+   "source": "router/intents.d/research.json"
+  },
+  {
+   "class": "intent",
    "id": "intent:recall",
    "label": "recall",
    "source": "router/intents.d/brain.json"
+  },
+  {
+   "class": "intent",
+   "id": "intent:site-protection",
+   "label": "site-protection",
+   "source": "router/intents.d/protect.json"
   },
   {
    "class": "intent",
@@ -1980,9 +2383,27 @@
   },
   {
    "class": "skill",
+   "id": "skill:design-review",
+   "label": "design-review",
+   "source": ".claude/skills/design-review/SKILL.md"
+  },
+  {
+   "class": "skill",
    "id": "skill:handoff",
    "label": "handoff",
    "source": ".claude/skills/handoff/SKILL.md"
+  },
+  {
+   "class": "skill",
+   "id": "skill:market-scan",
+   "label": "market-scan",
+   "source": ".claude/skills/market-scan/SKILL.md"
+  },
+  {
+   "class": "skill",
+   "id": "skill:site-protection",
+   "label": "site-protection",
+   "source": ".claude/skills/site-protection/SKILL.md"
   },
   {
    "class": "skill",
@@ -2085,6 +2506,198 @@
    "id": "tool:tools/brain.py",
    "label": "brain.py",
    "source": "tools/brain.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/contrast.py",
+   "label": "contrast.py",
+   "source": "tools/design/contrast.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/design_catalog.py",
+   "label": "design_catalog.py",
+   "source": "tools/design/design_catalog.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/__init__.py",
+   "label": "__init__.py",
+   "source": "tools/design/detector/__init__.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/color.py",
+   "label": "color.py",
+   "source": "tools/design/detector/color.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/css.py",
+   "label": "css.py",
+   "source": "tools/design/detector/css.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/design_md.py",
+   "label": "design_md.py",
+   "source": "tools/design/detector/design_md.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/detect.py",
+   "label": "detect.py",
+   "source": "tools/design/detector/detect.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/dom.py",
+   "label": "dom.py",
+   "source": "tools/design/detector/dom.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/engine.py",
+   "label": "engine.py",
+   "source": "tools/design/detector/engine.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/ignores.py",
+   "label": "ignores.py",
+   "source": "tools/design/detector/ignores.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/port_map.py",
+   "label": "port_map.py",
+   "source": "tools/design/detector/port_map.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/regex_engine.py",
+   "label": "regex_engine.py",
+   "source": "tools/design/detector/regex_engine.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/registry.py",
+   "label": "registry.py",
+   "source": "tools/design/detector/registry.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/rendered.py",
+   "label": "rendered.py",
+   "source": "tools/design/detector/rendered.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/rules_color.py",
+   "label": "rules_color.py",
+   "source": "tools/design/detector/rules_color.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/rules_layout.py",
+   "label": "rules_layout.py",
+   "source": "tools/design/detector/rules_layout.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/rules_motion_copy.py",
+   "label": "rules_motion_copy.py",
+   "source": "tools/design/detector/rules_motion_copy.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/rules_type.py",
+   "label": "rules_type.py",
+   "source": "tools/design/detector/rules_type.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/score.py",
+   "label": "score.py",
+   "source": "tools/design/detector/score.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tailwind.py",
+   "label": "tailwind.py",
+   "source": "tools/design/detector/tailwind.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/__init__.py",
+   "label": "__init__.py",
+   "source": "tools/design/detector/tests/__init__.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/parity.py",
+   "label": "parity.py",
+   "source": "tools/design/detector/tests/parity.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_css_lengths.py",
+   "label": "test_css_lengths.py",
+   "source": "tools/design/detector/tests/test_css_lengths.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_fragments.py",
+   "label": "test_fragments.py",
+   "source": "tools/design/detector/tests/test_fragments.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_regex_engine.py",
+   "label": "test_regex_engine.py",
+   "source": "tools/design/detector/tests/test_regex_engine.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_rendered.py",
+   "label": "test_rendered.py",
+   "source": "tools/design/detector/tests/test_rendered.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_rules_color.py",
+   "label": "test_rules_color.py",
+   "source": "tools/design/detector/tests/test_rules_color.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_rules_layout.py",
+   "label": "test_rules_layout.py",
+   "source": "tools/design/detector/tests/test_rules_layout.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_rules_motion_copy.py",
+   "label": "test_rules_motion_copy.py",
+   "source": "tools/design/detector/tests/test_rules_motion_copy.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_rules_type.py",
+   "label": "test_rules_type.py",
+   "source": "tools/design/detector/tests/test_rules_type.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/detector/tests/test_static_approx.py",
+   "label": "test_static_approx.py",
+   "source": "tools/design/detector/tests/test_static_approx.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/design/handoff.py",
+   "label": "handoff.py",
+   "source": "tools/design/handoff.py"
   },
   {
    "class": "tool",
@@ -2265,6 +2878,24 @@
    "id": "tool:tools/map/usage_map.py",
    "label": "usage_map.py",
    "source": "tools/map/usage_map.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/protect/self_check.py",
+   "label": "self_check.py",
+   "source": "tools/protect/self_check.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/research/custody.py",
+   "label": "custody.py",
+   "source": "tools/research/custody.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/research/sizing.py",
+   "label": "sizing.py",
+   "source": "tools/research/sizing.py"
   },
   {
    "class": "tool",

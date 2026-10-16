@@ -1,0 +1,58 @@
+{
+ "_why": "design programme rules (commons since reconcile-01, DEC-core-0011). One owner per rule; studio's station rows point here.",
+ "rules": [
+  {
+   "id": "R-design-detector",
+   "headline": "A design is measured by the kit's own detector (tools/design/detector, 59 rules, no network, no telemetry), never by eye alone and never by running impeccable's engine",
+   "owner": "tools/design/detector/detect.py",
+   "pointers": [
+    "tools/design/detector/PORT_MAP.md",
+    ".claude/skills/design-review/SKILL.md"
+   ],
+   "enforcement": {
+    "kind": "check",
+    "ref": "design_detector",
+    "by": "design_detector"
+   },
+   "earned_by": "studio-v2 (R-studio-detector, DEC-studio-0004): the port reached 59/59 rules and 209/209 fixture set parity; reconcile-01 promoted it",
+   "rung": "hard",
+   "since": "DEC-core-0011",
+   "upstream": "N/A"
+  },
+  {
+   "id": "R-design-roll",
+   "headline": "Design directions come from the local catalog; impeccable.style's roll is asked only opted out (X-Impeccable-Telemetry: off, random key, no project data) and never pings a choice unless station.json impeccable_roll.telemetry is true",
+   "owner": "tools/design/design_catalog.py",
+   "pointers": [
+    "registry/telemetry.json"
+   ],
+   "enforcement": {
+    "kind": "check",
+    "ref": "design_catalog",
+    "by": "design_catalog"
+   },
+   "earned_by": "studio-v2 (R-studio-roll, DEC-studio-0005)",
+   "rung": "hard",
+   "since": "DEC-core-0011",
+   "upstream": "N/A"
+  },
+  {
+   "id": "R-design-handoff",
+   "headline": "A design handoff has one format and design tokens one schema and one flattening rule (tools/design/handoff.py); no station keeps its own copy",
+   "owner": "tools/design/handoff.py",
+   "pointers": [
+    "commons/packs/design/HANDOFF.md",
+    "commons/schema/design_tokens.schema.json"
+   ],
+   "enforcement": {
+    "kind": "check",
+    "ref": "design_handoff",
+    "by": "design_handoff"
+   },
+   "earned_by": "venture-v2 proposal 3, client-bi-v2 design tokens (duplicate token_leaves forks)",
+   "rung": "hard",
+   "since": "DEC-core-0011",
+   "upstream": "N/A"
+  }
+ ]
+}

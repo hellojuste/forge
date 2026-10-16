@@ -1,0 +1,36 @@
+{
+ "_why": "router rows contributed by the design programme (commons since reconcile-01, DEC-core-0011): the shared design-review capability in every station. Studio's station rows (detector, website, variants) still win inside studio by its own fragment.",
+ "intents": [
+  {
+   "name": "design-review",
+   "description": "measure a page, dashboard, MVP or CV/portfolio build with the kit's design detector, contrast and handoff lint",
+   "contributed_by": "kit",
+   "router": {
+    "keywords": [
+     "detector"
+    ],
+    "phrases": [
+     "design review",
+     "review the design",
+     "run the detector",
+     "design detector",
+     "contrast check",
+     "check contrast",
+     "design tokens",
+     "handoff package",
+     "design handoff"
+    ],
+    "path_patterns": [
+     "tools/design/"
+    ],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "design-review",
+     "args": "the build path (file or dir) and its DESIGN.md / tokens.json if any",
+     "inline_gather": "python3 tools/design/detector/detect.py --list-rules"
+    }
+   }
+  }
+ ]
+}

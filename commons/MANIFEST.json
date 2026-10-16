@@ -50,8 +50,17 @@
   ".claude/skills/closeout/SKILL.md": {
    "sha256": "6e407a97656fa598da739fb9c0c259536211d015e9356bdf1055f298333bc083"
   },
+  ".claude/skills/design-review/SKILL.md": {
+   "sha256": "7248c054d6aa31b3debfdcce0cd542b295d6259cfd0e7f18a720e115d1ccde1c"
+  },
   ".claude/skills/handoff/SKILL.md": {
    "sha256": "e724c4df5289a035e6c01a707c3c1cd422123178ff6a46195e6dcddc2ecb55bb"
+  },
+  ".claude/skills/market-scan/SKILL.md": {
+   "sha256": "99e7904a8dbcc463225655f54bba7d716d5dbeee73d4d093b4b47941a244b9c8"
+  },
+  ".claude/skills/site-protection/SKILL.md": {
+   "sha256": "3db49c7aa257a1900a2f7f12410f71d0b69025a7abdb11be0c0c722f75ee3e6e"
   },
   ".claude/skills/summon/SKILL.md": {
    "sha256": "757ecf04326f3661873dfac2ce086ce60465597445c28f33adc82ad2ea9bb23f"
@@ -128,11 +137,29 @@
   "commons/defaults.json": {
    "sha256": "7b7820d6df159cbb29cac671010ce7f586112119e5c44987a5ba2ce0b8f14ebb"
   },
+  "commons/packs/design/HANDOFF.md": {
+   "sha256": "134034acad47c257a6e809c15e7a2ce50833e69c876d65009afe7d36f43a1bfd"
+  },
   "commons/packs/design/SHEET_GRAMMAR.md": {
    "sha256": "7d31a119376181ff1095c4bd30ecfe0a875fc13bdbc52cf1d6636f45cfd77869"
   },
   "commons/packs/grade/RUBRIC.md": {
    "sha256": "b706384fdee8d4e8a0d01ba94ad055f81ae425799868a757e6a395c4e92b489a"
+  },
+  "commons/packs/protection/FAIR_DISTINCTION.md": {
+   "sha256": "c1066eed818bf1cc8a3e525e66141c3e522a560d639e66cde2f20b30e490d37f"
+  },
+  "commons/packs/protection/HARDENING_CHECKLIST.md": {
+   "sha256": "a328ac2bbcf3c7ac3d5f62d4346978cdc06d8d1ae79622a73226e7ab766dcef1"
+  },
+  "commons/packs/protection/PACK.md": {
+   "sha256": "da448937487b3bc655b5408461c23e20b4c73b592c4a71bafbbc2db2926b91e4"
+  },
+  "commons/packs/protection/PRIVACY_CHECKLIST.md": {
+   "sha256": "b9e405aa67a322fb500865758b5c2004d5aa726892accc4c2aa15ba7231d9a63"
+  },
+  "commons/packs/protection/RATE_LIMITING.md": {
+   "sha256": "d308843c21c6f5370abeeba1b7ac14af3975a3000ea9c6b6f78cb8a7ae861941"
   },
   "commons/packs/research/NEGATIVE_RESULTS.md": {
    "sha256": "e2a4f66b684fe139684230d8a72e95c1b03b6bd1a2697ac093c1137e75228b60"
@@ -152,6 +179,9 @@
   "commons/packs/trading/PREREGISTRATIONS.md": {
    "sha256": "59465c6ed81fb19478bf8e55629399b9aa45f6610006f609ecb41881cd54becf"
   },
+  "commons/schema/design_tokens.schema.json": {
+   "sha256": "ef94201f4ca3e59edddb7b1454dd21eb7fa4e70b293ffd848bb0c3a5a7968e6c"
+  },
   "commons/schema/intents.schema.json": {
    "sha256": "a75397b0acec19bed5c249eeafb580e728a7dce3e3740054794aafcf13d27642"
   },
@@ -162,7 +192,7 @@
    "sha256": "6e825a619b2809c2d3703f58d83584c55d7c5b79328ec7d6e9da2ccf72757d92"
   },
   "commons/schema/skill_routes.schema.json": {
-   "sha256": "ffa5185c3083b4e2dc4dd7e64e2c3c07836641a8924c71a9fa6d00d7ec5d362a"
+   "sha256": "e6d60545b86208ae2a0ae787bca646d99eec212adda8dfe29017dc40a26b0dd1"
   },
   "commons/schema/station.schema.json": {
    "sha256": "6500657b07634f8d680b3b1abab8d39d127264384a30fe6d690a3b968b6653a2"
@@ -190,7 +220,7 @@
    "sha256": "479965e7ad244f6f3009aece8c6586491bc44d62136e0bde991385d8eb858b6f"
   },
   "governance/DECISIONS.md": {
-   "sha256": "1c64c88017dc0d232ff24df3904e01fc7a379a067246058f14a6f1a2f970149f"
+   "sha256": "bf1ec41cc7203ec29a03c2eed0893eb542254bb9577f05babb2db5e915728786"
   },
   "governance/DEFECTS.md": {
    "sha256": "07358be17a209e3afa48f726671a0d3d81bf8532b8f30e60fc27648d667194bc"
@@ -203,7 +233,7 @@
   },
   "governance/OWNERSHIP.md": {
    "generated": true,
-   "sha256": "e79a0d5bb51b0aa3719277d61482fc46c90e9852a4ad691adcaf605bf86fb892"
+   "sha256": "dea01ba01b8684e189fab19d1c21c7be653e417fd4659f0fe0566f790d6e55dd"
   },
   "governance/RELEASES.json": {
    "sha256": "4c47df15f368fa31dfcddc94cee9bb635236151b50f216c15bea92859faa8d7c"
@@ -211,8 +241,17 @@
   "governance/checks.d/brain.json": {
    "sha256": "4912e284c1c1af2c51b0c926e0f5edee259f41eb83322ac4a0983b2c839c4a14"
   },
+  "governance/checks.d/design.json": {
+   "sha256": "66bf0e58687f0f883b0b6be04c5a51d3a8bc760eacf1fed8b1c1ba6531193d26"
+  },
   "governance/checks.d/map.json": {
    "sha256": "0fbedac6a28ec759f61102e2f42d0212f13331eac28e3752d123d29b7f10383a"
+  },
+  "governance/checks.d/protect.json": {
+   "sha256": "04e50a19a710424b5533c4b3075367c5654e766f380c4cf459e058a6c79c92f6"
+  },
+  "governance/checks.d/research.json": {
+   "sha256": "760b79ac9190721265bcf4187d2e7d0598b7be77f11841acd395f526ae10644c"
   },
   "governance/checks.d/upstream.json": {
    "sha256": "614e6a14bd12158c26e8b36c98b0e82de203007d6d844a9b1c6096f72a7e6c17"
@@ -223,8 +262,17 @@
   "governance/rules.d/brain.json": {
    "sha256": "226142b4faf61c05592e4b9f3fad1c02614fb9e16cf4b572e4ca041213faf6f2"
   },
+  "governance/rules.d/design.json": {
+   "sha256": "eeaac458b1672ebd033f9b36fa8812f4d9702ff41196f2a68e14eb9615acea6b"
+  },
   "governance/rules.d/map.json": {
    "sha256": "c0438f4fe8ce165b48da291064a7c265dca718261901126f9a88902092f93ffe"
+  },
+  "governance/rules.d/protect.json": {
+   "sha256": "8b4679776454109a2e67443a318d0748db43b746204a421bbbd31beca0b7b625"
+  },
+  "governance/rules.d/research.json": {
+   "sha256": "a2523ae1a8314491369c271da1fe6276fb9693c907d51287a08502082c8e26f7"
   },
   "governance/rules.d/upstream.json": {
    "sha256": "63516b7dff4abc96febcf55eb8d501a6c50799345416f28f98063d7785f0c1ab"
@@ -234,7 +282,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "69e2daa9787feb353e610ee77c0fb2df99acfe2e658231accead72c2e28c702d"
+   "sha256": "2110e77ccce248e02843cfd6d9008cbc35e6a53dc7348a16ba770af205c69dbc"
   },
   "map/README.md": {
    "generated": true,
@@ -250,26 +298,26 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "44023669403e60f748389577c75c135a86b6c17723b776bcdc24ae1891776de9"
+   "sha256": "b1117d68f46e4a03810f43201a592c0172f7bc5642de77899dea02826e9664d7"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
   },
   "map/catalog.json": {
-   "sha256": "56dca798424db519dffa64c31a47bbc41a99eb07bfeef6f8da59977241b55f19"
+   "sha256": "87011f70a1a1c896d5c56351d21ad0d4af5dfebade003464c713bc5abdfb7f93"
   },
   "map/dirs.json": {
    "sha256": "02d23166e74dfb54d2e8cc90cd86123012e2ebc9e460cfe8c098dc1707d1cf07"
   },
   "map/tags.json": {
-   "sha256": "b221c048d20e76cff4b244bf52d12ca6939bd56e4cc18a73b74fc0c96d748d34"
+   "sha256": "d5a1b2154b50bd1d5a0b9e028de2fb5d7d544eeebab32053491f3513127653fd"
   },
   "map/upstream.json": {
    "sha256": "854b9158bd899e51ba5a994801ee9e0fa32dbb8affb619aa10435501ca658703"
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "8a45e993f82e4c10a49120c3cfa0f4632960ca5026a31b1fbba4d8e53c8db923"
+   "sha256": "ef55234c1635b113e19848d088c80525f3f58708ecaa950a6be583bb77df34e3"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -286,10 +334,10 @@
    "sha256": "05c134793a8ba0485219f6b07ac5cc0b6020afe5d41be5c7a49f1c25cf68001c"
   },
   "registry/homes.json": {
-   "sha256": "1bc38817887ce01f46cbed6629c1dd70e9d85328c68f68a2f87f914f5374f814"
+   "sha256": "4c3db28104f38d504e697647117586ded9bfed395cfc297a33e7aece566aa117"
   },
   "registry/licences.json": {
-   "sha256": "97b0df88cbf58ed2f633318329721aa32dc08b4c2f2fa38f5c1aaca2b62a3436"
+   "sha256": "dc44edef6d269edd8695eb6120e3744702c41de7f5b3917ae1a62c48c595f8d1"
   },
   "registry/quarantine.json": {
    "sha256": "b2b6ff92af1118a93cd504baeb3d825ebab3151c895107e5adc005a7936b2e6b"
@@ -306,25 +354,34 @@
    "sha256": "8cdd920620967782059efa15c8212596804c437fe82e956c379805050f22b6ae"
   },
   "registry/sources.json": {
-   "sha256": "43fd9e92bb13bac0744c7b5989379eec8314467b1fc51a21851649351c5a4b0c"
+   "sha256": "798361d3f9820d2357699efc0ab9212bea509a7244879e144a27f61db14af928"
   },
   "registry/telemetry.json": {
-   "sha256": "0434a32d0844173c0960bbbe5a3e9dde10e1c28a77b12142951c64351a75da6c"
+   "sha256": "1cf4ce2358a20abb401d4eb964209ed15f576b1e51bd8065b7b8443bc309a204"
   },
   "router/intents.d/brain.json": {
    "sha256": "93dd315862fef677f2c571f370c65331775370a645a47bc2c762a27e7b2b4d66"
   },
+  "router/intents.d/design.json": {
+   "sha256": "20745c0fe8bfe505c25a6d59e1b8bf46628ae51be21331c3fdb243a1009bde8d"
+  },
   "router/intents.d/map.json": {
    "sha256": "77e526df7e188dfb69ca3de8826325f4b0bc19cc6aa9247f6c02c093bcfb1d95"
+  },
+  "router/intents.d/protect.json": {
+   "sha256": "6ae04499ef18a95d03da32cee863d9d6f1c9149303e2afcc1de5618930cb7312"
+  },
+  "router/intents.d/research.json": {
+   "sha256": "b3ad36743c66c2fea7f3553e97a12a93e4336bc59cde71bcb4beb4e60e6fade2"
   },
   "router/intents.d/upstream.json": {
    "sha256": "28ec200b6b4cbdb956b9520b6ae3662d6ba3ecdd23992ce22af226ea7b57e99f"
   },
   "router/intents.json": {
-   "sha256": "ac7e093cdb17ff4875f291d2ec6f1cf66446a88b75a7d199e56e1026adcb01ad"
+   "sha256": "0e7f479a7376d226259ba2c79ecbcaf36f168140c74c392f8e6988d3da693e6a"
   },
   "router/kit_tree.json": {
-   "sha256": "927803a3ce50984f65d85eaf43ca49b9c6009385fb7659ca307b012973ae0012"
+   "sha256": "84ea800dc17bbc00906f86c526b7a682a507567b5257c4f70ac3edf0f3e8be58"
   },
   "templates/STATION.md.tmpl": {
    "sha256": "b090470fe8d2283fd760a9d6114e2474631a335feab1fc2ca66a149667f03465"
@@ -341,8 +398,834 @@
   "tools/brain.py": {
    "sha256": "8747d436fc8baf098c485b456f2a0bfe3ed20ea248f174b497c321c0ddff5111"
   },
+  "tools/design/contrast.py": {
+   "sha256": "8c1b3f3d7b9742033828554a186e31cfd724dac5b33920b8c76771bab8cf13b1"
+  },
+  "tools/design/design_catalog.json": {
+   "sha256": "119d82447b0dd9a22121fd9487b7a2fa7ceca2bed45e8d4176817b662804e93e"
+  },
+  "tools/design/design_catalog.py": {
+   "sha256": "698557e2c43b2671a05a2e72ef14f3e12112e12340763fc6456ca50a46cd53e0"
+  },
+  "tools/design/detector/NOTICE.md": {
+   "sha256": "e956171954c117bf240ae432ec968535d751db4d2d57d216f14d2b42a474cdbd"
+  },
+  "tools/design/detector/PORT_MAP.md": {
+   "generated": true,
+   "sha256": "5995c6a06eddf39e0753411d37dccf380a81314645d7d3a968f3f0374b2764cd"
+  },
+  "tools/design/detector/__init__.py": {
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tools/design/detector/color.py": {
+   "sha256": "bb55e5cf30200b93b571d2dfa625614d1e7f17e86d5d09e425669fdaa875d5d4"
+  },
+  "tools/design/detector/css.py": {
+   "sha256": "cd634c43e61477d6ad9406c7ab2bff62971b83eddca1ccc5bd879d2dd5968664"
+  },
+  "tools/design/detector/design_md.py": {
+   "sha256": "7d5952601b85527eec657107bb8c534c7a359cb1aa660bb2d215001eae0f0eec"
+  },
+  "tools/design/detector/detect.py": {
+   "sha256": "4ea943ba7cda9f820f8f0b7bb7076f58ac4ee53481df3ea55e2afae6e1378155"
+  },
+  "tools/design/detector/dom.py": {
+   "sha256": "4307441c6af0ca70306997b1ac369677cfaea1117623029e66453501aa094604"
+  },
+  "tools/design/detector/engine.py": {
+   "sha256": "d3673083f1005f39bf2a0b373be107737d8ddcd4477d6294996da626b2b5c03f"
+  },
+  "tools/design/detector/ignores.py": {
+   "sha256": "f783157217e61c4bdfa5ba7bcbfd9e4aae847fdb6f2be83c45c5b43a4b5ef319"
+  },
+  "tools/design/detector/port_map.py": {
+   "sha256": "c1589cf5b8f27d11924c8fe6f1347d59c4b69258ba1d76ad89127dfd3d7336a3"
+  },
+  "tools/design/detector/regex_engine.py": {
+   "sha256": "ddf26198b40d7c5310cc67a6b28832ed514a11e00be06fe62f8d07a26295d979"
+  },
+  "tools/design/detector/registry.json": {
+   "sha256": "a44ec33b4a007b20a5c8d3b1d0141b44957aca1d4237ec25470df0223e073493"
+  },
+  "tools/design/detector/registry.py": {
+   "sha256": "60168f63b028092dbdcca639311435977d2ae876dded7641c40c67741cf1ffb3"
+  },
+  "tools/design/detector/rendered.py": {
+   "sha256": "614f1943da252b2bf9d5c3575ee69e9f8c36b89af38645149b38a8126e48371f"
+  },
+  "tools/design/detector/rules_color.py": {
+   "sha256": "bb556154cb73e9e0f31f52d8f8421484cef3a44fe4df5db6e513641a3e0b8542"
+  },
+  "tools/design/detector/rules_layout.py": {
+   "sha256": "af0cae3d032dbbeb612a622322184448210b6188ffeec27b225082b1537289c2"
+  },
+  "tools/design/detector/rules_motion_copy.py": {
+   "sha256": "4388f3a1514f153d216888bb6a1b490396551048d9861bdc1deccad9ba7ae187"
+  },
+  "tools/design/detector/rules_type.py": {
+   "sha256": "4530e96a0b093324a2cca54aaca663ee73a5707e6a845bc4c48ed4cc96228c7d"
+  },
+  "tools/design/detector/score.py": {
+   "sha256": "73631cf59811e098c63cb92d41201ee4a10e51e1e56d132edcb4f62f61f2edd1"
+  },
+  "tools/design/detector/tailwind.py": {
+   "sha256": "fff2f0125f92dcde6936d9ebca47e9413bb2748e3fc17bedf6920688e46a5cff"
+  },
+  "tools/design/detector/tests/__init__.py": {
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tools/design/detector/tests/parity.py": {
+   "sha256": "381300e36ec0d8bc83635e23afb88be595655b6728ed9ffba72c926dc366c787"
+  },
+  "tools/design/detector/tests/test_css_lengths.py": {
+   "sha256": "9637bab625e67ec72a9f904cd9d6922e5cf912902020a947c04a310211c8c84e"
+  },
+  "tools/design/detector/tests/test_fragments.py": {
+   "sha256": "a3a149559c61b2a411f379a5d194e32a06f1e5b3011eb5b28d571f06babc7fc4"
+  },
+  "tools/design/detector/tests/test_regex_engine.py": {
+   "sha256": "eb01665896e1c12abd57565aa9e2d4aa97bc9ab356a21237d48e217e4a44cd38"
+  },
+  "tools/design/detector/tests/test_rendered.py": {
+   "sha256": "9dffe545ab36e55d7451dbb9f00bcadcfb2474f28655b6ed0d5c726dfed487ff"
+  },
+  "tools/design/detector/tests/test_rules_color.py": {
+   "sha256": "cbe08c0acd7e88ae77b80ce2719d1f1ee8e4c9d76fc11f56afc1d92c80af53b0"
+  },
+  "tools/design/detector/tests/test_rules_layout.py": {
+   "sha256": "a08533c7497b090e6ef46ad19b97edc44fba944793ea7a182659070ad1d2e488"
+  },
+  "tools/design/detector/tests/test_rules_motion_copy.py": {
+   "sha256": "0b372c522d38cd571a789db0e5b061242b9133de6af304511094ca8f488e047f"
+  },
+  "tools/design/detector/tests/test_rules_type.py": {
+   "sha256": "bb8f159f8eda576da6fc30092460618a5c552d3ff4b763f3acd1dc299783baea"
+  },
+  "tools/design/detector/tests/test_static_approx.py": {
+   "sha256": "e7d4d89a72d79bccd59dc99c2e994b79eac0cb6a8ba2a010b31fe07ab4f620d7"
+  },
+  "tools/design/detector/tests/upstream/LICENSE": {
+   "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812"
+  },
+  "tools/design/detector/tests/upstream/expected.json": {
+   "sha256": "c5c2ecd0e266f5c6b6457ad15283f181d30a2b9d8375deb7ba55539ba870db5b"
+  },
+  "tools/design/detector/tests/upstream/fixtures/ai-color-palette-brand-hue-headings-only.html": {
+   "sha256": "bc4a6427c18ed5959016a558a86eea20effe3e844bb5b4c7fd8319b69a8ecd04"
+  },
+  "tools/design/detector/tests/upstream/fixtures/ai-color-palette-brand-hue.html": {
+   "sha256": "7c802df4928b8feb51ebae6b102b65d7dfd55b33e0c72f92ab3ab37825f94e80"
+  },
+  "tools/design/detector/tests/upstream/fixtures/ai-color-palette-category-colours.html": {
+   "sha256": "fd0f7c42aad114c79267a2b4e438fd88dcf130dff466cfeef6c089c0ec495171"
+  },
+  "tools/design/detector/tests/upstream/fixtures/ai-color-palette.html": {
+   "sha256": "c5e228bd7b4584658fbfec0a6530321fdb275eae96ed8cfa25079b4dda47e7b4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/all-caps-body.html": {
+   "sha256": "11c7c8126da246b42d589aec3fb5abf307301d2e594cb32cd82f03052248505b"
+  },
+  "tools/design/detector/tests/upstream/fixtures/astro-inset-shadow-stripe.astro": {
+   "sha256": "6e54790539037b1ad1ce11e87dc87bf22c614cf22f2d41e9233adce422811850"
+  },
+  "tools/design/detector/tests/upstream/fixtures/blinking-cursor.html": {
+   "sha256": "300e74012c87f9d63c8fa8c5a06468a562505a50a87507361ab678fb9472c68d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/body-text-viewport-edge-display.html": {
+   "sha256": "c752d4b83c2a571a6ae6d7a0beceda5f50d4b4fcfa847998102fe21d676ea92e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/body-text-viewport-edge-phone.html": {
+   "sha256": "49e6f3ff10e4170856e3b84fc1582b007696bbdb24d97d1f3b8466b54e205d2a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/body-text-viewport-edge-truncated.html": {
+   "sha256": "eefaf0a795c529eb491f63b9d8702c8dde434ab5ecc363378ad8ab92ebed9177"
+  },
+  "tools/design/detector/tests/upstream/fixtures/body-text-viewport-edge.html": {
+   "sha256": "7548217d64fd23d520abd2a810dd2066836a7916f53925b056eb2c7dea6d14f4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/border-baseline.html": {
+   "sha256": "303545976ac5467813ffacdd8059966c695dd08630e27e2e53185f8980849f9f"
+  },
+  "tools/design/detector/tests/upstream/fixtures/bounce-easing-pulse.html": {
+   "sha256": "0d58a894979402a70a9ac3a8d48d01a0e09cc5288a5b515b55b9847044b9accb"
+  },
+  "tools/design/detector/tests/upstream/fixtures/buried-raster.html": {
+   "sha256": "8a92ec682e5b667846f4a3a7e08aa1881b9bbd04cb28e83333a3eddba23cb6b3"
+  },
+  "tools/design/detector/tests/upstream/fixtures/clipped-overflow-container.html": {
+   "sha256": "1a7b365e0de17db6d2468813cab63a86b4ad5ba53f1cd5498ecca7926a0fd11d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/clipped-overflow-painted-box.html": {
+   "sha256": "8320d47cb7dc50eabbf9ae49725ab2e2fb7b06c799ef9e66ad55b016a63d286c"
+  },
+  "tools/design/detector/tests/upstream/fixtures/codex-grid-1d-pass.html": {
+   "sha256": "1e6b8872172da04c8e6157fbe07d47cfa32cf1d226a0ee35c378e75edf4cc9f6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/color.html": {
+   "sha256": "66c564871b6639d888686ad322c086c426a6d9924b101ad1ce208314958c3110"
+  },
+  "tools/design/detector/tests/upstream/fixtures/computed-forms.html": {
+   "sha256": "85b30c9ef5f9bc26b2533133f7a3f5e51d7a1f1e20e7aa3a480fd3e624210652"
+  },
+  "tools/design/detector/tests/upstream/fixtures/content-hidden-at-rest.html": {
+   "sha256": "684df984d9cf4e539afd4d3ae4108950e396f445b02a52e208a129be58c612b4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/content-hidden-closed-interface.html": {
+   "sha256": "0e53cbafca22c8cc85615398f10d4e0f354599d6949756f71488eec19d7f3058"
+  },
+  "tools/design/detector/tests/upstream/fixtures/content-hidden-scroll-linked.html": {
+   "sha256": "5c7b6b396c33106a720fdbf5c64eb937305563e2bd51ff780270dbeb0e237e06"
+  },
+  "tools/design/detector/tests/upstream/fixtures/content-hidden-unstarted-slider.html": {
+   "sha256": "bfb9e71db837758a3140be889e372163620b814e730d47e79ebfe4eb583c3a41"
+  },
+  "tools/design/detector/tests/upstream/fixtures/covered-text-contrast.html": {
+   "sha256": "13c574ada4cd617bc2c23dfec2bccc6275a14b266d38f3b59eee8d1890dd52ea"
+  },
+  "tools/design/detector/tests/upstream/fixtures/cramped-padding-edges.html": {
+   "sha256": "d0837b51555dbe4bd385b1ec8b7518d63afe660421f9b40ee8204a45d73a2583"
+  },
+  "tools/design/detector/tests/upstream/fixtures/cramped-padding-measured.html": {
+   "sha256": "8c4758848f9c88ff4af618d432cde8ecaf572f221c21499799e7a0d99b460848"
+  },
+  "tools/design/detector/tests/upstream/fixtures/cramped-padding.html": {
+   "sha256": "539a057f1fdc27e5ca04d97ce9d70cd280f916feefeb79101de1835581f03658"
+  },
+  "tools/design/detector/tests/upstream/fixtures/cream-palette-tailwind.html": {
+   "sha256": "493f080eac2841e7d75f8f9aabbc30cdde6d70333e84886a50c840d126652255"
+  },
+  "tools/design/detector/tests/upstream/fixtures/cream-palette.html": {
+   "sha256": "d8f233f3404f38d1fcc4fa76e020b471b1c8856c1caff2ec63484875a76bf703"
+  },
+  "tools/design/detector/tests/upstream/fixtures/css-in-prose-should-flag.html": {
+   "sha256": "f1544a42fa1a0dc7e4a6da8278f95dfab67ef2039048631eb4a40160b7259f41"
+  },
+  "tools/design/detector/tests/upstream/fixtures/css-in-prose-should-pass.html": {
+   "sha256": "7e2dcaa159604f0854932f3d53824a0578191d18cf0dd59e7ee22772adf8358d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/cssinjs-should-flag.tsx": {
+   "sha256": "ce1e93b5932b50c3b7ff336143e2b3a7f9738189e63da3d239a3d500e5cc171a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/cssinjs-should-pass.tsx": {
+   "sha256": "a98e3f9d4ef8125c99becf8552f48869865c74f88fc1fc322a10007eeb02b3c4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/dark-gradient-ground.html": {
+   "sha256": "ac75aecc8378e77524790b0b00730d79d40de4f105d7b365c89a80f04aeac9c0"
+  },
+  "tools/design/detector/tests/upstream/fixtures/dark-theme-modern-color.html": {
+   "sha256": "b33bcd719080200ad50e2da6eb86eaf8b4aa8b86d6c54f99608ed7ce2d7af60b"
+  },
+  "tools/design/detector/tests/upstream/fixtures/design-system.html": {
+   "sha256": "b16b785cf35466e0b35d129ea83e3725d25dc120cf90185637f0cfe38f168704"
+  },
+  "tools/design/detector/tests/upstream/fixtures/edge-flush-cards-table.html": {
+   "sha256": "366d6da418d703e53c70f23f4c23834c27d0a9bea56d3e760f5a468107941a6d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/edge-flush-cards.html": {
+   "sha256": "1e7ff7648f5d193549d26cf7db9ade5588316f602dedd47a93687b3dd6afa175"
+  },
+  "tools/design/detector/tests/upstream/fixtures/em-dash-entities.html": {
+   "sha256": "f49a7c76db65d4afa02d0cc497d6741e8b2955442f9e4dc732fc57f72e27daee"
+  },
+  "tools/design/detector/tests/upstream/fixtures/em-dash-hyphen-rules.html": {
+   "sha256": "ddddb344e1b0854488e324a6cd2915c98f32cf5020c84c6097140f10e9b87ed5"
+  },
+  "tools/design/detector/tests/upstream/fixtures/em-dash-pricing-matrix.html": {
+   "sha256": "ccbc0746426451a0f899f737837a17bcaeae19840afaae602b1619dc6b07f9e3"
+  },
+  "tools/design/detector/tests/upstream/fixtures/em-dash-prose-with-matrix.html": {
+   "sha256": "78591e42e8eadb1ce04f22a85c8d3241e5b04a996c4da56d78703fb592eec2f3"
+  },
+  "tools/design/detector/tests/upstream/fixtures/evidence-after-scan.html": {
+   "sha256": "7cecb42aa750d9cc714b93bde69701c75dd3537edb4d374ef89a2d8ccb6eeec4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/evidence-duplicate-id.html": {
+   "sha256": "d3b0f3cc50a9ef82b643127feff11329d5c2172381972594ac2045caceb2bcb0"
+  },
+  "tools/design/detector/tests/upstream/fixtures/external-styles.css": {
+   "sha256": "872ec82a83b08edc22495c8b56ed3953173b5dfd160e3770a3fa90ce1f2934a1"
+  },
+  "tools/design/detector/tests/upstream/fixtures/extreme-negative-tracking.html": {
+   "sha256": "b2dfcad820221dbf218bd4e31fd3161c6b70832680c59dbf29c6509f2a18b451"
+  },
+  "tools/design/detector/tests/upstream/fixtures/eyebrow-hand-off.html": {
+   "sha256": "99951abc4767498169935d444d3eed97b37c8bff801db63a141d1fffce50e2bd"
+  },
+  "tools/design/detector/tests/upstream/fixtures/fine-print.html": {
+   "sha256": "3d7523857338e573884493cd8321026d272d68fd377c9e44992a2af0854e2569"
+  },
+  "tools/design/detector/tests/upstream/fixtures/first-viewport-column-overflow-clipped.html": {
+   "sha256": "0c02c6c6b756f9f5c609be7c7b82a2e53459d9bb72cdbac298e49546cb27d729"
+  },
+  "tools/design/detector/tests/upstream/fixtures/first-viewport-column-overflow-menu.html": {
+   "sha256": "1fc608296d31637edf4e8ecf1cde8030ca6218461a624f9b29a9585846e59a1e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/first-viewport-column-overflow-outline.html": {
+   "sha256": "54a63c1e4543a9995cc3dcda24b40cc9f871905556d5302532196dc43722f7c4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/first-viewport-column-overflow-stacked.html": {
+   "sha256": "5ba782d954ad2d5d42d126cfac293cd61294efdc537831f428cc4aabbe4fcef2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/first-viewport-column-overflow-tabs.html": {
+   "sha256": "030c617dc023149d60d12a3795d7cde67ffc3927092ce4b9dd158cacf2772de2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/first-viewport-column-overflow.html": {
+   "sha256": "285ee614c4066c0b8dc07818e2bcd3de29c58e6c75a07d809a2b0047defb2284"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy-dropped-flat.html": {
+   "sha256": "a7a8230da3110e6f0c349b76273d87c0ee9bcfafede0fe42c00bad72799f486d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy-dropped-role.html": {
+   "sha256": "c3df294b1d45b63f069c4c77c4f297e697488e716c321108ee892dded6a2045a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy-h1-label.html": {
+   "sha256": "60907eaff8f0542dbb7fd85cca9cc4c5c4ec6473daaa9d31605ad54260e525d2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy-h1-tie.html": {
+   "sha256": "1dcf67dc6b6e03d42be3a2842472831363d5d350fcab8cc06186597296476f1e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy-near-tie.html": {
+   "sha256": "3f1712bb398e4adba4252533b022595fd9a62a5ec5bc434720b858487bed3e26"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy-weight-flat.html": {
+   "sha256": "6a2bdfa500e93293be249b7bbf22790a56f0f23ee0aa81b01312092e14c6f5d9"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy-weight.html": {
+   "sha256": "6956500f5270358ea9ff61c8d979ff86433093c8a21ba7caf727c4a549c8626c"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flat-type-hierarchy.html": {
+   "sha256": "8374d804f1c097ad6da25862cd156b896d312562e297450deee9de921add9e66"
+  },
+  "tools/design/detector/tests/upstream/fixtures/flush-against-border.html": {
+   "sha256": "29a5dddc8a8da1a2e0b7b7f22abe9496d07c89683f33e15929e7efe488365bda"
+  },
+  "tools/design/detector/tests/upstream/fixtures/footnote-markers.html": {
+   "sha256": "19dad50c2e0e305de45f49a304534e59b42370f9d75487746c0e2257358ae1f6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-cssinjs/components/FeatureGrid.tsx": {
+   "sha256": "6a5357c22425d59820ab3b509a8a8369d28a543a7de8d2f1bf31fdea29cf99c2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-cssinjs/components/GlobalStyle.tsx": {
+   "sha256": "673277a1a0602aca552c030481a9131bb689e34551ed00e8652dcf060d2093e0"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-cssinjs/components/Hero.tsx": {
+   "sha256": "947a535b9ecae031f39d1c6851292ec2c9d43a904b4214254247f253dc8187f2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-cssinjs/components/Testimonials.tsx": {
+   "sha256": "1e36a3ec25109c191ab47c5b445ce8ccc1bb2108314edf5cf86ca58d77cd5ab6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-cssinjs/next.config.js": {
+   "sha256": "9f5c80580f9133c22dcca13166700474d60f89cc192c8aa40b91d4878c618321"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-cssinjs/pages/_app.tsx": {
+   "sha256": "089f17c93e45d22834ab177ae64222a626d6fcc11b6c3567396f5c24020899aa"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-cssinjs/pages/index.tsx": {
+   "sha256": "42325c28d31325be96f751f38fd711acf3f6fd3aa517d47b9ddfa4de15a3b8ea"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/app/globals.css": {
+   "sha256": "504a879de78ab02673be3543907a2f6f6488c1788f016eeb3e98aab185d7ab68"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/app/layout.tsx": {
+   "sha256": "66f6deb37845937cf938c6831c3cee3b6d15614262ddfd9fbdc217e5376be6cb"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/app/page.module.css": {
+   "sha256": "e7291180c3f225610f19242b10eac2e94b11b484877970c675ed3eb2ff01a22c"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/app/page.tsx": {
+   "sha256": "3f639ec781d5c051217a7e70fd0032363a63aaed85755f9088f7bf4bca0ab01e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/components/Sidebar.module.css": {
+   "sha256": "0fb48c44ee2dc54063b9e0fd7392810fc9e3f7f005dfae46734df71bf261c450"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/components/Sidebar.tsx": {
+   "sha256": "72cdb28750e7ebfb3a4cc78d071bf940b4f768e2dcd33488d061584825e2e681"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/components/StatsCard.module.css": {
+   "sha256": "b8c92da874cc3ecb7263d366b011bce174a1bea2fb0356b32c492a5051e1600a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/components/StatsCard.tsx": {
+   "sha256": "4a3444fbfdafdffbb4647101f3a1c28f6ada337d504a5c82811bb370df56a480"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-modules/next.config.mjs": {
+   "sha256": "1e3206cb200e264fdddb4dbb2e4772daebc839fdbc94b78316d74892a0de6fa2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-tailwind/app/globals.css": {
+   "sha256": "d23c86ce8b7aa4a60166de86c17cd994d2eaf503f280525a33046ac2a3456144"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-tailwind/app/layout.tsx": {
+   "sha256": "c01af76b3fff0fc2a0485a8e593f5a5f93fb4c070bb202269bf6cfaead43673d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-tailwind/app/page.tsx": {
+   "sha256": "946949eb6246d245d575ec0c85b76c3f250a812f7d4a2173b1c9f99d3385936e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-tailwind/components/FeatureCard.tsx": {
+   "sha256": "2db60738295a5c41611ed74486d0dda617c284444986364534773473f9d36fbf"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-tailwind/components/PricingCard.tsx": {
+   "sha256": "270ea41b52d43b667ae4be404f44c21ad10733752d243f639bb7b0e1d424895d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-tailwind/next.config.mjs": {
+   "sha256": "1e3206cb200e264fdddb4dbb2e4772daebc839fdbc94b78316d74892a0de6fa2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-next-tailwind/tailwind.config.ts": {
+   "sha256": "ff9126203edbe510cf53e455cbf66149596ecac259ed5311e06817c6191a6681"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-vite/main.tsx": {
+   "sha256": "f19ee0201ec30e788d935d3a7dfb9fbbee1dcc711b121fb1ed8c8ab1e93bef77"
+  },
+  "tools/design/detector/tests/upstream/fixtures/framework-vite/vite.config.ts": {
+   "sha256": "aa28a683ea09b1c5a7d826fcc755f0a9c1163fdddf86ec37eb5c061f984163c7"
+  },
+  "tools/design/detector/tests/upstream/fixtures/fullpage-screenshot-frame.html": {
+   "sha256": "da6f220cc986939890971479e485a3bd540a0d10c0fcb105c2e4bdfda4e6f5ea"
+  },
+  "tools/design/detector/tests/upstream/fixtures/fullpage-screenshot-rtl.html": {
+   "sha256": "6f5414159009145d760a97c559b7f2b95152041af853caffc395ae6bac167198"
+  },
+  "tools/design/detector/tests/upstream/fixtures/fullpage-screenshot-scroller.html": {
+   "sha256": "1f828806c4b8b3349db20a95d07df3be703ebb0da83ab4f2b218e2051eaa08b2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/fullpage-screenshot-virtual.html": {
+   "sha256": "944bcc010905a6e655b7ef976467263201016dbb1b0064b15e800851ecf1c775"
+  },
+  "tools/design/detector/tests/upstream/fixtures/fullpage-screenshot.html": {
+   "sha256": "6f66f2fafaed6480cde4d2e1cd52aa31220892a9e778608f68747e2c7c72eaa2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/glow.html": {
+   "sha256": "46d400da4fee9dd4789ee03a5197f98600b7c43c01508c1bf98ea1e5cb63f424"
+  },
+  "tools/design/detector/tests/upstream/fixtures/gpt-tells.html": {
+   "sha256": "52b8a9d67b602e4f8cc1461248485b3174c9772fc500a2efea05203abc00ac27"
+  },
+  "tools/design/detector/tests/upstream/fixtures/gpt-thin-border-wide-shadow.html": {
+   "sha256": "63799ffaaa6782ad9b7190b69206802d5e88acc1f114daf741f592311c87ba49"
+  },
+  "tools/design/detector/tests/upstream/fixtures/gradient-surface-contrast.html": {
+   "sha256": "45ee504d2eb1efaada4057c72c10084345d8ce7690ae43ba7e33f4548b72ce36"
+  },
+  "tools/design/detector/tests/upstream/fixtures/gradient-text-one-colour.html": {
+   "sha256": "504137487c75130de9555bdf35210b9974d42b93fa09cd1374a2d158c82f1e73"
+  },
+  "tools/design/detector/tests/upstream/fixtures/gray-on-color.html": {
+   "sha256": "045a6c8425d719a5ebfbc440d3f61cfd6f9b20608738f9d20f88a845de660b10"
+  },
+  "tools/design/detector/tests/upstream/fixtures/heading-rhythm-spacers.html": {
+   "sha256": "06b42a38b02f570484080ed19b2a9dbcbbf8cd0b85b38694663c71e77f3ea6e9"
+  },
+  "tools/design/detector/tests/upstream/fixtures/heading-rhythm.html": {
+   "sha256": "3d1e08002cf5fcf247ff8f6cc41e4f72520176f1e49b4d99efed39e11fc0d786"
+  },
+  "tools/design/detector/tests/upstream/fixtures/hero-eyebrow-chip.html": {
+   "sha256": "25c7d23e41e5bc8c815a0725ccc68e5da11b21b90d95de98a4a0d8323433b9d8"
+  },
+  "tools/design/detector/tests/upstream/fixtures/hook-inline-ignore.html": {
+   "sha256": "85715f902e62cbee63da38dcfa4b9161a2b6d84d83ea1b682586df9954578652"
+  },
+  "tools/design/detector/tests/upstream/fixtures/icon-tile-card-title.html": {
+   "sha256": "7ed0f3a988a8389a398c40894d4e1ea3b6991bb371d504ca9a8f350ac30bb011"
+  },
+  "tools/design/detector/tests/upstream/fixtures/icon-tile-stack.html": {
+   "sha256": "cf7a7398e9953f980ff20c87b5613400f22a140f626f2af2bd21726103ae93b2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/image-backed-contrast.html": {
+   "sha256": "e168a7b4600f690fd0a311e7fbb83100781d2520cd9d116bbc58f12142e2d5de"
+  },
+  "tools/design/detector/tests/upstream/fixtures/italic-serif-display.html": {
+   "sha256": "09fc083d4729deafd5a90fe674cd7c9fa0e235f86b21295fff48686404aeceac"
+  },
+  "tools/design/detector/tests/upstream/fixtures/jsx-should-flag.jsx": {
+   "sha256": "a8c3d58c52ec44f3bce270657099f34e03bc6fc5e1132b5a51928615d285d66d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/jsx-should-pass.jsx": {
+   "sha256": "b5320c9216e4f54e85f922f6151c7c5154bfe73b4dba4cd4bbe97f12070b239f"
+  },
+  "tools/design/detector/tests/upstream/fixtures/justified-text.html": {
+   "sha256": "546f3f354e0e87302a11dab44a4cc22f265633a40eae90dffba12b6a5e2bb2c4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/kicker-above-heading.html": {
+   "sha256": "a40c57ea65b8d407d49f32e1a7d27c12bd5ec5e10b3c258e8d3f4a456d401626"
+  },
+  "tools/design/detector/tests/upstream/fixtures/label-collectors.html": {
+   "sha256": "109ae65c6cbf1b7477c070a5657a27554c2b41638089e7adc9fc1499f98ae958"
+  },
+  "tools/design/detector/tests/upstream/fixtures/layout.html": {
+   "sha256": "e9429af1abd69983b6ea14293912080744fd45e43dd9dcd6b74c620c50528a95"
+  },
+  "tools/design/detector/tests/upstream/fixtures/legitimate-borders.html": {
+   "sha256": "e6a7d18382c07cce24f5a0b89d81178bb0f62d26d1418ca8896040793327c24d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/line-length-text-count.html": {
+   "sha256": "08ed81c8b5c7a4611c88e5935a9eca5ba09053e34424e2cde3d2d4b912551b7e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/line-length.html": {
+   "sha256": "63dbccc37cdda08b21fd2f9a58951b8bd5c5016e9991dfd988803a33d49d55df"
+  },
+  "tools/design/detector/tests/upstream/fixtures/link-text-contrast.html": {
+   "sha256": "413641ecbc01e2ceac876801e0ab39767ad0f23c1f58daf921563ec7dc193945"
+  },
+  "tools/design/detector/tests/upstream/fixtures/linked-stylesheet.html": {
+   "sha256": "b79e90b630fc873002eb57cbe4c5f92dfb0a9f80f022b97d687e8a788ba850ba"
+  },
+  "tools/design/detector/tests/upstream/fixtures/linked-url-patterns.css": {
+   "sha256": "3a029af1a2fce00b1fb5c68eb386229d6389559b0a4cc7f0fd6d0cd762b468a9"
+  },
+  "tools/design/detector/tests/upstream/fixtures/linked-url-patterns.html": {
+   "sha256": "5b329a64206778c3dcc26eca6886932e82c2f0ea59602fda50b5f5ad8a5b95ea"
+  },
+  "tools/design/detector/tests/upstream/fixtures/low-contrast-decorative.html": {
+   "sha256": "9df277497f8cbb84f37d2d0f78e1dc8010ed833258e07eb04a66579f686e5ebb"
+  },
+  "tools/design/detector/tests/upstream/fixtures/low-contrast-disabled-control.html": {
+   "sha256": "acade28f4589b80b738b574ebf5e70802d54088030d658d8fa084af2d459bb26"
+  },
+  "tools/design/detector/tests/upstream/fixtures/low-contrast-heavy-faces.html": {
+   "sha256": "f1e2fa6dd9d50c16ae5aa94ec351f1ddd30d1702206362b4ee3343c127b86482"
+  },
+  "tools/design/detector/tests/upstream/fixtures/low-contrast-labelled-placeholders.html": {
+   "sha256": "69e3ab42225dc4694cc52ad5be9b3eb16f96eab993b00fd5e453f18c4891192a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/low-contrast-near-bar.html": {
+   "sha256": "f2bf084677edc83933244969a05d4e50ea916334e2defc8dc852afa40add7ea3"
+  },
+  "tools/design/detector/tests/upstream/fixtures/low-contrast-near-threshold.html": {
+   "sha256": "0184e2cb9dcf5bc8da53cd614c8134cf1111ca51cdd986583afcf9e8574613e6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/low-contrast-unread-pixels.html": {
+   "sha256": "37712ba2fa98166e949e2500d6c25d6edb8a366bfe5cb0c384302cc3ad8a2b65"
+  },
+  "tools/design/detector/tests/upstream/fixtures/marquee-ornament.html": {
+   "sha256": "d65791cfe0047f00b2c723eafdc712a422618093c143ea64f794b5450e2a92bd"
+  },
+  "tools/design/detector/tests/upstream/fixtures/mockup-structure.html": {
+   "sha256": "a4dc76ef3ae6c0ce1c572385a89314f3025778967a42ba264c7611ab0f1416b0"
+  },
+  "tools/design/detector/tests/upstream/fixtures/modern-color-borders.html": {
+   "sha256": "6ac50cd24c9d4a3379b3704c3062db1a2dccdfbb1b4b9b9ba85a3b7dc9c705ba"
+  },
+  "tools/design/detector/tests/upstream/fixtures/motion.html": {
+   "sha256": "c336bbfe1e3d38851c5a4cca1fc66e40fc6bc5ee7abefd3eb6dfc9a98bac49fa"
+  },
+  "tools/design/detector/tests/upstream/fixtures/multifile/App.tsx": {
+   "sha256": "bdd6ff0f72930397328863ef4301ea1f40a6b0121ceb353a2dbe8d0abf76d1a8"
+  },
+  "tools/design/detector/tests/upstream/fixtures/multifile/Card.tsx": {
+   "sha256": "61904b0a3bcf196f766be26ba95c4f496aa7296d629f76e9d80a11b6b6b99adc"
+  },
+  "tools/design/detector/tests/upstream/fixtures/multifile/styles.css": {
+   "sha256": "c77b0c9d6a23539e180b950ec54a931f3602fa07097ceb001e63481075ccc15f"
+  },
+  "tools/design/detector/tests/upstream/fixtures/multifile/theme.sass": {
+   "sha256": "e2f9c6c7b326943f1b5cfc36456a9d80f480e1935050eadd7c2bd9829e85305a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/multifile/theme.scss": {
+   "sha256": "3b7f976d302e4491f0a78eb2ed186e0d0d8e4034065566526d5a92c12e333789"
+  },
+  "tools/design/detector/tests/upstream/fixtures/multifile/variables.sass": {
+   "sha256": "0600b97e9161c5b18a88fa11c2c90b126f55809a01afdd51e3646d950c412f0a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/multifile/variables.scss": {
+   "sha256": "97fe13209f98bb9e35238d9bc1904dbbc9d5e5b2ad1f06c3b97ae59736dbc014"
+  },
+  "tools/design/detector/tests/upstream/fixtures/named-color-borders.html": {
+   "sha256": "46f51b09f0fdb4cf9acbf0da94c32fad4997b8f70dc44abda5c39e24f6e26414"
+  },
+  "tools/design/detector/tests/upstream/fixtures/nav-cta-constructions.html": {
+   "sha256": "e6003cdea199b8cda0a317e3262bab35d8d69e5a8249a52755cc3528edcf6426"
+  },
+  "tools/design/detector/tests/upstream/fixtures/nested-cards-controls.html": {
+   "sha256": "48a78c8dbf1c02c263d323fb38143ea3bda35179176c798d3e1b3acef5a5c85b"
+  },
+  "tools/design/detector/tests/upstream/fixtures/nested-cards-mockups.html": {
+   "sha256": "b4e17258d37837c0d7613a99f67f5285e96995e4c3e471616fc0c1c0dc0b079d"
+  },
+  "tools/design/detector/tests/upstream/fixtures/nested-cards.html": {
+   "sha256": "70592140ce53421694720a5df35767eb97aef5e879cfb9f4e12c2cff86a8997b"
+  },
+  "tools/design/detector/tests/upstream/fixtures/never-painted.html": {
+   "sha256": "4fb20d87c8cc7b591566dabc31c817e71e3492d36c9613f30ae097933396db45"
+  },
+  "tools/design/detector/tests/upstream/fixtures/nonrendered-text.html": {
+   "sha256": "46e64eb47245cb8613311c638ef9f410550caa5e33d0d1d58bf6820a8d93a52c"
+  },
+  "tools/design/detector/tests/upstream/fixtures/not-at-rest-timed.html": {
+   "sha256": "70e863aaf457b0e3877e36305b57709983384b568460482ad211d28275e6dcac"
+  },
+  "tools/design/detector/tests/upstream/fixtures/not-at-rest.html": {
+   "sha256": "1c9692166d99b2b6c4ff510146d6a5ee4965ea44ab79ac9209e4b9516d8c0b47"
+  },
+  "tools/design/detector/tests/upstream/fixtures/numbered-section-labels.html": {
+   "sha256": "b5260dee691ba71b0ac768639b203994c37b9349d596c679dfa089d488e4db33"
+  },
+  "tools/design/detector/tests/upstream/fixtures/numbered-section-markers.html": {
+   "sha256": "e323dacfa19324cc6aaf8ddd903ebaa5d0157656f4681e590f9db37e904e26c6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/oklch-neon-text.html": {
+   "sha256": "31081efd0038a955775b800f687ab0fdc6470f081578004da800ea66244ef469"
+  },
+  "tools/design/detector/tests/upstream/fixtures/on-screen.html": {
+   "sha256": "d749413c544d1ae7621831670a2fa5f7620bc5c767a8bb34ff3aae175e643aea"
+  },
+  "tools/design/detector/tests/upstream/fixtures/organic-clip-path.html": {
+   "sha256": "ddc938487e479e4c76815f9bd3455985a8bba85d198a09c00034eadd7d74cf34"
+  },
+  "tools/design/detector/tests/upstream/fixtures/overlay-positioning.html": {
+   "sha256": "5bf61f580ace25867bdc7dbcaaef51f967ff63f5099ada29ed17ca325055a221"
+  },
+  "tools/design/detector/tests/upstream/fixtures/oversized-h1-browser.html": {
+   "sha256": "c54af9c786625a998e67250aeee5ce6107c90655c9490ba236d59f2dfc81dd32"
+  },
+  "tools/design/detector/tests/upstream/fixtures/oversized-h1-rendered.html": {
+   "sha256": "6016d52c239a68b4fd605ef0b3cf3a21029a22e5c540ec02aa854b1bd6647add"
+  },
+  "tools/design/detector/tests/upstream/fixtures/oversized-h1.html": {
+   "sha256": "e75b939879472956ff6bf20f858992bcd6a3e3e56d0bd2a99c9abfc2fe95e3f0"
+  },
+  "tools/design/detector/tests/upstream/fixtures/overused-font-share-flag.html": {
+   "sha256": "f9830dcf4dbcec0d7055d2e75b9bb5a0deabbe5175860ce025d675db900e6da0"
+  },
+  "tools/design/detector/tests/upstream/fixtures/overused-font-share-pass.html": {
+   "sha256": "9dc09b061906b412d9ca9faf91917a1034a8711fbd8733b36bc3d908ab8fc732"
+  },
+  "tools/design/detector/tests/upstream/fixtures/overused-font.html": {
+   "sha256": "cbce2396c435030e02637f5acdb719864a0f2dedf75d58a6756da758725931a1"
+  },
+  "tools/design/detector/tests/upstream/fixtures/own-box-surface-and-ink-contrast.html": {
+   "sha256": "3d7b52366facebd62734ca095378766b6b2d85e5986e43f5a92a3fe73baa056a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/page-level-forms-dark.html": {
+   "sha256": "b60955f91ae77558c23531515ea8d9f5c8f05c657c0f59a16b1f451e828fab5a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/page-level-forms.html": {
+   "sha256": "8b72e44daecba60743c39f8a6aa65cca53147abcaa9b00ac0adb7612f4355ced"
+  },
+  "tools/design/detector/tests/upstream/fixtures/paint-that-shows.html": {
+   "sha256": "1b6b012eb7968106972ed11f422bbb836319c9b7288327a97b667c140ca00595"
+  },
+  "tools/design/detector/tests/upstream/fixtures/painted-at-capture.html": {
+   "sha256": "2dd93c55ab901f27fd3f121c75f0c2c75adf7c31dc20e50f839441fd186db595"
+  },
+  "tools/design/detector/tests/upstream/fixtures/painted-gate-coverage.html": {
+   "sha256": "ca1bb4f0d301fc4ed8c44ac0cddcb3c9899fb7eee379d1ed959384dc01378f29"
+  },
+  "tools/design/detector/tests/upstream/fixtures/partial-component.html": {
+   "sha256": "45e5059cf2e07705bbfe1a7cdc9453cf4807c2adf7fb21940992cf4b6fea86c5"
+  },
+  "tools/design/detector/tests/upstream/fixtures/placeholder-contrast.html": {
+   "sha256": "034918e48868da740cf51245312e5e6e3fb75294233c0acec4ca417b8fe5aecd"
+  },
+  "tools/design/detector/tests/upstream/fixtures/prose-div.html": {
+   "sha256": "c2526f5e3b395bdbb97a5eeecb1bf8e24f55b71d71fe582454354d6bc4ba5d12"
+  },
+  "tools/design/detector/tests/upstream/fixtures/pseudo-stripe.css": {
+   "sha256": "672a90907ebb5852a5b784297ad1ec7ba18eec79cfb471536c277a603bf3deb2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/pseudo-stripe.html": {
+   "sha256": "865b8e8e5f6dd6feaea5b33c6206d3bafb35ecd8d8ec9862d3ea0bb5468c18b6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/pseudo-stripe.vue": {
+   "sha256": "1e4af76a8c4c6a03d40dbb162574f8b302ed08aa7129d8db96484b2a2359a31f"
+  },
+  "tools/design/detector/tests/upstream/fixtures/pulsing-dot.html": {
+   "sha256": "815a7eacd5199070d48b06f8e55617e4ea860adb27826089e19e52c79fb220bc"
+  },
+  "tools/design/detector/tests/upstream/fixtures/quality.html": {
+   "sha256": "0700643201968d574d57a35c1a8c244ff486ec6c3370edc30ad90db8795ead26"
+  },
+  "tools/design/detector/tests/upstream/fixtures/radial-spotlight-glow.html": {
+   "sha256": "e3eebbb98941ea6852744108dcab79b3df283828a8c153a18fff7507c633ba53"
+  },
+  "tools/design/detector/tests/upstream/fixtures/repeated-container-text-carousel.html": {
+   "sha256": "f26b042cca2455336d831bda4b2e9e38726595e444dd485f5139aeac2a4e9ee7"
+  },
+  "tools/design/detector/tests/upstream/fixtures/repeated-container-text.html": {
+   "sha256": "236a3b393e98e7ce32e27cb9741fbd71473600ae5e57cf9f27c8e618f6205b66"
+  },
+  "tools/design/detector/tests/upstream/fixtures/reveal-working.html": {
+   "sha256": "790d382fc63aed903fe08fa6e0da0ef378715ca8483786c8e19a52f26b2dc0e8"
+  },
+  "tools/design/detector/tests/upstream/fixtures/scoped-ignore.html": {
+   "sha256": "fb8ef092edac3d04f73dbfeaaf9c19fdd855fe44063abd4847a402db60922a31"
+  },
+  "tools/design/detector/tests/upstream/fixtures/script-error-ad-tech-hosts.html": {
+   "sha256": "df191fca638ab4789dc9fa8ac5624bc605c24571367924ed4d64e785d7ab6d23"
+  },
+  "tools/design/detector/tests/upstream/fixtures/script-error-ad-tech.html": {
+   "sha256": "a550d9224e438dbadfeb1e31a2f4ba6468a823be07bf3a97499a9698747fc45a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/script-error-hydration.html": {
+   "sha256": "fd370f66cc3041d786c32b870ca78de12cfb5ad93e05dc09615ee4dcff8d2b77"
+  },
+  "tools/design/detector/tests/upstream/fixtures/script-error-react.html": {
+   "sha256": "53ede330b8ff1d0a21d7dfb8c253c9ece1765846b24a32121377fbc1e1ef5cbd"
+  },
+  "tools/design/detector/tests/upstream/fixtures/script-error-twins.html": {
+   "sha256": "df7fd55425f0208a182cf6ada80f6b30cde09d7910122fa2f3e4607079c2497b"
+  },
+  "tools/design/detector/tests/upstream/fixtures/script-error.html": {
+   "sha256": "03a3f7170d9e66f648325be994c349c69efab4df6afea33cb81f911c86a1215c"
+  },
+  "tools/design/detector/tests/upstream/fixtures/scroll-reveal.html": {
+   "sha256": "7a16070cf8922d3d76700e59b6297fa7f589176bcebc35018f6043ad987a45bc"
+  },
+  "tools/design/detector/tests/upstream/fixtures/shadowed-form-id.html": {
+   "sha256": "810b168f362c66cd2dd313c58b3440b2ffba831a4fd087e372d7301e9714b7d1"
+  },
+  "tools/design/detector/tests/upstream/fixtures/shape-assembled-illustration.html": {
+   "sha256": "19348dd7751684e883d926a5e90765978f68f5802d9f2831ca3b55e647178987"
+  },
+  "tools/design/detector/tests/upstream/fixtures/should-flag.html": {
+   "sha256": "c8dfd1dc2d16c61360dacbb68ddc83f580f46571fae4d7caa4391a183872d2d5"
+  },
+  "tools/design/detector/tests/upstream/fixtures/should-pass.html": {
+   "sha256": "d5866dfa3ada37ae274bb5fd28b7436751ae36ecafcb99a4e53ad57306f6aaa5"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-css-module.tsx": {
+   "sha256": "6f2a7961c732c0476afc5caad6f9c81048c0c5b0299554b1e8aba5af956df93e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-flat.vue": {
+   "sha256": "de64f12b615ba8344f4e0289c80a907935b7868c100f326e03a8769512b821e0"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-import.jsx": {
+   "sha256": "0e040707dce7e52b18df681f0d5384a4055be4ec1abd4bfe10bcdd9a93e67fa4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-markup-square.svelte": {
+   "sha256": "db692da67f5038c42d64162744ccc8be809419f4c2fe98f007b5e99fbd391ac1"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-markup-square.vue": {
+   "sha256": "13edeed74d1abcb56db9b9d78c85c056227b8781a69ea71239cd5f31a0ce08f6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-markup.svelte": {
+   "sha256": "df97d55a53e527b5c0d87029de333b7fe224547139034973404c7a3aeacb7b83"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-markup.vue": {
+   "sha256": "4a2d8ea904fe7d9ebbc84f8b273cde3e0a736461294589dc8208f26987c94d72"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-nested.sass": {
+   "sha256": "9d1adbf61b217299019c99a3bd60b3dd155939df0b51873a4b6dceb8e4165844"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-nested.scss": {
+   "sha256": "a3abbc9df2f4e7d6f209e572995c50c67f43457fe83bb77bafaf1a6ed0083348"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-nested.tsx": {
+   "sha256": "2c7e49a3718ee770cb42f6aeb56e033602701c871dcbc856c17bff75ec7230e9"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-producers.css": {
+   "sha256": "237d668626e5e8e3fa0d471a9fd20292f195a4830752858e17b8fb5b35b9ab83"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-producers.html": {
+   "sha256": "3612139692aa231213f44f8cb7320bb21b0f0538734b70bb731281e35cde50b3"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-producers.jsx": {
+   "sha256": "3c7ace52c77a6ee4e2c30cf0cd54b0fc14cfd7b9d87ce6588eedc7679f19ccb9"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-accent-square-sheet.css": {
+   "sha256": "7cd28019069b812d179f65034d2feecd178ce65b79ed78c3efe9b91f5232170c"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-tab-far-corners.html": {
+   "sha256": "7c7d59eac82dda899b9a5d38352eb4ec465689019002005ea9c037ed2c2f96ce"
+  },
+  "tools/design/detector/tests/upstream/fixtures/side-tab-stylesheet-forms.html": {
+   "sha256": "68e779b45184eb34fcb7f4b0b6b09a7c6853ba143950438fb0eb0938b39b0ded"
+  },
+  "tools/design/detector/tests/upstream/fixtures/skipped-heading-footer.html": {
+   "sha256": "dd9fb791da87ae5ec6c48b89707d73b4200933ce1254fb341f574910769e6057"
+  },
+  "tools/design/detector/tests/upstream/fixtures/small-text-labels.html": {
+   "sha256": "a3773a282cebe35477fb5f17393f312501a680db93bfe89ae7e735a22a44d035"
+  },
+  "tools/design/detector/tests/upstream/fixtures/stripe-child.html": {
+   "sha256": "3f8b0997485158fbda8dc042634ea6a15c40b708e27684eea15328556a03e8ba"
+  },
+  "tools/design/detector/tests/upstream/fixtures/stripe-child.jsx": {
+   "sha256": "c4f982a8a96ee9338a8e7fb629ca1a6c3fc2e76053b183fd1c6ea45746b934e6"
+  },
+  "tools/design/detector/tests/upstream/fixtures/surface-resolution-contrast.html": {
+   "sha256": "12241aa898a2622dee507d2ab56cbb04c806010c2563c12988377d7746caff5a"
+  },
+  "tools/design/detector/tests/upstream/fixtures/svelte-should-flag.svelte": {
+   "sha256": "0185bbac16a4a4a532b4a16eba9c8e96cffda4580df8e542462c15b565513167"
+  },
+  "tools/design/detector/tests/upstream/fixtures/svelte-should-pass.svelte": {
+   "sha256": "a139c1369ed0830c2d01458d84a82a5619705c1b17caa4018e4fe23b7ce1a404"
+  },
+  "tools/design/detector/tests/upstream/fixtures/text-occlusion-buried.html": {
+   "sha256": "b193a24647a4c214252cd862266e5b7f07018309ffa8c22e0f0febb32615d113"
+  },
+  "tools/design/detector/tests/upstream/fixtures/text-occlusion-shapes.html": {
+   "sha256": "7b6aecc5307f53dd58a722637831648c6d59768c974e69028b5cb897bedf6b49"
+  },
+  "tools/design/detector/tests/upstream/fixtures/text-occlusion.html": {
+   "sha256": "147bee28c0aee367f94ff873a22b42c85d4873d9d0633360bfe4cd4b6d9e6567"
+  },
+  "tools/design/detector/tests/upstream/fixtures/text-overflow.html": {
+   "sha256": "bd3993b99ad16bf66afcfa3648b9371c2c9b6397eba076ae73e9afad13e73de2"
+  },
+  "tools/design/detector/tests/upstream/fixtures/third-party-widgets-carousels.html": {
+   "sha256": "358e4bf8d0f954eeb572c007ce30d979bb2bbe3a8379124f3a3b2098e4c0161b"
+  },
+  "tools/design/detector/tests/upstream/fixtures/third-party-widgets.html": {
+   "sha256": "c9c265460674624346fd1f5bec66299668f39bc3541ddd58bc7ac7fd79a1e559"
+  },
+  "tools/design/detector/tests/upstream/fixtures/tight-leading-runs.html": {
+   "sha256": "1967219051a2bd5d99c6916e983fdbd9c9410caa10f8f36c02c4063d4d38a934"
+  },
+  "tools/design/detector/tests/upstream/fixtures/tight-leading.html": {
+   "sha256": "5e43882c949bc53dac8982475786137c4bc507ff2699e02a2f25373443a8aedc"
+  },
+  "tools/design/detector/tests/upstream/fixtures/transient-opacity-contrast.html": {
+   "sha256": "38c72b322b9384879384ba9e6cff2b6b9ddaf1511d839a3df308b1b17d46732f"
+  },
+  "tools/design/detector/tests/upstream/fixtures/typography-should-flag.html": {
+   "sha256": "6cf79d9ebb9579ceb403ac2fade43194beb2921f554c9545dacee072d3dcb873"
+  },
+  "tools/design/detector/tests/upstream/fixtures/typography-should-pass.html": {
+   "sha256": "8c1fbfb94e82123cdd7627d4ea6de13e1f124606c3506fb549491242d109dde4"
+  },
+  "tools/design/detector/tests/upstream/fixtures/typography.html": {
+   "sha256": "8a629470cb1ace1d90fe2e178b39041bc5d210b1be78fed2216a7138e19c9d74"
+  },
+  "tools/design/detector/tests/upstream/fixtures/undersized-ui-text-focus-and-code.html": {
+   "sha256": "9905fa3f3cb23c25eaf402a18b06300bb040c716e03c4b9a74184f18f303a5ea"
+  },
+  "tools/design/detector/tests/upstream/fixtures/undersized-ui-text-micro-labels.html": {
+   "sha256": "520f509cecc654c80dbaab01e97c14040ece3642544a8c964ab66c59e74d4f79"
+  },
+  "tools/design/detector/tests/upstream/fixtures/undersized-ui-text.html": {
+   "sha256": "939e292cc5d602ab8bfc8ce4d9bb9b78860bb0f3f78e05fd5e15860067c0a113"
+  },
+  "tools/design/detector/tests/upstream/fixtures/unread-surface-contrast.html": {
+   "sha256": "e345c04096f7782c081c530dee5fbc2caac79e885481b29419e90c83c36a3d92"
+  },
+  "tools/design/detector/tests/upstream/fixtures/visual-contrast-gates.html": {
+   "sha256": "349ffefbecace036acadc59fd7ba76308bc5d80133897247dc4fd96d4b085834"
+  },
+  "tools/design/detector/tests/upstream/fixtures/visual-contrast-sampling.html": {
+   "sha256": "b26d530799c7184fb66cd38d2255b2d4169313cc54e9a58713d2b77d323ce82e"
+  },
+  "tools/design/detector/tests/upstream/fixtures/visual-contrast.html": {
+   "sha256": "e040312824356c39d45430ae348bba46c90a1dc37fd975ebaa79234607819eb9"
+  },
+  "tools/design/detector/tests/upstream/fixtures/vue-should-flag.vue": {
+   "sha256": "df7bf0ec9908432c185160b7d5c18d327a686de7b7f26b1252b8e18c1c29b5cf"
+  },
+  "tools/design/detector/tests/upstream/fixtures/vue-should-pass.vue": {
+   "sha256": "f5b5a8246cab6f31f69734f6ee16a9e11baeaa7a17a527c032ff7466ab6c1408"
+  },
+  "tools/design/detector/tests/upstream/fixtures/wide-page-contrast.html": {
+   "sha256": "03f156d18ebe1dea42df0303d6b9c39667d5691b8a5411cf220e17e8e4f12c56"
+  },
+  "tools/design/detector/tests/upstream/fixtures/wide-tracking.html": {
+   "sha256": "34685ef9a08131c1505124cbed8d671df5322c4932e0d0a4021624a32ab9f9b5"
+  },
+  "tools/design/fixtures/tokens.json": {
+   "sha256": "3592e7b94211c4001f53e1fcae5118f7ae9394bdf99be85311123e9af06cc8bf"
+  },
+  "tools/design/handoff.py": {
+   "sha256": "aef4b5158acf595d0ef2c35fba50acc12a63df1cb20121bad9077a289bba17d0"
+  },
   "tools/gov/_gov.py": {
-   "sha256": "701ec3b13734e2a99c562469f707d21f724a9b1168765e2358d2b5cbb76e190b"
+   "sha256": "fc79f5703226c3c3053a33f0513d2e38a793ae956da686c0a006ac0f8596e546"
   },
   "tools/gov/carry_design.py": {
    "sha256": "5380176a6592e603a0e4c430587eee871401015632444e41a41459441318c2b7"
@@ -375,7 +1258,7 @@
    "sha256": "0f0574ed251f17f3f94c250979bc044331c1cc8ce5e35480b8f651fc367ef812"
   },
   "tools/kit/kit_check.py": {
-   "sha256": "df296dfc9852267a1dce3298698793782dfea90dd093f5d06bd561e9cb72f196"
+   "sha256": "2b2803e8be7e133d9b8db5f60fad3d1e73f1b2b782edfe8ec23c7ae78e02fc58"
   },
   "tools/kit/make_zip.py": {
    "sha256": "dd430ce3ac145b2f1eb1dd9fca0beb41a47fffbd00a066a85390acf546abde9c"
@@ -399,7 +1282,7 @@
    "sha256": "4884aa0c138103478268d1ba4768a040394a51ff2a9912612699dbb4f80ce171"
   },
   "tools/map/check_paths.py": {
-   "sha256": "097cc29a8e57a306d6234bb098dcaa16f0c1b41e8c11c5d34f17290cefe13b6b"
+   "sha256": "d3caea16af1492745f9d1b3f5858a8553409a607cfb24da4f41e727bc42f4df8"
   },
   "tools/map/find.py": {
    "sha256": "2cb86c6f111aafdd72e4c9d03d966e62fd712e83e109af4936003693d1ea0a3b"
@@ -434,6 +1317,39 @@
   "tools/map/usage_map.py": {
    "sha256": "0381d73c446f469934968cdca90820382a4eef504b5c478e4d8b5fbb6904fb52"
   },
+  "tools/protect/fixtures/self_check/clean/_headers": {
+   "sha256": "04135e2184d621e5a6cd331b89dce22596df3e1731cfb1a0af8cb5aef73c258e"
+  },
+  "tools/protect/fixtures/self_check/clean/index.html": {
+   "sha256": "1644167a1a4437166e16362824259d274013b8f553e1169e78d2dec4e63e2c02"
+  },
+  "tools/protect/fixtures/self_check/clean/robots.txt": {
+   "sha256": "422a63827c69cfaad1d4fa3d9ca41cde5eba1358cd355cf5f2f94ee45916b9c5"
+  },
+  "tools/protect/fixtures/self_check/clean/sitemap.xml": {
+   "sha256": "4482d1ecde41f4b0eec701adce51278f5aad7b589382c42702220e112303f2dd"
+  },
+  "tools/protect/fixtures/self_check/defective/_headers": {
+   "sha256": "8f4760b6e2121bc89f7af92b6a0abe264a82f7fc032bc0b1936c8aced1aa4d72"
+  },
+  "tools/protect/fixtures/self_check/defective/index.html": {
+   "sha256": "32e40d8ca44a6aab9b0bd81696b8c18f350a93fc095716f2646c480aa1b9bab4"
+  },
+  "tools/protect/fixtures/self_check/defective/robots.txt": {
+   "sha256": "8b6677b911121b590e18a4eb5376d48397570367db3c8d41ac5bce71f0101c41"
+  },
+  "tools/protect/fixtures/self_check/defective/sitemap.xml": {
+   "sha256": "c1959605583724122452959aee1fc2e31e21de333a63783ce90c535bd6165576"
+  },
+  "tools/protect/self_check.py": {
+   "sha256": "045580ddca6af4ac69c5ed7d542eb1513d325d18ed9971dfa57cfc4df746da55"
+  },
+  "tools/research/custody.py": {
+   "sha256": "27ccf3ff13ed40c0a84907669073cab29f325dc00af3e7b70a447c1dcd67eb6b"
+  },
+  "tools/research/sizing.py": {
+   "sha256": "eb8a49599a6be3680fb7de8303d800b7d979fbf9da64681b13abbada4a1165f4"
+  },
   "tools/station_audit.py": {
    "sha256": "09eda400404a5adbe0ffb5e65e135b4afd40944e7651be0a847b24246e51cf0c"
   },
@@ -447,7 +1363,7 @@
    "sha256": "b70048e78d60f3b358ee603231378117a55bcfe88a19c48aa68ecbe1062cd6c1"
   },
   "tools/upstream/skill_routes.py": {
-   "sha256": "0f468c86ed13a2557813b8e40fe9962b4c3e69d5d24fe3b39831d75a07154d26"
+   "sha256": "7439b96cf7ecd28afb0ba0ffa8d6df2605d9793d2b674d5bba88bc73f9d9bd28"
   },
   "tools/upstream/skill_surface.py": {
    "sha256": "d54ccfe9570f9be2dbb27b49374cb8f056732920d23bf9a94f8aa446c0403e97"

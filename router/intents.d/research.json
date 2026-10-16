@@ -1,0 +1,30 @@
+{
+ "_why": "router rows contributed by the research programme (commons since reconcile-01, DEC-core-0011): the shared market-scan. Deep market research stays routed to station research by router/kit_tree.json.",
+ "intents": [
+  {
+   "name": "market-scan",
+   "description": "size a market or scan competitors with sourced, denominated figures checked by the shared sizing + custody tools",
+   "contributed_by": "kit",
+   "router": {
+    "keywords": [],
+    "phrases": [
+     "market scan",
+     "market-scan",
+     "sized claim",
+     "tam sam som",
+     "sizing.json"
+    ],
+    "path_patterns": [
+     "tools/research/"
+    ],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "market-scan",
+     "args": "the market, geography and as-of month",
+     "inline_gather": "python3 tools/research/sizing.py scan"
+    }
+   }
+  }
+ ]
+}

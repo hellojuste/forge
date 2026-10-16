@@ -1,0 +1,1830 @@
+{
+ "_why": "expected rule-id counts per upstream fixture: impeccable's own oracle goldens (tests/oracle/golden/detect-fixture-json-*.json, `detect --no-config --json`, static engine, no browser) at pin 5bf0a069dc85, Apache-2.0. The parity test compares our rule SETS per fixture against these.",
+ "pin": "pbakaus/impeccable@5bf0a069dc857e1b5f4b090e004d9d5b231416ca",
+ "fixtures": {
+  "ai-color-palette-brand-hue-headings-only.html": {
+   "rules": {
+    "ai-color-palette": 2
+   },
+   "severities": {
+    "ai-color-palette:warning": 2
+   }
+  },
+  "ai-color-palette-brand-hue.html": {
+   "rules": {
+    "ai-color-palette": 2
+   },
+   "severities": {
+    "ai-color-palette:warning": 2
+   }
+  },
+  "ai-color-palette-category-colours.html": {
+   "rules": {
+    "ai-color-palette": 4
+   },
+   "severities": {
+    "ai-color-palette:warning": 4
+   }
+  },
+  "ai-color-palette.html": {
+   "rules": {
+    "ai-color-palette": 1,
+    "radial-halo": 1
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "radial-halo:warning": 1
+   }
+  },
+  "all-caps-body.html": {
+   "rules": {
+    "all-caps-body": 3
+   },
+   "severities": {
+    "all-caps-body:warning": 3
+   }
+  },
+  "astro-inset-shadow-stripe.astro": {
+   "rules": {
+    "side-tab": 17
+   },
+   "severities": {
+    "side-tab:warning": 17
+   }
+  },
+  "blinking-cursor.html": {
+   "rules": {
+    "pulsing-dot": 1
+   },
+   "severities": {
+    "pulsing-dot:warning": 1
+   }
+  },
+  "body-text-viewport-edge-display.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "body-text-viewport-edge-phone.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "body-text-viewport-edge-truncated.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "body-text-viewport-edge.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "border-baseline.html": {
+   "rules": {
+    "border-accent-on-rounded": 2,
+    "side-tab": 6
+   },
+   "severities": {
+    "border-accent-on-rounded:warning": 2,
+    "side-tab:warning": 6
+   }
+  },
+  "bounce-easing-pulse.html": {
+   "rules": {
+    "bounce-easing": 2
+   },
+   "severities": {
+    "bounce-easing:advisory": 2
+   }
+  },
+  "buried-raster.html": {
+   "rules": {
+    "buried-raster": 8,
+    "low-contrast": 1
+   },
+   "severities": {
+    "buried-raster:warning": 8,
+    "low-contrast:warning": 1
+   }
+  },
+  "clipped-overflow-container.html": {
+   "rules": {
+    "clipped-overflow-container": 13,
+    "cramped-padding": 1
+   },
+   "severities": {
+    "clipped-overflow-container:advisory": 13,
+    "cramped-padding:warning": 1
+   }
+  },
+  "clipped-overflow-painted-box.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "codex-grid-1d-pass.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "color.html": {
+   "rules": {
+    "ai-color-palette": 4,
+    "em-dash-overuse": 1,
+    "gradient-text": 3,
+    "gray-on-color": 7,
+    "low-contrast": 15,
+    "skipped-heading": 3,
+    "undersized-ui-text": 1
+   },
+   "severities": {
+    "ai-color-palette:warning": 4,
+    "em-dash-overuse:advisory": 1,
+    "gradient-text:warning": 3,
+    "gray-on-color:warning": 7,
+    "low-contrast:warning": 15,
+    "skipped-heading:warning": 3,
+    "undersized-ui-text:warning": 1
+   }
+  },
+  "computed-forms.html": {
+   "rules": {
+    "gray-on-color": 3,
+    "low-contrast": 1,
+    "numbered-section-labels": 2,
+    "side-tab": 1,
+    "wide-tracking": 1
+   },
+   "severities": {
+    "gray-on-color:warning": 3,
+    "low-contrast:warning": 1,
+    "numbered-section-labels:advisory": 2,
+    "side-tab:warning": 1,
+    "wide-tracking:warning": 1
+   }
+  },
+  "content-hidden-at-rest.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "content-hidden-closed-interface.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "content-hidden-scroll-linked.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "content-hidden-unstarted-slider.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "covered-text-contrast.html": {
+   "rules": {
+    "flat-type-hierarchy": 1,
+    "low-contrast": 12
+   },
+   "severities": {
+    "flat-type-hierarchy:advisory": 1,
+    "low-contrast:warning": 12
+   }
+  },
+  "cramped-padding-edges.html": {
+   "rules": {
+    "cramped-padding": 6
+   },
+   "severities": {
+    "cramped-padding:warning": 6
+   }
+  },
+  "cramped-padding-measured.html": {
+   "rules": {
+    "cramped-padding": 6,
+    "undersized-ui-text": 2
+   },
+   "severities": {
+    "cramped-padding:warning": 6,
+    "undersized-ui-text:warning": 2
+   }
+  },
+  "cramped-padding.html": {
+   "rules": {
+    "cramped-padding": 5,
+    "low-contrast": 1
+   },
+   "severities": {
+    "cramped-padding:warning": 5,
+    "low-contrast:warning": 1
+   }
+  },
+  "cream-palette-tailwind.html": {
+   "rules": {
+    "cream-palette": 1
+   },
+   "severities": {
+    "cream-palette:warning": 1
+   }
+  },
+  "cream-palette.html": {
+   "rules": {
+    "cream-palette": 1
+   },
+   "severities": {
+    "cream-palette:warning": 1
+   }
+  },
+  "css-in-prose-should-flag.html": {
+   "rules": {
+    "ai-color-palette": 2,
+    "gradient-text": 5
+   },
+   "severities": {
+    "ai-color-palette:warning": 2,
+    "gradient-text:warning": 5
+   }
+  },
+  "css-in-prose-should-pass.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "cssinjs-should-flag.tsx": {
+   "rules": {
+    "bounce-easing": 1,
+    "gradient-text": 1,
+    "overused-font": 1,
+    "side-tab": 3
+   },
+   "severities": {
+    "bounce-easing:advisory": 1,
+    "gradient-text:warning": 1,
+    "overused-font:warning": 1,
+    "side-tab:warning": 3
+   }
+  },
+  "cssinjs-should-pass.tsx": {
+   "rules": {},
+   "severities": {}
+  },
+  "dark-gradient-ground.html": {
+   "rules": {
+    "low-contrast": 3,
+    "overused-font": 1
+   },
+   "severities": {
+    "low-contrast:warning": 3,
+    "overused-font:warning": 1
+   }
+  },
+  "dark-theme-modern-color.html": {
+   "rules": {
+    "low-contrast": 7
+   },
+   "severities": {
+    "low-contrast:warning": 7
+   }
+  },
+  "design-system.html": {
+   "rules": {
+    "low-contrast": 3
+   },
+   "severities": {
+    "low-contrast:warning": 3
+   }
+  },
+  "edge-flush-cards-table.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "edge-flush-cards.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "em-dash-entities.html": {
+   "rules": {
+    "em-dash-overuse": 1
+   },
+   "severities": {
+    "em-dash-overuse:advisory": 1
+   }
+  },
+  "em-dash-hyphen-rules.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "em-dash-pricing-matrix.html": {
+   "rules": {
+    "em-dash-overuse": 1
+   },
+   "severities": {
+    "em-dash-overuse:advisory": 1
+   }
+  },
+  "em-dash-prose-with-matrix.html": {
+   "rules": {
+    "em-dash-overuse": 1
+   },
+   "severities": {
+    "em-dash-overuse:advisory": 1
+   }
+  },
+  "evidence-after-scan.html": {
+   "rules": {
+    "low-contrast": 6,
+    "radial-halo": 1
+   },
+   "severities": {
+    "low-contrast:warning": 6,
+    "radial-halo:warning": 1
+   }
+  },
+  "evidence-duplicate-id.html": {
+   "rules": {
+    "low-contrast": 6,
+    "overused-font": 1
+   },
+   "severities": {
+    "low-contrast:warning": 6,
+    "overused-font:warning": 1
+   }
+  },
+  "external-styles.css": {
+   "rules": {
+    "border-accent-on-rounded": 2,
+    "overused-font": 1,
+    "side-tab": 1
+   },
+   "severities": {
+    "border-accent-on-rounded:warning": 2,
+    "overused-font:warning": 1,
+    "side-tab:warning": 1
+   }
+  },
+  "extreme-negative-tracking.html": {
+   "rules": {
+    "extreme-negative-tracking": 3
+   },
+   "severities": {
+    "extreme-negative-tracking:warning": 3
+   }
+  },
+  "eyebrow-hand-off.html": {
+   "rules": {
+    "hero-eyebrow-chip": 1,
+    "kicker-above-heading": 1
+   },
+   "severities": {
+    "hero-eyebrow-chip:warning": 1,
+    "kicker-above-heading:warning": 1
+   }
+  },
+  "fine-print.html": {
+   "rules": {
+    "tight-leading": 9,
+    "tiny-text": 9,
+    "undersized-ui-text": 1
+   },
+   "severities": {
+    "tight-leading:advisory": 6,
+    "tight-leading:warning": 3,
+    "tiny-text:advisory": 6,
+    "tiny-text:warning": 3,
+    "undersized-ui-text:warning": 1
+   }
+  },
+  "first-viewport-column-overflow-clipped.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "first-viewport-column-overflow-menu.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "first-viewport-column-overflow-outline.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "first-viewport-column-overflow-stacked.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "first-viewport-column-overflow-tabs.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "first-viewport-column-overflow.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "flat-type-hierarchy-dropped-flat.html": {
+   "rules": {
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "flat-type-hierarchy:warning": 1
+   }
+  },
+  "flat-type-hierarchy-dropped-role.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "flat-type-hierarchy-h1-label.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "flat-type-hierarchy-h1-tie.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "flat-type-hierarchy-near-tie.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "flat-type-hierarchy-weight-flat.html": {
+   "rules": {
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "flat-type-hierarchy:warning": 1
+   }
+  },
+  "flat-type-hierarchy-weight.html": {
+   "rules": {
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "flat-type-hierarchy:advisory": 1
+   }
+  },
+  "flat-type-hierarchy.html": {
+   "rules": {
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "flat-type-hierarchy:warning": 1
+   }
+  },
+  "flush-against-border.html": {
+   "rules": {
+    "cramped-padding": 11
+   },
+   "severities": {
+    "cramped-padding:warning": 11
+   }
+  },
+  "footnote-markers.html": {
+   "rules": {
+    "undersized-ui-text": 1
+   },
+   "severities": {
+    "undersized-ui-text:warning": 1
+   }
+  },
+  "framework-next-cssinjs": {
+   "rules": {
+    "bounce-easing": 1,
+    "gradient-text": 2,
+    "overused-font": 2,
+    "side-tab": 2
+   },
+   "severities": {
+    "bounce-easing:advisory": 1,
+    "gradient-text:warning": 2,
+    "overused-font:warning": 2,
+    "side-tab:warning": 2
+   }
+  },
+  "framework-next-modules": {
+   "rules": {
+    "gradient-text": 1,
+    "overused-font": 2,
+    "side-tab": 2
+   },
+   "severities": {
+    "gradient-text:warning": 1,
+    "overused-font:warning": 2,
+    "side-tab:warning": 2
+   }
+  },
+  "framework-next-tailwind": {
+   "rules": {
+    "ai-color-palette": 5,
+    "bounce-easing": 1,
+    "gradient-text": 2,
+    "overused-font": 1,
+    "side-tab": 1
+   },
+   "severities": {
+    "ai-color-palette:warning": 5,
+    "bounce-easing:advisory": 1,
+    "gradient-text:warning": 2,
+    "overused-font:warning": 1,
+    "side-tab:warning": 1
+   }
+  },
+  "framework-vite": {
+   "rules": {
+    "side-tab": 1
+   },
+   "severities": {
+    "side-tab:warning": 1
+   }
+  },
+  "fullpage-screenshot-frame.html": {
+   "rules": {
+    "low-contrast": 1,
+    "overused-font": 1,
+    "repeating-stripes-gradient": 1
+   },
+   "severities": {
+    "low-contrast:warning": 1,
+    "overused-font:warning": 1,
+    "repeating-stripes-gradient:advisory": 1
+   }
+  },
+  "fullpage-screenshot-rtl.html": {
+   "rules": {
+    "low-contrast": 1,
+    "overused-font": 1
+   },
+   "severities": {
+    "low-contrast:warning": 1,
+    "overused-font:warning": 1
+   }
+  },
+  "fullpage-screenshot-scroller.html": {
+   "rules": {
+    "low-contrast": 1,
+    "overused-font": 1,
+    "repeating-stripes-gradient": 1
+   },
+   "severities": {
+    "low-contrast:warning": 1,
+    "overused-font:warning": 1,
+    "repeating-stripes-gradient:advisory": 1
+   }
+  },
+  "fullpage-screenshot-virtual.html": {
+   "rules": {
+    "overused-font": 1
+   },
+   "severities": {
+    "overused-font:warning": 1
+   }
+  },
+  "fullpage-screenshot.html": {
+   "rules": {
+    "low-contrast": 1,
+    "overused-font": 1,
+    "repeating-stripes-gradient": 1
+   },
+   "severities": {
+    "low-contrast:warning": 1,
+    "overused-font:warning": 1,
+    "repeating-stripes-gradient:advisory": 1
+   }
+  },
+  "glow.html": {
+   "rules": {
+    "buried-raster": 1,
+    "dark-glow": 17,
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "buried-raster:warning": 1,
+    "dark-glow:warning": 17,
+    "flat-type-hierarchy:warning": 1
+   }
+  },
+  "gpt-tells.html": {
+   "rules": {
+    "codex-grid-background": 1,
+    "repeating-stripes-gradient": 1,
+    "theater-slop-phrase": 1
+   },
+   "severities": {
+    "codex-grid-background:advisory": 1,
+    "repeating-stripes-gradient:advisory": 1,
+    "theater-slop-phrase:advisory": 1
+   }
+  },
+  "gpt-thin-border-wide-shadow.html": {
+   "rules": {
+    "gpt-thin-border-wide-shadow": 18
+   },
+   "severities": {
+    "gpt-thin-border-wide-shadow:advisory": 18
+   }
+  },
+  "gradient-surface-contrast.html": {
+   "rules": {
+    "low-contrast": 14
+   },
+   "severities": {
+    "low-contrast:advisory": 2,
+    "low-contrast:warning": 12
+   }
+  },
+  "gradient-text-one-colour.html": {
+   "rules": {
+    "ai-color-palette": 1,
+    "gradient-text": 2
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "gradient-text:warning": 2
+   }
+  },
+  "gray-on-color.html": {
+   "rules": {
+    "gray-on-color": 6
+   },
+   "severities": {
+    "gray-on-color:warning": 6
+   }
+  },
+  "heading-rhythm-spacers.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "heading-rhythm.html": {
+   "rules": {
+    "cramped-padding": 1
+   },
+   "severities": {
+    "cramped-padding:warning": 1
+   }
+  },
+  "hero-eyebrow-chip.html": {
+   "rules": {
+    "hero-eyebrow-chip": 5,
+    "kicker-above-heading": 1,
+    "low-contrast": 1,
+    "overused-font": 1
+   },
+   "severities": {
+    "hero-eyebrow-chip:warning": 5,
+    "kicker-above-heading:warning": 1,
+    "low-contrast:warning": 1,
+    "overused-font:warning": 1
+   }
+  },
+  "hook-inline-ignore.html": {
+   "rules": {
+    "overused-font": 1
+   },
+   "severities": {
+    "overused-font:warning": 1
+   }
+  },
+  "icon-tile-card-title.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "icon-tile-stack.html": {
+   "rules": {
+    "ai-color-palette": 1,
+    "icon-tile-stack": 7,
+    "marketing-buzzword": 1
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "icon-tile-stack:warning": 7,
+    "marketing-buzzword:warning": 1
+   }
+  },
+  "image-backed-contrast.html": {
+   "rules": {
+    "overused-font": 1
+   },
+   "severities": {
+    "overused-font:warning": 1
+   }
+  },
+  "italic-serif-display.html": {
+   "rules": {
+    "italic-serif-display": 5,
+    "overused-font": 3
+   },
+   "severities": {
+    "italic-serif-display:warning": 5,
+    "overused-font:warning": 3
+   }
+  },
+  "jsx-should-flag.jsx": {
+   "rules": {
+    "ai-color-palette": 2,
+    "bounce-easing": 1,
+    "gradient-text": 1,
+    "side-tab": 2
+   },
+   "severities": {
+    "ai-color-palette:warning": 2,
+    "bounce-easing:advisory": 1,
+    "gradient-text:warning": 1,
+    "side-tab:warning": 2
+   }
+  },
+  "jsx-should-pass.jsx": {
+   "rules": {},
+   "severities": {}
+  },
+  "justified-text.html": {
+   "rules": {
+    "justified-text": 3
+   },
+   "severities": {
+    "justified-text:warning": 3
+   }
+  },
+  "kicker-above-heading.html": {
+   "rules": {
+    "cream-palette": 1,
+    "hero-eyebrow-chip": 1,
+    "kicker-above-heading": 11,
+    "overused-font": 1,
+    "skipped-heading": 2,
+    "wide-tracking": 1
+   },
+   "severities": {
+    "cream-palette:warning": 1,
+    "hero-eyebrow-chip:warning": 1,
+    "kicker-above-heading:warning": 11,
+    "overused-font:warning": 1,
+    "skipped-heading:warning": 2,
+    "wide-tracking:warning": 1
+   }
+  },
+  "label-collectors.html": {
+   "rules": {
+    "cramped-padding": 2,
+    "hero-eyebrow-chip": 1,
+    "skipped-heading": 1
+   },
+   "severities": {
+    "cramped-padding:warning": 2,
+    "hero-eyebrow-chip:warning": 1,
+    "skipped-heading:warning": 1
+   }
+  },
+  "layout.html": {
+   "rules": {
+    "nested-cards": 4
+   },
+   "severities": {
+    "nested-cards:warning": 4
+   }
+  },
+  "legitimate-borders.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "line-length-text-count.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "line-length.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "link-text-contrast.html": {
+   "rules": {
+    "gradient-text": 2,
+    "low-contrast": 16
+   },
+   "severities": {
+    "gradient-text:warning": 2,
+    "low-contrast:warning": 16
+   }
+  },
+  "linked-stylesheet.html": {
+   "rules": {
+    "border-accent-on-rounded": 1,
+    "side-tab": 1
+   },
+   "severities": {
+    "border-accent-on-rounded:warning": 1,
+    "side-tab:warning": 1
+   }
+  },
+  "linked-url-patterns.css": {
+   "rules": {
+    "bounce-easing": 2,
+    "codex-grid-background": 1,
+    "gradient-text": 1
+   },
+   "severities": {
+    "bounce-easing:advisory": 2,
+    "codex-grid-background:advisory": 1,
+    "gradient-text:warning": 1
+   }
+  },
+  "linked-url-patterns.html": {
+   "rules": {
+    "codex-grid-background": 1,
+    "gradient-text": 1,
+    "low-contrast": 3,
+    "marquee": 5,
+    "organic-clip-path": 1,
+    "pulsing-dot": 1,
+    "radial-halo": 1,
+    "repeating-stripes-gradient": 1
+   },
+   "severities": {
+    "codex-grid-background:advisory": 1,
+    "gradient-text:warning": 1,
+    "low-contrast:warning": 3,
+    "marquee:warning": 5,
+    "organic-clip-path:warning": 1,
+    "pulsing-dot:warning": 1,
+    "radial-halo:warning": 1,
+    "repeating-stripes-gradient:advisory": 1
+   }
+  },
+  "low-contrast-decorative.html": {
+   "rules": {
+    "low-contrast": 26
+   },
+   "severities": {
+    "low-contrast:advisory": 8,
+    "low-contrast:warning": 18
+   }
+  },
+  "low-contrast-disabled-control.html": {
+   "rules": {
+    "low-contrast": 5
+   },
+   "severities": {
+    "low-contrast:warning": 5
+   }
+  },
+  "low-contrast-heavy-faces.html": {
+   "rules": {
+    "low-contrast": 6
+   },
+   "severities": {
+    "low-contrast:warning": 6
+   }
+  },
+  "low-contrast-labelled-placeholders.html": {
+   "rules": {
+    "low-contrast": 13
+   },
+   "severities": {
+    "low-contrast:advisory": 5,
+    "low-contrast:warning": 8
+   }
+  },
+  "low-contrast-near-bar.html": {
+   "rules": {
+    "low-contrast": 12
+   },
+   "severities": {
+    "low-contrast:advisory": 7,
+    "low-contrast:warning": 5
+   }
+  },
+  "low-contrast-near-threshold.html": {
+   "rules": {
+    "low-contrast": 4
+   },
+   "severities": {
+    "low-contrast:advisory": 4
+   }
+  },
+  "low-contrast-unread-pixels.html": {
+   "rules": {
+    "low-contrast": 2
+   },
+   "severities": {
+    "low-contrast:warning": 2
+   }
+  },
+  "marquee-ornament.html": {
+   "rules": {
+    "marquee": 4
+   },
+   "severities": {
+    "marquee:warning": 4
+   }
+  },
+  "mockup-structure.html": {
+   "rules": {
+    "low-contrast": 1,
+    "tiny-text": 2,
+    "undersized-ui-text": 30
+   },
+   "severities": {
+    "low-contrast:advisory": 1,
+    "tiny-text:advisory": 1,
+    "tiny-text:warning": 1,
+    "undersized-ui-text:advisory": 9,
+    "undersized-ui-text:warning": 21
+   }
+  },
+  "modern-color-borders.html": {
+   "rules": {
+    "flat-type-hierarchy": 1,
+    "low-contrast": 1,
+    "side-tab": 12
+   },
+   "severities": {
+    "flat-type-hierarchy:warning": 1,
+    "low-contrast:advisory": 1,
+    "side-tab:warning": 12
+   }
+  },
+  "motion.html": {
+   "rules": {
+    "bounce-easing": 2,
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "bounce-easing:advisory": 2,
+    "flat-type-hierarchy:warning": 1
+   }
+  },
+  "multifile": {
+   "rules": {
+    "ai-color-palette": 1,
+    "bounce-easing": 1,
+    "overused-font": 1,
+    "side-tab": 3
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "bounce-easing:advisory": 1,
+    "overused-font:warning": 1,
+    "side-tab:warning": 3
+   }
+  },
+  "named-color-borders.html": {
+   "rules": {
+    "flat-type-hierarchy": 1,
+    "low-contrast": 1,
+    "side-tab": 5
+   },
+   "severities": {
+    "flat-type-hierarchy:warning": 1,
+    "low-contrast:advisory": 1,
+    "side-tab:warning": 5
+   }
+  },
+  "nav-cta-constructions.html": {
+   "rules": {
+    "low-contrast": 8
+   },
+   "severities": {
+    "low-contrast:warning": 8
+   }
+  },
+  "nested-cards-controls.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "nested-cards-mockups.html": {
+   "rules": {
+    "nested-cards": 13
+   },
+   "severities": {
+    "nested-cards:advisory": 6,
+    "nested-cards:warning": 7
+   }
+  },
+  "nested-cards.html": {
+   "rules": {
+    "nested-cards": 13
+   },
+   "severities": {
+    "nested-cards:warning": 13
+   }
+  },
+  "never-painted.html": {
+   "rules": {
+    "ai-color-palette": 1,
+    "buried-raster": 4,
+    "cramped-padding": 6,
+    "flat-type-hierarchy": 1,
+    "gradient-text": 3,
+    "low-contrast": 14,
+    "marquee": 1,
+    "side-tab": 2
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "buried-raster:warning": 4,
+    "cramped-padding:warning": 6,
+    "flat-type-hierarchy:advisory": 1,
+    "gradient-text:warning": 3,
+    "low-contrast:warning": 14,
+    "marquee:warning": 1,
+    "side-tab:warning": 2
+   }
+  },
+  "nonrendered-text.html": {
+   "rules": {
+    "tiny-text": 1,
+    "undersized-ui-text": 1
+   },
+   "severities": {
+    "tiny-text:warning": 1,
+    "undersized-ui-text:warning": 1
+   }
+  },
+  "not-at-rest-timed.html": {
+   "rules": {
+    "buried-raster": 3,
+    "low-contrast": 2,
+    "undersized-ui-text": 2
+   },
+   "severities": {
+    "buried-raster:warning": 3,
+    "low-contrast:warning": 2,
+    "undersized-ui-text:warning": 2
+   }
+  },
+  "not-at-rest.html": {
+   "rules": {
+    "buried-raster": 5,
+    "cramped-padding": 2,
+    "dark-glow": 1,
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "buried-raster:warning": 5,
+    "cramped-padding:warning": 2,
+    "dark-glow:warning": 1,
+    "flat-type-hierarchy:advisory": 1
+   }
+  },
+  "numbered-section-labels.html": {
+   "rules": {
+    "numbered-section-labels": 5
+   },
+   "severities": {
+    "numbered-section-labels:advisory": 5
+   }
+  },
+  "numbered-section-markers.html": {
+   "rules": {
+    "flat-type-hierarchy": 1
+   },
+   "severities": {
+    "flat-type-hierarchy:warning": 1
+   }
+  },
+  "oklch-neon-text.html": {
+   "rules": {
+    "low-contrast": 1
+   },
+   "severities": {
+    "low-contrast:warning": 1
+   }
+  },
+  "on-screen.html": {
+   "rules": {
+    "low-contrast": 11,
+    "tiny-text": 2
+   },
+   "severities": {
+    "low-contrast:warning": 11,
+    "tiny-text:warning": 2
+   }
+  },
+  "organic-clip-path.html": {
+   "rules": {
+    "low-contrast": 4,
+    "organic-clip-path": 6
+   },
+   "severities": {
+    "low-contrast:warning": 4,
+    "organic-clip-path:warning": 6
+   }
+  },
+  "overlay-positioning.html": {
+   "rules": {
+    "ai-color-palette": 1,
+    "cramped-padding": 3,
+    "low-contrast": 2,
+    "side-tab": 1,
+    "tiny-text": 25
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "cramped-padding:warning": 3,
+    "low-contrast:advisory": 1,
+    "low-contrast:warning": 1,
+    "side-tab:warning": 1,
+    "tiny-text:warning": 25
+   }
+  },
+  "oversized-h1-browser.html": {
+   "rules": {
+    "oversized-h1": 2
+   },
+   "severities": {
+    "oversized-h1:warning": 2
+   }
+  },
+  "oversized-h1-rendered.html": {
+   "rules": {
+    "oversized-h1": 2
+   },
+   "severities": {
+    "oversized-h1:warning": 2
+   }
+  },
+  "oversized-h1.html": {
+   "rules": {
+    "oversized-h1": 2
+   },
+   "severities": {
+    "oversized-h1:warning": 2
+   }
+  },
+  "overused-font-share-flag.html": {
+   "rules": {
+    "overused-font": 1
+   },
+   "severities": {
+    "overused-font:warning": 1
+   }
+  },
+  "overused-font-share-pass.html": {
+   "rules": {
+    "overused-font": 1
+   },
+   "severities": {
+    "overused-font:warning": 1
+   }
+  },
+  "overused-font.html": {
+   "rules": {
+    "overused-font": 4
+   },
+   "severities": {
+    "overused-font:warning": 4
+   }
+  },
+  "own-box-surface-and-ink-contrast.html": {
+   "rules": {
+    "low-contrast": 11
+   },
+   "severities": {
+    "low-contrast:advisory": 2,
+    "low-contrast:warning": 9
+   }
+  },
+  "page-level-forms-dark.html": {
+   "rules": {
+    "dark-glow": 1,
+    "radial-halo": 1
+   },
+   "severities": {
+    "dark-glow:warning": 1,
+    "radial-halo:warning": 1
+   }
+  },
+  "page-level-forms.html": {
+   "rules": {
+    "bounce-easing": 1,
+    "dark-glow": 3,
+    "gradient-text": 4,
+    "marquee": 3,
+    "radial-halo": 1
+   },
+   "severities": {
+    "bounce-easing:advisory": 1,
+    "dark-glow:warning": 3,
+    "gradient-text:warning": 4,
+    "marquee:warning": 3,
+    "radial-halo:warning": 1
+   }
+  },
+  "paint-that-shows.html": {
+   "rules": {
+    "ai-color-palette": 1,
+    "dark-glow": 3,
+    "gpt-thin-border-wide-shadow": 6,
+    "gradient-text": 4,
+    "low-contrast": 1
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "dark-glow:warning": 3,
+    "gpt-thin-border-wide-shadow:advisory": 6,
+    "gradient-text:warning": 4,
+    "low-contrast:advisory": 1
+   }
+  },
+  "painted-at-capture.html": {
+   "rules": {
+    "bounce-easing": 4,
+    "buried-raster": 7,
+    "clipped-overflow-container": 3,
+    "cramped-padding": 2,
+    "flat-type-hierarchy": 1,
+    "low-contrast": 8,
+    "nested-cards": 5,
+    "tight-leading": 6,
+    "undersized-ui-text": 16
+   },
+   "severities": {
+    "bounce-easing:advisory": 4,
+    "buried-raster:warning": 7,
+    "clipped-overflow-container:advisory": 3,
+    "cramped-padding:warning": 2,
+    "flat-type-hierarchy:advisory": 1,
+    "low-contrast:warning": 8,
+    "nested-cards:warning": 5,
+    "tight-leading:warning": 6,
+    "undersized-ui-text:warning": 16
+   }
+  },
+  "painted-gate-coverage.html": {
+   "rules": {
+    "bounce-easing": 3,
+    "dark-glow": 4,
+    "italic-serif-display": 1,
+    "kicker-above-heading": 3,
+    "pulsing-dot": 2,
+    "skipped-heading": 2,
+    "tight-leading": 1
+   },
+   "severities": {
+    "bounce-easing:advisory": 3,
+    "dark-glow:warning": 4,
+    "italic-serif-display:warning": 1,
+    "kicker-above-heading:warning": 3,
+    "pulsing-dot:warning": 2,
+    "skipped-heading:warning": 2,
+    "tight-leading:warning": 1
+   }
+  },
+  "partial-component.html": {
+   "rules": {
+    "side-tab": 1
+   },
+   "severities": {
+    "side-tab:warning": 1
+   }
+  },
+  "placeholder-contrast.html": {
+   "rules": {
+    "low-contrast": 4
+   },
+   "severities": {
+    "low-contrast:warning": 4
+   }
+  },
+  "prose-div.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "pseudo-stripe.css": {
+   "rules": {
+    "side-tab": 4
+   },
+   "severities": {
+    "side-tab:warning": 4
+   }
+  },
+  "pseudo-stripe.html": {
+   "rules": {
+    "side-tab": 2
+   },
+   "severities": {
+    "side-tab:warning": 2
+   }
+  },
+  "pseudo-stripe.vue": {
+   "rules": {
+    "side-tab": 1
+   },
+   "severities": {
+    "side-tab:warning": 1
+   }
+  },
+  "pulsing-dot.html": {
+   "rules": {
+    "pulsing-dot": 5
+   },
+   "severities": {
+    "pulsing-dot:error": 1,
+    "pulsing-dot:warning": 4
+   }
+  },
+  "quality.html": {
+   "rules": {
+    "all-caps-body": 1,
+    "justified-text": 1,
+    "skipped-heading": 1,
+    "tight-leading": 1,
+    "tiny-text": 1,
+    "wide-tracking": 1
+   },
+   "severities": {
+    "all-caps-body:warning": 1,
+    "justified-text:warning": 1,
+    "skipped-heading:warning": 1,
+    "tight-leading:warning": 1,
+    "tiny-text:warning": 1,
+    "wide-tracking:warning": 1
+   }
+  },
+  "radial-spotlight-glow.html": {
+   "rules": {
+    "radial-halo": 1,
+    "radial-spotlight-glow": 11
+   },
+   "severities": {
+    "radial-halo:warning": 1,
+    "radial-spotlight-glow:warning": 11
+   }
+  },
+  "repeated-container-text-carousel.html": {
+   "rules": {
+    "repeated-container-text": 2
+   },
+   "severities": {
+    "repeated-container-text:warning": 2
+   }
+  },
+  "repeated-container-text.html": {
+   "rules": {
+    "repeated-container-text": 2
+   },
+   "severities": {
+    "repeated-container-text:warning": 2
+   }
+  },
+  "reveal-working.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "scoped-ignore.html": {
+   "rules": {
+    "codex-grid-background": 1,
+    "cream-palette": 1,
+    "overused-font": 1,
+    "side-tab": 4
+   },
+   "severities": {
+    "codex-grid-background:advisory": 1,
+    "cream-palette:warning": 1,
+    "overused-font:warning": 1,
+    "side-tab:warning": 4
+   }
+  },
+  "script-error-ad-tech-hosts.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "script-error-ad-tech.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "script-error-hydration.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "script-error-react.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "script-error-twins.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "script-error.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "scroll-reveal.html": {
+   "rules": {
+    "buried-raster": 2,
+    "tight-leading": 1,
+    "undersized-ui-text": 1
+   },
+   "severities": {
+    "buried-raster:warning": 2,
+    "tight-leading:warning": 1,
+    "undersized-ui-text:warning": 1
+   }
+  },
+  "shadowed-form-id.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "shape-assembled-illustration.html": {
+   "rules": {
+    "shape-assembled-illustration": 1
+   },
+   "severities": {
+    "shape-assembled-illustration:advisory": 1
+   }
+  },
+  "should-flag.html": {
+   "rules": {
+    "border-accent-on-rounded": 2,
+    "side-tab": 5
+   },
+   "severities": {
+    "border-accent-on-rounded:warning": 2,
+    "side-tab:warning": 5
+   }
+  },
+  "should-pass.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "side-accent-css-module.tsx": {
+   "rules": {
+    "side-tab": 1
+   },
+   "severities": {
+    "side-tab:warning": 1
+   }
+  },
+  "side-accent-flat.vue": {
+   "rules": {
+    "side-tab": 2
+   },
+   "severities": {
+    "side-tab:warning": 2
+   }
+  },
+  "side-accent-import.jsx": {
+   "rules": {
+    "side-tab": 1
+   },
+   "severities": {
+    "side-tab:warning": 1
+   }
+  },
+  "side-accent-markup-square.svelte": {
+   "rules": {},
+   "severities": {}
+  },
+  "side-accent-markup-square.vue": {
+   "rules": {},
+   "severities": {}
+  },
+  "side-accent-markup.svelte": {
+   "rules": {
+    "side-tab": 1
+   },
+   "severities": {
+    "side-tab:warning": 1
+   }
+  },
+  "side-accent-markup.vue": {
+   "rules": {
+    "side-tab": 1
+   },
+   "severities": {
+    "side-tab:warning": 1
+   }
+  },
+  "side-accent-nested.sass": {
+   "rules": {
+    "side-tab": 3
+   },
+   "severities": {
+    "side-tab:warning": 3
+   }
+  },
+  "side-accent-nested.scss": {
+   "rules": {
+    "side-tab": 10
+   },
+   "severities": {
+    "side-tab:warning": 10
+   }
+  },
+  "side-accent-nested.tsx": {
+   "rules": {
+    "side-tab": 4
+   },
+   "severities": {
+    "side-tab:warning": 4
+   }
+  },
+  "side-accent-producers.css": {
+   "rules": {
+    "side-tab": 12
+   },
+   "severities": {
+    "side-tab:warning": 12
+   }
+  },
+  "side-accent-producers.html": {
+   "rules": {
+    "side-tab": 6
+   },
+   "severities": {
+    "side-tab:warning": 6
+   }
+  },
+  "side-accent-producers.jsx": {
+   "rules": {
+    "side-tab": 4
+   },
+   "severities": {
+    "side-tab:warning": 4
+   }
+  },
+  "side-accent-square-sheet.css": {
+   "rules": {},
+   "severities": {}
+  },
+  "side-tab-far-corners.html": {
+   "rules": {
+    "side-tab": 4
+   },
+   "severities": {
+    "side-tab:warning": 4
+   }
+  },
+  "side-tab-stylesheet-forms.html": {
+   "rules": {
+    "side-tab": 3
+   },
+   "severities": {
+    "side-tab:warning": 3
+   }
+  },
+  "skipped-heading-footer.html": {
+   "rules": {
+    "skipped-heading": 2
+   },
+   "severities": {
+    "skipped-heading:warning": 2
+   }
+  },
+  "small-text-labels.html": {
+   "rules": {
+    "low-contrast": 1,
+    "tiny-text": 2,
+    "undersized-ui-text": 2,
+    "wide-tracking": 2
+   },
+   "severities": {
+    "low-contrast:warning": 1,
+    "tiny-text:warning": 2,
+    "undersized-ui-text:warning": 2,
+    "wide-tracking:warning": 2
+   }
+  },
+  "stripe-child.html": {
+   "rules": {
+    "cramped-padding": 10,
+    "side-tab": 4
+   },
+   "severities": {
+    "cramped-padding:warning": 10,
+    "side-tab:warning": 4
+   }
+  },
+  "stripe-child.jsx": {
+   "rules": {
+    "side-tab": 4
+   },
+   "severities": {
+    "side-tab:warning": 4
+   }
+  },
+  "surface-resolution-contrast.html": {
+   "rules": {
+    "cramped-padding": 2,
+    "low-contrast": 11
+   },
+   "severities": {
+    "cramped-padding:warning": 2,
+    "low-contrast:warning": 11
+   }
+  },
+  "svelte-should-flag.svelte": {
+   "rules": {
+    "ai-color-palette": 1,
+    "bounce-easing": 2,
+    "gradient-text": 1,
+    "overused-font": 1,
+    "side-tab": 2
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "bounce-easing:advisory": 2,
+    "gradient-text:warning": 1,
+    "overused-font:warning": 1,
+    "side-tab:warning": 2
+   }
+  },
+  "svelte-should-pass.svelte": {
+   "rules": {},
+   "severities": {}
+  },
+  "text-occlusion-buried.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "text-occlusion-shapes.html": {
+   "rules": {
+    "cramped-padding": 3,
+    "tiny-text": 2
+   },
+   "severities": {
+    "cramped-padding:warning": 3,
+    "tiny-text:warning": 2
+   }
+  },
+  "text-occlusion.html": {
+   "rules": {
+    "hero-eyebrow-chip": 1
+   },
+   "severities": {
+    "hero-eyebrow-chip:warning": 1
+   }
+  },
+  "text-overflow.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "third-party-widgets-carousels.html": {
+   "rules": {
+    "bounce-easing": 1,
+    "low-contrast": 3
+   },
+   "severities": {
+    "bounce-easing:advisory": 1,
+    "low-contrast:warning": 3
+   }
+  },
+  "third-party-widgets.html": {
+   "rules": {
+    "bounce-easing": 2,
+    "undersized-ui-text": 2
+   },
+   "severities": {
+    "bounce-easing:advisory": 2,
+    "undersized-ui-text:warning": 2
+   }
+  },
+  "tight-leading-runs.html": {
+   "rules": {
+    "tight-leading": 2
+   },
+   "severities": {
+    "tight-leading:warning": 2
+   }
+  },
+  "tight-leading.html": {
+   "rules": {
+    "tight-leading": 15
+   },
+   "severities": {
+    "tight-leading:advisory": 1,
+    "tight-leading:warning": 14
+   }
+  },
+  "transient-opacity-contrast.html": {
+   "rules": {
+    "low-contrast": 6
+   },
+   "severities": {
+    "low-contrast:warning": 6
+   }
+  },
+  "typography-should-flag.html": {
+   "rules": {
+    "flat-type-hierarchy": 1,
+    "overused-font": 1
+   },
+   "severities": {
+    "flat-type-hierarchy:advisory": 1,
+    "overused-font:warning": 1
+   }
+  },
+  "typography-should-pass.html": {
+   "rules": {},
+   "severities": {}
+  },
+  "typography.html": {
+   "rules": {
+    "all-caps-body": 1,
+    "justified-text": 1,
+    "overused-font": 1,
+    "tight-leading": 1,
+    "tiny-text": 1,
+    "wide-tracking": 1
+   },
+   "severities": {
+    "all-caps-body:warning": 1,
+    "justified-text:warning": 1,
+    "overused-font:warning": 1,
+    "tight-leading:warning": 1,
+    "tiny-text:warning": 1,
+    "wide-tracking:warning": 1
+   }
+  },
+  "undersized-ui-text-focus-and-code.html": {
+   "rules": {
+    "tiny-text": 1,
+    "undersized-ui-text": 6
+   },
+   "severities": {
+    "tiny-text:warning": 1,
+    "undersized-ui-text:warning": 6
+   }
+  },
+  "undersized-ui-text-micro-labels.html": {
+   "rules": {
+    "flat-type-hierarchy": 1,
+    "undersized-ui-text": 31
+   },
+   "severities": {
+    "flat-type-hierarchy:warning": 1,
+    "undersized-ui-text:advisory": 8,
+    "undersized-ui-text:warning": 23
+   }
+  },
+  "undersized-ui-text.html": {
+   "rules": {
+    "undersized-ui-text": 10
+   },
+   "severities": {
+    "undersized-ui-text:warning": 10
+   }
+  },
+  "unread-surface-contrast.html": {
+   "rules": {
+    "dark-glow": 3,
+    "low-contrast": 11
+   },
+   "severities": {
+    "dark-glow:warning": 3,
+    "low-contrast:warning": 11
+   }
+  },
+  "visual-contrast-gates.html": {
+   "rules": {
+    "low-contrast": 3
+   },
+   "severities": {
+    "low-contrast:warning": 3
+   }
+  },
+  "visual-contrast-sampling.html": {
+   "rules": {
+    "gradient-text": 2,
+    "low-contrast": 1
+   },
+   "severities": {
+    "gradient-text:warning": 2,
+    "low-contrast:warning": 1
+   }
+  },
+  "visual-contrast.html": {
+   "rules": {
+    "cream-palette": 1,
+    "low-contrast": 1
+   },
+   "severities": {
+    "cream-palette:warning": 1,
+    "low-contrast:warning": 1
+   }
+  },
+  "vue-should-flag.vue": {
+   "rules": {
+    "ai-color-palette": 1,
+    "bounce-easing": 2,
+    "gradient-text": 1,
+    "overused-font": 1,
+    "side-tab": 2
+   },
+   "severities": {
+    "ai-color-palette:warning": 1,
+    "bounce-easing:advisory": 2,
+    "gradient-text:warning": 1,
+    "overused-font:warning": 1,
+    "side-tab:warning": 2
+   }
+  },
+  "vue-should-pass.vue": {
+   "rules": {},
+   "severities": {}
+  },
+  "wide-page-contrast.html": {
+   "rules": {
+    "low-contrast": 2
+   },
+   "severities": {
+    "low-contrast:warning": 2
+   }
+  },
+  "wide-tracking.html": {
+   "rules": {
+    "all-caps-body": 1,
+    "wide-tracking": 3
+   },
+   "severities": {
+    "all-caps-body:warning": 1,
+    "wide-tracking:warning": 3
+   }
+  }
+ }
+}

@@ -21,7 +21,14 @@
   "station-sync": "bring commons changes to a station without a broken merge",
   "upstream-intake": "bring a new upstream in: licence, lane, neutralisation, provenance",
   "upstream-pinning": "which exact commit is held, and has it been edited?",
-  "usage-observation": "is this tool/skill/upstream actually used, declared or observed?"
+  "usage-observation": "is this tool/skill/upstream actually used, declared or observed?",
+  "colour-contrast": "does every text/UI colour pair meet its WCAG contrast threshold?",
+  "design-detector": "does this HTML/CSS carry a known anti-pattern (impeccable's 59 rules), measured, scored, with a verdict exit code?",
+  "design-handoff": "hand a design to the station that builds it: one package format, one token schema",
+  "design-method": "which held design method (impeccable command, emil skill) answers this design question?",
+  "market-scan": "size a market or scan competitors with every figure sourced, denominated and re-derivable",
+  "site-protection": "protect a site the operator owns: fair bot handling, rate limits, hardening, privacy, passive self-check",
+  "ui-critique": "is this UI right, and what exactly is wrong with it, with evidence?"
  },
  "techniques": {}
 }
