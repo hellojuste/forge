@@ -23,9 +23,9 @@
  ],
  "gov": {
   "model_roster": {
-   "small": "<set me>",
-   "medium": "<set me>",
-   "large": "<set me>"
+   "small": "haiku",
+   "medium": "sonnet",
+   "large": "opus"
   }
  },
  "hooks": {
@@ -33,17 +33,6 @@
    "connector_scope"
   ]
  },
- "skill_overrides": {
-  "checkpoint": "user-invocable-only",
-  "summon": "user-invocable-only",
-  "tier": "user-invocable-only",
-  "upstream-intake": "user-invocable-only",
-  "telemetry-audit": "user-invocable-only",
-  "kit-maintain": "user-invocable-only",
-  "re-legal-gate": "user-invocable-only"
- },
- "listing_budget_bytes": 2400,
- "listed_max": 6,
  "quarantined": [],
  "irreversible_acts": [
   "\\bevo\\s+telemetry\\s+(on|off)\\b",
@@ -79,5 +68,6 @@
   "langchain-ai/openwiki": "verified:false -- opt-out proven in code (src/telemetry/gates.ts:28-32, gate at senders.ts:136); OPENWIKI_TELEMETRY_DISABLED=1 is pre-set in .env; offline --telemetry-file run owed",
   "styler-ai/ProjectAtlas": "verified:false -- its telemetry is local token accounting in the project DB (crates/projectatlas-db/src/telemetry.rs:1); no network sender recorded; offline runtime-info run owed"
  },
- "telemetry_rule": "no workflow starts a tool whose registry/telemetry.json row is verified:false (wiki-gen, optimize-loop, tool-trial check it in their GATHER stage)"
+ "telemetry_rule": "no workflow starts a tool whose registry/telemetry.json row is verified:false (wiki-gen, optimize-loop, tool-trial check it in their GATHER stage)",
+ "skill_hide": {}
 }
