@@ -3,11 +3,11 @@
  "census": {
   "dir": 18,
   "hook": 12,
-  "skill": 11,
-  "tool": 53,
-  "total": 103,
+  "skill": 16,
+  "tool": 54,
+  "total": 115,
   "upstream": 6,
-  "workflow": 3
+  "workflow": 9
  },
  "edges": [
   {
@@ -110,6 +110,20 @@
   },
   {
    "evidence": "map/dirs.json:7",
+   "from": "skill:ci-suite-audit",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/ci-suite-audit/SKILL.md:27",
+   "from": "skill:ci-suite-audit",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
    "from": "skill:closeout",
    "kind": "in",
    "to": "dir:.claude",
@@ -149,6 +163,20 @@
    "kind": "runs",
    "to": "tool:tools/upstream/skill_routes.py",
    "token": "tools/upstream/skill_routes.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "skill:design-it-twice",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/design-it-twice/SKILL.md:26",
+   "from": "skill:design-it-twice",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
   },
   {
    "evidence": "map/dirs.json:7",
@@ -236,6 +264,20 @@
   },
   {
    "evidence": "map/dirs.json:7",
+   "from": "skill:noise-floor",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/noise-floor/SKILL.md:32",
+   "from": "skill:noise-floor",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
    "from": "skill:re-legal-gate",
    "kind": "in",
    "to": "dir:.claude",
@@ -264,6 +306,76 @@
   },
   {
    "evidence": "map/dirs.json:7",
+   "from": "skill:skill-author",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/skill-author/SKILL.md:29",
+   "from": "skill:skill-author",
+   "kind": "runs",
+   "to": "tool:.claude/hooks/intent_router.py",
+   "token": ".claude/hooks/intent_router.py"
+  },
+  {
+   "evidence": ".claude/skills/skill-author/SKILL.md:11",
+   "from": "skill:skill-author",
+   "kind": "runs",
+   "to": "tool:tools/map/find.py",
+   "token": "tools/map/find.py"
+  },
+  {
+   "evidence": ".claude/skills/skill-author/SKILL.md:23",
+   "from": "skill:skill-author",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/skills/skill-author/SKILL.md:29",
+   "from": "skill:skill-author",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": ".claude/skills/skill-author/SKILL.md:28",
+   "from": "skill:skill-author",
+   "kind": "runs",
+   "to": "tool:tools/upstream/workflows_check.py",
+   "token": "tools/upstream/workflows_check.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "skill:skill-route-intake",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/skills/skill-route-intake/SKILL.md:11",
+   "from": "skill:skill-route-intake",
+   "kind": "runs",
+   "to": "tool:tools/upstream/ingest.py",
+   "token": "tools/upstream/ingest.py"
+  },
+  {
+   "evidence": ".claude/skills/skill-route-intake/SKILL.md:25",
+   "from": "skill:skill-route-intake",
+   "kind": "runs",
+   "to": "tool:tools/upstream/skill_routes.py",
+   "token": "tools/upstream/skill_routes.py"
+  },
+  {
+   "evidence": ".claude/skills/skill-route-intake/SKILL.md:24",
+   "from": "skill:skill-route-intake",
+   "kind": "runs",
+   "to": "tool:tools/upstream/skill_surface.py",
+   "token": "tools/upstream/skill_surface.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
    "from": "skill:summon",
    "kind": "in",
    "to": "dir:.claude",
@@ -277,11 +389,18 @@
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/skills/telemetry-audit/SKILL.md:28",
+   "evidence": ".claude/skills/telemetry-audit/SKILL.md:34",
    "from": "skill:telemetry-audit",
    "kind": "runs",
    "to": "tool:tools/station/forge_check.py",
    "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/skills/telemetry-audit/SKILL.md:11",
+   "from": "skill:telemetry-audit",
+   "kind": "runs",
+   "to": "tool:tools/station/telemetry_plan.py",
+   "token": "tools/station/telemetry_plan.py"
   },
   {
    "evidence": "map/dirs.json:7",
@@ -1300,6 +1419,27 @@
   },
   {
    "evidence": "map/dirs.json:199",
+   "from": "tool:tools/station/telemetry_plan.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/station/telemetry_plan.py:74",
+   "from": "tool:tools/station/telemetry_plan.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/bootstrap.py",
+   "token": "tools/kit/bootstrap.py"
+  },
+  {
+   "evidence": "tools/station/telemetry_plan.py:75",
+   "from": "tool:tools/station/telemetry_plan.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/runtree.py",
+   "token": "tools/kit/runtree.py"
+  },
+  {
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/station_audit.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1475,6 +1615,146 @@
   },
   {
    "evidence": "map/dirs.json:7",
+   "from": "workflow:arch-review",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/arch-review.js:17",
+   "from": "workflow:arch-review",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/workflows/arch-review.js:25",
+   "from": "workflow:arch-review",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "workflow:intake-run",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/intake-run.js:20",
+   "from": "workflow:intake-run",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/workflows/intake-run.js:71",
+   "from": "workflow:intake-run",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": ".claude/workflows/intake-run.js:69",
+   "from": "workflow:intake-run",
+   "kind": "runs",
+   "to": "tool:tools/upstream/ingest.py",
+   "token": "tools/upstream/ingest.py"
+  },
+  {
+   "evidence": ".claude/workflows/intake-run.js:71",
+   "from": "workflow:intake-run",
+   "kind": "runs",
+   "to": "tool:tools/upstream/notice.py",
+   "token": "tools/upstream/notice.py"
+  },
+  {
+   "evidence": ".claude/workflows/intake-run.js:20",
+   "from": "workflow:intake-run",
+   "kind": "runs",
+   "to": "tool:tools/upstream/skill_routes.py",
+   "token": "tools/upstream/skill_routes.py"
+  },
+  {
+   "evidence": ".claude/workflows/intake-run.js:20",
+   "from": "workflow:intake-run",
+   "kind": "runs",
+   "to": "tool:tools/upstream/skill_surface.py",
+   "token": "tools/upstream/skill_surface.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "workflow:kit-repin",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/kit-repin.js:56",
+   "from": "workflow:kit-repin",
+   "kind": "runs",
+   "to": "tool:tools/kit/bootstrap.py",
+   "token": "tools/kit/bootstrap.py"
+  },
+  {
+   "evidence": ".claude/workflows/kit-repin.js:71",
+   "from": "workflow:kit-repin",
+   "kind": "runs",
+   "to": "tool:tools/kit/repin.py",
+   "token": "tools/kit/repin.py"
+  },
+  {
+   "evidence": ".claude/workflows/kit-repin.js:17",
+   "from": "workflow:kit-repin",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/workflows/kit-repin.js:25",
+   "from": "workflow:kit-repin",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "workflow:optimize-loop",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/optimize-loop.js:66",
+   "from": "workflow:optimize-loop",
+   "kind": "runs",
+   "to": "tool:tools/kit/runtree.py",
+   "token": "tools/kit/runtree.py"
+  },
+  {
+   "evidence": ".claude/workflows/optimize-loop.js:31",
+   "from": "workflow:optimize-loop",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/workflows/optimize-loop.js:30",
+   "from": "workflow:optimize-loop",
+   "kind": "runs",
+   "to": "tool:tools/station/telemetry_plan.py",
+   "token": "tools/station/telemetry_plan.py"
+  },
+  {
+   "evidence": ".claude/workflows/optimize-loop.js:28",
+   "from": "workflow:optimize-loop",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
    "from": "workflow:orient",
    "kind": "in",
    "to": "dir:.claude",
@@ -1483,6 +1763,34 @@
   {
    "evidence": ".claude/workflows/orient.js:19",
    "from": "workflow:orient",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "workflow:reverse",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/reverse.js:68",
+   "from": "workflow:reverse",
+   "kind": "runs",
+   "to": "tool:tools/kit/runtree.py",
+   "token": "tools/kit/runtree.py"
+  },
+  {
+   "evidence": ".claude/workflows/reverse.js:60",
+   "from": "workflow:reverse",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/workflows/reverse.js:25",
+   "from": "workflow:reverse",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
@@ -1509,8 +1817,50 @@
    "token": "tools/station/forge_check.py"
   },
   {
+   "evidence": ".claude/workflows/trial-run.js:31",
+   "from": "workflow:trial-run",
+   "kind": "runs",
+   "to": "tool:tools/station/telemetry_plan.py",
+   "token": "tools/station/telemetry_plan.py"
+  },
+  {
    "evidence": ".claude/workflows/trial-run.js:29",
    "from": "workflow:trial-run",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "workflow:wiki-gen",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/wiki-gen.js:77",
+   "from": "workflow:wiki-gen",
+   "kind": "runs",
+   "to": "tool:tools/kit/runtree.py",
+   "token": "tools/kit/runtree.py"
+  },
+  {
+   "evidence": ".claude/workflows/wiki-gen.js:19",
+   "from": "workflow:wiki-gen",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/workflows/wiki-gen.js:74",
+   "from": "workflow:wiki-gen",
+   "kind": "runs",
+   "to": "tool:tools/station/telemetry_plan.py",
+   "token": "tools/station/telemetry_plan.py"
+  },
+  {
+   "evidence": ".claude/workflows/wiki-gen.js:27",
+   "from": "workflow:wiki-gen",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
@@ -1705,9 +2055,21 @@
   },
   {
    "class": "skill",
+   "id": "skill:ci-suite-audit",
+   "label": "ci-suite-audit",
+   "source": ".claude/skills/ci-suite-audit/SKILL.md"
+  },
+  {
+   "class": "skill",
    "id": "skill:closeout",
    "label": "closeout",
    "source": ".claude/skills/closeout/SKILL.md"
+  },
+  {
+   "class": "skill",
+   "id": "skill:design-it-twice",
+   "label": "design-it-twice",
+   "source": ".claude/skills/design-it-twice/SKILL.md"
   },
   {
    "class": "skill",
@@ -1729,9 +2091,27 @@
   },
   {
    "class": "skill",
+   "id": "skill:noise-floor",
+   "label": "noise-floor",
+   "source": ".claude/skills/noise-floor/SKILL.md"
+  },
+  {
+   "class": "skill",
    "id": "skill:re-legal-gate",
    "label": "re-legal-gate",
    "source": ".claude/skills/re-legal-gate/SKILL.md"
+  },
+  {
+   "class": "skill",
+   "id": "skill:skill-author",
+   "label": "skill-author",
+   "source": ".claude/skills/skill-author/SKILL.md"
+  },
+  {
+   "class": "skill",
+   "id": "skill:skill-route-intake",
+   "label": "skill-route-intake",
+   "source": ".claude/skills/skill-route-intake/SKILL.md"
   },
   {
    "class": "skill",
@@ -2035,6 +2415,12 @@
   },
   {
    "class": "tool",
+   "id": "tool:tools/station/telemetry_plan.py",
+   "label": "telemetry_plan.py",
+   "source": "tools/station/telemetry_plan.py"
+  },
+  {
+   "class": "tool",
    "id": "tool:tools/station_audit.py",
    "label": "station_audit.py",
    "source": "tools/station_audit.py"
@@ -2125,15 +2511,51 @@
   },
   {
    "class": "workflow",
+   "id": "workflow:arch-review",
+   "label": "arch-review",
+   "source": ".claude/workflows/arch-review.js"
+  },
+  {
+   "class": "workflow",
+   "id": "workflow:intake-run",
+   "label": "intake-run",
+   "source": ".claude/workflows/intake-run.js"
+  },
+  {
+   "class": "workflow",
+   "id": "workflow:kit-repin",
+   "label": "kit-repin",
+   "source": ".claude/workflows/kit-repin.js"
+  },
+  {
+   "class": "workflow",
+   "id": "workflow:optimize-loop",
+   "label": "optimize-loop",
+   "source": ".claude/workflows/optimize-loop.js"
+  },
+  {
+   "class": "workflow",
    "id": "workflow:orient",
    "label": "orient",
    "source": ".claude/workflows/orient.js"
   },
   {
    "class": "workflow",
+   "id": "workflow:reverse",
+   "label": "reverse",
+   "source": ".claude/workflows/reverse.js"
+  },
+  {
+   "class": "workflow",
    "id": "workflow:trial-run",
    "label": "trial-run",
    "source": ".claude/workflows/trial-run.js"
+  },
+  {
+   "class": "workflow",
+   "id": "workflow:wiki-gen",
+   "label": "wiki-gen",
+   "source": ".claude/workflows/wiki-gen.js"
   }
  ]
 }

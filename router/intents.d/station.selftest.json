@@ -112,6 +112,91 @@
   {
    "prompt": "do not repin anything this week",
    "must_route": false
+  },
+  {
+   "prompt": "does evo phone home and what is its opt-out",
+   "expect": "telemetry"
+  },
+  {
+   "prompt": "print the telemetry status commands for every tool",
+   "expect": "telemetry"
+  },
+  {
+   "prompt": "set DO_NOT_TRACK before the run",
+   "expect": "telemetry"
+  },
+  {
+   "prompt": "no telemetry questions today",
+   "must_route": false
+  },
+  {
+   "prompt": "measure the noise floor of the benchmark first",
+   "expect": "noise"
+  },
+  {
+   "prompt": "how big is the run-to-run variance on this score",
+   "expect": "noise"
+  },
+  {
+   "prompt": "is that gain bigger than the spread",
+   "expect": "noise"
+  },
+  {
+   "prompt": "there is no noise floor to worry about",
+   "must_route": false
+  },
+  {
+   "prompt": "run a ci audit on the kit checks",
+   "expect": "ci-audit"
+  },
+  {
+   "prompt": "find the false pass in this test suite",
+   "expect": "ci-audit"
+  },
+  {
+   "prompt": "prove each gate with a planted defect",
+   "expect": "ci-audit"
+  },
+  {
+   "prompt": "no ci audit needed for a typo",
+   "must_route": false,
+   "_note": "first written as 'skip the ci audit': 'skip' is not a commons negator (NEGATORS_DEFAULT); proposed to main in RETURNS/forge.md"
+  },
+  {
+   "prompt": "write a skill for checking pin drift",
+   "expect": "skill-build"
+  },
+  {
+   "prompt": "author a skill that lints workflow files",
+   "expect": "skill-build"
+  },
+  {
+   "prompt": "draft a new workflow for the repin job",
+   "expect": "skill-build"
+  },
+  {
+   "prompt": "do not write a skill for this",
+   "must_route": false
+  },
+  {
+   "prompt": "do the kit maintenance pass across branches",
+   "expect": "maintain"
+  },
+  {
+   "prompt": "run the sync check before the zip",
+   "expect": "maintain"
+  },
+  {
+   "prompt": "is the listing budget still fine",
+   "expect": "maintain"
+  },
+  {
+   "prompt": "no kit maintenance this week",
+   "must_route": false
+  },
+  {
+   "prompt": "Trial the evo optimizer on our prompts and measure token cost with a denominator",
+   "expect": "trial"
   }
  ]
 }

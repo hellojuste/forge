@@ -11,6 +11,9 @@
   "architecture-review": "design a module interface twice and find deepening opportunities",
   "code-review": "find actionable defects and intent-vs-implementation gaps in agent-built code",
   "telemetry-audit": "what does a tool send, where, and which switch provably turns it off at the pin?",
-  "repin": "move a pin with the evidence first: licence, agent files, telemetry, repurposing"
+  "repin": "move a pin with the evidence first: licence, agent files, telemetry, repurposing",
+  "noise-floor": "is a claimed delta larger than the run-to-run spread of the unchanged baseline?",
+  "ci-audit": "does each check turn red on its own planted defect, and what does it cost?",
+  "skill-authoring": "write a kit skill or workflow with a failing test, a route and a listing line that earns its cost"
  }
 }

@@ -3,22 +3,27 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 18 · hook 12 · skill 11 · tool 53 · total 103 · upstream 6 · workflow 3
+census: dir 18 · hook 12 · skill 16 · tool 54 · total 115 · upstream 6 · workflow 9
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
 ## Dirs and what is in them
 
-69 nodes > cap 60: table instead of a hairball.
+81 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
 | `skill:checkpoint` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:ci-suite-audit` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:closeout` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:design-it-twice` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:evo-guard` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:handoff` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:kit-maintain` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:noise-floor` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:re-legal-gate` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:skill-author` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:skill-route-intake` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:summon` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:telemetry-audit` | in | `dir:.claude` | map/dirs.json:7 |
 | `skill:tier` | in | `dir:.claude` | map/dirs.json:7 |
@@ -69,6 +74,7 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `tool:tools/map/upstream_check.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/map/usage_map.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station/forge_check.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/station/telemetry_plan.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station_audit.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/upstream/_uplib.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/upstream/ingest.py` | in | `dir:tools` | map/dirs.json:199 |
@@ -78,8 +84,14 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `tool:tools/upstream/upstream_checks.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/upstream/workflows_check.py` | in | `dir:tools` | map/dirs.json:199 |
 | `workflow:_template` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:arch-review` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:intake-run` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:kit-repin` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:optimize-loop` | in | `dir:.claude` | map/dirs.json:7 |
 | `workflow:orient` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:reverse` | in | `dir:.claude` | map/dirs.json:7 |
 | `workflow:trial-run` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:wiki-gen` | in | `dir:.claude` | map/dirs.json:7 |
 
 ## Hooks and the tools they wire
 
@@ -124,16 +136,18 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-65 nodes > cap 60: table instead of a hairball.
+77 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
 | `skill:checkpoint` | runs | `tool:tools/station_audit.py` | .claude/skills/checkpoint/SKILL.md:12 |
+| `skill:ci-suite-audit` | runs | `tool:tools/station_audit.py` | .claude/skills/ci-suite-audit/SKILL.md:27 |
 | `skill:closeout` | runs | `tool:tools/gov/gen_manifest.py` | .claude/skills/closeout/SKILL.md:19 |
 | `skill:closeout` | runs | `tool:tools/gov/new_row.py` | .claude/skills/closeout/SKILL.md:30 |
 | `skill:closeout` | runs | `tool:tools/station_audit.py` | .claude/skills/closeout/SKILL.md:39 |
 | `skill:closeout` | runs | `tool:tools/upstream/notice.py` | .claude/skills/closeout/SKILL.md:18 |
 | `skill:closeout` | runs | `tool:tools/upstream/skill_routes.py` | .claude/skills/closeout/SKILL.md:18 |
+| `skill:design-it-twice` | runs | `tool:tools/station/forge_check.py` | .claude/skills/design-it-twice/SKILL.md:26 |
 | `skill:evo-guard` | runs | `tool:tools/station/forge_check.py` | .claude/skills/evo-guard/SKILL.md:30 |
 | `skill:evo-guard` | ports-from | `upstream:evo-hq~evo` | .claude/skills/evo-guard/SKILL.md:12 |
 | `skill:handoff` | runs | `tool:tools/station_audit.py` | .claude/skills/handoff/SKILL.md:19 |
@@ -143,10 +157,20 @@ flowchart LR
 | `skill:kit-maintain` | runs | `tool:tools/station/forge_check.py` | .claude/skills/kit-maintain/SKILL.md:26 |
 | `skill:kit-maintain` | runs | `tool:tools/station_audit.py` | .claude/skills/kit-maintain/SKILL.md:23 |
 | `skill:kit-maintain` | runs | `tool:tools/upstream/ingest.py` | .claude/skills/kit-maintain/SKILL.md:21 |
+| `skill:noise-floor` | runs | `tool:tools/station/forge_check.py` | .claude/skills/noise-floor/SKILL.md:32 |
 | `skill:re-legal-gate` | runs | `tool:tools/kit/runtree.py` | .claude/skills/re-legal-gate/SKILL.md:21 |
 | `skill:re-legal-gate` | runs | `tool:tools/station/forge_check.py` | .claude/skills/re-legal-gate/SKILL.md:26 |
 | `skill:re-legal-gate` | ports-from | `upstream:morluto~rea` | .claude/skills/re-legal-gate/SKILL.md:7 |
-| `skill:telemetry-audit` | runs | `tool:tools/station/forge_check.py` | .claude/skills/telemetry-audit/SKILL.md:28 |
+| `skill:skill-author` | runs | `tool:.claude/hooks/intent_router.py` | .claude/skills/skill-author/SKILL.md:29 |
+| `skill:skill-author` | runs | `tool:tools/map/find.py` | .claude/skills/skill-author/SKILL.md:11 |
+| `skill:skill-author` | runs | `tool:tools/station/forge_check.py` | .claude/skills/skill-author/SKILL.md:23 |
+| `skill:skill-author` | runs | `tool:tools/station_audit.py` | .claude/skills/skill-author/SKILL.md:29 |
+| `skill:skill-author` | runs | `tool:tools/upstream/workflows_check.py` | .claude/skills/skill-author/SKILL.md:28 |
+| `skill:skill-route-intake` | runs | `tool:tools/upstream/ingest.py` | .claude/skills/skill-route-intake/SKILL.md:11 |
+| `skill:skill-route-intake` | runs | `tool:tools/upstream/skill_routes.py` | .claude/skills/skill-route-intake/SKILL.md:25 |
+| `skill:skill-route-intake` | runs | `tool:tools/upstream/skill_surface.py` | .claude/skills/skill-route-intake/SKILL.md:24 |
+| `skill:telemetry-audit` | runs | `tool:tools/station/forge_check.py` | .claude/skills/telemetry-audit/SKILL.md:34 |
+| `skill:telemetry-audit` | runs | `tool:tools/station/telemetry_plan.py` | .claude/skills/telemetry-audit/SKILL.md:11 |
 | `skill:tool-trial` | runs | `tool:tools/kit/runtree.py` | .claude/skills/tool-trial/SKILL.md:20 |
 | `skill:tool-trial` | runs | `tool:tools/station/forge_check.py` | .claude/skills/tool-trial/SKILL.md:36 |
 | `skill:tool-trial` | ports-from | `upstream:styler-ai~ProjectAtlas` | .claude/skills/tool-trial/SKILL.md:24 |
@@ -244,6 +268,8 @@ flowchart LR
 | `tool:tools/map/map_check.py` | runs | `tool:tools/map/usage_map.py` | tools/map/map_check.py:113 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/hooks/usage_log.py` | tools/map/usage_map.py:10 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/map_check.py` | tools/map/usage_map.py:83 |
+| `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/telemetry_plan.py:74 |
+| `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/runtree.py` | tools/station/telemetry_plan.py:75 |
 | `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/station_audit.py:331 |
 | `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/stop.py` | tools/station_audit.py:327 |
 | `tool:tools/upstream/_uplib.py` | runs | `tool:tools/map/_common.py` | tools/upstream/_uplib.py:8 |
@@ -260,7 +286,31 @@ flowchart LR
 | `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/station_audit.py` | tools/upstream/workflows_check.py:320 |
 | `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/upstream/skill_surface.py` | tools/upstream/workflows_check.py:230 |
 | `workflow:_template` | runs | `tool:tools/station_audit.py` | .claude/workflows/_template.js:24 |
+| `workflow:arch-review` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/arch-review.js:17 |
+| `workflow:arch-review` | runs | `tool:tools/station_audit.py` | .claude/workflows/arch-review.js:25 |
+| `workflow:intake-run` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/intake-run.js:20 |
+| `workflow:intake-run` | runs | `tool:tools/station_audit.py` | .claude/workflows/intake-run.js:71 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/ingest.py` | .claude/workflows/intake-run.js:69 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/notice.py` | .claude/workflows/intake-run.js:71 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/skill_routes.py` | .claude/workflows/intake-run.js:20 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/skill_surface.py` | .claude/workflows/intake-run.js:20 |
+| `workflow:kit-repin` | runs | `tool:tools/kit/bootstrap.py` | .claude/workflows/kit-repin.js:56 |
+| `workflow:kit-repin` | runs | `tool:tools/kit/repin.py` | .claude/workflows/kit-repin.js:71 |
+| `workflow:kit-repin` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/kit-repin.js:17 |
+| `workflow:kit-repin` | runs | `tool:tools/station_audit.py` | .claude/workflows/kit-repin.js:25 |
+| `workflow:optimize-loop` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/optimize-loop.js:66 |
+| `workflow:optimize-loop` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/optimize-loop.js:31 |
+| `workflow:optimize-loop` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/optimize-loop.js:30 |
+| `workflow:optimize-loop` | runs | `tool:tools/station_audit.py` | .claude/workflows/optimize-loop.js:28 |
 | `workflow:orient` | runs | `tool:tools/station_audit.py` | .claude/workflows/orient.js:19 |
+| `workflow:reverse` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/reverse.js:68 |
+| `workflow:reverse` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/reverse.js:60 |
+| `workflow:reverse` | runs | `tool:tools/station_audit.py` | .claude/workflows/reverse.js:25 |
 | `workflow:trial-run` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/trial-run.js:84 |
 | `workflow:trial-run` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/trial-run.js:30 |
+| `workflow:trial-run` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/trial-run.js:31 |
 | `workflow:trial-run` | runs | `tool:tools/station_audit.py` | .claude/workflows/trial-run.js:29 |
+| `workflow:wiki-gen` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/wiki-gen.js:77 |
+| `workflow:wiki-gen` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/wiki-gen.js:19 |
+| `workflow:wiki-gen` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/wiki-gen.js:74 |
+| `workflow:wiki-gen` | runs | `tool:tools/station_audit.py` | .claude/workflows/wiki-gen.js:27 |

@@ -20,8 +20,23 @@ all five against the records the skills and workflows write:
   repin      every work/repin/*.md report with `licence_diff: changed` (or any STOP item) says `status: STOPPED` and
              `applied: no`.                      (skill kit-maintain: "a repin with a changed LICENSE blob stops")
 
+  noise      every work/trials/*.md with a verdict and every work/optimize/*.md claiming a gain carries
+             `noise_floor: K=<k>` with K >= 5 and `spread:`; a `gain:` not larger than `spread:` cannot be promoted
+             or called out-of-sample.
+                                     (skill noise-floor: "a gain smaller than the run-to-run spread is not a gain")
+  wiki       every work/wiki/<repo>/REVIEW.md names target, target_class and status; status generated needs a
+             non-client target_class and the openwiki telemetry row verified:true.   (workflow wiki-gen)
+  arch       every work/arch/*.md holds >= 2 `## Design` sections, a comparison table and a `pick:` line.
+                                                       (skill design-it-twice, workflow arch-review)
+  intake     every work/intake/*.md names repo, a 40-hex sha, licence, agent_files and decision; decision ingest
+             needs an upstream/LOCK.json row with that repo and sha.                 (workflow intake-run)
+  roster     every station workflow's DEFAULT_MODELS literal equals station.json gov.model_roster (one owner).
+
+  output <kind> <path>  the certain test of a station workflow: the whole check above, PLUS the named deliverable
+             exists, lies under its kind's folder and carries its kind's required fields.
+
 Headline (station_audit grammar): "forge_gates: <n> violation(s) · <m> worklist · denominator <d>".
-CLI: forge_check.py check [--root DIR] | forge_check.py --selftest
+CLI: forge_check.py check [--root DIR] | forge_check.py output <kind> <path> [--root DIR] | forge_check.py --selftest
 Exit: 0 clean . 1 violation . 2 unreadable input.
 Earned by: KIT_PLAN 4 forge jobs (tool trial N >= 5, evo optimise with a frozen holdout, RE behind a legal gate,
 repin with a report) and LEAN 'every numerator carries its denominator': lettuce shipped trial verdicts and
@@ -39,6 +54,12 @@ from pathlib import Path
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 TRIAL_ID = re.compile(r"^TRIAL-forge-\d{4}$")
 GATE_ID = re.compile(r"^RE-GATE-\d{4}$")
+HEX40 = re.compile(r"^[0-9a-f]{40}$")
+NOISE = re.compile(r"K\s*=\s*(\d+)")
+NUM = re.compile(r"[-+]?\d+(?:\.\d+)?")
+CLIENTISH = {"client", "customer", "third-party", "third-party-proprietary", "proprietary"}
+OK_WIKI_CLASS = {"own", "open-source", "kit"}
+INTAKE_DECISIONS = {"ingest", "bootstrap", "attic", "refuse"}
 RIGHTS = {"own", "authorized", "open-source-licence", "interoperability-statute", "public-domain"}
 PROPRIETARY = {"proprietary", "unknown", "closed", "eula"}
 
@@ -214,7 +235,174 @@ def check_repin(root, viol, work):
     return len(reps)
 
 
-CHECKS = [check_trial, check_holdout, check_telemetry, check_re_gate, check_repin]
+# ------------------------------------------------------------------ noise
+def _num(v):
+    m = NUM.search(v or "")
+    return float(m.group(0)) if m else None
+
+
+def _noise(rel, f, viol, claims):
+    nf = f.get("noise_floor", "")
+    m = NOISE.search(nf)
+    if not m or int(m.group(1)) < 5:
+        viol.append("%s: no `noise_floor: K=<k>` with K >= 5 -- a claimed result without the baseline spread is refused" % rel)
+        return
+    spread = _num(f.get("spread"))
+    if spread is None:
+        viol.append("%s: noise_floor without a numeric `spread:`" % rel)
+        return
+    gain = _num(f.get("gain"))
+    if claims and gain is not None and abs(gain) <= spread:
+        viol.append("%s: gain %s is not larger than the run-to-run spread %s (not a gain)" % (rel, gain, spread))
+
+
+def check_noise(root, viol, work):
+    n = 0
+    for rp in _reports(root, "work/trials"):
+        f = _fields(rp.read_text(encoding="utf-8", errors="replace"))
+        if f.get("verdict", "").lower() in ("promote", "park"):
+            n += 1
+            _noise(rp.relative_to(root), f, viol, f.get("verdict", "").lower() == "promote")
+    for rp in _reports(root, "work/optimize"):
+        f = _fields(rp.read_text(encoding="utf-8", errors="replace"))
+        if f.get("gain") or f.get("gain_status", "").lower() == "out-of-sample":
+            n += 1
+            _noise(rp.relative_to(root), f, viol, f.get("gain_status", "").lower() == "out-of-sample")
+    return n
+
+
+# ------------------------------------------------------------------ wiki
+def _telemetry_rows(root):
+    p = Path(root) / "registry" / "telemetry.json"
+    if not p.exists():
+        return []
+    try:
+        doc = json.loads(p.read_text(encoding="utf-8"))
+    except ValueError as e:
+        raise Unreadable("registry/telemetry.json: %s" % e)
+    rows = doc if isinstance(doc, list) else (doc.get("rows") or doc.get("telemetry") or [])
+    return [r for r in rows if isinstance(r, dict)]
+
+
+def wiki_reviews(root):
+    d = Path(root) / "work" / "wiki"
+    return sorted(d.glob("*/REVIEW.md")) if d.is_dir() else []
+
+
+def check_wiki(root, viol, work):
+    revs = wiki_reviews(root)
+    ow = [r for r in _telemetry_rows(root) if "openwiki" in str(r.get("repo", "")) + str(r.get("tool", ""))]
+    verified = bool(ow) and all(r.get("verified") is True for r in ow)
+    for rp in revs:
+        rel = rp.relative_to(root)
+        f = _fields(rp.read_text(encoding="utf-8", errors="replace"))
+        for k in ("target", "target_class", "status"):
+            if not f.get(k):
+                viol.append("%s: missing %s" % (rel, k))
+        cls, st = f.get("target_class", "").lower(), f.get("status", "").lower()
+        if st == "generated":
+            if cls not in OK_WIKI_CLASS:
+                viol.append("%s: generated a wiki for target_class %r (only %s; client repos are client-bi's)"
+                            % (rel, cls, "/".join(sorted(OK_WIKI_CLASS))))
+            if not verified:
+                viol.append("%s: generated while the openwiki telemetry row is not verified:true (never start an unverified tool)" % rel)
+        elif st.startswith("refused"):
+            work.append("%s: %s" % (rel, st))
+        elif st:
+            viol.append("%s: status %r is not generated|refused-*" % (rel, st))
+    return len(revs)
+
+
+# ------------------------------------------------------------------ arch
+def check_arch(root, viol, work):
+    reps = _reports(root, "work/arch")
+    for rp in reps:
+        rel = rp.relative_to(root)
+        t = rp.read_text(encoding="utf-8", errors="replace")
+        designs = re.findall(r"(?m)^##\s+Design\b", t)
+        if len(designs) < 2:
+            viol.append("%s: %d `## Design` section(s); design it twice needs >= 2 radically different designs" % (rel, len(designs)))
+        if not re.search(r"(?mi)^\|.*\bdepth\b.*\|", t):
+            viol.append("%s: no comparison table with a depth column" % rel)
+        if not _fields(t).get("pick"):
+            viol.append("%s: no `pick:` line (the chosen design and why)" % rel)
+    return len(reps)
+
+
+# ------------------------------------------------------------------ intake
+def _lock_rows(root):
+    p = Path(root) / "upstream" / "LOCK.json"
+    if not p.exists():
+        return []
+    try:
+        doc = json.loads(p.read_text(encoding="utf-8"))
+    except ValueError as e:
+        raise Unreadable("upstream/LOCK.json: %s" % e)
+    rows = doc if isinstance(doc, list) else (doc.get("rows") or doc.get("lock") or [])
+    return [r for r in rows if isinstance(r, dict)]
+
+
+def check_intake(root, viol, work):
+    reps = _reports(root, "work/intake")
+    lock = None
+    for rp in reps:
+        rel = rp.relative_to(root)
+        f = _fields(rp.read_text(encoding="utf-8", errors="replace"))
+        for k in ("repo", "sha", "licence", "agent_files", "decision"):
+            if not f.get(k):
+                viol.append("%s: missing %s" % (rel, k))
+        sha = f.get("sha", "").strip("` ").lower()
+        if sha and not HEX40.match(sha):
+            viol.append("%s: sha %r is not 40 hex (re-derive with git rev-parse)" % (rel, sha[:16]))
+        dec = f.get("decision", "").lower()
+        if dec and dec not in INTAKE_DECISIONS:
+            viol.append("%s: decision %r is not %s" % (rel, dec, "|".join(sorted(INTAKE_DECISIONS))))
+        if dec == "ingest":
+            lock = _lock_rows(root) if lock is None else lock
+            repo = f.get("repo", "").strip("` ")
+            if not any(str(r.get("repo")) == repo and str(r.get("sha", "")).lower() == sha for r in lock):
+                viol.append("%s: decision ingest but upstream/LOCK.json has no row %s@%s (ingest.py writes it)" % (rel, repo, sha[:7]))
+    return len(reps)
+
+
+# ------------------------------------------------------------------ roster
+DEFAULT_MODELS = re.compile(r"(?s)const\s+DEFAULT_MODELS\s*=\s*\{(.*?)\}")
+
+
+def check_roster(root, viol, work):
+    root = Path(root)
+    sj = root / "station.json"
+    if not sj.exists():
+        return 0
+    try:
+        roster = (json.loads(sj.read_text(encoding="utf-8")).get("gov") or {}).get("model_roster") or {}
+    except ValueError as e:
+        raise Unreadable("station.json: %s" % e)
+    n = 0
+    for wf in sorted((root / ".claude" / "workflows").glob("*.js")):
+        m = DEFAULT_MODELS.search(wf.read_text(encoding="utf-8"))
+        if not m:
+            continue
+        n += 1
+        got = dict(re.findall(r"(\w+)\s*:\s*'([^']*)'", m.group(1)))
+        if got != {k: v for k, v in roster.items() if isinstance(v, str)}:
+            viol.append("%s: DEFAULT_MODELS %s != station.json gov.model_roster %s" % (wf.relative_to(root), got, roster))
+    return n
+
+
+CHECKS = [check_trial, check_holdout, check_telemetry, check_re_gate, check_repin, check_noise, check_wiki, check_arch,
+          check_intake, check_roster]
+
+# kind -> (folder, required fields or None for a structural check, the deliverable's file inside a dir)
+KINDS = {
+    "trial": ("work/trials", ("verdict", "n_tasks", "noise_floor", "spread")),
+    "optimize": ("work/optimize", ("holdout_sha256", "holdout_frozen_at", "gain_status")),
+    "wiki": ("work/wiki", ("target", "target_class", "status")),
+    "re": ("work/re", ("gate",)),
+    "arch": ("work/arch", ("pick",)),
+    "intake": ("work/intake", ("repo", "sha", "decision")),
+    "repin": ("work/repin", ("status", "applied")),
+}
 
 
 def run(root):
@@ -238,6 +426,42 @@ def cmd_check(root):
     return 1 if viol else 0
 
 
+def cmd_output(root, kind, rel):
+    """Certain test of one workflow run: the whole gate is clean AND the deliverable is there and complete."""
+    folder, required = KINDS[kind]
+    p = (root / rel).resolve()
+    viol = []
+    try:
+        p.relative_to((root / folder).resolve())
+    except ValueError:
+        viol.append("%s is not under %s/" % (rel, folder))
+    if p.is_dir():
+        p = p / "REVIEW.md"
+    if not p.is_file():
+        viol.append("deliverable %s does not exist (the workflow produced nothing)" % rel)
+    else:
+        f = _fields(p.read_text(encoding="utf-8", errors="replace"))
+        miss = [k for k in required if not f.get(k)]
+        if miss:
+            viol.append("%s: missing %s" % (rel, ", ".join(miss)))
+    if kind == "trial" and p.is_file():
+        led = Path(root) / "governance" / "STATION_LEDGER.md"
+        rows = trial_rows(led.read_text(encoding="utf-8", errors="replace")) if led.exists() else []
+        if _fields(p.read_text(encoding="utf-8", errors="replace")).get("verdict", "").lower() in ("promote", "park") and \
+                not any(len(c) >= 8 and c[7].strip("` ") == Path(rel).as_posix() for c in rows):
+            viol.append("%s: has a verdict but no TRIAL row in governance/STATION_LEDGER.md names it" % rel)
+    try:
+        gv, gw, den = run(root)
+    except Unreadable as e:
+        print("forge_output: UNREADABLE (%s)" % e)
+        return 2
+    viol.extend(gv)
+    print("forge_output %s: %d violation(s) · %d worklist · denominator %d" % (kind, len(viol), len(gw), den + 1))
+    for v in viol:
+        print("  VIOLATION " + v)
+    return 1 if viol else 0
+
+
 # ------------------------------------------------------------------ selftest
 LEDGER_OK = """# STATION_LEDGER
 ## TRIALS
@@ -257,7 +481,13 @@ def _plant(tmp, files):
 def selftest():
     good = {
         "governance/STATION_LEDGER.md": LEDGER_OK,
-        "work/trials/projectatlas.md": "verdict: park\nn_tasks: 6\n",
+        "work/trials/projectatlas.md": "verdict: park\nn_tasks: 6\nnoise_floor: K=5 seed fixed\nspread: 0.04\ngain: 0.01 (inside the spread: park)\n",
+        "work/wiki/dotfiles/REVIEW.md": "target: ~/src/dotfiles\ntarget_class: own\nstatus: refused-telemetry\n",
+        "work/arch/router.md": "## Design A\nx\n## Design B\ny\n| design | depth | leverage | locality |\n|---|---|---|---|\npick: B -- deeper module\n",
+        "work/intake/foo.md": "repo: foo/bar\nsha: %s\nlicence: MIT\nagent_files: CLAUDE.md\ndecision: ingest\n" % ("c" * 40),
+        "upstream/LOCK.json": json.dumps({"rows": [{"repo": "foo/bar", "sha": "c" * 40}]}),
+        "station.json": json.dumps({"name": "forge", "gov": {"model_roster": {"small": "haiku", "large": "opus"}}}),
+        ".claude/workflows/w.js": "const DEFAULT_MODELS = { small: 'haiku', large: 'opus' }\n",
         "work/optimize/latency.md": "holdout_sha256: %s\nholdout_frozen_at: 2026-10-16T10:00Z\ngain_status: in-sample\n" % ("b" * 64),
         "registry/telemetry.json": json.dumps({"telemetry": [{"tool": "evo", "verified": True,
                                                               "verified_by_run": "EVO_TELEMETRY=0 evo telemetry status -> telemetry: off (env)"}]}),
@@ -277,6 +507,17 @@ def selftest():
         ("re gate missing", {"work/re/own-cli.md": "gate: RE-GATE-0009\n"}),
         ("re third-party proprietary without right", {"work/re/legal_gate.json": json.dumps({"rows": [{"id": "RE-GATE-0001", "target": "vendor app", "owner": "Vendor Inc", "licence": "proprietary", "jurisdiction_note": "EU", "decision": "proceed"}]})}),
         ("repin licence changed but applied", {"work/repin/evo.md": "licence_diff: changed\nstatus: green\napplied: yes\n"}),
+        ("trial verdict without noise floor", {"work/trials/projectatlas.md": "verdict: park\nn_tasks: 6\n"}),
+        ("optimize gain inside the spread", {"work/optimize/latency.md": "holdout_sha256: %s\nholdout_frozen_at: x\ngain_status: out-of-sample\nholdout_score: 0.71\nnoise_floor: K=6\nspread: 0.05\ngain: 0.03\n" % ("b" * 64)}),
+        ("trial promoted inside the spread", {"work/trials/projectatlas.md": "verdict: promote\nn_tasks: 6\nnoise_floor: K=5\nspread: 0.04\ngain: 0.02\n"}),
+        ("noise floor K<5", {"work/trials/projectatlas.md": "verdict: park\nn_tasks: 6\nnoise_floor: K=3\nspread: 0.04\n"}),
+        ("wiki generated with telemetry unverified", {"work/wiki/dotfiles/REVIEW.md": "target: x\ntarget_class: own\nstatus: generated\n"}),
+        ("wiki generated for a client repo", {"work/wiki/dotfiles/REVIEW.md": "target: x\ntarget_class: client\nstatus: generated\n",
+                                              "registry/telemetry.json": json.dumps({"telemetry": [{"tool": "openwiki", "repo": "langchain-ai/openwiki", "verified": True, "verified_by_run": "x"}]})}),
+        ("arch designed once", {"work/arch/router.md": "## Design A\n| design | depth |\npick: A\n"}),
+        ("intake ingest without LOCK row", {"upstream/LOCK.json": json.dumps({"rows": []})}),
+        ("intake short sha", {"work/intake/foo.md": "repo: foo/bar\nsha: abc1234\nlicence: MIT\nagent_files: none\ndecision: bootstrap\n"}),
+        ("workflow roster drift", {".claude/workflows/w.js": "const DEFAULT_MODELS = { small: 'opus', large: 'opus' }\n"}),
     ]
     fails = 0
     tmp = tempfile.mkdtemp(prefix="forge_check_")
@@ -301,6 +542,28 @@ def selftest():
                     fails += 1
             finally:
                 shutil.rmtree(t2, ignore_errors=True)
+        # output: a present, complete deliverable passes; a missing one and a field-less one fail
+        t4 = tempfile.mkdtemp(prefix="forge_check_o_")
+        try:
+            _plant(t4, good)
+            r4 = Path(t4)
+            import contextlib
+            import io
+            with contextlib.redirect_stdout(io.StringIO()):
+                a = cmd_output(r4, "arch", "work/arch/router.md")
+                b = cmd_output(r4, "arch", "work/arch/missing.md")
+                c = cmd_output(r4, "wiki", "work/wiki/dotfiles")
+                _plant(t4, {"work/re/bare.md": "gate: RE-GATE-0001\n"})
+                d = cmd_output(r4, "trial", "work/re/bare.md")
+                _plant(t4, {"work/trials/other.md": "verdict: promote\nn_tasks: 7\nnoise_floor: K=5\nspread: 0.01\ngain: 0.2\n"})
+                e = cmd_output(r4, "trial", "work/trials/other.md")
+            if (a, b, c, d, e) == (0, 1, 0, 1, 1):
+                print("selftest ok: output gate (present 0, missing 1, wiki dir 0, wrong folder 1, verdict without TRIAL row 1)")
+            else:
+                print("selftest FAIL: output gate returned %s" % ((a, b, c, d, e),))
+                fails += 1
+        finally:
+            shutil.rmtree(t4, ignore_errors=True)
         t3 = tempfile.mkdtemp(prefix="forge_check_u_")
         try:
             _plant(t3, {"registry/telemetry.json": "{not json"})
@@ -320,7 +583,9 @@ def selftest():
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description="forge station refusals (tool-trial, evo-guard, telemetry-audit, re-legal-gate, kit-maintain)")
-    ap.add_argument("cmd", nargs="?", choices=["check"])
+    ap.add_argument("cmd", nargs="?", choices=["check", "output"])
+    ap.add_argument("kind", nargs="?", choices=sorted(KINDS))
+    ap.add_argument("path", nargs="?")
     ap.add_argument("--root", default=".")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args(argv)
@@ -328,6 +593,10 @@ def main(argv=None):
         return selftest()
     if a.cmd == "check":
         return cmd_check(Path(a.root).resolve())
+    if a.cmd == "output":
+        if not (a.kind and a.path):
+            ap.error("output needs <kind> <path>")
+        return cmd_output(Path(a.root).resolve(), a.kind, a.path)
     ap.print_usage()
     return 2
 

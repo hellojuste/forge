@@ -91,6 +91,179 @@
    "see_also": [
     "tools/station/forge_check.py"
    ]
+  },
+  "tools/station/telemetry_plan.py": {
+   "title": "telemetry_plan",
+   "purpose": "per registry/telemetry.json row: opt-out env, bootstrap + run-tree, offline status run, flip fields; gate = start check",
+   "solves": [
+    "telemetry-audit"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/telemetry-audit/SKILL.md"
+   ]
+  },
+  ".claude/skills/noise-floor/SKILL.md": {
+   "title": "noise-floor",
+   "purpose": "K >= 5 baseline repeats -> spread; a gain inside the spread is no gain",
+   "solves": [
+    "noise-floor",
+    "tool-trial",
+    "holdout-validation"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/station/forge_check.py"
+   ]
+  },
+  ".claude/skills/design-it-twice/SKILL.md": {
+   "title": "design-it-twice",
+   "purpose": "two radically different interfaces, a depth/leverage/locality table, then pick",
+   "solves": [
+    "architecture-review"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/workflows/arch-review.js"
+   ]
+  },
+  ".claude/skills/ci-suite-audit/SKILL.md": {
+   "title": "ci-suite-audit",
+   "purpose": "planted defect per check proves it can fail; cost per job; cut only overlapping checks",
+   "solves": [
+    "ci-audit"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": []
+  },
+  ".claude/skills/skill-route-intake/SKILL.md": {
+   "title": "skill-route-intake",
+   "purpose": "freeze keywords before prompts for a new upstream's skills; selftest-routes; surface",
+   "solves": [
+    "skill-routing",
+    "upstream-intake"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/workflows/intake-run.js"
+   ]
+  },
+  ".claude/skills/skill-author/SKILL.md": {
+   "title": "skill-author",
+   "purpose": "write a kit skill or station workflow with a failing test, a route and a listing line",
+   "solves": [
+    "skill-authoring"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/workflows/_template.js"
+   ]
+  },
+  ".claude/workflows/trial-run.js": {
+   "title": "trial-run",
+   "purpose": "freeze N>=5 tasks, noise floor, A/B arms, blind grade, verdict + TRIAL row",
+   "solves": [
+    "tool-trial",
+    "noise-floor"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/tool-trial/SKILL.md"
+   ]
+  },
+  ".claude/workflows/optimize-loop.js": {
+   "title": "optimize-loop",
+   "purpose": "evo in a run-tree behind the telemetry gate; holdout frozen first; winner re-measured on it",
+   "solves": [
+    "optimisation",
+    "holdout-validation"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/evo-guard/SKILL.md"
+   ]
+  },
+  ".claude/workflows/wiki-gen.js": {
+   "title": "wiki-gen",
+   "purpose": "openwiki on a non-client repo, telemetry gate, independent claim review -> REVIEW.md",
+   "solves": [
+    "wiki-generation"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/station/telemetry_plan.py"
+   ]
+  },
+  ".claude/workflows/reverse.js": {
+   "title": "reverse",
+   "purpose": "RE-GATE row first, REA in a run-tree, findings each with evidence",
+   "solves": [
+    "reverse-engineering"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/re-legal-gate/SKILL.md"
+   ]
+  },
+  ".claude/workflows/intake-run.js": {
+   "title": "intake-run",
+   "purpose": "pin/licence/agent-file/telemetry census, placement, ingest.py, route + surface skills",
+   "solves": [
+    "upstream-intake",
+    "skill-routing"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/upstream-intake/SKILL.md"
+   ]
+  },
+  ".claude/workflows/arch-review.js": {
+   "title": "arch-review",
+   "purpose": "two blind designers, a judge with the improve-codebase-architecture lens, pick",
+   "solves": [
+    "architecture-review"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/design-it-twice/SKILL.md"
+   ]
+  },
+  ".claude/workflows/kit-repin.js": {
+   "title": "kit-repin",
+   "purpose": "repin report, certain tests, record with applied: no; the apply is the operator's",
+   "solves": [
+    "repin"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/kit-maintain/SKILL.md"
+   ]
   }
  }
 }

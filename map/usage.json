@@ -120,6 +120,11 @@
      "evidence": "router/intents.d/station.selftest.json:2",
      "ref": "router/intents.d/station.selftest.json",
      "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/skill-author/SKILL.md:29",
+     "ref": ".claude/skills/skill-author/SKILL.md",
+     "source": "skill"
     }
    ]
   },
@@ -169,6 +174,19 @@
     }
    ]
   },
+  ".claude/skills/ci-suite-audit/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/ci-suite-audit",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:211",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
   ".claude/skills/closeout/SKILL.md": {
    "cold": null,
    "hand": [],
@@ -182,12 +200,36 @@
     }
    ]
   },
+  ".claude/skills/design-it-twice/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/design-it-twice",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:126",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/workflows/arch-review.js:28",
+     "ref": ".claude/workflows/arch-review.js",
+     "source": "workflow"
+    }
+   ]
+  },
   ".claude/skills/evo-guard/SKILL.md": {
    "cold": null,
    "hand": [],
    "home": "/evo-guard",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:32",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    }
+   ]
   },
   ".claude/skills/handoff/SKILL.md": {
    "cold": null,
@@ -207,14 +249,85 @@
    "hand": [],
    "home": "/kit-maintain",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:260",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:28",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
+    }
+   ]
+  },
+  ".claude/skills/noise-floor/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/noise-floor",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:187",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:33",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:75",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    }
+   ]
   },
   ".claude/skills/re-legal-gate/SKILL.md": {
    "cold": null,
    "hand": [],
    "home": "/re-legal-gate",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": ".claude/workflows/reverse.js:28",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/reverse.js:57",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    }
+   ]
+  },
+  ".claude/skills/skill-author/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/skill-author",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:233",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/skills/skill-route-intake/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/skill-route-intake",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": ".claude/workflows/intake-run.js:74",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    }
+   ]
   },
   ".claude/skills/summon/SKILL.md": {
    "cold": null,
@@ -239,7 +352,13 @@
    "hand": [],
    "home": "/telemetry-audit",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:166",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
   },
   ".claude/skills/tier/SKILL.md": {
    "cold": null,
@@ -268,9 +387,24 @@
    "kind": "skill",
    "triggers": [
     {
+     "evidence": "router/intents.d/station.json:105",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
      "evidence": "router/intents.d/upstream.json:35",
      "ref": "router/intents.d/upstream.json",
      "source": "router"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:34",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:62",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -279,7 +413,65 @@
    "hand": [],
    "home": "workflow _template",
    "kind": "workflow",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": ".claude/skills/skill-author/SKILL.md:22",
+     "ref": ".claude/skills/skill-author/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  ".claude/workflows/arch-review.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow arch-review",
+   "kind": "workflow",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:125",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/workflows/intake-run.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow intake-run",
+   "kind": "workflow",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:104",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/workflows/kit-repin.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow kit-repin",
+   "kind": "workflow",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:145",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/workflows/optimize-loop.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow optimize-loop",
+   "kind": "workflow",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:42",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
   },
   ".claude/workflows/orient.js": {
    "cold": null,
@@ -288,12 +480,44 @@
    "kind": "workflow",
    "triggers": []
   },
+  ".claude/workflows/reverse.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow reverse",
+   "kind": "workflow",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:83",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
   ".claude/workflows/trial-run.js": {
    "cold": null,
    "hand": [],
    "home": "workflow trial-run",
    "kind": "workflow",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:21",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/workflows/wiki-gen.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow wiki-gen",
+   "kind": "workflow",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:62",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
   },
   "tools/brain.py": {
    "cold": null,
@@ -701,6 +925,11 @@
      "evidence": ".claude/skills/upstream-intake/SKILL.md:11",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
      "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:56",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
     }
    ]
   },
@@ -739,6 +968,16 @@
    "kind": "tool",
    "triggers": [
     {
+     "evidence": "router/intents.d/station.json:146",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/station.json:261",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
      "evidence": ".claude/skills/kit-maintain/SKILL.md:11",
      "ref": ".claude/skills/kit-maintain/SKILL.md",
      "source": "skill"
@@ -757,6 +996,26 @@
      "evidence": ".claude/skills/kit-maintain/SKILL.md:28",
      "ref": ".claude/skills/kit-maintain/SKILL.md",
      "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:17",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:26",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:56",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:71",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
     }
    ]
   },
@@ -777,8 +1036,28 @@
      "source": "skill"
     },
     {
+     "evidence": ".claude/workflows/optimize-loop.js:35",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:66",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/reverse.js:68",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
      "evidence": ".claude/workflows/trial-run.js:84",
      "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:77",
+     "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
     }
    ]
@@ -910,6 +1189,11 @@
      "evidence": "router/intents.json:10",
      "ref": "router/intents.json",
      "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/skill-author/SKILL.md:11",
+     "ref": ".claude/skills/skill-author/SKILL.md",
+     "source": "skill"
     }
    ]
   },
@@ -1190,7 +1474,7 @@
    "kind": "tool",
    "triggers": [
     {
-     "evidence": "governance/checks.d/station.json:17",
+     "evidence": "governance/checks.d/station.json:16",
      "ref": "governance/checks.d/station.json",
      "source": "check"
     },
@@ -1200,9 +1484,24 @@
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/station.json:9",
+     "evidence": "governance/checks.d/station.json:8",
      "ref": "governance/checks.d/station.json",
      "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/station.json:188",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/station.json:22",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/design-it-twice/SKILL.md:26",
+     "ref": ".claude/skills/design-it-twice/SKILL.md",
+     "source": "skill"
     },
     {
      "evidence": ".claude/skills/evo-guard/SKILL.md:30",
@@ -1215,12 +1514,27 @@
      "source": "skill"
     },
     {
+     "evidence": ".claude/skills/noise-floor/SKILL.md:32",
+     "ref": ".claude/skills/noise-floor/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/noise-floor/SKILL.md:7",
+     "ref": ".claude/skills/noise-floor/SKILL.md",
+     "source": "skill"
+    },
+    {
      "evidence": ".claude/skills/re-legal-gate/SKILL.md:26",
      "ref": ".claude/skills/re-legal-gate/SKILL.md",
      "source": "skill"
     },
     {
-     "evidence": ".claude/skills/telemetry-audit/SKILL.md:28",
+     "evidence": ".claude/skills/skill-author/SKILL.md:23",
+     "ref": ".claude/skills/skill-author/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/telemetry-audit/SKILL.md:34",
      "ref": ".claude/skills/telemetry-audit/SKILL.md",
      "source": "skill"
     },
@@ -1235,6 +1549,46 @@
      "source": "skill"
     },
     {
+     "evidence": ".claude/workflows/arch-review.js:17",
+     "ref": ".claude/workflows/arch-review.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:20",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:17",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:20",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:31",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/reverse.js:18",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/reverse.js:29",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/reverse.js:60",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
      "evidence": ".claude/workflows/trial-run.js:21",
      "ref": ".claude/workflows/trial-run.js",
      "source": "workflow"
@@ -1242,6 +1596,69 @@
     {
      "evidence": ".claude/workflows/trial-run.js:30",
      "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:19",
+     "ref": ".claude/workflows/wiki-gen.js",
+     "source": "workflow"
+    }
+   ]
+  },
+  "tools/station/telemetry_plan.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/station/telemetry_plan.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:167",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/station.json:43",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/station.json:63",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/telemetry-audit/SKILL.md:11",
+     "ref": ".claude/skills/telemetry-audit/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:29",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:30",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:31",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:28",
+     "ref": ".claude/workflows/wiki-gen.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:29",
+     "ref": ".claude/workflows/wiki-gen.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:74",
+     "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
     }
    ]
@@ -1268,6 +1685,11 @@
      "source": "hook"
     },
     {
+     "evidence": "router/intents.d/station.json:212",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
      "evidence": "router/intents.json:17",
      "ref": "router/intents.json",
      "source": "router"
@@ -1290,6 +1712,11 @@
     {
      "evidence": ".claude/skills/checkpoint/SKILL.md:12",
      "ref": ".claude/skills/checkpoint/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/ci-suite-audit/SKILL.md:27",
+     "ref": ".claude/skills/ci-suite-audit/SKILL.md",
      "source": "skill"
     },
     {
@@ -1318,6 +1745,11 @@
      "source": "skill"
     },
     {
+     "evidence": ".claude/skills/skill-author/SKILL.md:29",
+     "ref": ".claude/skills/skill-author/SKILL.md",
+     "source": "skill"
+    },
+    {
      "evidence": ".claude/skills/upstream-intake/SKILL.md:60",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
      "source": "skill"
@@ -1333,6 +1765,26 @@
      "source": "workflow"
     },
     {
+     "evidence": ".claude/workflows/arch-review.js:25",
+     "ref": ".claude/workflows/arch-review.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:71",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/kit-repin.js:25",
+     "ref": ".claude/workflows/kit-repin.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:28",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
      "evidence": ".claude/workflows/orient.js:17",
      "ref": ".claude/workflows/orient.js",
      "source": "workflow"
@@ -1343,8 +1795,18 @@
      "source": "workflow"
     },
     {
+     "evidence": ".claude/workflows/reverse.js:25",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
      "evidence": ".claude/workflows/trial-run.js:29",
      "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:27",
+     "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
     }
    ]
@@ -1399,9 +1861,24 @@
      "source": "skill"
     },
     {
+     "evidence": ".claude/skills/skill-route-intake/SKILL.md:11",
+     "ref": ".claude/skills/skill-route-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
      "evidence": ".claude/skills/upstream-intake/SKILL.md:38",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
      "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:69",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:8",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -1430,6 +1907,11 @@
      "evidence": ".claude/skills/upstream-intake/SKILL.md:57",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
      "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:71",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -1455,6 +1937,21 @@
      "source": "skill"
     },
     {
+     "evidence": ".claude/skills/skill-route-intake/SKILL.md:22",
+     "ref": ".claude/skills/skill-route-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/skill-route-intake/SKILL.md:23",
+     "ref": ".claude/skills/skill-route-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/skill-route-intake/SKILL.md:25",
+     "ref": ".claude/skills/skill-route-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
      "evidence": ".claude/skills/upstream-intake/SKILL.md:58",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
      "source": "skill"
@@ -1463,6 +1960,11 @@
      "evidence": ".claude/skills/upstream-intake/SKILL.md:59",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
      "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:20",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -1491,6 +1993,21 @@
      "evidence": ".claude/settings.json:29",
      "ref": ".claude/settings.json",
      "source": "hook"
+    },
+    {
+     "evidence": ".claude/skills/skill-route-intake/SKILL.md:23",
+     "ref": ".claude/skills/skill-route-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/skill-route-intake/SKILL.md:24",
+     "ref": ".claude/skills/skill-route-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:20",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -1627,6 +2144,16 @@
      "evidence": "governance/checks.d/upstream.json:288",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/station.json:234",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/skill-author/SKILL.md:28",
+     "ref": ".claude/skills/skill-author/SKILL.md",
+     "source": "skill"
     }
    ]
   },

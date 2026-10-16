@@ -1,5 +1,5 @@
 {
- "_why": "forge station intents (contract station-forge section 5; contributed_by station, tie class station:* so they win over the commons ingest intent on this branch). Keywords are the contract's frozen lists, never widened to fit a prompt. Selftest prompts: router/intents.d/station.selftest.json, written after the keywords were frozen. First moves name the seven workflows the equip block builds; until then router_targets reports them ABSENT as WORKLIST (governance/checks.d/station.json equip_pending).",
+ "_why": "forge station intents (contract station-forge section 5; contributed_by station, tie class station:* so they win over the commons ingest intent on this branch). Keywords are the contract's frozen lists, never widened to fit a prompt. Selftest prompts: router/intents.d/station.selftest.json, written after the keywords were frozen. First moves name the seven station workflows (built by equip-forge, 2026-10-16; tool-trial/upstream-intake workflows are named trial-run/intake-run because a workflow may not share a skill's name, DEC-forge-0002), each with an inline_gather. Equip added five skill intents (telemetry, noise, ci-audit, skill-build, maintain) for the gap skills, keywords frozen before their selftest prompts.",
  "intents": [
   {
    "name": "trial",
@@ -18,7 +18,8 @@
     "file_types": [],
     "patterns": [],
     "first_move": {
-     "workflow": "tool-trial"
+     "workflow": "trial-run",
+     "inline_gather": "python3 tools/station/forge_check.py check"
     }
    }
   },
@@ -38,7 +39,8 @@
     "file_types": [],
     "patterns": [],
     "first_move": {
-     "workflow": "optimize-loop"
+     "workflow": "optimize-loop",
+     "inline_gather": "python3 tools/station/telemetry_plan.py gate evo"
     }
    }
   },
@@ -57,7 +59,8 @@
     "file_types": [],
     "patterns": [],
     "first_move": {
-     "workflow": "wiki-gen"
+     "workflow": "wiki-gen",
+     "inline_gather": "python3 tools/station/telemetry_plan.py gate openwiki"
     }
    }
   },
@@ -77,7 +80,8 @@
     "file_types": [],
     "patterns": [],
     "first_move": {
-     "workflow": "reverse"
+     "workflow": "reverse",
+     "inline_gather": "python3 -m json.tool work/re/legal_gate.json"
     }
    }
   },
@@ -97,7 +101,8 @@
     "file_types": [],
     "patterns": [],
     "first_move": {
-     "workflow": "upstream-intake"
+     "workflow": "intake-run",
+     "inline_gather": "sed -n 1,60p .claude/skills/upstream-intake/SKILL.md"
     }
    }
   },
@@ -117,7 +122,8 @@
     "file_types": [],
     "patterns": [],
     "first_move": {
-     "workflow": "arch-review"
+     "workflow": "arch-review",
+     "inline_gather": "sed -n 1,40p .claude/skills/design-it-twice/SKILL.md"
     }
    }
   },
@@ -136,7 +142,123 @@
     "file_types": [],
     "patterns": [],
     "first_move": {
-     "workflow": "kit-repin"
+     "workflow": "kit-repin",
+     "inline_gather": "python3 tools/kit/repin.py --check"
+    }
+   }
+  },
+  {
+   "name": "telemetry",
+   "description": "audit a tool telemetry row and print the offline status + flip commands (CRITIC F11)",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "telemetry",
+     "opt-out",
+     "do_not_track",
+     "phone home"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "telemetry-audit",
+     "inline_gather": "python3 tools/station/telemetry_plan.py all"
+    }
+   }
+  },
+  {
+   "name": "noise",
+   "description": "measure the run-to-run spread of a baseline before claiming a gain",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "noise floor",
+     "variance",
+     "run-to-run",
+     "spread"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "noise-floor",
+     "inline_gather": "python3 tools/station/forge_check.py check"
+    },
+    "claims": [
+     "noise floor"
+    ]
+   }
+  },
+  {
+   "name": "ci-audit",
+   "description": "audit a CI or test suite for false passes with planted defects",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "ci audit",
+     "false pass",
+     "planted defect",
+     "test suite audit"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "ci-suite-audit",
+     "inline_gather": "python3 tools/station_audit.py -k admission"
+    }
+   }
+  },
+  {
+   "name": "skill-build",
+   "description": "author a new kit skill or station workflow that earns its place",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "new skill",
+     "write a skill",
+     "author a skill",
+     "new workflow",
+     "skill description"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "skill-author",
+     "inline_gather": "python3 tools/upstream/workflows_check.py --root ."
+    },
+    "claims": [
+     "new skill",
+     "new workflow",
+     "write a skill",
+     "author a skill"
+    ]
+   }
+  },
+  {
+   "name": "maintain",
+   "description": "maintain the kit: sync check, listing budget, skill surface across branches",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "kit maintenance",
+     "maintain the kit",
+     "sync check",
+     "listing budget"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "kit-maintain",
+     "inline_gather": "python3 tools/kit/repin.py --check"
     }
    }
   }

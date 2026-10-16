@@ -8,6 +8,12 @@ description: Audit one tool's telemetry at its pin: sender paths, the opt-out sw
 skill is how a row earns `verified: true`.
 
 ## Do
+0. **Print the plan** for the row: `python3 tools/station/telemetry_plan.py show <tool>` gives its opt-out env, the
+   bootstrap and run-tree commands, the offline status run (or `unread` + the file to read first) and the exact
+   fields to flip on main; `... all` does it for every row of every station (Plane, trigger.dev, Lago included), so a
+   self-hosted stack is never stuck behind a rule nobody can satisfy. `... gate <tool>` is the start gate the forge
+   workflows run (exit 0 only when verified by a recorded run). When steps 1-3 establish a new status command,
+   add it to that tool's `STATUS` table with its file:line.
 1. **Find the senders at the pin** (read-only, no run): in the bootstrap cache or with
    `git -C <clone> grep -n -i -E "telemetry|posthog|sentry|segment|amplitude|DO_NOT_TRACK" <sha> -- <src>`; name
    the endpoint constant and the function that sends.

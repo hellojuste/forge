@@ -69,5 +69,6 @@
   "styler-ai/ProjectAtlas": "verified:false -- its telemetry is local token accounting in the project DB (crates/projectatlas-db/src/telemetry.rs:1); no network sender recorded; offline runtime-info run owed"
  },
  "telemetry_rule": "no workflow starts a tool whose registry/telemetry.json row is verified:false (wiki-gen, optimize-loop, tool-trial check it in their GATHER stage)",
- "skill_hide": {}
+ "skill_hide": {},
+ "skill_listing_budget_fraction": 0.013
 }

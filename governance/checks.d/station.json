@@ -1,6 +1,5 @@
 {
- "_why": "forge station checks (contract station-forge section 7). The commons checks run unchanged; one station row, forge_gates, runs the five failing tests the gap skills name (tool-trial N >= 5, evo-guard holdout hash, telemetry-audit verified-needs-a-run, re-legal-gate row before RE, kit-maintain repin STOP). equip_pending: the seven station workflows are specified in STATION.md and BUILT in the later equip block, so router_targets reports their ABSENT first moves as WORKLIST (not violations) until equip lands and removes this flag.",
- "equip_pending": true,
+ "_why": "forge station checks (contract station-forge section 7). The commons checks run unchanged; one station row, forge_gates, runs the five failing tests the gap skills name (tool-trial N >= 5, evo-guard holdout hash, telemetry-audit verified-needs-a-run, re-legal-gate row before RE, kit-maintain repin STOP). equip_pending removed by equip-forge (2026-10-16): the seven station workflows exist, so router_targets is MUST again. forge_gates now also runs the noise, wiki, arch, intake and roster gates and is the certain test of every station workflow (forge_check.py output <kind> <path>).",
  "checks": [
   {
    "name": "forge_gates",
@@ -19,10 +18,13 @@
    ],
    "retires": "nothing overlaps: commons telemetry refuses verified:true without file+line evidence but not without a recorded run; ledger checks L-row grammar, not TRIAL denominators; repin.py --check compares pins, not reports",
    "inputs": [
+    ".claude/workflows/*.js",
     "governance/STATION_LEDGER.md",
-    "work/**",
     "registry/telemetry.json",
-    "tools/station/forge_check.py"
+    "station.json",
+    "tools/station/forge_check.py",
+    "upstream/LOCK.json",
+    "work/**"
    ],
    "timeout_s": 60,
    "gate_subcount": null
