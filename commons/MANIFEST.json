@@ -81,14 +81,17 @@
    "sha256": "e91f2b7e06e6d3321bb67a0fc74298f0e9ba12f21b81deb182ca4cb209f663a5"
   },
   "KIT.md": {
-   "sha256": "b979a7341da0958512c3f423a7346e758f3b0733af882d20c7e53e999bc6659c"
+   "sha256": "9359df56b5843bf190ab72daf059d2070f93fbf1cd31cb29c760aecc9c3f8d36"
   },
   "README.md": {
-   "sha256": "d10df1bf28b0548a426f884b23fc281554aa5c1ccc4b836705f21605b2f85bf5"
+   "sha256": "4205c55ea7ea755577ef416616c3264a30fc44f432a904cf64fc2ad8fe82947d"
+  },
+  "RETURNS/main-kittools.md": {
+   "sha256": "decf95d282fa2cfeb3435e36bc3fc207cb903fa18fc18435bbb97e5460bca021"
   },
   "SKILLS_INDEX.md": {
    "generated": true,
-   "sha256": "a81d25b9fa2fb0084d45e0e66e14340a6dc362b0b692adb34ada357276f91d11"
+   "sha256": "45b8c454d4a9a7097761fdcbc8a4f47d43a2b88a76f2ad06ebeac7e04e74b267"
   },
   "UNZIP.md": {
    "sha256": "00fb328ce46783d5e5d882191a663c930b5b4335da133b840321e882650c6d70"
@@ -212,7 +215,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "594116b85ee5aef9667dcdf6ccb5696c750b21a61b3bd0e00ed234852565ced9"
+   "sha256": "ecfee629f6e76bbeab71ae17a3084084d61f144b4c22bc7c983123e68a0ee436"
   },
   "map/README.md": {
    "generated": true,
@@ -220,7 +223,7 @@
   },
   "map/SOLUTIONS.md": {
    "generated": true,
-   "sha256": "fc62c02f395c5d2316efacec095491309c8cc312467a12ad32c7102e588666b1"
+   "sha256": "790965aca402e5f011156ea43c4d88c947d97f59e630b1179a3db487f22e03cb"
   },
   "map/STATIONS.md": {
    "generated": true,
@@ -228,16 +231,16 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "896c8d085ec0080a5aaff5c2985cf63e5695a38355c7eed274fea53a37d948bd"
+   "sha256": "a551591deb3701ecd85383f02341435cae6967a6eefdfb5209674edf01bf1cb3"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
   },
   "map/catalog.json": {
-   "sha256": "b64809f2b83d781f7bd30dfb95818bf410f8d2d0be6d491be711d0dd05618d35"
+   "sha256": "af4ed1558ee52349c9c6296fa848bee9514937d5201b790e2be1a46878d45eea"
   },
   "map/dirs.json": {
-   "sha256": "f3dec79e55937bde4a74f68e9f600d15bb602bcd6a7a4741a39a159e42ab4576"
+   "sha256": "3c65f1871bcb49b71f113fdba7ad2fcb58b9d83fdc8a8b6b21c315f626a85c67"
   },
   "map/tags.json": {
    "sha256": "b221c048d20e76cff4b244bf52d12ca6939bd56e4cc18a73b74fc0c96d748d34"
@@ -247,17 +250,21 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "379e5cae740fa7e439696f0158717ea2b2c9e58666ac4d7d7fb888f453007883"
+   "sha256": "2a2fef1ad17acab887cb6fc62aa33d960ae77a6b688eded9b2e096d808197312"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
   },
   "registry/SKILL_CENSUS.yml": {
    "generated": true,
-   "sha256": "fae4a9bbce8cd80b0664dd683a35710bbc09c9bb37e1f235941eea11e03fd830"
+   "sha256": "2d5375a7914892890cf91655f09783cf33c11950ff28f21c93bc7f469404a44d"
   },
   "registry/attic.json": {
    "sha256": "92d248a0ce5233b8d233a80604749c9b2ea825e3a42ba4f8b2b52877ee9adcb4"
+  },
+  "registry/held_modes.json": {
+   "generated": true,
+   "sha256": "05c134793a8ba0485219f6b07ac5cc0b6020afe5d41be5c7a49f1c25cf68001c"
   },
   "registry/homes.json": {
    "sha256": "1bc38817887ce01f46cbed6629c1dd70e9d85328c68f68a2f87f914f5374f814"
@@ -270,17 +277,20 @@
   },
   "registry/skill_assignment.json": {
    "generated": true,
-   "sha256": "011998db38aeb73046874b3994a6687e1fe7db7d971dd7a0d5b9e64b5cf046ca"
+   "sha256": "d5abcaedb549efcf1cabf520f8d71e7e88e27180c467947918abed4b636b495a"
   },
   "registry/skills_index.json": {
    "generated": true,
-   "sha256": "39d6934f73b2dfb33b8ba823056dab97e58aea599874e1d65108a15666760aac"
+   "sha256": "6fa4e6d2edc29485c5133777e27c56eca1f562bee39142df8a271589f2c33324"
+  },
+  "registry/skills_plan.json": {
+   "sha256": "8cdd920620967782059efa15c8212596804c437fe82e956c379805050f22b6ae"
   },
   "registry/sources.json": {
    "sha256": "43fd9e92bb13bac0744c7b5989379eec8314467b1fc51a21851649351c5a4b0c"
   },
   "registry/telemetry.json": {
-   "sha256": "90de919e27cdfc0e9ca939089e12184b4ece6e5289d806eb30fcefcf1060a7c1"
+   "sha256": "0434a32d0844173c0960bbbe5a3e9dde10e1c28a77b12142951c64351a75da6c"
   },
   "router/intents.d/brain.json": {
    "sha256": "93dd315862fef677f2c571f370c65331775370a645a47bc2c762a27e7b2b4d66"
@@ -339,8 +349,11 @@
   "tools/kit/doctor.py": {
    "sha256": "a107942cc9bf99ca217d092e3e65a25bf3db199801308f857b571fa121792cc0"
   },
+  "tools/kit/held_modes.py": {
+   "sha256": "0f0574ed251f17f3f94c250979bc044331c1cc8ce5e35480b8f651fc367ef812"
+  },
   "tools/kit/kit_check.py": {
-   "sha256": "6e38400842bfbdd92dd2443dcd4c63d9d069f52368ae3643df6a172d39c943ff"
+   "sha256": "df296dfc9852267a1dce3298698793782dfea90dd093f5d06bd561e9cb72f196"
   },
   "tools/kit/make_zip.py": {
    "sha256": "dd430ce3ac145b2f1eb1dd9fca0beb41a47fffbd00a066a85390acf546abde9c"
@@ -352,7 +365,7 @@
    "sha256": "572c677de41bac830edade6224cb9baf07e53c254815f9c0b6ea045c1cabca03"
   },
   "tools/kit/skills_index.py": {
-   "sha256": "265bfa4c90c888ef1edfe1e86ecbeb8f6335e555b2f3b91b4a9c20bfb651c89a"
+   "sha256": "ceb292b6119c111c34eacd9da9d11e8709f769b1669f4d9e128c2b874c75c4c8"
   },
   "tools/kit/split.sh": {
    "sha256": "17593802cebc33e5856b36a5003d5ea2f3e0dc7f6cd0cda7a8ae201aaa8da4f6"

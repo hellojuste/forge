@@ -3,133 +3,75 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 16 · hook 12 · intent 11 · skill 6 · tool 50 · total 97 · workflow 2
+census: dir 17 · hook 12 · intent 11 · skill 6 · tool 51 · total 99 · workflow 2
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
 ## Dirs and what is in them
 
-```mermaid
-flowchart LR
-  dir__claude[".claude/"]
-  dir_tools["tools/"]
-  skill_checkpoint["checkpoint"]
-  skill_closeout["closeout"]
-  skill_handoff["handoff"]
-  skill_summon["summon"]
-  skill_tier["tier"]
-  skill_upstream_intake["upstream-intake"]
-  tool__claude_hooks__cmdscan_py["_cmdscan.py"]
-  tool__claude_hooks__release_py["_release.py"]
-  tool__claude_hooks__report_py["_report.py"]
-  tool__claude_hooks_act_gate_py["act_gate.py"]
-  tool__claude_hooks_connector_scope_py["connector_scope.py"]
-  tool__claude_hooks_context_threshold_py["context_threshold.py"]
-  tool__claude_hooks_deny_destructive_py["deny_destructive.py"]
-  tool__claude_hooks_deny_noted_defect_py["deny_noted_defect.py"]
-  tool__claude_hooks_deny_upstream_write_py["deny_upstream_write.py"]
-  tool__claude_hooks_intent_router_py["intent_router.py"]
-  tool__claude_hooks_quarantine_gate_py["quarantine_gate.py"]
-  tool__claude_hooks_station_dispatch_py["station_dispatch.py"]
-  tool__claude_hooks_stop_py["stop.py"]
-  tool_tools_brain_py["brain.py"]
-  tool_tools_gov__gov_py["_gov.py"]
-  tool_tools_gov_gen_manifest_py["gen_manifest.py"]
-  tool_tools_gov_gen_ownership_py["gen_ownership.py"]
-  tool_tools_gov_gov_check_py["gov_check.py"]
-  tool_tools_gov_new_row_py["new_row.py"]
-  tool_tools_kit__kit_py["_kit.py"]
-  tool_tools_kit_assemble_py["assemble.py"]
-  tool_tools_kit_bootstrap_py["bootstrap.py"]
-  tool_tools_kit_doctor_py["doctor.py"]
-  tool_tools_kit_kit_check_py["kit_check.py"]
-  tool_tools_kit_make_zip_py["make_zip.py"]
-  tool_tools_kit_repin_py["repin.py"]
-  tool_tools_kit_runtree_py["runtree.py"]
-  tool_tools_kit_skills_index_py["skills_index.py"]
-  tool_tools_kit_sync_py["sync.py"]
-  tool_tools_map__common_py["_common.py"]
-  tool_tools_map_check_paths_py["check_paths.py"]
-  tool_tools_map_find_py["find.py"]
-  tool_tools_map_gen_atlas_py["gen_atlas.py"]
-  tool_tools_map_gen_dir_readmes_py["gen_dir_readmes.py"]
-  tool_tools_map_gen_solutions_py["gen_solutions.py"]
-  tool_tools_map_gen_station_map_py["gen_station_map.py"]
-  tool_tools_map_hooks_deny_generated_edit_py["deny_generated_edit.py"]
-  tool_tools_map_hooks_prior_art_py["prior_art.py"]
-  tool_tools_map_hooks_usage_log_py["usage_log.py"]
-  tool_tools_map_map_check_py["map_check.py"]
-  tool_tools_map_upstream_check_py["upstream_check.py"]
-  tool_tools_map_usage_map_py["usage_map.py"]
-  tool_tools_station_audit_py["station_audit.py"]
-  tool_tools_upstream__uplib_py["_uplib.py"]
-  tool_tools_upstream_ingest_py["ingest.py"]
-  tool_tools_upstream_notice_py["notice.py"]
-  tool_tools_upstream_skill_routes_py["skill_routes.py"]
-  tool_tools_upstream_skill_surface_py["skill_surface.py"]
-  tool_tools_upstream_upstream_checks_py["upstream_checks.py"]
-  tool_tools_upstream_workflows_check_py["workflows_check.py"]
-  workflow__template["_template"]
-  workflow_orient["orient"]
-  skill_checkpoint -->|in| dir__claude
-  skill_closeout -->|in| dir__claude
-  skill_handoff -->|in| dir__claude
-  skill_summon -->|in| dir__claude
-  skill_tier -->|in| dir__claude
-  skill_upstream_intake -->|in| dir__claude
-  tool__claude_hooks__cmdscan_py -->|in| dir__claude
-  tool__claude_hooks__release_py -->|in| dir__claude
-  tool__claude_hooks__report_py -->|in| dir__claude
-  tool__claude_hooks_act_gate_py -->|in| dir__claude
-  tool__claude_hooks_connector_scope_py -->|in| dir__claude
-  tool__claude_hooks_context_threshold_py -->|in| dir__claude
-  tool__claude_hooks_deny_destructive_py -->|in| dir__claude
-  tool__claude_hooks_deny_noted_defect_py -->|in| dir__claude
-  tool__claude_hooks_deny_upstream_write_py -->|in| dir__claude
-  tool__claude_hooks_intent_router_py -->|in| dir__claude
-  tool__claude_hooks_quarantine_gate_py -->|in| dir__claude
-  tool__claude_hooks_station_dispatch_py -->|in| dir__claude
-  tool__claude_hooks_stop_py -->|in| dir__claude
-  tool_tools_brain_py -->|in| dir_tools
-  tool_tools_gov__gov_py -->|in| dir_tools
-  tool_tools_gov_gen_manifest_py -->|in| dir_tools
-  tool_tools_gov_gen_ownership_py -->|in| dir_tools
-  tool_tools_gov_gov_check_py -->|in| dir_tools
-  tool_tools_gov_new_row_py -->|in| dir_tools
-  tool_tools_kit__kit_py -->|in| dir_tools
-  tool_tools_kit_assemble_py -->|in| dir_tools
-  tool_tools_kit_bootstrap_py -->|in| dir_tools
-  tool_tools_kit_doctor_py -->|in| dir_tools
-  tool_tools_kit_kit_check_py -->|in| dir_tools
-  tool_tools_kit_make_zip_py -->|in| dir_tools
-  tool_tools_kit_repin_py -->|in| dir_tools
-  tool_tools_kit_runtree_py -->|in| dir_tools
-  tool_tools_kit_skills_index_py -->|in| dir_tools
-  tool_tools_kit_sync_py -->|in| dir_tools
-  tool_tools_map__common_py -->|in| dir_tools
-  tool_tools_map_check_paths_py -->|in| dir_tools
-  tool_tools_map_find_py -->|in| dir_tools
-  tool_tools_map_gen_atlas_py -->|in| dir_tools
-  tool_tools_map_gen_dir_readmes_py -->|in| dir_tools
-  tool_tools_map_gen_solutions_py -->|in| dir_tools
-  tool_tools_map_gen_station_map_py -->|in| dir_tools
-  tool_tools_map_hooks_deny_generated_edit_py -->|in| dir_tools
-  tool_tools_map_hooks_prior_art_py -->|in| dir_tools
-  tool_tools_map_hooks_usage_log_py -->|in| dir_tools
-  tool_tools_map_map_check_py -->|in| dir_tools
-  tool_tools_map_upstream_check_py -->|in| dir_tools
-  tool_tools_map_usage_map_py -->|in| dir_tools
-  tool_tools_station_audit_py -->|in| dir_tools
-  tool_tools_upstream__uplib_py -->|in| dir_tools
-  tool_tools_upstream_ingest_py -->|in| dir_tools
-  tool_tools_upstream_notice_py -->|in| dir_tools
-  tool_tools_upstream_skill_routes_py -->|in| dir_tools
-  tool_tools_upstream_skill_surface_py -->|in| dir_tools
-  tool_tools_upstream_upstream_checks_py -->|in| dir_tools
-  tool_tools_upstream_workflows_check_py -->|in| dir_tools
-  workflow__template -->|in| dir__claude
-  workflow_orient -->|in| dir__claude
-```
+61 nodes > cap 60: table instead of a hairball.
+
+| from | kind | to | evidence |
+|---|---|---|---|
+| `skill:checkpoint` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:closeout` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:handoff` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:summon` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:tier` | in | `dir:.claude` | map/dirs.json:7 |
+| `skill:upstream-intake` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/_cmdscan.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/_release.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/_report.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/act_gate.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/connector_scope.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/context_threshold.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/deny_destructive.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/deny_noted_defect.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/deny_upstream_write.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/intent_router.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/quarantine_gate.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/station_dispatch.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:.claude/hooks/stop.py` | in | `dir:.claude` | map/dirs.json:7 |
+| `tool:tools/brain.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/gov/_gov.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/gov/gen_manifest.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/gov/gen_ownership.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/gov/gov_check.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/gov/new_row.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/_kit.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/assemble.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/bootstrap.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/doctor.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/held_modes.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/kit_check.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/make_zip.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/repin.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/runtree.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/skills_index.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/kit/sync.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/_common.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/check_paths.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/find.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/gen_atlas.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/gen_dir_readmes.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/gen_solutions.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/gen_station_map.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/hooks/deny_generated_edit.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/hooks/prior_art.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/hooks/usage_log.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/map_check.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/upstream_check.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/map/usage_map.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/station_audit.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/upstream/_uplib.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/upstream/ingest.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/upstream/notice.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/upstream/skill_routes.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/upstream/skill_surface.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/upstream/upstream_checks.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/upstream/workflows_check.py` | in | `dir:tools` | map/dirs.json:188 |
+| `workflow:_template` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:orient` | in | `dir:.claude` | map/dirs.json:7 |
 
 ## Hooks and the tools they wire
 
@@ -174,7 +116,7 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-65 nodes > cap 60: table instead of a hairball.
+66 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -256,8 +198,9 @@ flowchart LR
 | `tool:tools/kit/bootstrap.py` | runs | `tool:tools/kit/runtree.py` | tools/kit/bootstrap.py:8 |
 | `tool:tools/kit/doctor.py` | runs | `tool:tools/kit/bootstrap.py` | tools/kit/doctor.py:107 |
 | `tool:tools/kit/doctor.py` | runs | `tool:tools/station_audit.py` | tools/kit/doctor.py:110 |
+| `tool:tools/kit/held_modes.py` | runs | `tool:tools/kit/runtree.py` | tools/kit/held_modes.py:40 |
 | `tool:tools/kit/kit_check.py` | runs | `tool:tools/kit/assemble.py` | tools/kit/kit_check.py:118 |
-| `tool:tools/kit/kit_check.py` | runs | `tool:tools/map/gen_station_map.py` | tools/kit/kit_check.py:343 |
+| `tool:tools/kit/kit_check.py` | runs | `tool:tools/map/gen_station_map.py` | tools/kit/kit_check.py:361 |
 | `tool:tools/kit/repin.py` | runs | `tool:tools/kit/bootstrap.py` | tools/kit/repin.py:99 |
 | `tool:tools/kit/repin.py` | runs | `tool:tools/station_audit.py` | tools/kit/repin.py:142 |
 | `tool:tools/kit/repin.py` | runs | `tool:tools/upstream/ingest.py` | tools/kit/repin.py:167 |

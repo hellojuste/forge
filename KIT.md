@@ -48,7 +48,7 @@ kit tools, and then sync the stations.
 | 2 | **kit floor** (`upstream: NEVER`): deny_destructive, deny_upstream_write, deny_generated_edit, act_gate ask, quarantine_gate ask, company_scope (client-bi), the audit runner and its classes, the router, the registers, amend-never-delete, the closeout line, the denominator rule | everywhere, including inside workspace-mode upstreams | `governance/rules.json`, `.claude/settings.json`, `.claude/hooks/` |
 | 3 | station rules (override a commons rule only by a `DEC-<station>-nnnn` naming its rules.json id) | that branch | `.claude/rules/station.md`, `station.json`, station DEC rows |
 | 4 | upstream conventions: (i) inside a held tree only the closed SUBTREE vocabulary `[build, code-style, test-runner, commit-format, layout]` listed in its PRECEDENCE row; (ii) `mode: workspace` (career-ops, ai-job-search) inside its run tree | that tree / that workspace | `upstream/PRECEDENCE.json` |
-| 5 | commons defaults (lean SHOULD-class lessons: listing budget, tiering, cadence) | everywhere unless rank 3/4 supersedes | `commons/defaults.json` |
+| 5 | commons defaults (lean SHOULD-class lessons: tiering, cadence; the 6-skill listing cap is RETIRED by the operator's 2026-10-16 ruling: every canonical skill is visible in its station, duplicates hidden via `skillOverrides`) | everywhere unless rank 3/4 supersedes | `commons/defaults.json` |
 | 6 | repertoire method text: method only, never permissions, network, secrets, git or telemetry | method | `repertoire/`, `nc-lane/`, `study/` |
 
 This is how the lean and efficiency lessons travel with every station "unless the repos included have superseding
@@ -86,7 +86,9 @@ whose copy differs fails `commons_drift`) or GENERATED (first 3 lines declare it
 | `sources.json` | 28 repos: id, owner/repo, url, 40-hex pin, licence, licence file, last commit date | `repin.py --apply` |
 | `homes.json` | every repo -> station(s) + how (repertoire, tree, bootstrap, copy_from) or attic | hand, checked by `kit_check.py registry` |
 | `licences.json` | licence class per repo + nested licences that govern held subtrees | hand |
-| `telemetry.json` | telemetry rows, all `verified: false` until proven | hand + block E merges station rows |
+| `telemetry.json` | telemetry rows, all `verified: false` until proven (camofox, maxun, evo, openwiki rows re-read at their pins and an AutoHedge/swarms row added, 2026-10-16, SAFETY 7-9) | hand + block E merges station rows |
+| `held_modes.json` | GENERATED: every held upstream file whose git mode at the pin differs from its station branch (41 / 4,508, all 100755 -> 100644) and the policy: NOT restored, nothing in a lane is directly executable; run trees keep upstream modes (SAFETY 5) | `python3 tools/kit/held_modes.py --write --clones <dir>` · `--check` (also run by `kit_check.py registry`) |
 | `attic.json`, `quarantine.json` | attic rows; quarantined paths and their gates | hand |
-| `skill_assignment.json` + `SKILL_CENSUS.yml` | GENERATED transcription of the plan's 360 skill rows + the census it was built from | `skills_index.py --write-assignment` |
+| `skills_plan.json` | the plan's `skills_assignment` (defaults, exceptions, canonical choices, 360 rows) carried in the kit, with dated `amendments` rows (AMEND-skills-0001: row 17 `.github/skills/custom-fields-development` is a mirror) | hand, by an amendments row; `python3 tools/upstream/skill_routes.py verify --plan registry/skills_plan.json --census <SKILL_CENSUS.yml> --clones <dir>` |
+| `skill_assignment.json` + `SKILL_CENSUS.yml` | GENERATED transcription of `skills_plan.json`'s 360 skill rows + the census it was built from; GPL-family and CC-BY-NC rows ship no description prose (NONPERMISSIVE_PROSE_WITHHELD) | `skills_index.py --write-assignment --plan registry/skills_plan.json --census <SKILL_CENSUS.yml>` |
 | `skills_index.json` (+ `SKILLS_INDEX.md`) | GENERATED routing state of all 360 rows | `skills_index.py --write --from-git .` |

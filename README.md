@@ -9,8 +9,10 @@ registry of every upstream pin, and the kit tools. Each station is a branch fork
 own material: upstream method text and trees, gap skills, router rows, workflows and seeds. Open Claude in a
 station's worktree and it sees that station's purpose, rules, router and skills, and nothing else.
 
-Every one of the 360 upstream `SKILL.md` files is homed in exactly one station and routed by intent
-(`SKILLS_INDEX.md`). Nothing is excluded: the three stealth tools are packed together in `station/quarantine`,
+Every one of the 360 upstream `SKILL.md` files is homed in exactly one station (`SKILLS_INDEX.md`). In its station
+every canonical skill is natively visible and invocable by Claude Code; only true duplicates (mirrors, harness
+variants, test fixtures) are hidden, and the intent router is an extra precision layer, never a gate (operator
+ruling 2026-10-16: "its nuts to think there would only use 6 anyway"). Nothing is excluded: the three stealth tools are packed together in `station/quarantine`,
 AutoHedge sits whole in a study lane in `station/markets`, and two apps with no job sit in the attic as registry
 rows you can fetch on demand.
 

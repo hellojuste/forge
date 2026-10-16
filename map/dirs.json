@@ -19,6 +19,17 @@
    "readme": "none",
    "role": "Claude Code wiring: settings.json, commons hooks, the commons skill set and workflows."
   },
+  "RETURNS": {
+   "holds": [
+    "<slice>.md (one return file per child slice: status, changes, finding dispositions, audit tails)"
+   ],
+   "never_holds": [
+    "code",
+    "upstream text"
+   ],
+   "readme": "none",
+   "role": "Child-slice return files the prime reads when a delegated slice finishes (operator-ordered RETURNS/<slice>.md)."
+  },
   "brain": {
    "holds": [
     "nodes/<class>/<id>--<slug>.md",

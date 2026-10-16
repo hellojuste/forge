@@ -14,8 +14,9 @@ Modes
         registry/skill_assignment.json = transcription of kit_plan.yml ->
         skills_assignment.rows (the ONE source of truth), plus a byte-for-byte
         copy of the census at registry/SKILL_CENSUS.yml, except rule
-        COPYLEFT_PROSE_WITHHELD (fix2-root 1): a row whose repo_licence is GPL-family
-        ships description '' plus description_withheld (licence + sha256 of the
+        NONPERMISSIVE_PROSE_WITHHELD (fix2-root 1, widened by SAFETY 6): a row whose licence
+        (registry/sources.json for its repo, else the census repo_licence) is GPL-family or
+        CC-BY-NC ships description '' plus description_withheld (licence + sha256 of the
         upstream text), so no >= 60-char line of a held copyleft file rides on every
         branch and licence_filter stays clean; ids, paths, shas, licences kept, row
         count unchanged, idempotent. One normalisation
@@ -32,7 +33,7 @@ Modes
   --check   [--from-build ... | --from-git ...]
         exit 1 if ANY census row is unrouted, doubly homed, mis-homed or its
         path is missing on its home branch, or if a copyleft census row still
-        carries description prose (COPYLEFT_PROSE_WITHHELD). Headline: VIOLATION
+        carries description prose (NONPERMISSIVE_PROSE_WITHHELD). Headline: VIOLATION
         rows + prose rows are violations; PENDING rows (no station source) are
         the worklist (and still exit 1 under --check).
   --verify  --census <yml> --clones <dir> [--plan <kit_plan.yml>]
@@ -74,15 +75,43 @@ MIN_KEYWORDS = 3
 # a census row whose repo_licence is GPL-family keeps id, path, name, sha, licence, desc_chars and
 # every other key, but its description becomes '' and a description_withheld key records the
 # licence and the sha256 of the withheld text (so the upstream copy can still be matched).
+# SAFETY 6 (2026-10-16) widened the rule to NONPERMISSIVE_PROSE_WITHHELD: CC-BY-NC prose (Imbad0202/
+# academic-research-skills, confined to research's nc-lane) is withheld the same way, and the licence is the
+# registry's (registry/sources.json `licence` for the row's repo) whenever it names one, because the census
+# repo_licence can be unparsed ("check (Copyright ...)"). SUPERSEDED rule text, kept: "COPYLEFT_PROSE_WITHHELD:
+# a GPL-family row ships description '' + description_withheld (licence, sha256 of the upstream text)".
 COPYLEFT_LICENCE_RE = re.compile(r"^\s*(?:A|L)?GPL", re.I)
+NONCOMMERCIAL_LICENCE_RE = re.compile(r"^\s*CC-BY-NC", re.I)
 WITHHELD_KEY = "description_withheld"
-CENSUS_NOTE = ("# COPYLEFT_PROSE_WITHHELD (tools/kit/skills_index.py): rows whose repo_licence is GPL-family carry "
-               "description '' and description_withheld (licence + sha256 of the upstream text); "
-               "read the held SKILL.md on the home station for the prose.\n")
+CENSUS_NOTE = ("# NONPERMISSIVE_PROSE_WITHHELD (tools/kit/skills_index.py): rows whose licence (registry/sources.json, "
+               "else repo_licence) is GPL-family or CC-BY-NC carry description '' and description_withheld (licence + "
+               "sha256 of the upstream text); read the held SKILL.md on the home station for the prose.\n")
+OLD_NOTE_PREFIXES = ("# COPYLEFT_PROSE_WITHHELD (tools/kit/skills_index.py)", "# NONPERMISSIVE_PROSE_WITHHELD (tools/kit/skills_index.py)")
 
 
 def is_copyleft_licence(lic):
     return bool(lic) and bool(COPYLEFT_LICENCE_RE.match(str(lic)))
+
+
+def withheld_class(lic):
+    """'copyleft' | 'non-commercial' | None for a licence string."""
+    if is_copyleft_licence(lic):
+        return "copyleft"
+    if lic and NONCOMMERCIAL_LICENCE_RE.match(str(lic)):
+        return "non-commercial"
+    return None
+
+
+def registry_licences(root):
+    """{owner/repo: licence} from registry/sources.json ({} when absent: the census licence stands)."""
+    p = os.path.join(root, "registry", "sources.json")
+    if not os.path.isfile(p):
+        return {}
+    return {r["repo"]: r.get("licence") for r in _kit.read_json(p).get("sources", []) if r.get("repo")}
+
+
+def effective_licence(repo, census_lic, licences=None):
+    return (licences or {}).get(repo) or census_lic
 
 
 def _yaml_scalar_text(parts):
@@ -98,7 +127,7 @@ def _yaml_scalar_text(parts):
     return "" if v in ("null", "~") else v
 
 
-def redact_census_text(text):
+def redact_census_text(text, licences=None):
     """Apply COPYLEFT_PROSE_WITHHELD to census text in its fixed shape (`- id:` blocks, two-space keys,
     four-space folded continuations); every other byte is kept. Idempotent.
     Returns (new_text, redacted ids, already-withheld ids)."""
@@ -115,10 +144,12 @@ def redact_census_text(text):
             j += 1
         block = lines[i:j]
         rid = block[0][5:].strip()
-        lic = next((l.split(":", 1)[1].strip() for l in block if l.startswith("  repo_licence:")), "")
+        repo = next((l.split(":", 1)[1].strip() for l in block if l.startswith("  repo:")), "")
+        lic = effective_licence(repo, next((l.split(":", 1)[1].strip() for l in block if l.startswith("  repo_licence:")), ""),
+                                licences)
         has_withheld = any(l.startswith("  %s:" % WITHHELD_KEY) for l in block)
         di = next((k for k, l in enumerate(block) if l.startswith("  description:")), None)
-        if di is None or not is_copyleft_licence(lic):
+        if di is None or not withheld_class(lic):
             out.extend(block)
         else:
             dj = di + 1
@@ -132,13 +163,13 @@ def redact_census_text(text):
                 sha = hashlib.sha256(desc.encode("utf-8")).hexdigest()
                 rep = ["  description: ''\n"]
                 if not has_withheld:
-                    rep.append("  %s: copyleft %s upstream prose not shipped (licence_filter); sha256 %s\n"
-                               % (WITHHELD_KEY, lic, sha))
+                    rep.append("  %s: %s %s upstream prose not shipped (licence_filter); sha256 %s\n"
+                               % (WITHHELD_KEY, withheld_class(lic), lic, sha))
                 out.extend(block[:di] + rep + block[dj:])
                 redacted.append(rid)
         i = j
-    new = "".join(out)
-    if (redacted or already) and CENSUS_NOTE not in new:
+    new = "".join(l for l in out if not l.startswith(OLD_NOTE_PREFIXES))
+    if redacted or already:
         # after the leading comment lines, before `meta:`
         k = 0
         body = new.splitlines(keepends=True)
@@ -148,9 +179,10 @@ def redact_census_text(text):
     return new, redacted, already
 
 
-def census_prose_violations(rows):
-    """Census rows of a GPL-family repo that still carry description prose."""
-    return [r["id"] for r in rows if is_copyleft_licence(r.get("repo_licence")) and (r.get("description") or "").strip()]
+def census_prose_violations(rows, licences=None):
+    """Census rows of a GPL-family or CC-BY-NC repo that still carry description prose."""
+    return [r["id"] for r in rows if withheld_class(effective_licence(r.get("repo"), r.get("repo_licence"), licences))
+            and (r.get("description") or "").strip()]
 
 
 # ------------------------------------------------------------------ assignment
@@ -220,20 +252,24 @@ def write_assignment(root, plan_path, census_path):
         problems.append("%d assignment ids are not in the census, e.g. %s" % (len(extra), extra[:3]))
     with open(census_path, "rb") as f:
         raw = f.read()
-    red_text, redacted, already = redact_census_text(raw.decode("utf-8"))
+    licences = registry_licences(root)
+    red_text, redacted, already = redact_census_text(raw.decode("utf-8"), licences)
     cbytes = red_text.encode("utf-8")
     doc = {
         "_generated_by": TOOL,
-        "_source": "kit_plan.yml -> skills_assignment.rows (the ONE source of truth), normalised by NONROUTED_INHERIT "
+        "_source": "registry/skills_plan.json (kit_plan.yml -> skills_assignment, carried in the kit with its "
+                   "amendments) -> rows (the ONE source of truth), normalised by NONROUTED_INHERIT "
                    "(a mirror/symlink of a non-routed row inherits its kind, no route); regenerate with "
-                   "python3 tools/kit/skills_index.py --write-assignment --plan <kit_plan.yml> --census <SKILL_CENSUS.yml>",
+                   "python3 tools/kit/skills_index.py --write-assignment --plan registry/skills_plan.json --census <SKILL_CENSUS.yml>",
+        "plan_amendments": [x.get("id") for x in plan.get("amendments") or []],
         "inherited": inherited,
         "census_file": "registry/SKILL_CENSUS.yml",
         "census_sha256": hashlib.sha256(cbytes).hexdigest(),
         "census_reader": reader,
         "census_copyleft_prose_withheld": {
-            "rule": "COPYLEFT_PROSE_WITHHELD: a GPL-family row ships description '' + description_withheld "
-                    "(licence, sha256 of the upstream text); every other key kept",
+            "rule": "NONPERMISSIVE_PROSE_WITHHELD: a GPL-family or CC-BY-NC row (licence from registry/sources.json, "
+                    "else the census repo_licence) ships description '' + description_withheld (licence, sha256 of "
+                    "the upstream text); every other key kept",
             "count": len(redacted) + len(already),
             "ids": sorted(redacted + already)},
         "denominator": len(rows),
@@ -249,11 +285,11 @@ def write_assignment(root, plan_path, census_path):
     shipped, _ = _kit.load_census(dst, root)
     if len(shipped) != len(cids):
         problems.append("redacted census has %d rows, source has %d" % (len(shipped), len(cids)))
-    left = census_prose_violations(shipped)
+    left = census_prose_violations(shipped, licences)
     if left:
-        problems.append("%d copyleft row(s) still carry description prose, e.g. %s" % (len(left), left[:3]))
+        problems.append("%d GPL-family/CC-BY-NC row(s) still carry description prose, e.g. %s" % (len(left), left[:3]))
     print("skill_assignment: %d rows / %d census files (reader %s) -> registry/skill_assignment.json; "
-          "%d mirror/symlink row(s) inherited a non-routed kind; census: %d copyleft description(s) withheld "
+          "%d mirror/symlink row(s) inherited a non-routed kind; census: %d GPL-family/CC-BY-NC description(s) withheld "
           "(%d newly)" % (len(rows), len(cids), reader, len(inherited), len(redacted) + len(already), len(redacted)))
     for p in problems:
         print("  VIOLATION " + p)
@@ -467,13 +503,13 @@ def cmd_write_or_check(a, root, write):
         return 2
     doc, md = render(rows, src.desc if src else "pre-routing (no station source)", stations)
     bad = [r for r in rows if r["status"] != "ROUTED"]
-    prose = census_prose_violations(census)
+    prose = census_prose_violations(census, registry_licences(root))
     viol = [r for r in bad if r["status"] == "VIOLATION"]
     pend = [r for r in bad if r["status"] == "PENDING"]
     # PENDING (no station source yet: main before step 5) is a worklist, not a violation; --check still exits 1 on it
     print(_kit.headline("skills_index", len(viol) + len(prose), len(pend), len(rows)))
     for cid in prose[:10]:
-        print("  CENSUS %s: copyleft row carries description prose (COPYLEFT_PROSE_WITHHELD; rerun --write-assignment)" % cid)
+        print("  CENSUS %s: copyleft row carries description prose (NONPERMISSIVE_PROSE_WITHHELD; rerun --write-assignment)" % cid)
     if write:
         _kit.write_json(os.path.join(root, "registry", "skills_index.json"), doc)
         with open(os.path.join(root, "SKILLS_INDEX.md"), "w", encoding="utf-8") as f:
@@ -881,6 +917,21 @@ def _selftest_redaction(tmp):
     d = _kit.read_json(os.path.join(root, "registry", "skill_assignment.json"))
     assert d["census_sha256"] == hashlib.sha256(red.encode()).hexdigest() and d["census_copyleft_prose_withheld"]["count"] == 2
     assert write_assignment(root, pp, shipped) == 0 and open(shipped).read() == red, "second run is a no-op"
+
+    # SAFETY 6: a CC-BY-NC row whose census licence is unparsed is withheld by the registry's licence
+    nc = ("meta:\n  total_skill_files: 1\nskills:\n- id: 1:paper/SKILL.md\n  repo: o/nc\n  repo_id: 1\n"
+          "  path: paper/SKILL.md\n  name: paper\n  description: Multi-perspective academic paper review with dynamic personas.\n"
+          "  sha: 4444\n  repo_licence: check (Copyright (c) 2026 Someone)\n  mirror_of: null\n")
+    lic = {"o/nc": "CC-BY-NC-4.0"}
+    assert redact_census_text(nc)[1] == [], "without the registry licence the row is not recognised"
+    rn, idn, _ = redact_census_text(nc, lic)
+    assert idn == ["1:paper/SKILL.md"] and "Multi-perspective" not in rn and "non-commercial CC-BY-NC-4.0 " in rn, rn
+    assert rn.count("NONPERMISSIVE_PROSE_WITHHELD") == 1 and "# COPYLEFT_PROSE_WITHHELD" not in redact_census_text(
+        "# COPYLEFT_PROSE_WITHHELD (tools/kit/skills_index.py): old note\n" + nc, lic)[0], "old note superseded, not doubled"
+    cpn = os.path.join(tmp, "nc_census.yml")
+    open(cpn, "w").write(nc)
+    assert census_prose_violations(_kit.read_census_stdlib(cpn), lic) == ["1:paper/SKILL.md"]
+    assert census_prose_violations(_kit.read_census_stdlib(cpn)) == []
 
     # --check catches a planted unredacted census even when every route is clean
     class N:

@@ -1,30 +1,131 @@
 {
  "_doc": "One row per tool with on-by-default (or possible) telemetry. verified flips to true ONLY with the file and line proving the switch AND the tool's own offline status run by the operator (J2 GA6). A workflow never starts a tool whose row is verified:false (wired by the equip block into service-up, wiki-gen, optimize-loop). Seeded from INV (c); station builders' returned rows are merged in block E.",
- "denominator": 10,
+ "denominator": 11,
  "rule": "never start a tool whose row is verified:false",
  "telemetry": [
   {
-   "evidence": "plugins/evo/src/evo/telemetry.py",
-   "note": "also: plugins/evo/hooks/hooks.json pipes full hook stdin to an external evo-hook-drain binary; never wired (KIT_PLAN 6)",
-   "opt_out": "EVO_TELEMETRY (read at telemetry.py:103) and DO_NOT_TRACK (telemetry.py:111); exact off-value unconfirmed",
+   "evidence": "plugins/evo/src/evo/telemetry.py:102-112 (env_forces_off: EVO_TELEMETRY in 0/false/off/no, or DO_NOT_TRACK in 1/true/yes)",
+   "note": "also: plugins/evo/hooks/hooks.json pipes full hook stdin to an external evo-hook-drain binary; never wired (KIT_PLAN 6); lines re-read at pin c70c04b4 on 2026-10-16; verified stays false until the operator's offline status run (J2 GA6)",
+   "opt_out": "EVO_TELEMETRY=0 (any of 0/false/off/no, telemetry.py:103,107-110) or DO_NOT_TRACK=1 (any of 1/true/yes, telemetry.py:111-112)",
    "opt_out_candidate_env": {
-    "DO_NOT_TRACK": "1"
+    "DO_NOT_TRACK": "1",
+    "EVO_TELEMETRY": "0"
    },
    "repo": "evo-hq/evo",
    "station": "forge",
+   "superseded": [
+    {
+     "date": "2026-10-16",
+     "field": "opt_out",
+     "was": "EVO_TELEMETRY (read at telemetry.py:103) and DO_NOT_TRACK (telemetry.py:111); exact off-value unconfirmed",
+     "why": "SAFETY 8: forge .env already cites the reading lines and off-values"
+    }
+   ],
    "tool": "evo",
    "verified": false
   },
   {
-   "evidence": "src/telemetry/config.ts:39 (FIRST_RUN_NOTICE_OPT_OUT text)",
-   "note": "pre-set in forge .env (KIT_PLAN 6)",
-   "opt_out": "OPENWIKI_TELEMETRY_DISABLED=1 (or DO_NOT_TRACK=1), per the tool's own notice string; the reading branch of the code is not yet cited",
+   "evidence": "src/telemetry/gates.ts:28-32 (isTelemetryDisabled), :84-90 (isTruthyEnv: set and not ''/'0'/'false'); src/telemetry/senders.ts:136 (recordRun returns before sending when disabled); src/telemetry/config.ts:39 (notice text)",
+   "note": "pre-set in forge .env (KIT_PLAN 6); lines re-read at pin 7c469e59 on 2026-10-16; verified stays false until the operator's offline status run",
+   "opt_out": "OPENWIKI_TELEMETRY_DISABLED=1 or DO_NOT_TRACK=1 (any truthy value, gates.ts:28-32,84-90; checked before the send at senders.ts:136)",
    "opt_out_candidate_env": {
+    "DO_NOT_TRACK": "1",
     "OPENWIKI_TELEMETRY_DISABLED": "1"
    },
    "repo": "langchain-ai/openwiki",
    "station": "forge",
+   "superseded": [
+    {
+     "date": "2026-10-16",
+     "field": "opt_out",
+     "was": "OPENWIKI_TELEMETRY_DISABLED=1 (or DO_NOT_TRACK=1), per the tool's own notice string; the reading branch of the code is not yet cited",
+     "why": "SAFETY 8: the reading branch is cited in forge .env"
+    },
+    {
+     "date": "2026-10-16",
+     "field": "evidence",
+     "was": "src/telemetry/config.ts:39 (FIRST_RUN_NOTICE_OPT_OUT text)",
+     "why": "SAFETY 8"
+    }
+   ],
    "tool": "openwiki",
+   "verified": false
+  },
+  {
+   "evidence": "crates/projectatlas-core/src/telemetry.rs, crates/projectatlas-db/src/telemetry.rs",
+   "note": "its readiness.sh downloads at setup; never wired",
+   "opt_out": "unread",
+   "opt_out_candidate_env": {},
+   "repo": "styler-ai/ProjectAtlas",
+   "station": "forge",
+   "tool": "projectatlas",
+   "verified": false
+  },
+  {
+   "evidence": "requirements.txt:1 `swarms` (unpinned); pyproject.toml:30 `swarms = \"*\"`: an install resolves whatever swarms is latest; swarms is not held in the kit, so its telemetry is unread",
+   "note": "study lane, install/run ask-gated (quarantine_gate) and execute_trade ask-gated (act_gate); PLAUSIBLE, not confirmed (SAFETY 9). Lines re-read at pin c549c795 on 2026-10-16.",
+   "opt_out": "unread (swarms is a third-party framework outside the kit; pin it in the run tree and read its telemetry before running)",
+   "opt_out_candidate_env": {},
+   "repo": "The-Swarm-Corporation/AutoHedge",
+   "station": "markets",
+   "tool": "autohedge (via swarms)",
+   "verified": false
+  },
+  {
+   "evidence": "fincept-qt/src/core/telemetry/CloudTelemetryProvider.cpp",
+   "note": "AGPL desktop app, reference only, never built by a workflow",
+   "opt_out": "unread",
+   "opt_out_candidate_env": {},
+   "repo": "Fincept-Corporation/FinceptTerminal",
+   "station": "markets",
+   "tool": "fincept-terminal",
+   "verified": false
+  },
+  {
+   "evidence": "lib/config.js:232 (crashReportEnabled = CAMOFOX_CRASH_REPORT_ENABLED !== 'false': ON by default); lib/reporter.js:478,640,642 (DEFAULT_RELAY_URL https://camofox-telemetry.askjo.workers.dev/report); lib/sentry.js:10 (SENTRY_DSN); workers/crash-reporter/",
+   "note": "quarantined tree; never started by a workflow. Station quarantine .env/.env.example need the NAME CAMOFOX_CRASH_REPORT_ENABLED (station-owned; SAFETY 7). Lines re-read at pin 39c82094 on 2026-10-16.",
+   "opt_out": "CAMOFOX_CRASH_REPORT_ENABLED=false (lib/config.js:232; only the exact string 'false' disables the relay reporter, reporter.js:642) and SENTRY_DSN unset (sentry.js:2,10)",
+   "opt_out_candidate_env": {
+    "CAMOFOX_CRASH_REPORT_ENABLED": "false",
+    "SENTRY_DSN": ""
+   },
+   "repo": "jo-inc/camofox-browser",
+   "station": "quarantine",
+   "superseded": [
+    {
+     "date": "2026-10-16",
+     "field": "opt_out",
+     "was": "sentry off while SENTRY_DSN is unset (sentry.js:2,10); lib/reporter.js switch unread",
+     "why": "SAFETY 7: the reporter switch exists and was called unread"
+    },
+    {
+     "date": "2026-10-16",
+     "field": "evidence",
+     "was": "lib/reporter.js, lib/sentry.js:10 (SENTRY_DSN), workers/crash-reporter/",
+     "why": "SAFETY 7: add the env switch and the relay URL"
+    }
+   ],
+   "tool": "camofox-browser",
+   "verified": false
+  },
+  {
+   "evidence": "server/src/utils/analytics.ts:37 (posthog; sends only when MAXUN_TELEMETRY === 'true'); ENVEXAMPLE:45 and docs/generate-env.sh:80 write MAXUN_TELEMETRY=true",
+   "note": "quarantined tree; never started by a workflow. Off by default in code, but upstream's own setup (cp ENVEXAMPLE .env, docs/generate-env.sh) sets MAXUN_TELEMETRY=true: keep it unset or set false. Lines re-read at pin a1e57332 on 2026-10-16.",
+   "opt_out": "MAXUN_TELEMETRY must equal \"true\" to send (analytics.ts:37); leave it unset",
+   "opt_out_candidate_env": {
+    "MAXUN_TELEMETRY": "false"
+   },
+   "repo": "getmaxun/maxun",
+   "station": "quarantine",
+   "superseded": [
+    {
+     "date": "2026-10-16",
+     "field": "note",
+     "was": "quarantined tree; never started by a workflow",
+     "why": "SAFETY 7: upstream setup path turns telemetry ON"
+    }
+   ],
+   "tool": "maxun",
    "verified": false
   },
   {
@@ -48,52 +149,6 @@
    "verified": false
   },
   {
-   "evidence": "packages/cli-v3/src/mcp/telemetry.ts:9,18 (posthog-node)",
-   "note": "file:line found; verified stays false until the operator runs the CLI offline status (J2 GA6)",
-   "opt_out": "TRIGGER_TELEMETRY_DISABLED (any value; telemetry.ts:18 returns enabled only when undefined) or --skip-telemetry",
-   "opt_out_candidate_env": {
-    "TRIGGER_TELEMETRY_DISABLED": "1"
-   },
-   "repo": "triggerdotdev/trigger.dev",
-   "station": "venture",
-   "tool": "trigger cli-v3",
-   "verified": false
-  },
-  {
-   "evidence": "server/src/utils/analytics.ts:37 (posthog)",
-   "note": "quarantined tree; never started by a workflow",
-   "opt_out": "MAXUN_TELEMETRY must equal \"true\" to send (analytics.ts:37); leave it unset",
-   "opt_out_candidate_env": {
-    "MAXUN_TELEMETRY": "false"
-   },
-   "repo": "getmaxun/maxun",
-   "station": "quarantine",
-   "tool": "maxun",
-   "verified": false
-  },
-  {
-   "evidence": "fincept-qt/src/core/telemetry/CloudTelemetryProvider.cpp",
-   "note": "AGPL desktop app, reference only, never built by a workflow",
-   "opt_out": "unread",
-   "opt_out_candidate_env": {},
-   "repo": "Fincept-Corporation/FinceptTerminal",
-   "station": "markets",
-   "tool": "fincept-terminal",
-   "verified": false
-  },
-  {
-   "evidence": "lib/reporter.js, lib/sentry.js:10 (SENTRY_DSN), workers/crash-reporter/",
-   "note": "quarantined tree; never started by a workflow",
-   "opt_out": "sentry off while SENTRY_DSN is unset (sentry.js:2,10); lib/reporter.js switch unread",
-   "opt_out_candidate_env": {
-    "SENTRY_DSN": ""
-   },
-   "repo": "jo-inc/camofox-browser",
-   "station": "quarantine",
-   "tool": "camofox-browser",
-   "verified": false
-  },
-  {
    "evidence": "apps/api/plane/license/bgtasks/telemetry_metrics.py (OTLP metrics export)",
    "note": "",
    "opt_out": "unread (the OTLP exporter env names are at :47,:55; the on/off switch is not cited)",
@@ -104,13 +159,15 @@
    "verified": false
   },
   {
-   "evidence": "crates/projectatlas-core/src/telemetry.rs, crates/projectatlas-db/src/telemetry.rs",
-   "note": "its readiness.sh downloads at setup; never wired",
-   "opt_out": "unread",
-   "opt_out_candidate_env": {},
-   "repo": "styler-ai/ProjectAtlas",
-   "station": "forge",
-   "tool": "projectatlas",
+   "evidence": "packages/cli-v3/src/mcp/telemetry.ts:9,18 (posthog-node)",
+   "note": "file:line found; verified stays false until the operator runs the CLI offline status (J2 GA6)",
+   "opt_out": "TRIGGER_TELEMETRY_DISABLED (any value; telemetry.ts:18 returns enabled only when undefined) or --skip-telemetry",
+   "opt_out_candidate_env": {
+    "TRIGGER_TELEMETRY_DISABLED": "1"
+   },
+   "repo": "triggerdotdev/trigger.dev",
+   "station": "venture",
+   "tool": "trigger cli-v3",
    "verified": false
   }
  ]

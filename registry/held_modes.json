@@ -1,0 +1,389 @@
+{
+ "_generated_by": "tools/kit/held_modes.py",
+ "_regenerate": "python3 tools/kit/held_modes.py --write [--clones <dir of owner~repo pinned clones>]",
+ "by_station_repo": [
+  "client-bi · frappe/erpnext · 100755 -> 100644 · 2",
+  "quarantine · feder-cr/Jobs_Applier_AI_Agent_AIHawk · 100755 -> 100644 · 6",
+  "quarantine · getmaxun/maxun · 100755 -> 100644 · 1",
+  "quarantine · jo-inc/camofox-browser · 100755 -> 100644 · 13",
+  "studio · pbakaus/impeccable · 100755 -> 100644 · 1",
+  "venture · getlago/lago · 100755 -> 100644 · 8",
+  "venture · pbakaus/impeccable · 100755 -> 100644 · 1",
+  "venture · relaticle/relaticle · 100755 -> 100644 · 8",
+  "venture · supabase/supabase · 100755 -> 100644 · 1"
+ ],
+ "changed": 41,
+ "denominator": 4508,
+ "policy": "NOT RESTORED (SAFETY 5, 2026-10-16): held upstream files are data in a read-only lane; an upstream 100755 is stored 100644 so nothing in a lane is directly executable. Bytes are unchanged (PROVENANCE sha256). To run upstream code use a run tree (tools/kit/runtree.py), which checks out the pin with its own modes. This file is the record of every mode the strip changed.",
+ "rows": [
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/frappe~erpnext/erpnext/crm/doctype/contract/contract.json",
+   "pin": "8d60c082960de0934311021c9b8adf281b02e66c",
+   "repo": "frappe/erpnext",
+   "source_path": "erpnext/crm/doctype/contract/contract.json",
+   "station": "client-bi"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/frappe~erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json",
+   "pin": "8d60c082960de0934311021c9b8adf281b02e66c",
+   "repo": "frappe/erpnext",
+   "source_path": "erpnext/stock/doctype/purchase_receipt/purchase_receipt.json",
+   "station": "client-bi"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/.githooks/pre-push",
+   "pin": "ef69f5e19c1b46e41e743234fa5019e39442adcb",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "source_path": ".githooks/pre-push",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/guest/image-builder/test/smoke/fake_openrouter.py",
+   "pin": "ef69f5e19c1b46e41e743234fa5019e39442adcb",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "source_path": "guest/image-builder/test/smoke/fake_openrouter.py",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/guest/image-builder/test/smoke/host-stream.sh",
+   "pin": "ef69f5e19c1b46e41e743234fa5019e39442adcb",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "source_path": "guest/image-builder/test/smoke/host-stream.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/guest/image-builder/test/smoke/prepare-engine.sh",
+   "pin": "ef69f5e19c1b46e41e743234fa5019e39442adcb",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "source_path": "guest/image-builder/test/smoke/prepare-engine.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/guest/image-builder/test/smoke/run.sh",
+   "pin": "ef69f5e19c1b46e41e743234fa5019e39442adcb",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "source_path": "guest/image-builder/test/smoke/run.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/guest/image-builder/test/smoke/smoke.sh",
+   "pin": "ef69f5e19c1b46e41e743234fa5019e39442adcb",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "source_path": "guest/image-builder/test/smoke/smoke.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getmaxun~maxun/docs/generate-env.sh",
+   "pin": "a1e5733248eb31ab724a90f4ff407cae5f4a04d3",
+   "repo": "getmaxun/maxun",
+   "source_path": "docs/generate-env.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/bin/camofox-browser.js",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "bin/camofox-browser.js",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/mcp/server.mjs",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "mcp/server.mjs",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/plugins/vnc/vnc-watcher.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "plugins/vnc/vnc-watcher.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/plugins/youtube/post-install.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "plugins/youtube/post-install.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/release.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "release.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/run.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "run.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/scripts/install-plugin-deps.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "scripts/install-plugin-deps.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/scripts/sync-version.js",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "scripts/sync-version.js",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/scripts/test-mcp-package.mjs",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "scripts/test-mcp-package.mjs",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/scripts/test-mcp.mjs",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "scripts/test-mcp.mjs",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/tools/windows-utm/build-installer-autoboot-iso.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "tools/windows-utm/build-installer-autoboot-iso.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/tools/windows-utm/build-provisioning-iso.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "tools/windows-utm/build-provisioning-iso.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/jo-inc~camofox-browser/tools/windows-utm/create-vm.sh",
+   "pin": "39c82094013480b373df6600d44c7f036f58356e",
+   "repo": "jo-inc/camofox-browser",
+   "source_path": "tools/windows-utm/create-vm.sh",
+   "station": "quarantine"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "repertoire/pbakaus~impeccable/plugin/skills/impeccable/scripts/impeccable",
+   "pin": "5bf0a069dc857e1b5f4b090e004d9d5b231416ca",
+   "repo": "pbakaus/impeccable",
+   "source_path": "plugin/skills/impeccable/scripts/impeccable",
+   "station": "studio"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "repertoire/pbakaus~impeccable/plugin/skills/impeccable/scripts/impeccable",
+   "pin": "5bf0a069dc857e1b5f4b090e004d9d5b231416ca",
+   "repo": "pbakaus/impeccable",
+   "source_path": "plugin/skills/impeccable/scripts/impeccable",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "repertoire/supabase~supabase/.agents/skills/test-the-docs/sandbox/run.sh",
+   "pin": "4593b3ffc070f372d7b452825258b9adb8a60242",
+   "repo": "supabase/supabase",
+   "source_path": ".agents/skills/test-the-docs/sandbox/run.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/deploy/deploy.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "deploy/deploy.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/docker/runner.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "docker/runner.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/examples/agentic-ai-demo/run.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "examples/agentic-ai-demo/run.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/examples/agentic-ai-demo/seed-and-verify.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "examples/agentic-ai-demo/seed-and-verify.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/extra/init-letsencrypt.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "extra/init-letsencrypt.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/extra/init-selfsigned.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "extra/init-selfsigned.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/scripts/create-topics.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "scripts/create-topics.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/getlago~lago/scripts/pg-init-scripts/create-multiple-postgresql-databases.sh",
+   "pin": "9144b1b638f3c67d954f2f7b7e37f0f77c642443",
+   "repo": "getlago/lago",
+   "source_path": "scripts/pg-init-scripts/create-multiple-postgresql-databases.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/.github/skills/manual-testing/bin/should-skip.sh",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".github/skills/manual-testing/bin/should-skip.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/.github/skills/manual-testing/bin/test-should-skip.sh",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".github/skills/manual-testing/bin/test-should-skip.sh",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/scripts/classify_diff.py",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".claude/skills/business-review/scripts/classify_diff.py",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/scripts/extract_ac.py",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".claude/skills/business-review/scripts/extract_ac.py",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/scripts/grade_snapshot.py",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".claude/skills/business-review/scripts/grade_snapshot.py",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/scripts/promote_to_fixture.py",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".claude/skills/business-review/scripts/promote_to_fixture.py",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/scripts/run_drift_check.py",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".claude/skills/business-review/scripts/run_drift_check.py",
+   "station": "venture"
+  },
+  {
+   "mode_at_pin": "100755",
+   "mode_held": "100644",
+   "path": "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/scripts/sanitize_pr.py",
+   "pin": "5451781c7f3cbbf19326ddb4eca7d38f043ba4aa",
+   "repo": "relaticle/relaticle",
+   "source_path": ".claude/skills/business-review/scripts/sanitize_pr.py",
+   "station": "venture"
+  }
+ ]
+}

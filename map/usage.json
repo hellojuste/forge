@@ -587,7 +587,7 @@
      "source": "import"
     },
     {
-     "evidence": "tools/kit/skills_index.py:61",
+     "evidence": "tools/kit/skills_index.py:62",
      "ref": "tools/kit/skills_index.py",
      "source": "import"
     },
@@ -622,6 +622,13 @@
    "cold": null,
    "hand": [],
    "home": "python3 tools/kit/doctor.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/held_modes.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/held_modes.py",
    "kind": "tool",
    "triggers": []
   },
