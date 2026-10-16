@@ -88,7 +88,7 @@
   },
   "SKILLS_INDEX.md": {
    "generated": true,
-   "sha256": "117f9695534998b1ecaea013b946816c11befcf01dda00fedb5111a63e456288"
+   "sha256": "a81d25b9fa2fb0084d45e0e66e14340a6dc362b0b692adb34ada357276f91d11"
   },
   "UNZIP.md": {
    "sha256": "bf2db4ce982d3add8416ef7e7dc31597b0e9ffc502c055897604921b77001706"
@@ -224,7 +224,7 @@
   },
   "map/STATIONS.md": {
    "generated": true,
-   "sha256": "0484f2c32f01825ec8d116efe84fad9d76dfccc970c02209b481457e0fb7807e"
+   "sha256": "4e6af453167c8ab6555fa9f70678635de2f9faa900202349284ba3d8108b61da"
   },
   "map/atlas.json": {
    "generated": true,
@@ -274,7 +274,7 @@
   },
   "registry/skills_index.json": {
    "generated": true,
-   "sha256": "a3fee7f0d19918a4ecd6a960bf85f2bd16dade762fb040e559df1192c783fc5c"
+   "sha256": "39d6934f73b2dfb33b8ba823056dab97e58aea599874e1d65108a15666760aac"
   },
   "registry/sources.json": {
    "sha256": "43fd9e92bb13bac0744c7b5989379eec8314467b1fc51a21851649351c5a4b0c"
