@@ -30,7 +30,7 @@
    "sha256": "ff790125901e31324db4ca8c07c75e879013383d08bc32f845a485aa060a538a"
   },
   ".claude/hooks/intent_router.py": {
-   "sha256": "e17a9c780eca00bd88f3e4101edd803dda0b50f2540f5b4c5840b1816245c0fa"
+   "sha256": "146f099407fc0db3d0fc6a47e9cca9611b368885dab71406ca5c73ff7e123c81"
   },
   ".claude/hooks/quarantine_gate.py": {
    "sha256": "b89335e4883072c5ba05e8ac6cd4a201a40336db9642a38f173fcfa933730d00"
@@ -168,7 +168,7 @@
    "sha256": "698167c94af4bf98b7b43f0aa7e1be1dfbe91f76916c83272075ffe8d40017c2"
   },
   "governance/DECISIONS.md": {
-   "sha256": "7ccd519ea0bb86eb86809a143c691603df7f08076626c93060ebe94a84c1ce54"
+   "sha256": "4574b52dbef5404833f78ea204acd927cea8babb464f14cb4b900135b5d3c318"
   },
   "governance/DEFECTS.md": {
    "sha256": "07358be17a209e3afa48f726671a0d3d81bf8532b8f30e60fc27648d667194bc"
@@ -292,10 +292,10 @@
    "sha256": "28ec200b6b4cbdb956b9520b6ae3662d6ba3ecdd23992ce22af226ea7b57e99f"
   },
   "router/intents.json": {
-   "sha256": "dc3676ef39bff1d065c7f3f36883c745a9968bb6cab6f5636930da584e4ea6ac"
+   "sha256": "ac7e093cdb17ff4875f291d2ec6f1cf66446a88b75a7d199e56e1026adcb01ad"
   },
   "router/kit_tree.json": {
-   "sha256": "5fb87155edd32dc8b1330b4019dd90b0c3bfaa1c95563d6446910c246c2064e1"
+   "sha256": "927803a3ce50984f65d85eaf43ca49b9c6009385fb7659ca307b012973ae0012"
   },
   "templates/STATION.md.tmpl": {
    "sha256": "b090470fe8d2283fd760a9d6114e2474631a335feab1fc2ca66a149667f03465"

@@ -3,10 +3,10 @@
  "census": {
   "dir": 16,
   "hook": 12,
-  "intent": 9,
+  "intent": 11,
   "skill": 6,
   "tool": 49,
-  "total": 94,
+  "total": 96,
   "workflow": 2
  },
  "edges": [
@@ -109,14 +109,21 @@
    "token": "tools/map/find.py"
   },
   {
-   "evidence": "router/intents.json:17",
+   "evidence": "router/intents.json:32",
+   "from": "intent:checkpoint",
+   "kind": "routes",
+   "to": "skill:checkpoint",
+   "token": "\"checkpoint\""
+  },
+  {
+   "evidence": "router/intents.json:18",
    "from": "intent:closeout",
    "kind": "routes",
    "to": "skill:closeout",
    "token": "\"closeout\""
   },
   {
-   "evidence": "router/intents.json:16",
+   "evidence": "router/intents.json:17",
    "from": "intent:closeout",
    "kind": "routes",
    "to": "tool:tools/station_audit.py",
@@ -130,7 +137,7 @@
    "token": "\"summon\""
   },
   {
-   "evidence": "router/intents.json:16",
+   "evidence": "router/intents.json:17",
    "from": "intent:delegate",
    "kind": "routes",
    "to": "tool:tools/station_audit.py",
@@ -144,8 +151,22 @@
    "token": "tools/map/find.py"
   },
   {
-   "evidence": "router/intents.json:16",
+   "evidence": "router/intents.json:17",
    "from": "intent:governance-admin",
+   "kind": "routes",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "router/intents.json:25",
+   "from": "intent:handoff",
+   "kind": "routes",
+   "to": "skill:handoff",
+   "token": "\"handoff\""
+  },
+  {
+   "evidence": "router/intents.json:17",
+   "from": "intent:handoff",
    "kind": "routes",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
@@ -424,14 +445,21 @@
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/hooks/intent_router.py:27",
+   "evidence": ".claude/hooks/intent_router.py:36",
    "from": "tool:.claude/hooks/intent_router.py",
    "kind": "runs",
    "to": "tool:tools/brain.py",
    "token": "tools/brain.py"
   },
   {
-   "evidence": ".claude/hooks/intent_router.py:493",
+   "evidence": ".claude/hooks/intent_router.py:195",
+   "from": "tool:.claude/hooks/intent_router.py",
+   "kind": "runs",
+   "to": "tool:tools/map/find.py",
+   "token": "tools/map/find.py"
+  },
+  {
+   "evidence": ".claude/hooks/intent_router.py:585",
    "from": "tool:.claude/hooks/intent_router.py",
    "kind": "runs",
    "to": "tool:tools/upstream/skill_routes.py",
@@ -1784,6 +1812,12 @@
   },
   {
    "class": "intent",
+   "id": "intent:checkpoint",
+   "label": "checkpoint",
+   "source": "router/intents.json"
+  },
+  {
+   "class": "intent",
    "id": "intent:closeout",
    "label": "closeout",
    "source": "router/intents.json"
@@ -1804,6 +1838,12 @@
    "class": "intent",
    "id": "intent:governance-admin",
    "label": "governance-admin",
+   "source": "router/intents.json"
+  },
+  {
+   "class": "intent",
+   "id": "intent:handoff",
+   "label": "handoff",
    "source": "router/intents.json"
   },
   {

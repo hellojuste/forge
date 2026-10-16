@@ -33,7 +33,14 @@
     ],
     "first_move": {
      "inline_gather": "git worktree add ~/stations/quarantine station/quarantine"
-    }
+    },
+    "claims": [
+     "camofox",
+     "maxun",
+     "aihawk",
+     "invisible_dots",
+     "invisible-playwright"
+    ]
    }
   },
   {
@@ -46,27 +53,37 @@
    "note": "engagements/<client>/ or a station/client-bi--<client> sub-branch",
    "router": {
     "keywords": [
-     "client",
      "klant",
-     "erp",
      "qlik",
      "qvf",
      "qvs",
      "kpi",
-     "dashboard",
      "applymap",
      "nprinting",
      "dwh",
      "accountview",
      "trimergo",
-     "ridder"
+     "ridder",
+     "pbix",
+     "dax",
+     "grootboek"
     ],
     "phrases": [
      "load script",
      "set analysis",
      "section access",
      "client data",
-     "reload error"
+     "reload error",
+     "for client",
+     "client's",
+     "client dashboard",
+     "qlik dashboard",
+     "erp data",
+     "erp tables",
+     "erp source",
+     "power bi",
+     "power query",
+     "general ledger"
     ],
     "first_move": {
      "inline_gather": "git worktree add ~/stations/client-bi station/client-bi"
@@ -83,8 +100,6 @@
    "note": "AutoHedge = study lane, disarmed by default",
    "router": {
     "keywords": [
-     "market",
-     "markets",
      "trade",
      "trading",
      "edge",
@@ -103,7 +118,16 @@
      "trade idea",
      "trading journal",
      "walk forward",
-     "e[r]"
+     "e[r]",
+     "market data",
+     "price action",
+     "the markets",
+     "crypto market",
+     "position sizing",
+     "strategy returns",
+     "returns a year",
+     "percent a year",
+     "kelly"
     ],
     "first_move": {
      "inline_gather": "git worktree add ~/stations/markets station/markets"
@@ -143,11 +167,21 @@
      "side business",
      "what to build",
      "go to market",
-     "my customers"
+     "my customers",
+     "should i build",
+     "business idea"
     ],
     "first_move": {
      "inline_gather": "git worktree add ~/stations/venture station/venture"
-    }
+    },
+    "claims": [
+     "mvp",
+     "should i build",
+     "my startup",
+     "my business",
+     "side business",
+     "go to market"
+    ]
    }
   },
   {
@@ -171,16 +205,34 @@
      "vacature",
      "solliciteren",
      "linkedin",
-     "job"
+     "job",
+     "posting",
+     "vacancies",
+     "recruiter",
+     "salary"
     ],
     "phrases": [
      "job search",
      "cover letter",
-     "job offer"
+     "job offer",
+     "job posting",
+     "job description"
     ],
     "first_move": {
      "inline_gather": "git worktree add ~/stations/career station/career"
-    }
+    },
+    "claims": [
+     "job",
+     "posting",
+     "vacancy",
+     "vacature",
+     "cv",
+     "resume",
+     "interview",
+     "recruiter",
+     "solliciteren",
+     "cover letter"
+    ]
    }
   },
   {
@@ -237,14 +289,20 @@
      "screenshot",
      "post",
      "survey",
-     "review"
+     "review",
+     "competitor"
     ],
     "phrases": [
      "find out",
      "literature review",
      "deep dive",
      "market scan",
-     "systematic review"
+     "systematic review",
+     "market research",
+     "market sizing",
+     "size the market",
+     "competitor analysis",
+     "competitors"
     ],
     "first_move": {
      "inline_gather": "git worktree add ~/stations/research station/research"
@@ -289,5 +347,6 @@
     }
    }
   }
- ]
+ ],
+ "_doc_router_fix": "2026-10-16 router fix (CRITIC F3/F5, REPRODUCE F6; DEC-core-0005): bare high-collision keywords client, erp, dashboard, market, markets are replaced by phrases; Power BI joins client-bi; market research/sizing and competitor work go to research; `claims` (career: job/posting/cv..., quarantine: the named tools) rank a leaf first and let it hint on one hit inside another station."
 }
