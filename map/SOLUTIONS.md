@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-58 catalogued thing(s) · 0 upstream(s) · 20 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+59 catalogued thing(s) · 0 upstream(s) · 20 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## closeout
 
@@ -43,6 +43,7 @@ _one runner, one exit code: which checks are red?_
 - `tools/gov/gov_check.py` — governance checks (working): claudemd, station, rules, canon, decisions, ledger, defects, releases, hooks, admission, commons_drift, main_purity, router_targets
 - `tools/gov/new_row.py` — register row writer (working): append a DEC/L/DEF row with the station's prefix and next id
 - `tools/station_audit.py` — the one audit runner (working): run every registered check (checks.json + checks.d/*.json) with MUST_BE_CLEAN/WORKLIST classes, one exit code and a --state line
+- `tools/upstream/skill_surface.py` — skill surface (working): surface every canonical station skill into .claude/skills (symlink), generate settings.json skillOverrides for duplicates only, report the listing against the real budget · see also tools/upstream/workflows_check.py, tools/upstream/skill_routes.py
 - `tools/upstream/workflows_check.py` — workflow checks (working): parse every saved workflow and check its CERTAIN_TEST can fail and does not mutate
 
 ## hook-safety

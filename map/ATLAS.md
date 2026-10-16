@@ -3,7 +3,7 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 16 · hook 12 · intent 11 · skill 6 · tool 49 · total 96 · workflow 2
+census: dir 16 · hook 12 · intent 11 · skill 6 · tool 50 · total 97 · workflow 2
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
@@ -66,6 +66,7 @@ flowchart LR
   tool_tools_upstream_ingest_py["ingest.py"]
   tool_tools_upstream_notice_py["notice.py"]
   tool_tools_upstream_skill_routes_py["skill_routes.py"]
+  tool_tools_upstream_skill_surface_py["skill_surface.py"]
   tool_tools_upstream_upstream_checks_py["upstream_checks.py"]
   tool_tools_upstream_workflows_check_py["workflows_check.py"]
   workflow__template["_template"]
@@ -123,6 +124,7 @@ flowchart LR
   tool_tools_upstream_ingest_py -->|in| dir_tools
   tool_tools_upstream_notice_py -->|in| dir_tools
   tool_tools_upstream_skill_routes_py -->|in| dir_tools
+  tool_tools_upstream_skill_surface_py -->|in| dir_tools
   tool_tools_upstream_upstream_checks_py -->|in| dir_tools
   tool_tools_upstream_workflows_check_py -->|in| dir_tools
   workflow__template -->|in| dir__claude
@@ -172,7 +174,7 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-64 nodes > cap 60: table instead of a hairball.
+65 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -207,7 +209,7 @@ flowchart LR
 | `skill:upstream-intake` | runs | `tool:tools/upstream/upstream_checks.py` | .claude/skills/upstream-intake/SKILL.md:56 |
 | `tool:.claude/hooks/deny_noted_defect.py` | runs | `tool:tools/gov/new_row.py` | .claude/hooks/deny_noted_defect.py:115 |
 | `tool:.claude/hooks/deny_upstream_write.py` | runs | `tool:tools/upstream/ingest.py` | .claude/hooks/deny_upstream_write.py:176 |
-| `tool:.claude/hooks/deny_upstream_write.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/deny_upstream_write.py:284 |
+| `tool:.claude/hooks/deny_upstream_write.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/deny_upstream_write.py:290 |
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/brain.py` | .claude/hooks/intent_router.py:36 |
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/map/find.py` | .claude/hooks/intent_router.py:195 |
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/intent_router.py:585 |
@@ -215,30 +217,30 @@ flowchart LR
 | `tool:.claude/hooks/stop.py` | runs | `tool:tools/brain.py` | .claude/hooks/stop.py:13 |
 | `tool:tools/brain.py` | runs | `tool:tools/map/gen_station_map.py` | tools/brain.py:441 |
 | `tool:tools/brain.py` | runs | `tool:tools/station_audit.py` | tools/brain.py:894 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/_cmdscan.py` | tools/gov/_gov.py:450 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/_release.py` | tools/gov/_gov.py:450 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/_report.py` | tools/gov/_gov.py:450 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/gov/_gov.py:452 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/deny_destructive.py` | tools/gov/_gov.py:451 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/deny_noted_defect.py` | tools/gov/_gov.py:452 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/intent_router.py` | tools/gov/_gov.py:451 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/station_dispatch.py` | tools/gov/_gov.py:453 |
-| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/stop.py` | tools/gov/_gov.py:453 |
-| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/gen_manifest.py` | tools/gov/_gov.py:449 |
-| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/gen_ownership.py` | tools/gov/_gov.py:448 |
-| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/gov_check.py` | tools/gov/_gov.py:448 |
-| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/new_row.py` | tools/gov/_gov.py:449 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/_cmdscan.py` | tools/gov/_gov.py:468 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/_release.py` | tools/gov/_gov.py:468 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/_report.py` | tools/gov/_gov.py:468 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/gov/_gov.py:470 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/deny_destructive.py` | tools/gov/_gov.py:469 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/deny_noted_defect.py` | tools/gov/_gov.py:470 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/intent_router.py` | tools/gov/_gov.py:469 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/station_dispatch.py` | tools/gov/_gov.py:471 |
+| `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/stop.py` | tools/gov/_gov.py:471 |
+| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/gen_manifest.py` | tools/gov/_gov.py:467 |
+| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/gen_ownership.py` | tools/gov/_gov.py:466 |
+| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/gov_check.py` | tools/gov/_gov.py:466 |
+| `tool:tools/gov/_gov.py` | runs | `tool:tools/gov/new_row.py` | tools/gov/_gov.py:467 |
 | `tool:tools/gov/_gov.py` | runs | `tool:tools/map/_common.py` | tools/gov/_gov.py:14 |
-| `tool:tools/gov/_gov.py` | runs | `tool:tools/station_audit.py` | tools/gov/_gov.py:448 |
+| `tool:tools/gov/_gov.py` | runs | `tool:tools/station_audit.py` | tools/gov/_gov.py:466 |
 | `tool:tools/gov/gen_manifest.py` | runs | `tool:tools/gov/gen_ownership.py` | tools/gov/gen_manifest.py:95 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/act_gate.py` | tools/gov/gov_check.py:1066 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/gov/gov_check.py:1072 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/deny_destructive.py` | tools/gov/gov_check.py:1081 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/station_dispatch.py` | tools/gov/gov_check.py:661 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/stop.py` | tools/gov/gov_check.py:1080 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:tools/gov/gen_manifest.py` | tools/gov/gov_check.py:863 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:tools/kit/sync.py` | tools/gov/gov_check.py:886 |
-| `tool:tools/gov/gov_check.py` | runs | `tool:tools/map/_common.py` | tools/gov/gov_check.py:1101 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/act_gate.py` | tools/gov/gov_check.py:1070 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/gov/gov_check.py:1076 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/deny_destructive.py` | tools/gov/gov_check.py:1085 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/station_dispatch.py` | tools/gov/gov_check.py:665 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:.claude/hooks/stop.py` | tools/gov/gov_check.py:1084 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:tools/gov/gen_manifest.py` | tools/gov/gov_check.py:867 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:tools/kit/sync.py` | tools/gov/gov_check.py:890 |
+| `tool:tools/gov/gov_check.py` | runs | `tool:tools/map/_common.py` | tools/gov/gov_check.py:1106 |
 | `tool:tools/gov/new_row.py` | runs | `tool:tools/station_audit.py` | tools/gov/new_row.py:94 |
 | `tool:tools/kit/assemble.py` | runs | `tool:tools/brain.py` | tools/kit/assemble.py:59 |
 | `tool:tools/kit/assemble.py` | runs | `tool:tools/gov/gen_manifest.py` | tools/kit/assemble.py:406 |
@@ -297,10 +299,12 @@ flowchart LR
 | `tool:tools/upstream/notice.py` | runs | `tool:tools/kit/bootstrap.py` | tools/upstream/notice.py:40 |
 | `tool:tools/upstream/skill_routes.py` | runs | `tool:.claude/hooks/intent_router.py` | tools/upstream/skill_routes.py:905 |
 | `tool:tools/upstream/skill_routes.py` | runs | `tool:tools/kit/skills_index.py` | tools/upstream/skill_routes.py:949 |
+| `tool:tools/upstream/skill_surface.py` | runs | `tool:tools/gov/_gov.py` | tools/upstream/skill_surface.py:27 |
 | `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/gov/_gov.py` | tools/upstream/upstream_checks.py:99 |
 | `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/bootstrap.py` | tools/upstream/upstream_checks.py:435 |
 | `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/repin.py` | tools/upstream/upstream_checks.py:284 |
 | `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/upstream/ingest.py` | tools/upstream/upstream_checks.py:138 |
-| `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/station_audit.py` | tools/upstream/workflows_check.py:321 |
+| `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/station_audit.py` | tools/upstream/workflows_check.py:320 |
+| `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/upstream/skill_surface.py` | tools/upstream/workflows_check.py:230 |
 | `workflow:_template` | runs | `tool:tools/station_audit.py` | .claude/workflows/_template.js:24 |
 | `workflow:orient` | runs | `tool:tools/station_audit.py` | .claude/workflows/orient.js:19 |

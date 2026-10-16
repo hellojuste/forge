@@ -414,6 +414,24 @@ def sha256_file(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
+# DEC-core-0010: the ONLY per-station content of the commons .claude/settings.json; written by
+# tools/upstream/skill_surface.py --write and proven current by its --check, so commons_drift hashes the file without them.
+GENERATED_SETTINGS_KEYS = ("skillOverrides", "skillListingBudgetFraction")
+
+
+def commons_sha256(p, rel):
+    """sha256 of a commons path as commons_drift compares it: .claude/settings.json minus GENERATED_SETTINGS_KEYS."""
+    if rel.replace("\\", "/") == ".claude/settings.json":
+        try:
+            d = json.loads(Path(p).read_text(encoding="utf-8"))
+        except ValueError:
+            return sha256_file(p)
+        for k in GENERATED_SETTINGS_KEYS:
+            d.pop(k, None)
+        return hashlib.sha256(json.dumps(d, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
+    return sha256_file(p)
+
+
 # ---------------------------------------------------------------- hooks wiring
 def wired_commands(settings):
     """[(event, matcher, entry_dict, hook_dict, script_rel)] from a settings.json object."""

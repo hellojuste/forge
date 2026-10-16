@@ -221,10 +221,14 @@ def c_station(root, a):
         r.bad("gov.hedge_regex does not compile: %s" % e)
     if not isinstance(g.get("model_roster"), dict):
         r.bad("gov.model_roster is not an object")
-    for k in ("listing_budget_bytes", "listed_max", "sessionstart_budget_bytes"):
+    for k in ("context_window_tokens", "sessionstart_budget_bytes"):  # listed_max/listing_budget_bytes retired: DEC-core-0010
         r.d += 1
         if not isinstance(cfg.get(k), int):
             r.bad("%s missing or not an integer" % k)
+    r.d += 1
+    f = cfg.get("skill_listing_budget_fraction")
+    if not isinstance(f, (int, float)) or not 0 < f <= 1:
+        r.bad("skill_listing_budget_fraction missing or not a number in (0, 1]")
     return r
 
 
@@ -869,7 +873,7 @@ def c_commons_drift(root, a):
         p = Path(root) / rel
         if not p.exists():
             r.bad("commons path %s is missing" % rel)
-        elif not meta.get("generated") and _gov.sha256_file(p) != meta.get("sha256"):
+        elif not meta.get("generated") and _gov.commons_sha256(p, rel) != meta.get("sha256"):
             r.bad("commons path %s differs from commons/MANIFEST.json (commons files are edited on main only%s)"
                   % (rel, "; regenerate the manifest if this IS main" if _gov.station_json(root) is None else ""))
     if _gov.is_git(root):
@@ -1090,6 +1094,7 @@ PLANTS = {
     "commons_drift": [
         ("commons file edited", lambda r: _append(r, ".gitattributes", "# drift\n")),
         ("commons file missing", lambda r: (Path(r) / ".gitignore").unlink()),
+        ("a non-generated settings.json key edited", lambda r: _edit_json(r, ".claude/settings.json", lambda d: d.update(claudeMdExcludes=[]))),
     ],
     "main_purity": [
         ("station-only path on main", lambda r: _gov.write(r, "STATION.md", "# x\n")),
@@ -1111,6 +1116,8 @@ CLEAN_EXTRA2 = {
               lambda d: d["rules"].append(dict(d["rules"][0], id="R-st", owner="upstream/PRECEDENCE.json#x", pointers=[])))),
     "history": ("hot-path line moved into .claude/rules/x.md in the same diff", lambda r: _stage_claude_line_removal(r, to_rules=True)),
     "defects_due": None,
+    "commons_drift": ("the generated settings.json keys (skill_surface.py) are not drift", lambda r: _edit_json(
+        r, ".claude/settings.json", lambda d: d.update(skillOverrides={"foo--beta": "off"}, skillListingBudgetFraction=0.03))),
 }
 WORKLIST_PLANTS = {
     "ledger_owed": ("an OWED row", lambda r: _append(r, "governance/LEDGER.md", "\n## L-core-0995 — X\nkind: procedural\npathology: -\naxis: effort\nhook: OWED a hook — trigger: the next miss\namendment: CLAUDE.md\n")),

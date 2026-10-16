@@ -5,90 +5,90 @@
   "hook": 12,
   "intent": 11,
   "skill": 6,
-  "tool": 49,
-  "total": 96,
+  "tool": 50,
+  "total": 97,
   "workflow": 2
  },
  "edges": [
   {
-   "evidence": ".claude/settings.json:101",
+   "evidence": ".claude/settings.json:106",
    "from": "hook:PostToolUse:Bash:0",
    "kind": "wires",
    "to": "tool:.claude/hooks/context_threshold.py",
    "token": ".claude/hooks/context_threshold.py"
   },
   {
-   "evidence": ".claude/settings.json:119",
+   "evidence": ".claude/settings.json:124",
    "from": "hook:PostToolUse:Bash|Skill|Read|Task:0",
    "kind": "wires",
    "to": "tool:tools/map/hooks/usage_log.py",
    "token": "tools/map/hooks/usage_log.py"
   },
   {
-   "evidence": ".claude/settings.json:110",
+   "evidence": ".claude/settings.json:115",
    "from": "hook:PostToolUse:Write|Edit:0",
    "kind": "wires",
    "to": "tool:tools/brain.py",
    "token": "tools/brain.py"
   },
   {
-   "evidence": ".claude/settings.json:90",
+   "evidence": ".claude/settings.json:95",
    "from": "hook:PreToolUse:.*:0",
    "kind": "wires",
    "to": "tool:.claude/hooks/station_dispatch.py",
    "token": ".claude/hooks/station_dispatch.py"
   },
   {
-   "evidence": ".claude/settings.json:55",
+   "evidence": ".claude/settings.json:60",
    "from": "hook:PreToolUse:Bash:0",
    "kind": "wires",
    "to": "tool:.claude/hooks/deny_destructive.py",
    "token": ".claude/hooks/deny_destructive.py"
   },
   {
-   "evidence": ".claude/settings.json:59",
+   "evidence": ".claude/settings.json:64",
    "from": "hook:PreToolUse:Bash:1",
    "kind": "wires",
    "to": "tool:.claude/hooks/deny_noted_defect.py",
    "token": ".claude/hooks/deny_noted_defect.py"
   },
   {
-   "evidence": ".claude/settings.json:68",
+   "evidence": ".claude/settings.json:73",
    "from": "hook:PreToolUse:Bash|Edit|Write|MultiEdit|NotebookEdit:0",
    "kind": "wires",
    "to": "tool:.claude/hooks/deny_upstream_write.py",
    "token": ".claude/hooks/deny_upstream_write.py"
   },
   {
-   "evidence": ".claude/settings.json:72",
+   "evidence": ".claude/settings.json:77",
    "from": "hook:PreToolUse:Bash|Edit|Write|MultiEdit|NotebookEdit:1",
    "kind": "wires",
    "to": "tool:tools/map/hooks/deny_generated_edit.py",
    "token": "tools/map/hooks/deny_generated_edit.py"
   },
   {
-   "evidence": ".claude/settings.json:81",
+   "evidence": ".claude/settings.json:86",
    "from": "hook:PreToolUse:Write:0",
    "kind": "wires",
    "to": "tool:tools/map/hooks/prior_art.py",
    "token": "tools/map/hooks/prior_art.py"
   },
   {
-   "evidence": ".claude/settings.json:34",
+   "evidence": ".claude/settings.json:39",
    "from": "hook:SessionStart:startup|resume|clear|compact:0",
    "kind": "wires",
    "to": "tool:tools/brain.py",
    "token": "tools/brain.py"
   },
   {
-   "evidence": ".claude/settings.json:129",
+   "evidence": ".claude/settings.json:134",
    "from": "hook:Stop:*:0",
    "kind": "wires",
    "to": "tool:.claude/hooks/stop.py",
    "token": ".claude/hooks/stop.py"
   },
   {
-   "evidence": ".claude/settings.json:44",
+   "evidence": ".claude/settings.json:49",
    "from": "hook:UserPromptSubmit:*:0",
    "kind": "wires",
    "to": "tool:.claude/hooks/intent_router.py",
@@ -431,7 +431,7 @@
    "token": "tools/upstream/ingest.py"
   },
   {
-   "evidence": ".claude/hooks/deny_upstream_write.py:284",
+   "evidence": ".claude/hooks/deny_upstream_write.py:290",
    "from": "tool:.claude/hooks/deny_upstream_write.py",
    "kind": "runs",
    "to": "tool:tools/upstream/skill_routes.py",
@@ -536,91 +536,91 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/gov/_gov.py:450",
+   "evidence": "tools/gov/_gov.py:468",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/_cmdscan.py",
    "token": ".claude/hooks/_cmdscan.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:450",
+   "evidence": "tools/gov/_gov.py:468",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/_release.py",
    "token": ".claude/hooks/_release.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:450",
+   "evidence": "tools/gov/_gov.py:468",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/_report.py",
    "token": ".claude/hooks/_report.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:452",
+   "evidence": "tools/gov/_gov.py:470",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/context_threshold.py",
    "token": ".claude/hooks/context_threshold.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:451",
+   "evidence": "tools/gov/_gov.py:469",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/deny_destructive.py",
    "token": ".claude/hooks/deny_destructive.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:452",
+   "evidence": "tools/gov/_gov.py:470",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/deny_noted_defect.py",
    "token": ".claude/hooks/deny_noted_defect.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:451",
+   "evidence": "tools/gov/_gov.py:469",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/intent_router.py",
    "token": ".claude/hooks/intent_router.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:453",
+   "evidence": "tools/gov/_gov.py:471",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/station_dispatch.py",
    "token": ".claude/hooks/station_dispatch.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:453",
+   "evidence": "tools/gov/_gov.py:471",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/stop.py",
    "token": ".claude/hooks/stop.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:449",
+   "evidence": "tools/gov/_gov.py:467",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/gen_manifest.py",
    "token": "tools/gov/gen_manifest.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:448",
+   "evidence": "tools/gov/_gov.py:466",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/gen_ownership.py",
    "token": "tools/gov/gen_ownership.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:448",
+   "evidence": "tools/gov/_gov.py:466",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/gov_check.py",
    "token": "tools/gov/gov_check.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:449",
+   "evidence": "tools/gov/_gov.py:467",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/gov/new_row.py",
@@ -634,7 +634,7 @@
    "token": "tools/map/_common.py"
   },
   {
-   "evidence": "tools/gov/_gov.py:448",
+   "evidence": "tools/gov/_gov.py:466",
    "from": "tool:tools/gov/_gov.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -683,35 +683,35 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/gov/gov_check.py:1066",
+   "evidence": "tools/gov/gov_check.py:1070",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/act_gate.py",
    "token": ".claude/hooks/act_gate.py"
   },
   {
-   "evidence": "tools/gov/gov_check.py:1072",
+   "evidence": "tools/gov/gov_check.py:1076",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/context_threshold.py",
    "token": ".claude/hooks/context_threshold.py"
   },
   {
-   "evidence": "tools/gov/gov_check.py:1081",
+   "evidence": "tools/gov/gov_check.py:1085",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/deny_destructive.py",
    "token": ".claude/hooks/deny_destructive.py"
   },
   {
-   "evidence": "tools/gov/gov_check.py:661",
+   "evidence": "tools/gov/gov_check.py:665",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/station_dispatch.py",
    "token": ".claude/hooks/station_dispatch.py"
   },
   {
-   "evidence": "tools/gov/gov_check.py:1080",
+   "evidence": "tools/gov/gov_check.py:1084",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/stop.py",
@@ -725,21 +725,21 @@
    "token": "_gov"
   },
   {
-   "evidence": "tools/gov/gov_check.py:863",
+   "evidence": "tools/gov/gov_check.py:867",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:tools/gov/gen_manifest.py",
    "token": "tools/gov/gen_manifest.py"
   },
   {
-   "evidence": "tools/gov/gov_check.py:886",
+   "evidence": "tools/gov/gov_check.py:890",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:tools/kit/sync.py",
    "token": "tools/kit/sync.py"
   },
   {
-   "evidence": "tools/gov/gov_check.py:1101",
+   "evidence": "tools/gov/gov_check.py:1106",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "runs",
    "to": "tool:tools/map/_common.py",
@@ -1545,6 +1545,27 @@
   },
   {
    "evidence": "map/dirs.json:177",
+   "from": "tool:tools/upstream/skill_surface.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/upstream/skill_surface.py:27",
+   "from": "tool:tools/upstream/skill_surface.py",
+   "kind": "runs",
+   "to": "tool:tools/gov/_gov.py",
+   "token": "tools/gov/_gov.py"
+  },
+  {
+   "evidence": "tools/upstream/skill_surface.py:51",
+   "from": "tool:tools/upstream/skill_surface.py",
+   "kind": "imports",
+   "to": "tool:tools/upstream/_uplib.py",
+   "token": "_uplib"
+  },
+  {
+   "evidence": "map/dirs.json:177",
    "from": "tool:tools/upstream/upstream_checks.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1593,18 +1614,32 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/upstream/workflows_check.py:321",
+   "evidence": "tools/upstream/workflows_check.py:320",
    "from": "tool:tools/upstream/workflows_check.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "tools/upstream/workflows_check.py:43",
+   "evidence": "tools/upstream/workflows_check.py:45",
    "from": "tool:tools/upstream/workflows_check.py",
    "kind": "imports",
    "to": "tool:tools/upstream/_uplib.py",
    "token": "_uplib"
+  },
+  {
+   "evidence": "tools/upstream/workflows_check.py:46",
+   "from": "tool:tools/upstream/workflows_check.py",
+   "kind": "imports",
+   "to": "tool:tools/upstream/skill_surface.py",
+   "token": "skill_surface"
+  },
+  {
+   "evidence": "tools/upstream/workflows_check.py:230",
+   "from": "tool:tools/upstream/workflows_check.py",
+   "kind": "runs",
+   "to": "tool:tools/upstream/skill_surface.py",
+   "token": "tools/upstream/skill_surface.py"
   },
   {
    "evidence": "map/dirs.json:7",
@@ -2187,6 +2222,12 @@
    "id": "tool:tools/upstream/skill_routes.py",
    "label": "skill_routes.py",
    "source": "tools/upstream/skill_routes.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/upstream/skill_surface.py",
+   "label": "skill_surface.py",
+   "source": "tools/upstream/skill_surface.py"
   },
   {
    "class": "tool",

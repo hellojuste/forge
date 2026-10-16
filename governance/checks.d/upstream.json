@@ -282,7 +282,7 @@
    ],
    "class": "MUST_BE_CLEAN",
    "programme": "upstream",
-   "earned_by": "LEAN LL-02: lettuce carries 71 skillOverrides rows because every listed skill costs its listing line every turn; a skill/workflow name clash hides both",
+   "earned_by": "LEAN LL-02 (the per-turn cost of a skill is its listing line) — since DEC-core-0010 a REPORT against Claude Code's real budget, never a cap",
    "selftest": [
     "python3",
     "tools/upstream/workflows_check.py",
@@ -292,8 +292,35 @@
    "inputs": [
     ".claude/skills/*/SKILL.md",
     ".claude/settings.json",
-    "station.json",
     "commons/defaults.json"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "skill_surface",
+   "cmd": [
+    "python3",
+    "tools/upstream/skill_surface.py",
+    "--check",
+    "--root",
+    "."
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "operator ruling 2026-10-16 (DEC-core-0010): every canonical skill homed in a station is natively visible; LEAN review F2: a hide in station.json never reached the harness",
+   "selftest": [
+    "python3",
+    "tools/upstream/skill_surface.py",
+    "--selftest"
+   ],
+   "retires": "station.json skill_overrides (never read by Claude Code) and the listed_max 6 cap",
+   "inputs": [
+    "router/skills.json",
+    "station.json",
+    ".claude/settings.json",
+    ".claude/skills/*",
+    "tools/upstream/skill_surface.py"
    ],
    "timeout_s": 120,
    "gate_subcount": null

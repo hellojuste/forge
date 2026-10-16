@@ -211,7 +211,7 @@
   },
   {
    "id": "R-listing-budget",
-   "headline": "At most 6 skills listed per branch within 2,400 B; everything else is routed or invocable-only",
+   "headline": "The skill listing is REPORTED against Claude Code's real budget (1% of the context window, or skillListingBudgetFraction), never capped; nothing is hidden to fit",
    "owner": "tools/upstream/workflows_check.py",
    "pointers": [],
    "enforcement": {
@@ -221,7 +221,26 @@
    },
    "earned_by": "LEAN LL-02",
    "rung": "hard",
-   "since": "DEC-core-0001",
+   "since": "DEC-core-0010",
+   "upstream": "NEVER",
+   "programme": "upstream",
+   "superseded_text": "At most 6 skills listed per branch within 2,400 B; everything else is routed or invocable-only — SUPERSEDED 2026-10-16 by DEC-core-0010"
+  },
+  {
+   "id": "R-skill-surface",
+   "headline": "Every canonical skill a station homes is linked into .claude/skills/ and the generated settings.json skillOverrides/skillListingBudgetFraction match the plan",
+   "owner": "tools/upstream/skill_surface.py",
+   "pointers": [
+    "CLAUDE.md"
+   ],
+   "enforcement": {
+    "kind": "check",
+    "ref": "skill_surface",
+    "by": "skill_surface"
+   },
+   "earned_by": "operator ruling 2026-10-16 (DEC-core-0010); LEAN review F2",
+   "rung": "hard",
+   "since": "DEC-core-0010",
    "upstream": "NEVER",
    "programme": "upstream"
   },

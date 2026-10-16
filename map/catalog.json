@@ -643,6 +643,20 @@
    "status": "working",
    "title": "skill routes"
   },
+  "tools/upstream/skill_surface.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "surface every canonical station skill into .claude/skills (symlink), generate settings.json skillOverrides for duplicates only, report the listing against the real budget",
+   "see_also": [
+    "tools/upstream/workflows_check.py",
+    "tools/upstream/skill_routes.py"
+   ],
+   "solves": [
+    "governance-audit"
+   ],
+   "status": "working",
+   "title": "skill surface"
+  },
   "tools/upstream/upstream_checks.py": {
    "doc": null,
    "kin": [],

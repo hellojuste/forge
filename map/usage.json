@@ -60,7 +60,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:101",
+     "evidence": ".claude/settings.json:106",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -73,7 +73,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:55",
+     "evidence": ".claude/settings.json:60",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -86,7 +86,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:59",
+     "evidence": ".claude/settings.json:64",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -99,7 +99,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:68",
+     "evidence": ".claude/settings.json:73",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -112,7 +112,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:44",
+     "evidence": ".claude/settings.json:49",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -132,7 +132,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:90",
+     "evidence": ".claude/settings.json:95",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -145,7 +145,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:129",
+     "evidence": ".claude/settings.json:134",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -284,17 +284,17 @@
      "source": "check"
     },
     {
-     "evidence": ".claude/settings.json:110",
+     "evidence": ".claude/settings.json:115",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
     {
-     "evidence": ".claude/settings.json:24",
+     "evidence": ".claude/settings.json:28",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
     {
-     "evidence": ".claude/settings.json:34",
+     "evidence": ".claude/settings.json:39",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
@@ -556,7 +556,7 @@
      "source": "check"
     },
     {
-     "evidence": ".claude/settings.json:22",
+     "evidence": ".claude/settings.json:26",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -762,7 +762,7 @@
    "kind": "tool",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:23",
+     "evidence": ".claude/settings.json:27",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
@@ -927,7 +927,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:72",
+     "evidence": ".claude/settings.json:77",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -940,7 +940,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:81",
+     "evidence": ".claude/settings.json:86",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -953,7 +953,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:119",
+     "evidence": ".claude/settings.json:124",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -1065,7 +1065,7 @@
      "source": "check"
     },
     {
-     "evidence": ".claude/settings.json:21",
+     "evidence": ".claude/settings.json:25",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
@@ -1163,12 +1163,17 @@
      "source": "import"
     },
     {
+     "evidence": "tools/upstream/skill_surface.py:51",
+     "ref": "tools/upstream/skill_surface.py",
+     "source": "import"
+    },
+    {
      "evidence": "tools/upstream/upstream_checks.py:48",
      "ref": "tools/upstream/upstream_checks.py",
      "source": "import"
     },
     {
-     "evidence": "tools/upstream/workflows_check.py:43",
+     "evidence": "tools/upstream/workflows_check.py:45",
      "ref": "tools/upstream/workflows_check.py",
      "source": "import"
     }
@@ -1248,6 +1253,34 @@
     }
    ]
   },
+  "tools/upstream/skill_surface.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/skill_surface.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:304",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:314",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:323",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/settings.json:29",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
   "tools/upstream/upstream_checks.py": {
    "cold": null,
    "hand": [],
@@ -1285,22 +1318,22 @@
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:305",
+     "evidence": "governance/checks.d/upstream.json:332",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:313",
+     "evidence": "governance/checks.d/upstream.json:340",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:328",
+     "evidence": "governance/checks.d/upstream.json:355",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:336",
+     "evidence": "governance/checks.d/upstream.json:363",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },

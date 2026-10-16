@@ -34,6 +34,8 @@
   "hooks": {"type": "object", "properties": {
    "PreToolUse": {"type": "array", "items": {"type": "string", "pattern": "^(station/)?[a-z_][a-z0-9_]*$"}}}},
   "skill_overrides": {"type": "object"},
+  "skill_hide": {"type": "object"},
+  "skill_listing_budget_fraction": {"type": "number"},
   "quarantined": {"type": "array", "items": {"type": "string"}},
   "live_keys": {"type": "array", "items": {"type": "string", "pattern": "^[A-Z_][A-Z0-9_]*$"}},
   "irreversible_acts": {"type": "array", "items": {"type": "string"}},
