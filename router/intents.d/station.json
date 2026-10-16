@@ -1,0 +1,144 @@
+{
+ "_why": "forge station intents (contract station-forge section 5; contributed_by station, tie class station:* so they win over the commons ingest intent on this branch). Keywords are the contract's frozen lists, never widened to fit a prompt. Selftest prompts: router/intents.d/station.selftest.json, written after the keywords were frozen. First moves name the seven workflows the equip block builds; until then router_targets reports them ABSENT as WORKLIST (governance/checks.d/station.json equip_pending).",
+ "intents": [
+  {
+   "name": "trial",
+   "description": "tool trial: N >= 5 frozen tasks without and with a tool (ProjectAtlas first), graded, verdict promote/park",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "projectatlas",
+     "trial",
+     "benchmark",
+     "tokens saved",
+     "try this tool"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "tool-trial"
+    }
+   }
+  },
+  {
+   "name": "optimize",
+   "description": "evo autoresearch optimise loop with a holdout frozen first (evo-guard) and a re-measure on it",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "evo",
+     "autoresearch",
+     "optimize",
+     "improve score"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "optimize-loop"
+    }
+   }
+  },
+  {
+   "name": "wiki",
+   "description": "generate a wiki for a non-client repository with openwiki in a run-tree, telemetry off",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "openwiki",
+     "wiki",
+     "document this repo"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "wiki-gen"
+    }
+   }
+  },
+  {
+   "name": "reverse",
+   "description": "reverse engineering with REA behind the re-legal-gate row",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "reverse engineer",
+     "binary",
+     "decompile",
+     "rea"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "reverse"
+    }
+   }
+  },
+  {
+   "name": "intake",
+   "description": "take a new upstream into the stable: pin, licence, agent-file census, component-tree placement, ingest, route its skills",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "new repo",
+     "add to stable",
+     "new upstream",
+     "ingest"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "upstream-intake"
+    }
+   }
+  },
+  {
+   "name": "arch",
+   "description": "architecture review: design it twice, then the improve-codebase-architecture report",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "architecture",
+     "refactor plan",
+     "design it twice",
+     "design review"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "arch-review"
+    }
+   }
+  },
+  {
+   "name": "repin",
+   "description": "repin an upstream: repin report first, certain tests, lock row rewritten only after green",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "repin",
+     "update upstream",
+     "bump pin"
+    ],
+    "phrases": [],
+    "path_patterns": [],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "kit-repin"
+    }
+   }
+  }
+ ]
+}

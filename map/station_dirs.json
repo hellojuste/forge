@@ -1,0 +1,95 @@
+{
+ "_schema": "station-dirs/1",
+ "_why": "forge station dir overlay (station-only; merged over commons map/dirs.json by tools/map/_common.load_map). Rows here only sharpen the role of the lane/work dirs this branch fills (all readme: none, so no generated README changes); `overlay` lists every top-level dir this station's overlay writes into with its role and readme policy, for gen_station_map and orientation. Commons rows for map/ and brain/ (generated READMEs) are not touched.",
+ "meta": {
+  "purpose": "Make agents cheaper and better and maintain the kit: tool trials with denominators, code-index/wiki/autoresearch tools, reverse engineering behind a legal gate, new-upstream intake, repin.",
+  "owner": "station forge",
+  "date": "2026-10-16"
+ },
+ "dirs": {
+  "repertoire": {
+   "role": "Held lane: permissive upstream method text (ProjectAtlas, evo, openwiki, REA, LibreChat's Pocock skills, pm-ai-shipping), read-only, routed by router/skills.json; index repertoire/INDEX.md (generated).",
+   "holds": [
+    "<owner~repo>/ (ingested, neutralised, read-only)",
+    "INDEX.md (generated)"
+   ],
+   "never_holds": [
+    "station-authored files",
+    "client code"
+   ],
+   "readme": "none",
+   "optional": true
+  },
+  "upstream": {
+   "role": "Ingest records: LOCK/PROVENANCE/RENAMES/PRECEDENCE.json written by tools/upstream/ingest.py.",
+   "holds": [
+    "LOCK.json",
+    "PROVENANCE.json",
+    "RENAMES.json",
+    "PRECEDENCE.json"
+   ],
+   "never_holds": [
+    "held upstream trees (forge holds none under upstream/)"
+   ],
+   "readme": "none",
+   "optional": true
+  },
+  "work": {
+   "role": "Forge outputs, one folder per job: trials, optimize, wiki, re (+ legal_gate.json), arch, repin; plus the checkpoint register.",
+   "holds": [
+    "trials/",
+    "optimize/",
+    "wiki/",
+    "re/",
+    "arch/",
+    "repin/",
+    "CHECKPOINTS.md",
+    "README.md"
+   ],
+   "never_holds": [
+    "client repositories or their wikis",
+    "identity or customer data"
+   ],
+   "readme": "none",
+   "optional": true
+  }
+ },
+ "overlay": {
+  ".claude": {
+   "role": "station rules (rules/station.md), the five gap skills, hooks/station/README.md; workflows arrive with the equip block",
+   "readme": "none"
+  },
+  "brain": {
+   "role": "brain.json (station config) and paper nodes forge-0001..0003",
+   "readme": "generated (commons)"
+  },
+  "governance": {
+   "role": "checks.d/station.json, rules.d/station.json, STATION_DECISIONS/LEDGER (+ TRIALS table)/DEFECTS.md",
+   "readme": "none"
+  },
+  "map": {
+   "role": "station_dirs/station_upstream/station_catalog/station_tags.json overlays",
+   "readme": "generated (commons)"
+  },
+  "repertoire": {
+   "role": "permissive method lane (see dirs.repertoire)",
+   "readme": "none"
+  },
+  "router": {
+   "role": "intents.d/station.json + station.selftest.json, skills.json (seeded; keywords from the intent block)",
+   "readme": "none"
+  },
+  "tools": {
+   "role": "tools/station/forge_check.py",
+   "readme": "none"
+  },
+  "upstream": {
+   "role": "LOCK/PROVENANCE/RENAMES/PRECEDENCE.json",
+   "readme": "none"
+  },
+  "work": {
+   "role": "own outputs (see dirs.work)",
+   "readme": "none"
+  }
+ }
+}

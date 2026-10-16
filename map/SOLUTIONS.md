@@ -3,7 +3,14 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-58 catalogued thing(s) · 0 upstream(s) · 20 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+64 catalogued thing(s) · 6 upstream(s) · 30 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+
+## architecture-review
+
+_design a module interface twice and find deepening opportunities_
+
+- upstream:danny-avila~LibreChat — when arch-review workflow: design it twice, then the improve-codebase-architecture report · entry `repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md` · instructions: repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DEEPENING.md, repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DESIGN-IT-TWICE.md, repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/LICENSE, repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md, repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/agents/openai.yaml, repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/HTML-REPORT.md, repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/LICENSE, repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md, repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/agents/openai.yaml
+- upstream:phuryn~pm-skills — when reviewing agent-built code before it ships (arch-review and tool-trial grading support) · entry `repertoire/phuryn~pm-skills/pm-ai-shipping/README.md` · instructions: repertoire/phuryn~pm-skills/pm-ai-shipping/_upstream_claude-plugin/plugin.json
 
 ## closeout
 
@@ -13,6 +20,19 @@ _end a pass: ledger, defects, handoff, asides_
 - `.claude/hooks/stop.py` — stop hook (working): Stop: the close-out line; calls brain.stop_check in-process
 - `.claude/skills/closeout/SKILL.md` — closeout skill (working): end a pass: ledger rows, defects, asides line, handoff when needed
 - `tools/gov/new_row.py` — register row writer (working): append a DEC/L/DEF row with the station's prefix and next id
+
+## code-index
+
+_answer navigation questions from an index instead of broad file reads_
+
+- upstream:langchain-ai~openwiki — when wiki-gen workflow on a non-client repository, CLI in a run-tree with OPENWIKI_TELEMETRY_DISABLED=1 · entry `repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md`
+- upstream:styler-ai~ProjectAtlas — when tool-trial workflow: the first trial subject (tokens saved vs. arm A without the tool, N >= 5); the failed benchmark runs are read as part of the denominator · entry `repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md`
+
+## code-review
+
+_find actionable defects and intent-vs-implementation gaps in agent-built code_
+
+- upstream:phuryn~pm-skills — when reviewing agent-built code before it ships (arch-review and tool-trial grading support) · entry `repertoire/phuryn~pm-skills/pm-ai-shipping/README.md` · instructions: repertoire/phuryn~pm-skills/pm-ai-shipping/_upstream_claude-plugin/plugin.json
 
 ## delegation
 
@@ -45,6 +65,14 @@ _one runner, one exit code: which checks are red?_
 - `tools/station_audit.py` — the one audit runner (working): run every registered check (checks.json + checks.d/*.json) with MUST_BE_CLEAN/WORKLIST classes, one exit code and a --state line
 - `tools/upstream/workflows_check.py` — workflow checks (working): parse every saved workflow and check its CERTAIN_TEST can fail and does not mutate
 
+## holdout-validation
+
+_is an optimiser's gain real on data it never saw (frozen before the search)?_
+
+- `.claude/skills/evo-guard/SKILL.md` — evo-guard (working): freeze a hashed holdout before any evo run; re-measure the winner on it · see also tools/station/forge_check.py
+- `tools/station/forge_check.py` — forge_check (working): the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP · see also .claude/skills/tool-trial/SKILL.md, .claude/skills/evo-guard/SKILL.md
+- upstream:evo-hq~evo — when optimize-loop workflow, always behind evo-guard (holdout frozen before the first experiment, re-measure after) · entry `repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md`
+
 ## hook-safety
 
 _stop an irreversible or wrong-place act before it happens_
@@ -76,8 +104,10 @@ _build, zip, verify and bootstrap the kit and its branches_
 
 _may this be held, exported, combined?_
 
+- `.claude/skills/re-legal-gate/SKILL.md` — re-legal-gate (working): record owner, licence, right and jurisdiction note before any REA run; refuse proprietary targets without a right · see also tools/station/forge_check.py
 - `tools/upstream/notice.py` — NOTICE generator (working): render NOTICE.md from LOCK + PROVENANCE + carried NOTICE files
 - `tools/upstream/upstream_checks.py` — upstream checks (working): vendor_leak, precedence, upstream_lock, provenance, licence_filter, nc_export, notice, telemetry and related checks
+- upstream:morluto~rea — when reverse workflow, only after a re-legal-gate row decides proceed for the exact target · entry `repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md`
 
 ## map-freshness
 
@@ -95,6 +125,13 @@ _what did we already learn, decide or refute about this?_
 
 - `.claude/hooks/intent_router.py` — intent router (working): UserPromptSubmit: route the prompt to its first move; appends the brain surface and context line
 - `tools/brain.py` — the brain (working): new/near/ladder/surface/audit/index/card/loops/check-checkpoint/hook: the station's one memory script · see also tools/map/find.py
+
+## optimisation
+
+_improve a measured score by searching code variants_
+
+- `.claude/skills/evo-guard/SKILL.md` — evo-guard (working): freeze a hashed holdout before any evo run; re-measure the winner on it · see also tools/station/forge_check.py
+- upstream:evo-hq~evo — when optimize-loop workflow, always behind evo-guard (holdout frozen before the first experiment, re-measure after) · entry `repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md`
 
 ## orientation
 
@@ -114,6 +151,21 @@ _is this already built, tried or held upstream?_
 - `tools/map/gen_solutions.py` — solutions catalog (working): render map/SOLUTIONS.md and check every tool/skill/workflow is catalogued
 - `tools/map/hooks/prior_art.py` — prior-art hook (working): PreToolUse Write: point a new tool/skill/workflow at what exists (with brain hits) · see also tools/brain.py
 - `tools/map/upstream_check.py` — upstream usage index (working): every held upstream has a usage row, a 40-hex pin, live paths and visible instruction files
+
+## repin
+
+_move a pin with the evidence first: licence, agent files, telemetry, repurposing_
+
+- `.claude/skills/kit-maintain/SKILL.md` — kit-maintain (working): repin report, sync --check and listing budgets across branches; a licence change stops · see also tools/kit/repin.py, tools/station/forge_check.py
+- `tools/station/forge_check.py` — forge_check (working): the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP · see also .claude/skills/tool-trial/SKILL.md, .claude/skills/evo-guard/SKILL.md
+
+## reverse-engineering
+
+_explain a shipped artifact from observed evidence, behind a recorded right to analyse it_
+
+- `.claude/skills/re-legal-gate/SKILL.md` — re-legal-gate (working): record owner, licence, right and jurisdiction note before any REA run; refuse proprietary targets without a right · see also tools/station/forge_check.py
+- `tools/station/forge_check.py` — forge_check (working): the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP · see also .claude/skills/tool-trial/SKILL.md, .claude/skills/evo-guard/SKILL.md
+- upstream:morluto~rea — when reverse workflow, only after a re-legal-gate row decides proceed for the exact target · entry `repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md`
 
 ## routing
 
@@ -149,10 +201,26 @@ _which of the census skills answers this, and where does it live?_
 
 _bring commons changes to a station without a broken merge_
 
+- `.claude/skills/kit-maintain/SKILL.md` — kit-maintain (working): repin report, sync --check and listing budgets across branches; a licence change stops · see also tools/kit/repin.py, tools/station/forge_check.py
 - `tools/gov/gen_manifest.py` — commons manifest generator (working): hash every commons path into commons/MANIFEST.json for commons_drift
 - `tools/kit/split.sh` — station split (working): turn one station branch into a one-branch repo with a kit remote
 - `tools/kit/sync.py` — station sync (working): merge main into a station, regenerate GENERATED conflicts, abort on any other
 - `tools/map/gen_station_map.py` — station map (working): render map/STATIONS.md: every station branch against main
+
+## telemetry-audit
+
+_what does a tool send, where, and which switch provably turns it off at the pin?_
+
+- `.claude/skills/telemetry-audit/SKILL.md` — telemetry-audit (working): find a tool's senders and opt-out switch at the pin (file:line), record the offline status run · see also tools/station/forge_check.py
+- `tools/station/forge_check.py` — forge_check (working): the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP · see also .claude/skills/tool-trial/SKILL.md, .claude/skills/evo-guard/SKILL.md
+
+## tool-trial
+
+_does this tool beat no tool on >= 5 frozen tasks of ours, with the authors' failed runs read?_
+
+- `.claude/skills/tool-trial/SKILL.md` — tool-trial (working): N >= 5 frozen tasks without/with a tool, blind-graded, failed runs read; verdict promote/park · see also tools/station/forge_check.py
+- `tools/station/forge_check.py` — forge_check (working): the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP · see also .claude/skills/tool-trial/SKILL.md, .claude/skills/evo-guard/SKILL.md
+- upstream:styler-ai~ProjectAtlas — when tool-trial workflow: the first trial subject (tokens saved vs. arm A without the tool, N >= 5); the failed benchmark runs are read as part of the denominator · entry `repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md`
 
 ## upstream-intake
 
@@ -168,6 +236,7 @@ _bring a new upstream in: licence, lane, neutralisation, provenance_
 
 _which exact commit is held, and has it been edited?_
 
+- `.claude/skills/kit-maintain/SKILL.md` — kit-maintain (working): repin report, sync --check and listing budgets across branches; a licence change stops · see also tools/kit/repin.py, tools/station/forge_check.py
 - `tools/kit/bootstrap.py` — upstream bootstrap (working): bare-clone a bootstrap upstream at its 40-hex pin into .upstream/ (or from a bundle)
 - `tools/kit/repin.py` — repin (working): report and apply a new upstream pin after its diff, licence and certain tests
 - `tools/map/upstream_check.py` — upstream usage index (working): every held upstream has a usage row, a 40-hex pin, live paths and visible instruction files
@@ -180,3 +249,9 @@ _is this tool/skill/upstream actually used, declared or observed?_
 
 - `tools/map/hooks/usage_log.py` — usage log hook (working): PostToolUse: append one observed-usage event (map M+)
 - `tools/map/usage_map.py` — usage map (working): declared triggers per tool/skill/workflow/upstream plus the observed-use quadrants
+
+## wiki-generation
+
+_generate and serve a repository wiki with source evidence_
+
+- upstream:langchain-ai~openwiki — when wiki-gen workflow on a non-client repository, CLI in a run-tree with OPENWIKI_TELEMETRY_DISABLED=1 · entry `repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md`

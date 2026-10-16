@@ -1,0 +1,117 @@
+{
+ "_why": "forge station router selftest (contract section 5): >= 3 prompts per intent including one negated prompt that must NOT route. Written after the keywords in router/intents.d/station.json were frozen; keywords were never widened to fit a prompt. Loaded by .claude/hooks/intent_router.py --selftest.",
+ "cases": [
+  {
+   "prompt": "run a trial of projectatlas on our repos",
+   "expect": "trial"
+  },
+  {
+   "prompt": "does this benchmark hold up on my own tasks",
+   "expect": "trial"
+  },
+  {
+   "prompt": "measure tokens saved by the code index",
+   "expect": "trial"
+  },
+  {
+   "prompt": "no trial needed, it is just a typo fix",
+   "must_route": false
+  },
+  {
+   "prompt": "let evo run overnight on the parser",
+   "expect": "optimize"
+  },
+  {
+   "prompt": "set up autoresearch for the ranking function",
+   "expect": "optimize"
+  },
+  {
+   "prompt": "optimize the latency of the build script",
+   "expect": "optimize"
+  },
+  {
+   "prompt": "do not optimize anything today",
+   "must_route": false
+  },
+  {
+   "prompt": "generate a wiki with openwiki for my dotfiles repo",
+   "expect": "wiki"
+  },
+  {
+   "prompt": "write a wiki for the kit tools",
+   "expect": "wiki"
+  },
+  {
+   "prompt": "document this repo for a new contributor",
+   "expect": "wiki"
+  },
+  {
+   "prompt": "never touch the wiki, thanks",
+   "must_route": false
+  },
+  {
+   "prompt": "reverse engineer this old CLI I wrote",
+   "expect": "reverse"
+  },
+  {
+   "prompt": "decompile the binary from my own build",
+   "expect": "reverse"
+  },
+  {
+   "prompt": "use rea on my electron app",
+   "expect": "reverse"
+  },
+  {
+   "prompt": "do not decompile anything",
+   "must_route": false
+  },
+  {
+   "prompt": "ingest this github project into the kit",
+   "expect": "intake"
+  },
+  {
+   "prompt": "add to stable: a new code search tool",
+   "expect": "intake"
+  },
+  {
+   "prompt": "I found a new upstream worth holding",
+   "expect": "intake"
+  },
+  {
+   "prompt": "never ingest that one",
+   "must_route": false
+  },
+  {
+   "prompt": "review the architecture of the router module",
+   "expect": "arch"
+  },
+  {
+   "prompt": "draft a refactor plan for the map tools",
+   "expect": "arch"
+  },
+  {
+   "prompt": "design it twice: the station dispatcher interface",
+   "expect": "arch"
+  },
+  {
+   "prompt": "no architecture talk today",
+   "must_route": false
+  },
+  {
+   "prompt": "repin the held copy to the newest sha",
+   "expect": "repin"
+  },
+  {
+   "prompt": "bump pin on the mermaid skill source",
+   "expect": "repin"
+  },
+  {
+   "prompt": "please update upstream pins for the kit",
+   "expect": "repin"
+  },
+  {
+   "prompt": "do not repin anything this week",
+   "must_route": false
+  }
+ ]
+}

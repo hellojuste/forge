@@ -1,0 +1,96 @@
+{
+ "_schema": "station-catalog/1",
+ "_why": "forge station catalog overlay: every station-only tool and skill in the commons catalog scope (tools/**/*.py, .claude/skills/*/SKILL.md, .claude/workflows/*). Workflows are added by the equip block with their files.",
+ "entries": {
+  "tools/station/forge_check.py": {
+   "title": "forge_check",
+   "purpose": "the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP",
+   "solves": [
+    "tool-trial",
+    "holdout-validation",
+    "telemetry-audit",
+    "reverse-engineering",
+    "repin"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    ".claude/skills/tool-trial/SKILL.md",
+    ".claude/skills/evo-guard/SKILL.md"
+   ]
+  },
+  ".claude/skills/tool-trial/SKILL.md": {
+   "title": "tool-trial",
+   "purpose": "N >= 5 frozen tasks without/with a tool, blind-graded, failed runs read; verdict promote/park",
+   "solves": [
+    "tool-trial"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/station/forge_check.py"
+   ]
+  },
+  ".claude/skills/evo-guard/SKILL.md": {
+   "title": "evo-guard",
+   "purpose": "freeze a hashed holdout before any evo run; re-measure the winner on it",
+   "solves": [
+    "holdout-validation",
+    "optimisation"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/station/forge_check.py"
+   ]
+  },
+  ".claude/skills/telemetry-audit/SKILL.md": {
+   "title": "telemetry-audit",
+   "purpose": "find a tool's senders and opt-out switch at the pin (file:line), record the offline status run",
+   "solves": [
+    "telemetry-audit"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/station/forge_check.py"
+   ]
+  },
+  ".claude/skills/kit-maintain/SKILL.md": {
+   "title": "kit-maintain",
+   "purpose": "repin report, sync --check and listing budgets across branches; a licence change stops",
+   "solves": [
+    "repin",
+    "station-sync",
+    "upstream-pinning"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [
+    ".claude/skills/upstream-intake/SKILL.md"
+   ],
+   "see_also": [
+    "tools/kit/repin.py",
+    "tools/station/forge_check.py"
+   ]
+  },
+  ".claude/skills/re-legal-gate/SKILL.md": {
+   "title": "re-legal-gate",
+   "purpose": "record owner, licence, right and jurisdiction note before any REA run; refuse proprietary targets without a right",
+   "solves": [
+    "reverse-engineering",
+    "licence-compliance"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/station/forge_check.py"
+   ]
+  }
+ }
+}

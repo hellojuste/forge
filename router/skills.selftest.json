@@ -1,0 +1,141 @@
+{
+ "_why": "intent-forge selftest for router/skills.json: one positive prompt per canonical row (must route to it in the top 2) and 10 negatives that must route to nothing. Written AFTER the keyword lists were frozen; a failing prompt is fixed by rewording the prompt or filing it in router/REASSIGN.md, never by widening a keyword list. Shape (fix round 2): one `cases` list read identically by the commons hook (`.claude/hooks/intent_router.py --selftest`) and by `tools/upstream/skill_routes.py selftest-routes`; a case with `expect: null` is a negative (must route to no skill row).",
+ "cases": [
+  {
+   "prompt": "use the atlas cli to tell me which symbols to read in this checkout",
+   "expect": "18:plugins/projectatlas/skills/projectatlas/SKILL.md"
+  },
+  {
+   "prompt": "the codex plugin installer keeps a stale manifest after the upgrade",
+   "expect": "18:skills/codex-coding-plugin/SKILL.md"
+  },
+  {
+   "prompt": "instrument this repo so evo can discover a baseline score",
+   "expect": "19:plugins/evo/skills/discover/SKILL.md"
+  },
+  {
+   "prompt": "should I use lora sft or dpo for this model",
+   "expect": "19:plugins/evo/skills/finetuning/SKILL.md"
+  },
+  {
+   "prompt": "run the experiments on modal instead of my laptop, which backend config",
+   "expect": "19:plugins/evo/skills/infra-setup/SKILL.md"
+  },
+  {
+   "prompt": "optimize the solver, try a few variants across the free gpus",
+   "expect": "19:plugins/evo/skills/optimize/SKILL.md"
+  },
+  {
+   "prompt": "what happened overnight in the evo run, give me the scatter",
+   "expect": "19:plugins/evo/skills/report/SKILL.md"
+  },
+  {
+   "prompt": "turn the winner into a mergeable PR",
+   "expect": "19:plugins/evo/skills/ship/SKILL.md"
+  },
+  {
+   "prompt": "how should I write briefs for each evo subagent",
+   "expect": "19:plugins/evo/skills/subagent/SKILL.md"
+  },
+  {
+   "prompt": "search the wiki for how the job queue works",
+   "expect": "20:integrations/openwiki/SKILL.md"
+  },
+  {
+   "prompt": "add a mermaid flowchart for the login sequence",
+   "expect": "20:skills/mermaid-diagrams/SKILL.md"
+  },
+  {
+   "prompt": "write a connector so openwiki can pull from our tracker",
+   "expect": "20:skills/write-connector/SKILL.md"
+  },
+  {
+   "prompt": "draft the changelog and thank the contributors for this release",
+   "expect": "21:.agents/skills/rea-changelog-update/SKILL.md"
+  },
+  {
+   "prompt": "our ci is slow and a few tests are flaky, audit the suite",
+   "expect": "21:.agents/skills/rea-ci-tests-audit/SKILL.md"
+  },
+  {
+   "prompt": "design an rea tool and its mcp evidence shape",
+   "expect": "21:.agents/skills/rea-tool-design/SKILL.md"
+  },
+  {
+   "prompt": "decompile this firmware image and explain what it does",
+   "expect": "21:.agents/skills/reverse-engineer-anything/SKILL.md"
+  },
+  {
+   "prompt": "where should the seam go so this module is testable",
+   "expect": "25:.claude/skills/codebase-design/SKILL.md"
+  },
+  {
+   "prompt": "find deepening opportunities and friction in this codebase",
+   "expect": "25:.claude/skills/improve-codebase-architecture/SKILL.md"
+  },
+  {
+   "prompt": "do a code review of this change and find bugs",
+   "expect": "3:pm-ai-shipping/skills/code-review/SKILL.md"
+  },
+  {
+   "prompt": "compare what the permissions doc intended with what is implemented",
+   "expect": "3:pm-ai-shipping/skills/intended-vs-implemented/SKILL.md"
+  },
+  {
+   "prompt": "write the shipping documentation for this vibe-coded app before launch",
+   "expect": "3:pm-ai-shipping/skills/shipping-artifacts/SKILL.md"
+  },
+  {
+   "prompt": "what should I cook for dinner tonight",
+   "expect": null
+  },
+  {
+   "prompt": "book me a train to Amsterdam on Friday",
+   "expect": null
+  },
+  {
+   "prompt": "how much income tax do I owe this year",
+   "expect": null
+  },
+  {
+   "prompt": "translate this paragraph into Spanish",
+   "expect": null
+  },
+  {
+   "prompt": "remind me to call my mother on Sunday",
+   "expect": null
+  },
+  {
+   "prompt": "what is the weather in Utrecht tomorrow",
+   "expect": null
+  },
+  {
+   "prompt": "recommend a good novel for the holidays",
+   "expect": null
+  },
+  {
+   "prompt": "convert 30 euros to dollars",
+   "expect": null
+  },
+  {
+   "prompt": "plan a three day hiking trip in the Alps",
+   "expect": null
+  },
+  {
+   "prompt": "write a birthday poem for my sister",
+   "expect": null
+  },
+  {
+   "prompt": "write a report on the quarter",
+   "expect": null
+  },
+  {
+   "prompt": "ship it",
+   "expect": null
+  },
+  {
+   "prompt": "set up the backend",
+   "expect": null
+  }
+ ]
+}

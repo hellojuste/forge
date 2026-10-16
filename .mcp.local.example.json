@@ -1,0 +1,18 @@
+{
+ "_why": "Local MCP servers this station's held tools document, as DISABLED examples (KIT_PLAN 6: hosted servers stay as shipped in .mcp.json; local ones live here, off). Enable one only after its tool-trial row says promote and its registry/telemetry.json row is verified. Commands are as the upstream docs give them at the pin; the binaries are installed by the operator into a run-tree, never by this kit.",
+ "mcpServers": {
+  "projectatlas": {
+   "disabled": true,
+   "command": "projectatlas",
+   "args": ["--db", "<absolute path>/.projectatlas/projectatlas.db", "mcp"],
+   "_source": "styler-ai/ProjectAtlas@bed8ba3 docs/agent-integration.md lines 345-353: generate the exact entry with `projectatlas --format json --db .projectatlas/projectatlas.db mcp-config --harness claude-code` (absolute DB/config paths are bound in the args); stdio JSON-RPC transport (line 48)"
+  },
+  "openwiki": {
+   "disabled": true,
+   "command": "openwiki",
+   "args": ["mcp", "--host", "claude"],
+   "env": {"OPENWIKI_TELEMETRY_DISABLED": "1"},
+   "_source": "langchain-ai/openwiki@7c469e5 src/integrations/install/registry.ts:184-191 (defaultMcpServerCommand: command openwiki, args mcp --host <target>; the Claude Code target id is 'claude', registry.ts:47)"
+  }
+ }
+}

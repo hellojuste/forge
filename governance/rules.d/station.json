@@ -1,0 +1,116 @@
+{
+ "_why": "forge station rules (contract station-forge section 1): every station mechanism named by one rule, each with its enforcement (hook / check / NOT HOOKABLE + reason). Loaded with governance/rules.json by gov_check.py rules and gen_ownership.py. No commons rule is overridden (DEC-forge-0001).",
+ "rules": [
+  {
+   "id": "R-forge-trial",
+   "headline": "A tool is adopted only on a TRIAL row: N >= 5 frozen tasks without and with it, graded, the authors' failed runs read; verdict promote or park",
+   "owner": ".claude/skills/tool-trial/SKILL.md",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "KIT_PLAN 4 forge job 'tool trial (N >= 5, with and without the tool)'; gap skill tool-trial test",
+   "rung": "hard",
+   "since": "DEC-forge-0001",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-holdout",
+   "headline": "An evo optimise run freezes a holdout before its first experiment; every gain is in-sample until re-measured on it",
+   "owner": ".claude/skills/evo-guard/SKILL.md",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "KIT_PLAN 4 forge job 'evo optimise loop with a frozen holdout'; gap skill evo-guard test",
+   "rung": "hard",
+   "since": "DEC-forge-0001",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-telemetry-run",
+   "headline": "A telemetry row is verified only with the offline status run recorded; a tool whose row is unverified is never started by a workflow",
+   "owner": ".claude/skills/telemetry-audit/SKILL.md",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "KIT_PLAN 6 telemetry rows are claims; registry/telemetry.json rule (J2 GA6); gap skill telemetry-audit test",
+   "rung": "hard",
+   "since": "DEC-forge-0001",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-re-gate",
+   "headline": "Reverse engineering runs only after a work/re/legal_gate.json row with decision proceed; third-party proprietary targets need a stated right",
+   "owner": ".claude/skills/re-legal-gate/SKILL.md",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "KIT_PLAN 4 forge job 'reverse engineering behind re-legal-gate'; REA DISCLAIMER.md (held, read as data)",
+   "rung": "hard",
+   "since": "DEC-forge-0001",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-repin-report",
+   "headline": "A pin moves only through tools/kit/repin.py: a report first, any STOP item (licence blob change, new agent files) stops, --apply only when green",
+   "owner": ".claude/skills/kit-maintain/SKILL.md",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "KIT_PLAN 4 forge job 'repin an upstream with the repin report'; R-upstream-pinned",
+   "rung": "hard",
+   "since": "DEC-forge-0001",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-no-client",
+   "headline": "Forge holds tooling, never client, customer or identity data: wiki and RE targets are this kit's or public non-client repositories",
+   "owner": "STATION.md#Forge",
+   "pointers": [],
+   "enforcement": {
+    "kind": "not-hookable",
+    "why": "whether a repository or binary is a client's is a fact about its origin, not its path or a tool call; the wiki-gen and reverse workflows refuse in their target-check stage, and act_gate asks before openwiki auth/ingest (identity-bearing sources)"
+   },
+   "earned_by": "KIT_PLAN 4.2 forge boundary; LEAN CA-10 / LL-04 (the noun decides the station)",
+   "rung": "soft",
+   "since": "DEC-forge-0001",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-run-tree",
+   "headline": "Upstream CLIs (evo, openwiki, ProjectAtlas, REA) run only in a run-tree outside the station with telemetry opt-out env set; their plugin hooks are never installed",
+   "owner": "tools/kit/runtree.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "hook",
+    "ref": ".claude/hooks/act_gate.py",
+    "by": "act_gate"
+   },
+   "earned_by": "JUDGE_2 G2 (evo's PreToolUse '.*' hook pipes full hook stdin to an external binary); R-no-upstream-plugin-install; station.json irreversible_acts lists the plugin-install and telemetry-toggle commands",
+   "rung": "soft",
+   "since": "DEC-forge-0001",
+   "upstream": "NEVER",
+   "programme": "station"
+  }
+ ]
+}

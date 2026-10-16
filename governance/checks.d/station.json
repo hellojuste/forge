@@ -1,0 +1,31 @@
+{
+ "_why": "forge station checks (contract station-forge section 7). The commons checks run unchanged; one station row, forge_gates, runs the five failing tests the gap skills name (tool-trial N >= 5, evo-guard holdout hash, telemetry-audit verified-needs-a-run, re-legal-gate row before RE, kit-maintain repin STOP). equip_pending: the seven station workflows are specified in STATION.md and BUILT in the later equip block, so router_targets reports their ABSENT first moves as WORKLIST (not violations) until equip lands and removes this flag.",
+ "equip_pending": true,
+ "checks": [
+  {
+   "name": "forge_gates",
+   "cmd": [
+    "python3",
+    "tools/station/forge_check.py",
+    "check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "station",
+   "earned_by": "KIT_PLAN 4 forge jobs: a tool trial with N >= 5, an evo optimise loop with a frozen holdout, reverse engineering behind a legal gate and a repin with a report each name a failing test in their gap skill; lettuce shipped tool verdicts and optimiser 'gains' with no denominator and no out-of-sample re-measure (LEAN: every numerator carries its denominator). A test written only in prose is not run.",
+   "selftest": [
+    "python3",
+    "tools/station/forge_check.py",
+    "--selftest"
+   ],
+   "retires": "nothing overlaps: commons telemetry refuses verified:true without file+line evidence but not without a recorded run; ledger checks L-row grammar, not TRIAL denominators; repin.py --check compares pins, not reports",
+   "inputs": [
+    "governance/STATION_LEDGER.md",
+    "work/**",
+    "registry/telemetry.json",
+    "tools/station/forge_check.py"
+   ],
+   "timeout_s": 60,
+   "gate_subcount": null
+  }
+ ]
+}

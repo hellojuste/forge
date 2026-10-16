@@ -1,0 +1,752 @@
+{
+ "_why": "skill fall-through routes for station forge: one row per census row homed here (kit_plan skills_assignment) + one per held copy; seeded by tools/upstream/skill_routes.py seed, keywords filled by the intent agent; checked by tools/upstream/skill_routes.py check | intent-forge filled keywords 2026-10-16 (frozen before skills.selftest.json was written)",
+ "skills": [
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Use ProjectAtlas before broad source reads, preferring the installed short atlas CLI for an exact checkout and MCP for registered worktree routing, compact session briefs, or federated graph evidence.",
+   "home": "forge",
+   "id": "18:plugins/projectatlas/skills/projectatlas/SKILL.md",
+   "keywords": [
+    "projectatlas",
+    "atlas",
+    "code-index",
+    "symbols",
+    "orientation",
+    "worktree",
+    "slice"
+   ],
+   "kind": "canonical",
+   "name": "projectatlas",
+   "path": "repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md",
+   "phrases": [
+    "atlas next",
+    "which file to read first",
+    "code index"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "ProjectAtlas agent-orientation CLI/MCP: ranked file picks, summaries, symbol relations before broad source reads. Telemetry row unverified: tool-trial + telemetry-audit first.",
+   "first_move": {
+    "read": "repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Build, review, or fix ProjectAtlas plugin/runtime installer integration for Codex, Claude Code, and OpenCode, especially version convergence, stale ProjectAtlas cache repair, MCP config generation, skill artifacts, host smoke tests, and fake-host tests for ProjectAtlas releases.",
+   "home": "forge",
+   "id": "18:skills/codex-coding-plugin/SKILL.md",
+   "keywords": [
+    "codex",
+    "opencode",
+    "installer",
+    "manifest",
+    "plugin",
+    "stale",
+    "smoke"
+   ],
+   "kind": "canonical",
+   "name": "codex-coding-plugin",
+   "path": "repertoire/styler-ai~ProjectAtlas/skills/codex-coding-plugin/SKILL.md",
+   "phrases": [
+    "plugin cache",
+    "runtime-info",
+    "fake host"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Repo-internal to ProjectAtlas: keeping plugin manifests, MCP configs and host caches on one release version. Only useful when hacking ProjectAtlas itself.",
+   "first_move": {
+    "read": "repertoire/styler-ai~ProjectAtlas/skills/codex-coding-plugin/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "route",
+   "description": "Initialize evo for the current repository by exploring the codebase, proposing unexplored optimization dimensions, constructing the benchmark inside a baseline worktree, and running the first experiment. Use when the user invokes /evo:discover, mentions setting up evo, wants to instrument a codebase for autonomous optimization, or asks to start a new evo run on a project.",
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/discover/SKILL.md",
+   "keywords": [],
+   "kind": "mirror",
+   "name": "discover",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/discover/SKILL.md",
+   "phrases": [],
+   "route_to": "19:plugins/evo/skills/discover/SKILL.md",
+   "status": "routed",
+   "notes": "byte mirror (evo npm package copy); routes to its canonical, no keywords of its own"
+  },
+  {
+   "copy_of": null,
+   "depth": "route",
+   "description": "Non-user-invocable provider/setup reference for evo backend switching, prerequisite checks, and auth/install guidance.",
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/infra-setup/SKILL.md",
+   "keywords": [],
+   "kind": "mirror",
+   "name": "infra-setup",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/infra-setup/SKILL.md",
+   "phrases": [],
+   "route_to": "19:plugins/evo/skills/infra-setup/SKILL.md",
+   "status": "routed",
+   "notes": "byte mirror (evo npm package copy); routes to its canonical, no keywords of its own"
+  },
+  {
+   "copy_of": null,
+   "depth": "route",
+   "description": "Drive structured autoresearch iteration after evo:discover and the baseline commit. Use when the user invokes /evo:optimize or asks to try ideas, try variants, run experiments, use available GPUs, improve the current best/frontier, continue an evo search, or compare candidate changes in an evo workspace. The orchestrator plans and spawns optimization subagents; candidate edits/runs belong to those",
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/optimize/SKILL.md",
+   "keywords": [],
+   "kind": "mirror",
+   "name": "optimize",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md",
+   "phrases": [],
+   "route_to": "19:plugins/evo/skills/optimize/SKILL.md",
+   "status": "routed",
+   "notes": "byte mirror (evo npm package copy); routes to its canonical, no keywords of its own"
+  },
+  {
+   "copy_of": null,
+   "depth": "route",
+   "description": "Read-only evo run reporting. Use when the user invokes /evo:report, asks what happened overnight, asks what improved recently, asks for the best/frontier candidates, asks for a quick score chart without opening the dashboard, or wants the scatter plot in chat output. Never run benchmarks, gates, Slurm commands, evo run, or ad-hoc verification scripts for report requests.",
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/report/SKILL.md",
+   "keywords": [],
+   "kind": "mirror",
+   "name": "report",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/report/SKILL.md",
+   "phrases": [],
+   "route_to": "19:plugins/evo/skills/report/SKILL.md",
+   "status": "routed",
+   "notes": "byte mirror (evo npm package copy); routes to its canonical, no keywords of its own"
+  },
+  {
+   "copy_of": null,
+   "depth": "route",
+   "description": "Land the winning experiment from an evo run as a clean, mergeable change -- open a PR when the repo has a remote, otherwise merge into the working branch. Distills the best-scoring experiment down to the minimal diff that reproduces its behaviour, shaped for the qualities a maintainer merges on (scope discipline, test integrity, style adherence), then attaches an advisory mergeability report. Use ",
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/ship/SKILL.md",
+   "keywords": [],
+   "kind": "mirror",
+   "name": "ship",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/ship/SKILL.md",
+   "phrases": [],
+   "route_to": "19:plugins/evo/skills/ship/SKILL.md",
+   "status": "routed",
+   "notes": "byte mirror (evo npm package copy); routes to its canonical, no keywords of its own"
+  },
+  {
+   "copy_of": null,
+   "depth": "route",
+   "description": "Protocol that evo optimization subagents follow when dispatched from /optimize. Auto-loaded by spawned subagents via their host's skill loader. The orchestrator may also invoke this skill to understand the brief shape its dispatched subagents expect + what they're required to emit -- useful when writing briefs or debugging a subagent's behavior.",
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/subagent/SKILL.md",
+   "keywords": [],
+   "kind": "mirror",
+   "name": "subagent",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/subagent/SKILL.md",
+   "phrases": [],
+   "route_to": "19:plugins/evo/skills/subagent/SKILL.md",
+   "status": "routed",
+   "notes": "byte mirror (evo npm package copy); routes to its canonical, no keywords of its own"
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Initialize evo for the current repository by exploring the codebase, proposing unexplored optimization dimensions, constructing the benchmark inside a baseline worktree, and running the first experiment. Use when the user invokes /evo:discover, mentions setting up evo, wants to instrument a codebase for autonomous optimization, or asks to start a new evo run on a project.",
+   "home": "forge",
+   "id": "19:plugins/evo/skills/discover/SKILL.md",
+   "keywords": [
+    "evo",
+    "discover",
+    "instrument",
+    "baseline",
+    "benchmark",
+    "initialize"
+   ],
+   "kind": "canonical",
+   "name": "discover",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/discover/SKILL.md",
+   "phrases": [
+    "evo:discover",
+    "set up evo",
+    "new evo run"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "evo step 1: explore repo, pick a benchmark, set gates, run the baseline in a worktree. Pair with evo-guard (freeze a holdout first).",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/plugins/evo/skills/discover/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "This skill should be used when picking or diagnosing a training move (SFT, LoRA, DPO/KTO/ORPO, RFT, GRPO/PPO/RLOO, RLHF), or when the user mentions fine-tuning, post-training, training recipe, reward design, or weight updates. Decision tree by reward shape, smoke-run gate, three failure diagnostics, five false-progress patterns. Provider recipes and I/O contract in references/.",
+   "home": "forge",
+   "id": "19:plugins/evo/skills/finetuning/SKILL.md",
+   "keywords": [
+    "finetune",
+    "finetuning",
+    "fine-tuning",
+    "lora",
+    "sft",
+    "dpo",
+    "grpo",
+    "rlhf"
+   ],
+   "kind": "canonical",
+   "name": "finetuning",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/finetuning/SKILL.md",
+   "phrases": [
+    "reward design",
+    "post-training",
+    "training recipe"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Training-move chooser keyed on reward shape, with smoke-run gate and false-progress list; used inside evo experiments that touch train.py.",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/plugins/evo/skills/finetuning/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Non-user-invocable provider/setup reference for evo backend switching, prerequisite checks, and auth/install guidance.",
+   "home": "forge",
+   "id": "19:plugins/evo/skills/infra-setup/SKILL.md",
+   "keywords": [
+    "modal",
+    "e2b",
+    "daytona",
+    "provider",
+    "sandbox",
+    "infra"
+   ],
+   "kind": "canonical",
+   "name": "infra-setup",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/infra-setup/SKILL.md",
+   "phrases": [
+    "switch backend",
+    "where experiments run",
+    "remote provider"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Reference (not user-invocable upstream) for moving evo experiments between local worktrees, pools and remote providers; credentials stay out of benchmark env. FIX ROUND 2 (REASSIGN N1, contract fix2-stations item 4): bare keyword 'backend' dropped (probe 'set up the backend' routed here); the row keeps modal/e2b/daytona and the phrase 'switch backend'. Keyword list no longer frozen-before-prompts for this row.",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/plugins/evo/skills/infra-setup/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Drive structured autoresearch iteration after evo:discover and the baseline commit. Use when the user invokes /evo:optimize or asks to try ideas, try variants, run experiments, use available GPUs, improve the current best/frontier, continue an evo search, or compare candidate changes in an evo workspace. The orchestrator plans and spawns optimization subagents; candidate edits/runs belong to those",
+   "home": "forge",
+   "id": "19:plugins/evo/skills/optimize/SKILL.md",
+   "keywords": [
+    "evo",
+    "optimize",
+    "optimise",
+    "variants",
+    "experiments",
+    "frontier",
+    "autoresearch",
+    "gpus"
+   ],
+   "kind": "canonical",
+   "name": "optimize",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md",
+   "phrases": [
+    "evo:optimize",
+    "try ideas",
+    "current best"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "The evo loop after discover: orchestrator writes briefs, spawns subagents per round. Station workflow optimize-loop wraps it; holdout re-measure via evo-guard.",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Read-only evo run reporting. Use when the user invokes /evo:report, asks what happened overnight, asks what improved recently, asks for the best/frontier candidates, asks for a quick score chart without opening the dashboard, or wants the scatter plot in chat output. Never run benchmarks, gates, Slurm commands, evo run, or ad-hoc verification scripts for report requests.",
+   "home": "forge",
+   "id": "19:plugins/evo/skills/report/SKILL.md",
+   "keywords": [
+    "evo",
+    "overnight",
+    "scatter",
+    "improved",
+    "frontier"
+   ],
+   "kind": "canonical",
+   "name": "report",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/report/SKILL.md",
+   "phrases": [
+    "evo:report",
+    "what happened overnight",
+    "what improved"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Read-only summary of an evo run from recorded state; spends no compute, edits nothing. FIX ROUND 2 (REASSIGN N1, contract fix2-stations item 4): bare keyword 'report' dropped (probe 'write a report on the quarter' routed here); the row keeps overnight/scatter and the phrase 'evo:report'. Keyword list no longer frozen-before-prompts for this row.",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/plugins/evo/skills/report/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Land the winning experiment from an evo run as a clean, mergeable change -- open a PR when the repo has a remote, otherwise merge into the working branch. Distills the best-scoring experiment down to the minimal diff that reproduces its behaviour, shaped for the qualities a maintainer merges on (scope discipline, test integrity, style adherence), then attaches an advisory mergeability report. Use ",
+   "home": "forge",
+   "id": "19:plugins/evo/skills/ship/SKILL.md",
+   "keywords": [
+    "evo",
+    "winner",
+    "winning",
+    "mergeable",
+    "distill"
+   ],
+   "kind": "canonical",
+   "name": "ship",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/ship/SKILL.md",
+   "phrases": [
+    "evo:ship",
+    "winning experiment",
+    "minimal diff"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Turns the best evo experiment into a minimal clean PR/merge with an advisory mergeability report. act_gate asks before evo ship. FIX ROUND 2 (REASSIGN N1, contract fix2-stations item 4): bare keyword 'ship' dropped (probe 'ship it' routed here); the row keeps winner/mergeable and the phrase 'evo:ship'. Keyword list no longer frozen-before-prompts for this row.",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/plugins/evo/skills/ship/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Protocol that evo optimization subagents follow when dispatched from /optimize. Auto-loaded by spawned subagents via their host's skill loader. The orchestrator may also invoke this skill to understand the brief shape its dispatched subagents expect + what they're required to emit -- useful when writing briefs or debugging a subagent's behavior.",
+   "home": "forge",
+   "id": "19:plugins/evo/skills/subagent/SKILL.md",
+   "keywords": [
+    "evo",
+    "subagent",
+    "subagents",
+    "briefs",
+    "brief",
+    "protocol"
+   ],
+   "kind": "canonical",
+   "name": "subagent",
+   "path": "repertoire/evo-hq~evo/plugins/evo/skills/subagent/SKILL.md",
+   "phrases": [
+    "subagent protocol",
+    "optimization subagent",
+    "brief shape"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "What a dispatched evo worker must do and emit; read by the orchestrator when writing briefs or debugging a worker.",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/plugins/evo/skills/subagent/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Run the evo optimization loop with parallel subagents until interrupted.",
+   "home": "forge",
+   "id": "19:scripts/rlm_eval/baseline_SKILL.md",
+   "keywords": [
+    "fixture-rlm-eval",
+    "fixture-baseline-skill",
+    "fixture-evo-optimize-baseline"
+   ],
+   "kind": "fixture",
+   "name": "optimize",
+   "path": "repertoire/evo-hq~evo/scripts/rlm_eval/baseline_SKILL.md",
+   "phrases": [],
+   "route_to": null,
+   "status": "routed",
+   "notes": "FIXTURE: evo's rlm_eval baseline copy of an older optimize skill; eval input only, never a first move. Canonical is plugins/evo/skills/optimize.",
+   "first_move": {
+    "read": "repertoire/evo-hq~evo/scripts/rlm_eval/baseline_SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Search and read an existing repository OpenWiki when requested or needed to resolve a concrete architecture or dependency uncertainty, or initialize and update one through the resumable page-job lifecycle.",
+   "home": "forge",
+   "id": "20:integrations/openwiki/SKILL.md",
+   "keywords": [
+    "openwiki",
+    "wiki",
+    "wikis",
+    "page-job",
+    "repo-memory"
+   ],
+   "kind": "canonical",
+   "name": "openwiki",
+   "path": "repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md",
+   "phrases": [
+    "search the wiki",
+    "update the wiki",
+    "initialize a wiki"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Reading and maintaining a repository OpenWiki (search, init, resumable page jobs). Station workflow wiki-gen; telemetry off via .env.",
+   "first_move": {
+    "read": "repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Embed Mermaid diagrams in generated wiki pages. Use whenever documenting a runtime or request flow, a call sequence, a state machine or lifecycle, a data model or entity relationships, or non-trivial control flow, since these are clearer as a diagram than as prose. Also use when an update run touches a page that already contains a mermaid fence, or a page that contains a text fence a previous run ",
+   "home": "forge",
+   "id": "20:skills/mermaid-diagrams/SKILL.md",
+   "keywords": [
+    "mermaid",
+    "diagram",
+    "diagrams",
+    "flowchart",
+    "sequencediagram",
+    "erdiagram",
+    "statediagram"
+   ],
+   "kind": "canonical",
+   "name": "mermaid-diagrams",
+   "path": "repertoire/langchain-ai~openwiki/skills/mermaid-diagrams/SKILL.md",
+   "phrases": [
+    "sequence diagram",
+    "state machine",
+    "er diagram"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Rules for embedding valid Mermaid fences in generated wiki pages (type choice, grounding, syntax safety).",
+   "first_move": {
+    "read": "repertoire/langchain-ai~openwiki/skills/mermaid-diagrams/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Add a new built-in OpenWiki source connector. Use when a user asks to create or implement an OpenWiki connector.",
+   "home": "forge",
+   "id": "20:skills/write-connector/SKILL.md",
+   "keywords": [
+    "connector",
+    "connectors",
+    "custom-mcp",
+    "ingestion",
+    "openwiki"
+   ],
+   "kind": "canonical",
+   "name": "write-connector",
+   "path": "repertoire/langchain-ai~openwiki/skills/write-connector/SKILL.md",
+   "phrases": [
+    "new connector",
+    "write a connector",
+    "source connector"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Repo-internal to openwiki: adding a built-in TypeScript source connector (or using custom-mcp instead).",
+   "first_move": {
+    "read": "repertoire/langchain-ai~openwiki/skills/write-connector/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Prepare or rewrite REA release changelogs and GitHub release notes from pinned Git history, with verified contributor thanks and Release Please synchronization.",
+   "home": "forge",
+   "id": "21:.agents/skills/rea-changelog-update/SKILL.md",
+   "keywords": [
+    "changelog",
+    "release-notes",
+    "release-please",
+    "contributors",
+    "rea"
+   ],
+   "kind": "canonical",
+   "name": "rea-changelog-update",
+   "path": "repertoire/morluto~rea/.agents/skills/rea-changelog-update/SKILL.md",
+   "phrases": [
+    "release notes",
+    "contributor thanks"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Repo-internal to REA: release notes from pinned git history with contributor credit. Generalisable pattern for any release-please repo.",
+   "first_move": {
+    "read": "repertoire/morluto~rea/.agents/skills/rea-changelog-update/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Audit REA CI and test suites for correctness, fixture drift, false passes, and measured performance; use for suite or workflow investigations and efficiency changes, rather than ordinary feature testing or a single test failure.",
+   "home": "forge",
+   "id": "21:.agents/skills/rea-ci-tests-audit/SKILL.md",
+   "keywords": [
+    "ci",
+    "flaky",
+    "suite",
+    "false-pass",
+    "rea",
+    "workflows"
+   ],
+   "kind": "canonical",
+   "name": "rea-ci-tests-audit",
+   "path": "repertoire/morluto~rea/.agents/skills/rea-ci-tests-audit/SKILL.md",
+   "phrases": [
+    "test suite",
+    "false passes",
+    "ci audit"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Audit a CI/test suite for false passes, fixture drift and cost; REA-flavoured but the method transfers to any repo.",
+   "first_move": {
+    "read": "repertoire/morluto~rea/.agents/skills/rea-ci-tests-audit/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Design or change REA investigation tools, CLI/MCP contracts, provider capabilities, and Evidence semantics.",
+   "home": "forge",
+   "id": "21:.agents/skills/rea-tool-design/SKILL.md",
+   "keywords": [
+    "rea",
+    "tool-design",
+    "evidence",
+    "mcp",
+    "capabilities"
+   ],
+   "kind": "canonical",
+   "name": "rea-tool-design",
+   "path": "repertoire/morluto~rea/.agents/skills/rea-tool-design/SKILL.md",
+   "phrases": [
+    "tool design",
+    "evidence semantics",
+    "new rea tool"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Repo-internal to REA: designing investigation tools and their CLI/MCP contracts. Short pointer skill into REA docs.",
+   "first_move": {
+    "read": "repertoire/morluto~rea/.agents/skills/rea-tool-design/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Reverse engineer native, managed, Electron/JavaScript, packaged, firmware, and browser targets with REA. Use shipped-artifact or requested runtime evidence to explain features, compare versions, decompile code, or guide a reconstruction. Skip REA for ordinary source-repository architecture analysis.",
+   "home": "forge",
+   "id": "21:.agents/skills/reverse-engineer-anything/SKILL.md",
+   "keywords": [
+    "reverse",
+    "decompile",
+    "binary",
+    "firmware",
+    "electron",
+    "disassemble",
+    "rea"
+   ],
+   "kind": "canonical",
+   "name": "reverse-engineer-anything",
+   "path": "repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md",
+   "phrases": [
+    "reverse engineer",
+    "compare versions"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "REA main skill: native/managed/Electron/firmware targets. Run re-legal-gate first; station workflow reverse.",
+   "first_move": {
+    "read": "repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
+   "home": "forge",
+   "id": "25:.claude/skills/codebase-design/SKILL.md",
+   "keywords": [
+    "seam",
+    "seams",
+    "module",
+    "modules",
+    "shallow",
+    "testable",
+    "adapter",
+    "testability"
+   ],
+   "kind": "canonical",
+   "name": "codebase-design",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+   "phrases": [
+    "deep module",
+    "where the seam goes"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Pocock deep-module vocabulary (module, interface, depth, seam, adapter, leverage, locality); the shared language for arch-review.",
+   "first_move": {
+    "read": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+   "home": "forge",
+   "id": "25:.claude/skills/improve-codebase-architecture/SKILL.md",
+   "keywords": [
+    "architecture",
+    "deepening",
+    "refactor",
+    "friction",
+    "codebase",
+    "hotspots"
+   ],
+   "kind": "canonical",
+   "name": "improve-codebase-architecture",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md",
+   "phrases": [
+    "improve the architecture",
+    "deepening opportunities",
+    "architecture report"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Scans for shallow modules and proposes deepening refactors as an HTML report; station workflow arch-review uses it after design-it-twice.",
+   "first_move": {
+    "read": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Use this deployment skill to verify shared skills load during Playwright startup.",
+   "home": "forge",
+   "id": "25:e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+   "keywords": [
+    "fixture-e2e-deployment",
+    "fixture-playwright-skill",
+    "fixture-librechat-e2e"
+   ],
+   "kind": "fixture",
+   "name": "e2e-deployment-skill",
+   "path": "repertoire/danny-avila~LibreChat/e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+   "phrases": [],
+   "route_to": null,
+   "status": "routed",
+   "notes": "FIXTURE: LibreChat Playwright test stub proving shared skills load; no method content, never a first move.",
+   "first_move": {
+    "read": "repertoire/danny-avila~LibreChat/e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "Review code for actionable defects. Correctness is the core; performance and security are optional sub-cases of the same engine. Anchors on agreements between participants across a boundary, forces a violating execution, and refutes every candidate before reporting. Use when asked to review changes, find bugs, audit a codebase, or check whether a fix is safe.",
+   "home": "forge",
+   "id": "3:pm-ai-shipping/skills/code-review/SKILL.md",
+   "keywords": [
+    "review",
+    "bugs",
+    "defects",
+    "audit",
+    "correctness",
+    "security",
+    "performance"
+   ],
+   "kind": "canonical",
+   "name": "code-review",
+   "path": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/code-review/SKILL.md",
+   "phrases": [
+    "code review",
+    "find bugs",
+    "is this fix safe"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Agreement-based correctness review that refutes every candidate before reporting; performance and security as sub-anchors.",
+   "first_move": {
+    "read": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/code-review/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "The method for finding the gap between what a system is supposed to do and what the code actually does — the class of bug generic scanners miss because they have no model of intent. Defines what counts as documented intent, what counts as implementation evidence, which mismatches matter, and how to avoid hand-wavy findings. Use when auditing AI-built code, reviewing access control against document",
+   "home": "forge",
+   "id": "3:pm-ai-shipping/skills/intended-vs-implemented/SKILL.md",
+   "keywords": [
+    "intended",
+    "implemented",
+    "intent",
+    "permissions",
+    "authorization",
+    "mismatch"
+   ],
+   "kind": "canonical",
+   "name": "intended-vs-implemented",
+   "path": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/intended-vs-implemented/SKILL.md",
+   "phrases": [
+    "intended vs implemented",
+    "access control",
+    "documented intent"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "Audit the gap between documented intent and enforced code, one boundary at a time; needs shipping-artifacts docs to exist first.",
+   "first_move": {
+    "read": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/intended-vs-implemented/SKILL.md"
+   }
+  },
+  {
+   "copy_of": null,
+   "depth": "headings",
+   "description": "The durable documentation set that makes an AI-built (vibe-coded) app reviewable before shipping. A small core every app needs — architecture, user/permission flows, permissions, variables/secrets, and a test-coverage map — plus conditional docs added only when they apply: emails, scheduled work, SEO, and embedded agents/automation. Defines what each doc must capture and how a reviewer or auditor ",
+   "home": "forge",
+   "id": "3:pm-ai-shipping/skills/shipping-artifacts/SKILL.md",
+   "keywords": [
+    "shipping",
+    "vibe-coded",
+    "documentation",
+    "secrets",
+    "variables",
+    "coverage",
+    "docs"
+   ],
+   "kind": "canonical",
+   "name": "shipping-artifacts",
+   "path": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/shipping-artifacts/SKILL.md",
+   "phrases": [
+    "test coverage map",
+    "before shipping",
+    "system docs"
+   ],
+   "route_to": null,
+   "status": "routed",
+   "notes": "The doc set (architecture, flows, permissions, variables, coverage map) that makes agent-built code reviewable; repo conventions win over defaults.",
+   "first_move": {
+    "read": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/shipping-artifacts/SKILL.md"
+   }
+  }
+ ],
+ "station": "forge"
+}

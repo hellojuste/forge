@@ -1,0 +1,16 @@
+{
+ "_schema": "station-tags/1",
+ "_why": "forge station additions to the CLOSED problem vocabulary (commons map/tags.json owns the rest). Add a tag here before any entry uses it.",
+ "problems": {
+  "tool-trial": "does this tool beat no tool on >= 5 frozen tasks of ours, with the authors' failed runs read?",
+  "code-index": "answer navigation questions from an index instead of broad file reads",
+  "optimisation": "improve a measured score by searching code variants",
+  "holdout-validation": "is an optimiser's gain real on data it never saw (frozen before the search)?",
+  "wiki-generation": "generate and serve a repository wiki with source evidence",
+  "reverse-engineering": "explain a shipped artifact from observed evidence, behind a recorded right to analyse it",
+  "architecture-review": "design a module interface twice and find deepening opportunities",
+  "code-review": "find actionable defects and intent-vs-implementation gaps in agent-built code",
+  "telemetry-audit": "what does a tool send, where, and which switch provably turns it off at the pin?",
+  "repin": "move a pin with the evidence first: licence, agent files, telemetry, repurposing"
+ }
+}

@@ -1,0 +1,202 @@
+{
+ "_why": "one row per held tree; precedence ladder KIT_PLAN 5; governs = closed SUBTREE vocabulary only; checked by upstream_checks.py precedence",
+ "default": "station",
+ "rows": [
+  {
+   "adopted": [],
+   "agent_files_found": [
+    ".claude-plugin/marketplace.json",
+    "plugins/evo/.claude-plugin/plugin.json",
+    "plugins/evo/hooks/hooks.json"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "Apache-2.0",
+   "loaded": "never-auto (bare clone, no working tree)",
+   "mode": "data",
+   "path": ".upstream/evo-hq~evo.git",
+   "repo": "evo-hq/evo",
+   "sha": "c70c04b4d2da2f2deb95d1d185b07d88d24f2ea7",
+   "summary_of_upstream_asks": "Bootstrap cache of the whole evo repo (bare clone at the pin, no working tree in the station). plugins/evo/hooks/hooks.json asks the plugin host to run, on PreToolUse/PostToolUse (matcher '.*'), UserPromptSubmit, SessionStart, Stop and SubagentStop, a base64-encoded `node -e` script that pipes the full hook stdin to an external `evo-hook-drain` binary under $CLAUDE_PLUGIN_ROOT/bin or ~/.evo/bin and echoes its stdout back as the hook result (plus a Bash PostToolUse wait-hint shell script); .claude-plugin/marketplace.json and plugins/evo/.claude-plugin/plugin.json are the plugin manifests. The CLI (plugins/evo/src/evo/) has default-on telemetry to telemetry.evo-hq.com, off via EVO_TELEMETRY=0 or DO_NOT_TRACK=1 (telemetry.py:102-112); `evo telemetry off` itself sends a final opt-out event (cli.py:615-623). Station stance: nothing is loaded or wired; the hook is never installed (JUDGE_2 G2); the CLI runs only in a run-tree made by tools/kit/runtree.py with the env opt-out set."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    ".claude/settings.local.json",
+    "AGENTS.md",
+    "CLAUDE.md"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto (bare clone, no working tree)",
+   "mode": "data",
+   "path": ".upstream/langchain-ai~openwiki.git",
+   "repo": "langchain-ai/openwiki",
+   "sha": "7c469e59584bfac3f97f5c32a67604de46805999",
+   "summary_of_upstream_asks": "Bootstrap cache of the whole openwiki repo. Its CLAUDE.md only imports AGENTS.md, whose OPENWIKI block asks agents to treat the generated openwiki/ index as optional just-in-time context (search/read tools only when needed, source and tests authoritative, never hand-edit generated pages); .claude/settings.local.json allow-lists the Skill(artifact-design) tool. The CLI (src/) records one PostHog event per init/update run unless OPENWIKI_TELEMETRY_DISABLED or DO_NOT_TRACK is truthy (src/telemetry/gates.ts:28-32, checked in senders.ts:136) and stores provider keys in ~/.openwiki/.env. Station stance: none of it is loaded; openwiki runs only in a run-tree with OPENWIKI_TELEMETRY_DISABLED=1 (pre-set in .env) and only on non-client repositories."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    "AGENTS.md",
+    "website/AGENTS.md"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto (bare clone, no working tree)",
+   "mode": "data",
+   "path": ".upstream/morluto~rea.git",
+   "repo": "morluto/rea",
+   "sha": "1bd5c5c87e81b27bfb16140f71ffa03563e58477",
+   "summary_of_upstream_asks": "Bootstrap cache of the whole REA repo. AGENTS.md (and website/AGENTS.md) are contributor guidance for a local-only reverse-engineering tool with CLI and MCP adapters: separate observations from inferences, preserve evidence provenance, never let Ghidra/IDA mutate the analysed binary, keep installers from installing unrelated software, and design for agent-token efficiency first. DISCLAIMER.md states the user is responsible for having the right to analyse a target. Station stance: nothing is loaded; REA runs only from a run-tree, and only after a re-legal-gate row exists for the target."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    "plugins/projectatlas/.claude-plugin/plugin.json",
+    "plugins/projectatlas/hooks/hooks.json",
+    "templates/AGENTS.md"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto (bare clone, no working tree)",
+   "mode": "data",
+   "path": ".upstream/styler-ai~ProjectAtlas.git",
+   "repo": "styler-ai/ProjectAtlas",
+   "sha": "bed8ba3c9b5e35b198e6fb2dae716daf1b977721",
+   "summary_of_upstream_asks": "Bootstrap cache of the whole ProjectAtlas repo. plugins/projectatlas/hooks/hooks.json asks the plugin host to run hooks/readiness.sh on SessionStart and SubagentStart (a read-only integration check that tells the agent to read the installed skill or reinstall the plugin); the packaged installer scripts (scripts/install-runtime.sh) download the runtime binary. templates/AGENTS.md is a startup snippet asking agents to read the ProjectAtlas skill at every start and route all navigation through the atlas CLI/MCP before broad reads. Its 'telemetry' (crates/projectatlas-core/src/telemetry.rs) is local token-savings accounting persisted in the project database. Station stance: nothing loaded or wired; ProjectAtlas is only a TRIAL subject (tool-trial workflow) until a ledger row promotes it."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    ".claude/skills/codebase-design/DEEPENING.md",
+    ".claude/skills/codebase-design/DESIGN-IT-TWICE.md",
+    ".claude/skills/codebase-design/LICENSE",
+    ".claude/skills/codebase-design/SKILL.md",
+    ".claude/skills/codebase-design/agents/openai.yaml",
+    ".claude/skills/improve-codebase-architecture/HTML-REPORT.md",
+    ".claude/skills/improve-codebase-architecture/LICENSE",
+    ".claude/skills/improve-codebase-architecture/SKILL.md",
+    ".claude/skills/improve-codebase-architecture/agents/openai.yaml",
+    "AGENTS.md"
+   ],
+   "agent_files_renamed_to": [
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DEEPENING.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DESIGN-IT-TWICE.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/LICENSE",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/agents/openai.yaml",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/HTML-REPORT.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/LICENSE",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/agents/openai.yaml"
+   ],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto",
+   "mode": "data",
+   "path": "repertoire/danny-avila~LibreChat/",
+   "repo": "danny-avila/LibreChat",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698",
+   "summary_of_upstream_asks": "Holds two Matt Pocock skills shipped in LibreChat's .claude/skills/ (codebase-design with DESIGN-IT-TWICE.md and DEEPENING.md; improve-codebase-architecture with HTML-REPORT.md), each with its own MIT LICENSE, renamed under _upstream_claude/ so they are never auto-listed, plus the e2e-deployment-skill fixture SKILL.md and the root LICENSE. LibreChat's AGENTS.md (contributor guidance: branch off dev, target dev, never backport to main) is not held. The skills ask an agent to design a module interface twice with parallel sub-agents and to scan a codebase for deepening opportunities. Station stance: method text only (rank 6), used by the arch-review workflow."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    ".claude-plugin/marketplace.json",
+    "plugins/evo/.claude-plugin/plugin.json",
+    "plugins/evo/hooks/hooks.json"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "Apache-2.0",
+   "loaded": "never-auto",
+   "mode": "data",
+   "path": "repertoire/evo-hq~evo/",
+   "repo": "evo-hq/evo",
+   "sha": "c70c04b4d2da2f2deb95d1d185b07d88d24f2ea7",
+   "summary_of_upstream_asks": "Holds the seven evo skills (discover, finetuning, infra-setup, optimize, report, ship, subagent) with their references, the three agent prompts (benchmark-reviewer, ideator, verifier) as data, the rlm_eval baseline_SKILL.md fixture, LICENSE and both NOTICE files; no agent file is inside the held paths (the plugin manifests and plugins/evo/hooks/hooks.json listed under agent_files_found stay in the bootstrap cache). The skills ask an agent to instrument a repo with a benchmark, run many optimisation experiments through evo subagents in worktrees, and ship the winner as a PR. Station stance: method text only (rank 6); every evo 'gain' is in-sample until the evo-guard skill re-measures it on a frozen holdout."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    ".claude/settings.local.json",
+    "AGENTS.md",
+    "CLAUDE.md"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto",
+   "mode": "data",
+   "path": "repertoire/langchain-ai~openwiki/",
+   "repo": "langchain-ai/openwiki",
+   "sha": "7c469e59584bfac3f97f5c32a67604de46805999",
+   "summary_of_upstream_asks": "Holds the openwiki integration skill (integrations/openwiki/ with its bob/openai agent yaml), the mermaid-diagrams and write-connector skills and LICENSE; the repo's CLAUDE.md, AGENTS.md and .claude/settings.local.json are outside the held paths and stay in the bootstrap cache. The integration skill asks a host agent to drive openwiki's MCP lifecycle (begin, plan, page, finish) to generate a wiki; write-connector asks how to add an ingestion connector. Station stance: method text only (rank 6); used by the wiki-gen workflow after its target check."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    "AGENTS.md",
+    "website/AGENTS.md"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto",
+   "mode": "data",
+   "path": "repertoire/morluto~rea/",
+   "repo": "morluto/rea",
+   "sha": "1bd5c5c87e81b27bfb16140f71ffa03563e58477",
+   "summary_of_upstream_asks": "Holds the four REA skills (rea-changelog-update, rea-ci-tests-audit, rea-tool-design, reverse-engineer-anything with its references), DISCLAIMER.md, THIRD_PARTY_NOTICES.md, LICENSE and licenses/ (the per-engine licence texts THIRD_PARTY_NOTICES.md points at); the repo's AGENTS.md files stay in the bootstrap cache. reverse-engineer-anything asks an agent to decompile/observe shipped artifacts with REA and report evidence; the other three are maintainer workflows for REA itself. Station stance: method text only (rank 6), behind the re-legal-gate skill."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    ".claude-plugin/marketplace.json",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "pm-ai-shipping/.claude-plugin/plugin.json",
+    "pm-data-analytics/.claude-plugin/plugin.json",
+    "pm-execution/.claude-plugin/plugin.json",
+    "pm-go-to-market/.claude-plugin/plugin.json",
+    "pm-market-research/.claude-plugin/plugin.json",
+    "pm-marketing-growth/.claude-plugin/plugin.json",
+    "pm-product-discovery/.claude-plugin/plugin.json",
+    "pm-product-strategy/.claude-plugin/plugin.json",
+    "pm-toolkit/.claude-plugin/plugin.json"
+   ],
+   "agent_files_renamed_to": [
+    "repertoire/phuryn~pm-skills/pm-ai-shipping/_upstream_claude-plugin/plugin.json"
+   ],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto",
+   "mode": "data",
+   "path": "repertoire/phuryn~pm-skills/",
+   "repo": "phuryn/pm-skills",
+   "sha": "c68487d721e419ec87af1ae6412a842978eab785",
+   "summary_of_upstream_asks": "Holds pm-ai-shipping/ (code-review, intended-vs-implemented and shipping-artifacts skills, five commands, README; its .claude-plugin/plugin.json renamed to _upstream_claude-plugin/) and LICENSE. The repo's CLAUDE.md/AGENTS.md (maintainer guidance for a 9-plugin marketplace) are not held. The skills ask a reviewer to refute every candidate defect before reporting and to compare documented intent against implementation. Station stance: method text only (rank 6); homed on forge by exception because it reviews agent-built code."
+  },
+  {
+   "adopted": [],
+   "agent_files_found": [
+    "plugins/projectatlas/.claude-plugin/plugin.json",
+    "plugins/projectatlas/hooks/hooks.json",
+    "templates/AGENTS.md"
+   ],
+   "agent_files_renamed_to": [],
+   "governs": [],
+   "licence": "MIT",
+   "loaded": "never-auto",
+   "mode": "data",
+   "path": "repertoire/styler-ai~ProjectAtlas/",
+   "repo": "styler-ai/ProjectAtlas",
+   "sha": "bed8ba3c9b5e35b198e6fb2dae716daf1b977721",
+   "summary_of_upstream_asks": "Holds the projectatlas skill (with short-cli and language-support references), the codex-coding-plugin maintainer skill, docs/benchmarks/ (harness, preregistrations, results and the authors' failed runs including v0.4-agent-navigation-failed-mcp-approval-9ec0331.jsonl) and LICENSE; plugins/projectatlas/hooks/ is never held. The skill asks agents to use ProjectAtlas before broad source reads. Station stance: method text and benchmark evidence only; the tool-trial skill reads the failed runs as part of the denominator before any verdict."
+  }
+ ]
+}

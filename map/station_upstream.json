@@ -1,0 +1,137 @@
+{
+ "_schema": "station-upstream/1",
+ "_why": "forge station usage rows: one per held upstream (keyed owner~repo; each repo's committed repertoire row and its bootstrap row share one entry, as tools/map/upstream_check.py keys them). tools/map/upstream_check.py fails a LOCK row with no row here. pinned.tree is the git tree of the held lane dir, computed from an assembled station commit.",
+ "upstreams": {
+  "phuryn~pm-skills": {
+   "what": "pm-ai-shipping plugin: code-review, intended-vs-implemented and shipping-artifacts skills + 5 commands for reviewing AI-built code; MIT",
+   "when": "reviewing agent-built code before it ships (arch-review and tool-trial grading support)",
+   "entry": "repertoire/phuryn~pm-skills/pm-ai-shipping/README.md",
+   "solves": [
+    "code-review",
+    "architecture-review"
+   ],
+   "license_file": "repertoire/phuryn~pm-skills/LICENSE",
+   "licence": "MIT",
+   "note": "homed on forge by exception (the rest of pm-skills is venture's; pm-market-research is research's). The plugin manifest is held renamed under _upstream_claude-plugin/.",
+   "instructions": [
+    "repertoire/phuryn~pm-skills/pm-ai-shipping/_upstream_claude-plugin/plugin.json"
+   ],
+   "pinned": {
+    "sha": "c68487d721e419ec87af1ae6412a842978eab785",
+    "tree": "e7917d0eca1ccf46907d11f4093630a14a8f59f0"
+   },
+   "lanes": [
+    "repertoire"
+   ]
+  },
+  "styler-ai~ProjectAtlas": {
+   "what": "ProjectAtlas: a native code-index CLI/MCP server (atlas) that answers navigation questions from a project-local index instead of broad file reads; held: its skill + references, the codex-coding-plugin maintainer skill, and docs/benchmarks/ (harness, preregistrations, results, failed runs); MIT",
+   "when": "tool-trial workflow: the first trial subject (tokens saved vs. arm A without the tool, N >= 5); the failed benchmark runs are read as part of the denominator",
+   "entry": "repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md",
+   "solves": [
+    "tool-trial",
+    "code-index"
+   ],
+   "license_file": "repertoire/styler-ai~ProjectAtlas/LICENSE",
+   "licence": "MIT",
+   "note": "two LOCK rows: the committed repertoire paths and the whole repo (crates/, installer, plugin hooks) as a bootstrap bare clone. plugins/projectatlas/hooks/ (readiness.sh) is never held. Telemetry = local token accounting (registry/telemetry.json, verified:false).",
+   "instructions": [],
+   "pinned": {
+    "sha": "bed8ba3c9b5e35b198e6fb2dae716daf1b977721",
+    "tree": "516b3574f8ee052cf019b907610730855db63d9f"
+   },
+   "lanes": [
+    "repertoire"
+   ]
+  },
+  "evo-hq~evo": {
+   "what": "evo: autoresearch optimiser that instruments a repo with a benchmark and runs many agent experiments in worktrees; held: 7 skills (discover, finetuning, infra-setup, optimize, report, ship, subagent) + shared references, 3 agent prompts as data, the rlm_eval baseline fixture, LICENSE + NOTICE; Apache-2.0",
+   "when": "optimize-loop workflow, always behind evo-guard (holdout frozen before the first experiment, re-measure after)",
+   "entry": "repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md",
+   "solves": [
+    "optimisation",
+    "holdout-validation"
+   ],
+   "license_file": "repertoire/evo-hq~evo/LICENSE",
+   "licence": "Apache-2.0",
+   "note": "two LOCK rows: committed skills and the whole repo as a bootstrap bare clone (CLI src, npm mirror of the skills, hooks). plugins/evo/hooks/ is never held or wired (base64 node hook piping full hook stdin to evo-hook-drain). Telemetry default-on; opt-out EVO_TELEMETRY=0 / DO_NOT_TRACK=1 (pre-set in .env).",
+   "instructions": [],
+   "pinned": {
+    "sha": "c70c04b4d2da2f2deb95d1d185b07d88d24f2ea7",
+    "tree": "01f4a0014c3acd779d98f863f5881c2b3f4274f4"
+   },
+   "lanes": [
+    "repertoire"
+   ]
+  },
+  "langchain-ai~openwiki": {
+   "what": "openwiki: generates a repository wiki (pages, Claims with evidence, provenance) and serves it just in time over MCP; held: the openwiki integration skill, mermaid-diagrams and write-connector skills, LICENSE; MIT",
+   "when": "wiki-gen workflow on a non-client repository, CLI in a run-tree with OPENWIKI_TELEMETRY_DISABLED=1",
+   "entry": "repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md",
+   "solves": [
+    "wiki-generation",
+    "code-index"
+   ],
+   "license_file": "repertoire/langchain-ai~openwiki/LICENSE",
+   "licence": "MIT",
+   "note": "two LOCK rows: committed skills and the whole repo (src/) as a bootstrap bare clone. Home of the openwiki skill; research holds a byte-identical copy (copy_from:forge). Its CLAUDE.md/AGENTS.md/.claude/settings.local.json are not held.",
+   "instructions": [],
+   "pinned": {
+    "sha": "7c469e59584bfac3f97f5c32a67604de46805999",
+    "tree": "97c85e3736f3e046e1f84694ea458243c59b3005"
+   },
+   "lanes": [
+    "repertoire"
+   ]
+  },
+  "morluto~rea": {
+   "what": "REA (reverse-engineer-anything): local-only reverse-engineering CLI/MCP over Ghidra/IDA/frida and JS/Electron/Android analysers; held: 4 skills, DISCLAIMER.md, THIRD_PARTY_NOTICES.md, LICENSE and licenses/ (per-engine licence texts); MIT",
+   "when": "reverse workflow, only after a re-legal-gate row decides proceed for the exact target",
+   "entry": "repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md",
+   "solves": [
+    "reverse-engineering",
+    "licence-compliance"
+   ],
+   "license_file": "repertoire/morluto~rea/LICENSE",
+   "licence": "MIT",
+   "note": "two LOCK rows: committed skills/notices and the whole repo (4,025 files) as a bootstrap bare clone. DISCLAIMER.md is the source of the jurisdiction note the re-legal-gate skill records.",
+   "instructions": [],
+   "pinned": {
+    "sha": "1bd5c5c87e81b27bfb16140f71ffa03563e58477",
+    "tree": "2c28c0388b963fca4f672002b5ef5843f1f928bd"
+   },
+   "lanes": [
+    "repertoire"
+   ]
+  },
+  "danny-avila~LibreChat": {
+   "what": "Matt Pocock's codebase-design (design it twice, deepening) and improve-codebase-architecture skills as shipped in LibreChat's .claude/skills/ (each with its own MIT LICENSE), plus the e2e-deployment-skill fixture SKILL.md; MIT",
+   "when": "arch-review workflow: design it twice, then the improve-codebase-architecture report",
+   "entry": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+   "solves": [
+    "architecture-review"
+   ],
+   "license_file": "repertoire/danny-avila~LibreChat/LICENSE",
+   "licence": "MIT",
+   "note": "the skills are held renamed under _upstream_claude/ so no harness lists them; LibreChat itself (6,418 files) is not held.",
+   "instructions": [
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DEEPENING.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DESIGN-IT-TWICE.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/LICENSE",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/agents/openai.yaml",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/HTML-REPORT.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/LICENSE",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md",
+    "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/agents/openai.yaml"
+   ],
+   "pinned": {
+    "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698",
+    "tree": "187d28fb56bd438ac7097549d30273e6f3fd5423"
+   },
+   "lanes": [
+    "repertoire"
+   ]
+  }
+ }
+}

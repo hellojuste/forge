@@ -1,0 +1,75 @@
+{
+ "_why": "one row per neutralisation rename (LL-03); written by tools/upstream/ingest.py, proven by upstream_checks.py vendor_leak",
+ "rows": [
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/codebase-design/DEEPENING.md",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DEEPENING.md",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/codebase-design/DESIGN-IT-TWICE.md",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/DESIGN-IT-TWICE.md",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/codebase-design/LICENSE",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/LICENSE",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/codebase-design/SKILL.md",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/codebase-design/agents/openai.yaml",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/agents/openai.yaml",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/improve-codebase-architecture/HTML-REPORT.md",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/HTML-REPORT.md",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/improve-codebase-architecture/LICENSE",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/LICENSE",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/improve-codebase-architecture/SKILL.md",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/danny-avila~LibreChat/.claude/skills/improve-codebase-architecture/agents/openai.yaml",
+   "path": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/agents/openai.yaml",
+   "repo": "danny-avila/LibreChat",
+   "rule": "LL-03 neutralisation",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  },
+  {
+   "from": "repertoire/phuryn~pm-skills/pm-ai-shipping/.claude-plugin/plugin.json",
+   "path": "repertoire/phuryn~pm-skills/pm-ai-shipping/_upstream_claude-plugin/plugin.json",
+   "repo": "phuryn/pm-skills",
+   "rule": "LL-03 neutralisation",
+   "sha": "c68487d721e419ec87af1ae6412a842978eab785"
+  }
+ ]
+}

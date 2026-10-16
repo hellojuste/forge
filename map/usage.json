@@ -115,6 +115,11 @@
      "evidence": ".claude/settings.json:44",
      "ref": ".claude/settings.json",
      "source": "hook"
+    },
+    {
+     "evidence": "router/intents.d/station.selftest.json:2",
+     "ref": "router/intents.d/station.selftest.json",
+     "source": "router"
     }
    ]
   },
@@ -171,10 +176,31 @@
     }
    ]
   },
+  ".claude/skills/evo-guard/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/evo-guard",
+   "kind": "skill",
+   "triggers": []
+  },
   ".claude/skills/handoff/SKILL.md": {
    "cold": null,
    "hand": [],
    "home": "/handoff",
+   "kind": "skill",
+   "triggers": []
+  },
+  ".claude/skills/kit-maintain/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/kit-maintain",
+   "kind": "skill",
+   "triggers": []
+  },
+  ".claude/skills/re-legal-gate/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/re-legal-gate",
    "kind": "skill",
    "triggers": []
   },
@@ -196,10 +222,24 @@
     }
    ]
   },
+  ".claude/skills/telemetry-audit/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/telemetry-audit",
+   "kind": "skill",
+   "triggers": []
+  },
   ".claude/skills/tier/SKILL.md": {
    "cold": null,
    "hand": [],
    "home": "/tier",
+   "kind": "skill",
+   "triggers": []
+  },
+  ".claude/skills/tool-trial/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/tool-trial",
    "kind": "skill",
    "triggers": []
   },
@@ -575,6 +615,16 @@
      "source": "import"
     },
     {
+     "evidence": "tools/kit/repin.py:38",
+     "ref": "tools/kit/repin.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/kit/runtree.py:29",
+     "ref": "tools/kit/runtree.py",
+     "source": "import"
+    },
+    {
      "evidence": "tools/kit/skills_index.py:61",
      "ref": "tools/kit/skills_index.py",
      "source": "import"
@@ -599,6 +649,11 @@
    "home": "python3 tools/kit/bootstrap.py",
    "kind": "tool",
    "triggers": [
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:12",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
+    },
     {
      "evidence": ".claude/skills/upstream-intake/SKILL.md:11",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
@@ -632,14 +687,46 @@
    "hand": [],
    "home": "python3 tools/kit/repin.py",
    "kind": "tool",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:11",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:20",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:23",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:28",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
+    }
+   ]
   },
   "tools/kit/runtree.py": {
    "cold": null,
    "hand": [],
    "home": "python3 tools/kit/runtree.py",
    "kind": "tool",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": ".claude/skills/re-legal-gate/SKILL.md:21",
+     "ref": ".claude/skills/re-legal-gate/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/tool-trial/SKILL.md:20",
+     "ref": ".claude/skills/tool-trial/SKILL.md",
+     "source": "skill"
+    }
+   ]
   },
   "tools/kit/skills_index.py": {
    "cold": null,
@@ -664,6 +751,11 @@
      "evidence": "tools/map/map_check.py:9",
      "ref": "tools/map/map_check.py",
      "source": "check"
+    },
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:22",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
     }
    ]
   },
@@ -1036,6 +1128,59 @@
     }
    ]
   },
+  "tools/station/forge_check.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/station/forge_check.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/station.json:17",
+     "ref": "governance/checks.d/station.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/station.json:25",
+     "ref": "governance/checks.d/station.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/station.json:9",
+     "ref": "governance/checks.d/station.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/skills/evo-guard/SKILL.md:30",
+     "ref": ".claude/skills/evo-guard/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:26",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/re-legal-gate/SKILL.md:26",
+     "ref": ".claude/skills/re-legal-gate/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/telemetry-audit/SKILL.md:28",
+     "ref": ".claude/skills/telemetry-audit/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/tool-trial/SKILL.md:34",
+     "ref": ".claude/skills/tool-trial/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/tool-trial/SKILL.md:36",
+     "ref": ".claude/skills/tool-trial/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
   "tools/station_audit.py": {
    "cold": null,
    "hand": [],
@@ -1095,6 +1240,11 @@
     {
      "evidence": ".claude/skills/handoff/SKILL.md:19",
      "ref": ".claude/skills/handoff/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:23",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
      "source": "skill"
     },
     {
@@ -1163,6 +1313,11 @@
    "home": "python3 tools/upstream/ingest.py",
    "kind": "tool",
    "triggers": [
+    {
+     "evidence": ".claude/skills/kit-maintain/SKILL.md:21",
+     "ref": ".claude/skills/kit-maintain/SKILL.md",
+     "source": "skill"
+    },
     {
      "evidence": ".claude/skills/upstream-intake/SKILL.md:38",
      "ref": ".claude/skills/upstream-intake/SKILL.md",
@@ -1364,6 +1519,66 @@
      "evidence": "governance/checks.d/upstream.json:288",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
+    }
+   ]
+  },
+  "upstream:danny-avila~LibreChat": {
+   "cold": null,
+   "hand": [],
+   "home": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+   "kind": "upstream",
+   "triggers": []
+  },
+  "upstream:evo-hq~evo": {
+   "cold": null,
+   "hand": [],
+   "home": "repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md",
+   "kind": "upstream",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/evo-guard/SKILL.md:12",
+     "ref": ".claude/skills/evo-guard/SKILL.md",
+     "source": "reference"
+    }
+   ]
+  },
+  "upstream:langchain-ai~openwiki": {
+   "cold": null,
+   "hand": [],
+   "home": "repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md",
+   "kind": "upstream",
+   "triggers": []
+  },
+  "upstream:morluto~rea": {
+   "cold": null,
+   "hand": [],
+   "home": "repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md",
+   "kind": "upstream",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/re-legal-gate/SKILL.md:7",
+     "ref": ".claude/skills/re-legal-gate/SKILL.md",
+     "source": "reference"
+    }
+   ]
+  },
+  "upstream:phuryn~pm-skills": {
+   "cold": null,
+   "hand": [],
+   "home": "repertoire/phuryn~pm-skills/pm-ai-shipping/README.md",
+   "kind": "upstream",
+   "triggers": []
+  },
+  "upstream:styler-ai~ProjectAtlas": {
+   "cold": null,
+   "hand": [],
+   "home": "repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md",
+   "kind": "upstream",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/tool-trial/SKILL.md:24",
+     "ref": ".claude/skills/tool-trial/SKILL.md",
+     "source": "reference"
     }
    ]
   }

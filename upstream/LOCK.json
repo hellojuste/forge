@@ -1,0 +1,238 @@
+{
+ "_why": "one row per held component: repo, 40-hex sha, how, lane, held; written by tools/upstream/ingest.py, checked by upstream_checks.py upstream_lock",
+ "rows": [
+  {
+   "copy_of": null,
+   "held": "committed",
+   "held_root": "repertoire/phuryn~pm-skills/",
+   "how": "repertoire",
+   "lane": "repertoire",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [],
+   "paths": [
+    "LICENSE",
+    "pm-ai-shipping"
+   ],
+   "repo": "phuryn/pm-skills",
+   "repo_id": 3,
+   "sha": "c68487d721e419ec87af1ae6412a842978eab785"
+  },
+  {
+   "copy_of": null,
+   "files_at_pin": 813,
+   "held": "bootstrap",
+   "held_root": ".upstream/styler-ai~ProjectAtlas.git",
+   "how": "bootstrap",
+   "lane": null,
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [],
+   "paths": [
+    "."
+   ],
+   "repo": "styler-ai/ProjectAtlas",
+   "repo_id": 18,
+   "sha": "bed8ba3c9b5e35b198e6fb2dae716daf1b977721"
+  },
+  {
+   "copy_of": null,
+   "held": "committed",
+   "held_root": "repertoire/styler-ai~ProjectAtlas/",
+   "how": "repertoire",
+   "lane": "repertoire",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [],
+   "paths": [
+    "LICENSE",
+    "docs/benchmarks",
+    "plugins/projectatlas/skills/projectatlas",
+    "skills/codex-coding-plugin"
+   ],
+   "repo": "styler-ai/ProjectAtlas",
+   "repo_id": 18,
+   "sha": "bed8ba3c9b5e35b198e6fb2dae716daf1b977721"
+  },
+  {
+   "copy_of": null,
+   "files_at_pin": 293,
+   "held": "bootstrap",
+   "held_root": ".upstream/evo-hq~evo.git",
+   "how": "bootstrap",
+   "lane": null,
+   "licence": "Apache-2.0",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [
+    "NOTICE"
+   ],
+   "paths": [
+    "."
+   ],
+   "repo": "evo-hq/evo",
+   "repo_id": 19,
+   "sha": "c70c04b4d2da2f2deb95d1d185b07d88d24f2ea7"
+  },
+  {
+   "copy_of": null,
+   "held": "committed",
+   "held_root": "repertoire/evo-hq~evo/",
+   "how": "repertoire",
+   "lane": "repertoire",
+   "licence": "Apache-2.0",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE",
+    "plugins/evo/LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [
+    "NOTICE",
+    "plugins/evo/NOTICE"
+   ],
+   "paths": [
+    "LICENSE",
+    "NOTICE",
+    "plugins/evo/agents",
+    "plugins/evo/skills",
+    "scripts/rlm_eval/baseline_SKILL.md"
+   ],
+   "repo": "evo-hq/evo",
+   "repo_id": 19,
+   "sha": "c70c04b4d2da2f2deb95d1d185b07d88d24f2ea7"
+  },
+  {
+   "copy_of": null,
+   "files_at_pin": 582,
+   "held": "bootstrap",
+   "held_root": ".upstream/langchain-ai~openwiki.git",
+   "how": "bootstrap",
+   "lane": null,
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [],
+   "paths": [
+    "."
+   ],
+   "repo": "langchain-ai/openwiki",
+   "repo_id": 20,
+   "sha": "7c469e59584bfac3f97f5c32a67604de46805999"
+  },
+  {
+   "copy_of": null,
+   "held": "committed",
+   "held_root": "repertoire/langchain-ai~openwiki/",
+   "how": "repertoire",
+   "lane": "repertoire",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [],
+   "paths": [
+    "LICENSE",
+    "integrations/openwiki",
+    "skills/mermaid-diagrams",
+    "skills/write-connector"
+   ],
+   "repo": "langchain-ai/openwiki",
+   "repo_id": 20,
+   "sha": "7c469e59584bfac3f97f5c32a67604de46805999"
+  },
+  {
+   "copy_of": null,
+   "files_at_pin": 4025,
+   "held": "bootstrap",
+   "held_root": ".upstream/morluto~rea.git",
+   "how": "bootstrap",
+   "lane": null,
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [
+    "THIRD_PARTY_NOTICES.md"
+   ],
+   "paths": [
+    "."
+   ],
+   "repo": "morluto/rea",
+   "repo_id": 21,
+   "sha": "1bd5c5c87e81b27bfb16140f71ffa03563e58477"
+  },
+  {
+   "copy_of": null,
+   "held": "committed",
+   "held_root": "repertoire/morluto~rea/",
+   "how": "repertoire",
+   "lane": "repertoire",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [
+    "THIRD_PARTY_NOTICES.md"
+   ],
+   "paths": [
+    ".agents/skills",
+    "DISCLAIMER.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "licenses"
+   ],
+   "repo": "morluto/rea",
+   "repo_id": 21,
+   "sha": "1bd5c5c87e81b27bfb16140f71ffa03563e58477"
+  },
+  {
+   "copy_of": null,
+   "held": "committed",
+   "held_root": "repertoire/danny-avila~LibreChat/",
+   "how": "repertoire",
+   "lane": "repertoire",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "licence_files": [
+    ".claude/skills/codebase-design/LICENSE",
+    ".claude/skills/improve-codebase-architecture/LICENSE",
+    "LICENSE"
+   ],
+   "mode": "data",
+   "notice_files": [],
+   "paths": [
+    ".claude/skills/codebase-design",
+    ".claude/skills/improve-codebase-architecture",
+    "e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md"
+   ],
+   "repo": "danny-avila/LibreChat",
+   "repo_id": 25,
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698"
+  }
+ ]
+}

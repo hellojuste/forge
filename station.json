@@ -1,0 +1,83 @@
+{
+ "_why": "station.json (station-only; never on main). Filled from templates/station.json.tmpl by the station-forge builder (contract contracts/station-forge.md section 1, 2026-10-16). Validated by tools/gov/gov_check.py station against commons/schema/station.schema.json; any key here overrides commons/defaults.json by deep merge (hooks.PreToolUse is a UNION with the commons modules). No secret values belong here (they go in .env; this station's LLM key names are listed there with EMPTY values).",
+ "name": "forge",
+ "purpose": "Make agents cheaper and better and maintain the kit: tool trials with denominators, code-index/wiki/autoresearch tools, reverse engineering behind a legal gate, new-upstream intake, repin.",
+ "branch": "station/forge",
+ "boundary": "Noun = the agents and tooling themselves. Holds the CLIs with on-by-default telemetry and LLM keys; nothing client-, customer- or identity-bearing (a wiki or reverse-engineering target that is a client's or a third party's proprietary code is refused).",
+ "jobs": [
+  "tool trial (N >= 5, with and without the tool)",
+  "evo optimise loop with a frozen holdout",
+  "generate a wiki for a non-client repo",
+  "reverse engineering behind re-legal-gate",
+  "ingest a new upstream through the component tree",
+  "architecture review (design it twice)",
+  "repin an upstream with the repin report"
+ ],
+ "knobs": {
+  "gov": "fleet",
+  "map": "M",
+  "brain": "medium"
+ },
+ "packs": [
+  "grade"
+ ],
+ "gov": {
+  "model_roster": {
+   "small": "<set me>",
+   "medium": "<set me>",
+   "large": "<set me>"
+  }
+ },
+ "hooks": {
+  "PreToolUse": [
+   "connector_scope"
+  ]
+ },
+ "skill_overrides": {
+  "checkpoint": "user-invocable-only",
+  "summon": "user-invocable-only",
+  "tier": "user-invocable-only",
+  "upstream-intake": "user-invocable-only",
+  "telemetry-audit": "user-invocable-only",
+  "kit-maintain": "user-invocable-only",
+  "re-legal-gate": "user-invocable-only"
+ },
+ "listing_budget_bytes": 2400,
+ "listed_max": 6,
+ "quarantined": [],
+ "irreversible_acts": [
+  "\\bevo\\s+telemetry\\s+(on|off)\\b",
+  "\\bevo\\s+ship\\b",
+  "\\bopenwiki\\s+integrations\\s+install\\b",
+  "\\bopenwiki\\s+(auth|ingest)\\b",
+  "\\binstall-runtime\\.(sh|ps1)\\b",
+  "\\b(claude|codex)\\s+plugin\\s+(install|marketplace\\s+add)\\b",
+  "\\brea-agents(@\\S+)?\\s+setup\\b|\\brea\\s+update\\b",
+  "\\brea(-agents(@\\S+)?)?\\s+analy[sz]e-",
+  "\\btools/kit/repin\\.py\\s+--apply\\b",
+  "\\bgit\\s+push\\b"
+ ],
+ "irreversible_acts_why": {
+  "\\bevo\\s+telemetry\\s+(on|off)\\b": "evo telemetry on flips the user-wide ~/.evo setting; evo telemetry off SENDS a final opt-out event before disabling (evo-hq/evo@c70c04b plugins/evo/src/evo/cli.py:615-623) -- opt out with EVO_TELEMETRY=0 / DO_NOT_TRACK=1 in the env instead",
+  "\\bevo\\s+ship\\b": "evo ship lands the winning experiment: opens a PR when the repo has a remote, otherwise merges into the working branch (held skill plugins/evo/skills/ship/SKILL.md)",
+  "\\bopenwiki\\s+integrations\\s+install\\b": "writes openwiki's skill and MCP server entry into user-scope agent configs (~/.claude, ~/.codex, ...) outside the station (openwiki README 'Coding-agent integrations')",
+  "\\bopenwiki\\s+(auth|ingest)\\b": "auth runs an OAuth flow and saves tokens into ~/.openwiki/.env; ingest pulls Gmail/Notion/Slack/X data -- identity-bearing sources do not belong on forge (boundary)",
+  "\\binstall-runtime\\.(sh|ps1)\\b": "ProjectAtlas packaged installer downloads the runtime binary and writes MCP/plugin config (plugins/projectatlas/scripts/)",
+  "\\b(claude|codex)\\s+plugin\\s+(install|marketplace\\s+add)\\b": "installing an upstream plugin wires its hooks (evo's PreToolUse '.*' hook-drain, ProjectAtlas readiness.sh) into the host -- never done on this station",
+  "\\brea-agents(@\\S+)?\\s+setup\\b|\\brea\\s+update\\b": "REA setup/update writes MCP configuration into host agents and fetches engines (morluto/rea README)",
+  "\\brea(-agents(@\\S+)?)?\\s+analy[sz]e-": "an REA analysis run on a target needs a re-legal-gate row first (work/re/legal_gate.json)",
+  "\\btools/kit/repin\\.py\\s+--apply\\b": "rewrites a pin (registry/sources.json on main, upstream/LOCK.json here); only after the repin report is green",
+  "\\bgit\\s+push\\b": "pushes this branch off the machine (the operator places things himself)"
+ },
+ "connectors_expected": [],
+ "connector_scope": "report",
+ "live_surfaces": [],
+ "nc_lane": false,
+ "services": [],
+ "telemetry": {
+  "evo-hq/evo": "verified:false -- opt-out proven in code (plugins/evo/src/evo/telemetry.py:102-112, gate at 120-121); the operator's offline `EVO_TELEMETRY=0 evo telemetry status` run is still owed",
+  "langchain-ai/openwiki": "verified:false -- opt-out proven in code (src/telemetry/gates.ts:28-32, gate at senders.ts:136); OPENWIKI_TELEMETRY_DISABLED=1 is pre-set in .env; offline --telemetry-file run owed",
+  "styler-ai/ProjectAtlas": "verified:false -- its telemetry is local token accounting in the project DB (crates/projectatlas-db/src/telemetry.rs:1); no network sender recorded; offline runtime-info run owed"
+ },
+ "telemetry_rule": "no workflow starts a tool whose registry/telemetry.json row is verified:false (wiki-gen, optimize-loop, tool-trial check it in their GATHER stage)"
+}
