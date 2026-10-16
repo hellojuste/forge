@@ -111,6 +111,54 @@
    "since": "DEC-forge-0001",
    "upstream": "NEVER",
    "programme": "station"
+  },
+  {
+   "id": "R-forge-noise-floor",
+   "headline": "A trial verdict or an optimise gain carries noise_floor K >= 5 and spread; a gain not larger than the spread is never promoted or called out-of-sample",
+   "owner": ".claude/skills/noise-floor/SKILL.md",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "router/REASSIGN.md gap G2: neither evo-guard nor tool-trial measured run-to-run variance; LEAN every numerator carries its denominator",
+   "rung": "hard",
+   "since": "DEC-forge-0002",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-design-twice",
+   "headline": "An architecture recommendation compares at least two radically different designs in a depth table before its pick",
+   "owner": ".claude/skills/design-it-twice/SKILL.md",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "router/REASSIGN.md gap G1: STATION.md promised 'design it twice' and no held skill carried the step",
+   "rung": "hard",
+   "since": "DEC-forge-0002",
+   "upstream": "NEVER",
+   "programme": "station"
+  },
+  {
+   "id": "R-forge-workflow-output",
+   "headline": "A station workflow's verdict is its certain test on the deliverable (forge_check.py output <kind> <path>), never a path-existence check; each workflow's DEFAULT_MODELS equals station.json gov.model_roster",
+   "owner": "tools/station/forge_check.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "forge_gates",
+    "by": "forge_gates"
+   },
+   "earned_by": "LEAN F1: the planned certain tests were station_audit -k paths, which cannot fail on a wrong result",
+   "rung": "hard",
+   "since": "DEC-forge-0002",
+   "upstream": "NEVER",
+   "programme": "station"
   }
  ]
 }

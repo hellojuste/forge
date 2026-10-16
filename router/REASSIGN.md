@@ -86,3 +86,19 @@ Not applied here: each needs a cross-station copy or move, a gap skill, or a com
 - R1 (held copy of `shipping-artifacts` in venture), R3 (held copy of `mermaid-diagrams` in research): cross-station copies.
 - R2: follows R1 only if R1 becomes a move.
 - Gap skills G1 `design-it-twice`, G2 `noise-floor`, G3 `ci-suite-audit`, G4 `skill-route-intake`.
+
+## EQUIP DECISIONS (equip-forge, 2026-10-16)
+
+| item | decision | where / why |
+|---|---|---|
+| G1 `design-it-twice` | **built** | `.claude/skills/design-it-twice/SKILL.md`; enforced by forge gate `arch`; used by workflow `arch-review`; routed by the `arch` intent |
+| G2 `noise-floor` | **built** | `.claude/skills/noise-floor/SKILL.md`; forge gate `noise` (K >= 5, spread, gain inside spread never promoted); stage `Noise` of `trial-run`, `Freeze` of `optimize-loop`; intent `noise` |
+| G3 `ci-suite-audit` | **built** | `.claude/skills/ci-suite-audit/SKILL.md`; intent `ci-audit` (gather `station_audit.py -k admission`) |
+| G4 `skill-route-intake` | **built** | `.claude/skills/skill-route-intake/SKILL.md`; stage `Route` of `intake-run` |
+| CRITIC purpose gap: skill-building | **built** | `.claude/skills/skill-author/SKILL.md`; intent `skill-build` |
+| CRITIC F11 (telemetry verify path) | **built** | `tools/station/telemetry_plan.py` (`all`, `show`, `gate`, selftest 8); telemetry-audit step 0 |
+| R1 copy `shipping-artifacts` to venture | **proposal, not done** | cross-station copy; the venture owner ingests it from the phuryn/pm-skills clone at the forge pin with `--copy-of forge` |
+| R2 | **no change** | follows R1 only if R1 became a move; it stays a copy proposal |
+| R3 copy `mermaid-diagrams` to research | **proposal, not done** | cross-station copy; the research owner decides |
+| N1 (narrow `report`/`ship`/`backend`) | **already applied** in fix round 2 (above) | — |
+| Router misses seen while writing equip selftests | **recorded** | `skip the ci audit` routed to ci-audit: `skip` is not a commons negator (`NEGATORS_DEFAULT`), proposed to main; `measure the noise floor of the benchmark` and `draft a new workflow for the repin job` tied with `trial`/`repin`, resolved with row `claims` (`noise floor`; `new skill`/`new workflow`/`write a skill`/`author a skill`), keywords unchanged |
