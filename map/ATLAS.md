@@ -3,7 +3,7 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 16 · hook 12 · intent 11 · skill 6 · tool 50 · total 97 · workflow 2
+census: dir 17 · hook 12 · intent 11 · skill 6 · tool 50 · total 98 · workflow 2
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 

@@ -81,10 +81,13 @@
    "sha256": "6db25d299614afd6e4138ee9c303a755b2b115f926b82567fce6e53757ded346"
   },
   "KIT.md": {
-   "sha256": "92d4923e1e6f95c1cb4c397fbbb682884cb4f3c11d53cca51277be25ead5da4a"
+   "sha256": "9359df56b5843bf190ab72daf059d2070f93fbf1cd31cb29c760aecc9c3f8d36"
   },
   "README.md": {
-   "sha256": "d10df1bf28b0548a426f884b23fc281554aa5c1ccc4b836705f21605b2f85bf5"
+   "sha256": "4205c55ea7ea755577ef416616c3264a30fc44f432a904cf64fc2ad8fe82947d"
+  },
+  "RETURNS/main-kittools.md": {
+   "sha256": "decf95d282fa2cfeb3435e36bc3fc207cb903fa18fc18435bbb97e5460bca021"
   },
   "SKILLS_INDEX.md": {
    "generated": true,
@@ -212,7 +215,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "9705fd50976e18485b5b565cb8a1444ad44a2897d43d490fef394b183dbeabc6"
+   "sha256": "885b5780757ffb3b674086242015aa0da91946484a19236c46c05f240a5b2915"
   },
   "map/README.md": {
    "generated": true,
@@ -228,7 +231,7 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "4a857254bbe9a55d659eae874027948b34c62382b1f8333d7449acc121e63e71"
+   "sha256": "fa4381c6c86769b4bdbe1c995c3ba73bdc1147948d27c912ccf7c9d5c72be643"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
@@ -237,7 +240,7 @@
    "sha256": "d2047ded6f4e8cb4f610c7119c38f44955c33434b41cc874e12a894f9ef09dc1"
   },
   "map/dirs.json": {
-   "sha256": "f3dec79e55937bde4a74f68e9f600d15bb602bcd6a7a4741a39a159e42ab4576"
+   "sha256": "3c65f1871bcb49b71f113fdba7ad2fcb58b9d83fdc8a8b6b21c315f626a85c67"
   },
   "map/tags.json": {
    "sha256": "b221c048d20e76cff4b244bf52d12ca6939bd56e4cc18a73b74fc0c96d748d34"

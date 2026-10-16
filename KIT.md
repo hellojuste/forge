@@ -48,7 +48,7 @@ kit tools, and then sync the stations.
 | 2 | **kit floor** (`upstream: NEVER`): deny_destructive, deny_upstream_write, deny_generated_edit, act_gate ask, quarantine_gate ask, company_scope (client-bi), the audit runner and its classes, the router, the registers, amend-never-delete, the closeout line, the denominator rule | everywhere, including inside workspace-mode upstreams | `governance/rules.json`, `.claude/settings.json`, `.claude/hooks/` |
 | 3 | station rules (override a commons rule only by a `DEC-<station>-nnnn` naming its rules.json id) | that branch | `.claude/rules/station.md`, `station.json`, station DEC rows |
 | 4 | upstream conventions: (i) inside a held tree only the closed SUBTREE vocabulary `[build, code-style, test-runner, commit-format, layout]` listed in its PRECEDENCE row; (ii) `mode: workspace` (career-ops, ai-job-search) inside its run tree | that tree / that workspace | `upstream/PRECEDENCE.json` |
-| 5 | commons defaults (lean SHOULD-class lessons: listing budget, tiering, cadence) | everywhere unless rank 3/4 supersedes | `commons/defaults.json` |
+| 5 | commons defaults (lean SHOULD-class lessons: tiering, cadence; the 6-skill listing cap is RETIRED by the operator's 2026-10-16 ruling: every canonical skill is visible in its station, duplicates hidden via `skillOverrides`) | everywhere unless rank 3/4 supersedes | `commons/defaults.json` |
 | 6 | repertoire method text: method only, never permissions, network, secrets, git or telemetry | method | `repertoire/`, `nc-lane/`, `study/` |
 
 This is how the lean and efficiency lessons travel with every station "unless the repos included have superseding

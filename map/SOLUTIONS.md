@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-58 catalogued thing(s) · 0 upstream(s) · 20 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+59 catalogued thing(s) · 0 upstream(s) · 20 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## closeout
 
@@ -69,6 +69,7 @@ _build, zip, verify and bootstrap the kit and its branches_
 - `tools/kit/assemble.py` — kit assembler (working): build the one repo: main from the commons + root, a station branch per overlay, then station map and skills index
 - `tools/kit/bootstrap.py` — upstream bootstrap (working): bare-clone a bootstrap upstream at its 40-hex pin into .upstream/ (or from a bundle)
 - `tools/kit/doctor.py` — doctor (working): report the local kit's health: git, caches, bootstrap needs, worktree layout
+- `tools/kit/held_modes.py` — held-file mode record (working): record and check every held upstream file whose git mode at the pin differs from its station branch (SAFETY 5) · see also tools/kit/kit_check.py
 - `tools/kit/kit_check.py` — kit checks (working): decision tree == router kit_tree == STATIONS.md; registry pins and landings
 - `tools/kit/make_zip.py` — zip maker (working): bundle, zip and verify the kit repo
 
