@@ -236,7 +236,7 @@
   },
   "governance/OWNERSHIP.md": {
    "generated": true,
-   "sha256": "f77314ef9e01accf1281e938dd14503cf8ddfe423137671aa519dc5f1ae3def4"
+   "sha256": "bea0039c074ce76bea2c8acf8e5c422b438c0074e0893534dca9ebeb55f85c85"
   },
   "governance/RELEASES.json": {
    "sha256": "4c47df15f368fa31dfcddc94cee9bb635236151b50f216c15bea92859faa8d7c"
@@ -291,7 +291,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "a342e438ecafa7b6a195ac91cff093fe46d2ab1504642aa13687b04c3f40f9d1"
+   "sha256": "a4b463bc86973827d41ece651ae3c99019d73c5ac612a84cd1d4da4f9829fce1"
   },
   "map/README.md": {
    "generated": true,
@@ -299,7 +299,7 @@
   },
   "map/SOLUTIONS.md": {
    "generated": true,
-   "sha256": "2e2f0a2e2be576a590eb39e29d24cebee508ecf99307a51c457fde7260704268"
+   "sha256": "5bec4d678430636cd774ab6f2c0c1e93ecf117571b5c5206d34208909ab32f6f"
   },
   "map/STATIONS.md": {
    "generated": true,
@@ -307,7 +307,7 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "18cbd43065f8b7de91741b1b15073cf971c44ab55943254bfa33902b68b9d987"
+   "sha256": "f09a4b41c87be81617ab84ca62d681072271313600891b33cdc2fe27c94eedd1"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
@@ -326,7 +326,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "bb6b033ce7545de74851687c836ce3b09567573a6dcd084f0b1c11aa1eacae92"
+   "sha256": "ae4d293880500de6ceea2ab107936baf18fbf5c7d4d550a036995e88042877dc"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -366,7 +366,7 @@
    "sha256": "798361d3f9820d2357699efc0ab9212bea509a7244879e144a27f61db14af928"
   },
   "registry/telemetry.json": {
-   "sha256": "1cf4ce2358a20abb401d4eb964209ed15f576b1e51bd8065b7b8443bc309a204"
+   "sha256": "761cfac7d7083b06f976efb670508d22b2aa62ec9170c4901a608b8a8c5c480a"
   },
   "router/intents.d/brain.json": {
    "sha256": "93dd315862fef677f2c571f370c65331775370a645a47bc2c762a27e7b2b4d66"
@@ -390,7 +390,7 @@
    "sha256": "28ec200b6b4cbdb956b9520b6ae3662d6ba3ecdd23992ce22af226ea7b57e99f"
   },
   "router/intents.json": {
-   "sha256": "e9818ac11775aad3a67f7b171a04856a9e507377384d2915dee4723ff022fbb6"
+   "sha256": "6747e52df4b79ea892b1cc88cff30e2565f781989c21de2aebf25c99737bdf65"
   },
   "router/kit_tree.json": {
    "sha256": "84ea800dc17bbc00906f86c526b7a682a507567b5257c4f70ac3edf0f3e8be58"
