@@ -86,6 +86,9 @@
   "README.md": {
    "sha256": "4205c55ea7ea755577ef416616c3264a30fc44f432a904cf64fc2ad8fe82947d"
   },
+  "RETURNS/main-commons.md": {
+   "sha256": "538482de1b3a0177bca4d4bed2be4d861b42d4f70d79074b36045f93a8e6df30"
+  },
   "RETURNS/main-kittools.md": {
    "sha256": "decf95d282fa2cfeb3435e36bc3fc207cb903fa18fc18435bbb97e5460bca021"
   },
@@ -203,7 +206,7 @@
    "sha256": "e79a0d5bb51b0aa3719277d61482fc46c90e9852a4ad691adcaf605bf86fb892"
   },
   "governance/RELEASES.json": {
-   "sha256": "e1e90988acf76001e7d96bd0aae111610534cdb5f27e5f98ea7953320e400be8"
+   "sha256": "4c47df15f368fa31dfcddc94cee9bb635236151b50f216c15bea92859faa8d7c"
   },
   "governance/checks.d/brain.json": {
    "sha256": "4912e284c1c1af2c51b0c926e0f5edee259f41eb83322ac4a0983b2c839c4a14"
@@ -231,7 +234,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "a34e5c740a4dc5bedbb9ed37187799d092ba4fca95780fce0abb0cd5f2719c95"
+   "sha256": "69e2daa9787feb353e610ee77c0fb2df99acfe2e658231accead72c2e28c702d"
   },
   "map/README.md": {
    "generated": true,
@@ -247,7 +250,7 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "1315fd250f2bb071de5484657b9ef12e37b25e03687d73ccfb618b7d2dc9ba19"
+   "sha256": "44023669403e60f748389577c75c135a86b6c17723b776bcdc24ae1891776de9"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
