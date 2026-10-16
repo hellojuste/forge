@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-83 catalogued thing(s) · 6 upstream(s) · 34 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+111 catalogued thing(s) · 6 upstream(s) · 42 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## architecture-review
 
@@ -43,6 +43,14 @@ _find actionable defects and intent-vs-implementation gaps in agent-built code_
 
 - upstream:phuryn~pm-skills — when reviewing agent-built code before it ships (arch-review and tool-trial grading support) · entry `repertoire/phuryn~pm-skills/pm-ai-shipping/README.md` · instructions: repertoire/phuryn~pm-skills/pm-ai-shipping/_upstream_claude-plugin/plugin.json
 
+## colour-contrast
+
+_does every text/UI colour pair meet its WCAG contrast threshold?_
+
+- `tools/design/contrast.py` — contrast tool (working): stdlib WCAG 2.2 contrast ratio for a pair or a palette file; exit 1 on a failing pair
+- `tools/design/detector/color.py` — colour maths (working): CSS colour parsing (hex, rgb, hsl, hwb, oklch, oklab, lab, lch, named), compositing, WCAG contrast, hue/chroma
+- `tools/design/handoff.py` — design handoff + tokens (working): the handoff package format (9 parts) and design-token schema/flattening every station shares; --check is audit row design_handoff · see also commons/schema/design_tokens.schema.json
+
 ## delegation
 
 _summon subagents by protocol: size, tier, contract, heartbeat_
@@ -50,6 +58,43 @@ _summon subagents by protocol: size, tier, contract, heartbeat_
 - `.claude/skills/summon/SKILL.md` — summon skill (working): delegate by protocol: work-list, tier, one deliverable, heartbeat, verify
 - `.claude/skills/tier/SKILL.md` — tier skill (working): score an unstarted item to a model and effort with a named STOP
 - `.claude/workflows/_template.js` — workflow template (working): the saved-workflow skeleton: live GATHER and a certain-test stage
+
+## design-detector
+
+_does this HTML/CSS carry a known anti-pattern (impeccable's 59 rules), measured, scored, with a verdict exit code?_
+
+- `.claude/skills/design-review/SKILL.md` — design-review skill (working): measured design verdict in any station: detector score, contrast pairs, tokens, handoff lint
+- `tools/design/detector/__init__.py` — detector package (working): package marker for tools/design/detector
+- `tools/design/detector/color.py` — colour maths (working): CSS colour parsing (hex, rgb, hsl, hwb, oklch, oklab, lab, lch, named), compositing, WCAG contrast, hue/chroma
+- `tools/design/detector/css.py` — static CSS cascade (working): stdlib CSS parser, selector matcher and static cascade (inheritance, var(), shorthands, @media at rest), length/colour helpers
+- `tools/design/detector/design_md.py` — DESIGN.md parser (working): parse a DESIGN.md frontmatter (colors, typography, rounded) for the design-system rules
+- `tools/design/detector/detect.py` — design detector (impeccable port) (working): the studio detector CLI: impeccable's 59 rules in stdlib Python over HTML/CSS (+ line-regex engine for css/jsx/vue/svelte/astro), optional rendered pass, JSON + text report, 0-100 scores, verdict exit code; --check is audit row design_detector · see also tools/design/detector/PORT_MAP.md, governance/checks.d/design.json
+- `tools/design/detector/dom.py` — static HTML DOM (working): forgiving stdlib HTML DOM on html.parser (implied end tags, void elements, source lines)
+- `tools/design/detector/engine.py` — detector engine (working): loads a file or folder, builds the static context (DOM + cascade + style corpora), runs every rule module, applies inline ignores
+- `tools/design/detector/ignores.py` — inline ignores (working): upstream inline-ignore semantics (impeccable-disable comments, data-impeccable-ignore)
+- `tools/design/detector/port_map.py` — port map generator (working): generates PORT_MAP.md (upstream rule -> our function -> tests -> parity) and checks it is fresh
+- `tools/design/detector/regex_engine.py` — source regex engine (working): upstream's line-regex engine for css/scss/sass/jsx/tsx/vue/svelte/astro sources
+- `tools/design/detector/registry.py` — rule registry (working): the 59 upstream rule rows (registry.json) keyed by id
+- `tools/design/detector/rendered.py` — rendered checks (working): optional Playwright pass (only if already installed; every non-file request aborted): 10 layout/runtime rules at 1280 and 390 px
+- `tools/design/detector/rules_color.py` — colour rules (working): colour rules: low-contrast, gray-on-color, gradient-text, ai-color-palette, cream, glows, halos, stripes, grids, clip-paths, buried rasters, design-system-color
+- `tools/design/detector/rules_layout.py` — layout rules (working): layout rules: side-tab, border accents, nested cards, icon tiles, hairline+wide shadow, cramped padding, clipped overflow, shape illustrations, broken images, spacing, design-system-radius
+- `tools/design/detector/rules_motion_copy.py` — motion + copy rules (working): motion and copy rules: bounce easing, pulsing dot, marquee, em-dash overuse, buzzwords, aphoristic cadence, theater phrases, repeated container text
+- `tools/design/detector/rules_type.py` — type rules (working): typography rules: overused font, flat hierarchy, italic serif display, eyebrows/kickers, numbered labels, oversized h1, tracking, leading, tiny/undersized text, caps, headings, design-system fonts
+- `tools/design/detector/score.py` — detector scoring (working): findings -> per-rule and per-category scores, readable report, verdict exit code; NOT RUN rules never count clean
+- `tools/design/detector/tailwind.py` — tailwind hook (working): utility-class hook for the cascade (empty by design: upstream never maps Tailwind to computed styles)
+
+## design-handoff
+
+_hand a design to the station that builds it: one package format, one token schema_
+
+- `tools/design/detector/design_md.py` — DESIGN.md parser (working): parse a DESIGN.md frontmatter (colors, typography, rounded) for the design-system rules
+- `tools/design/handoff.py` — design handoff + tokens (working): the handoff package format (9 parts) and design-token schema/flattening every station shares; --check is audit row design_handoff · see also commons/schema/design_tokens.schema.json
+
+## design-method
+
+_which held design method (impeccable command, emil skill) answers this design question?_
+
+- `tools/design/design_catalog.py` — design direction catalog + roll client (working): deal design-pass variant directions: seeded local catalog + impeccable.style roll (opted out, no project data, local fallback); --check validates the catalog · see also .claude/workflows/design-pass.js
 
 ## doc-truth
 
@@ -119,6 +164,7 @@ _build, zip, verify and bootstrap the kit and its branches_
 _may this be held, exported, combined?_
 
 - `.claude/skills/re-legal-gate/SKILL.md` — re-legal-gate (working): record owner, licence, right and jurisdiction note before any REA run; refuse proprietary targets without a right · see also tools/station/forge_check.py
+- `tools/design/detector/port_map.py` — port map generator (working): generates PORT_MAP.md (upstream rule -> our function -> tests -> parity) and checks it is fresh
 - `tools/upstream/notice.py` — NOTICE generator (working): render NOTICE.md from LOCK + PROVENANCE + carried NOTICE files
 - `tools/upstream/upstream_checks.py` — upstream checks (working): vendor_leak, precedence, upstream_lock, provenance, licence_filter, nc_export, notice, telemetry and related checks
 - upstream:morluto~rea — when reverse workflow, only after a re-legal-gate row decides proceed for the exact target · entry `repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md`
@@ -132,6 +178,14 @@ _are the generated maps and indexes true to the tree right now?_
 - `tools/map/gen_dir_readmes.py` — dir registry (working): check every dir is registered and render generated READMEs
 - `tools/map/hooks/deny_generated_edit.py` — generated-edit guard (working): PreToolUse: deny a hand edit of a GENERATED file; restores from a recorded source are exempt
 - `tools/map/map_check.py` — map driver (working): the one driver: write, check, quick, list, coverage, selftest
+
+## market-scan
+
+_size a market or scan competitors with every figure sourced, denominated and re-derivable_
+
+- `.claude/skills/shared-market-scan/SKILL.md` — shared-market-scan skill (working): size a market or scan competitors with sourced, denominated figures in any station
+- `tools/research/custody.py` — chain of custody (working): sources/claims/ToS records: re-hash captures, re-find quotes, uncited lines, planted-defect proof
+- `tools/research/sizing.py` — market-scan sizing (working): sized-claim rules for a market record (source, n, unit, geography, arithmetic, both approaches, UNSOURCED never summed, NC lane refused); scan is audit row market_scan · see also tools/research/custody.py
 
 ## memory-retrieval
 
@@ -214,6 +268,13 @@ _where did the last session stop, and what is NEXT?_
 - `.claude/skills/handoff/SKILL.md` — handoff skill (working): write the durable handoff with the five-field header and re-derived negatives
 - `tools/brain.py` — the brain (working): new/near/ladder/surface/audit/index/card/loops/check-checkpoint/hook: the station's one memory script · see also tools/map/find.py
 
+## site-protection
+
+_protect a site the operator owns: fair bot handling, rate limits, hardening, privacy, passive self-check_
+
+- `.claude/skills/site-protection/SKILL.md` — site-protection skill (working): apply the protection pack and run self_check on the operator's own staging host or local build before launch
+- `tools/protect/self_check.py` — site self-check (own sites only) (working): passive exposure report for a site the operator owns (headers, robots, sitemap, rate-limit, bot-handling); refuses non-owned and broker hosts; check is audit row self_check
+
 ## skill-authoring
 
 _write a kit skill or workflow with a failing test, a route and a listing line that earns its cost_
@@ -238,6 +299,12 @@ _bring commons changes to a station without a broken merge_
 - `tools/kit/split.sh` — station split (working): turn one station branch into a one-branch repo with a kit remote
 - `tools/kit/sync.py` — station sync (working): merge main into a station, regenerate GENERATED conflicts, abort on any other
 - `tools/map/gen_station_map.py` — station map (working): render map/STATIONS.md: every station branch against main
+
+## target-memory
+
+_decipher a repo or folder once and keep its index and wiki as memory every station can read_
+
+- `tools/kit/understand.py` — understand (shared target memory) (working): decipher and remember any target: ProjectAtlas index + grounded openwiki wiki in one shared memory outside every station; --check is audit row understand · see also commons/defaults.json
 
 ## telemetry-audit
 
@@ -264,6 +331,13 @@ _does this tool beat no tool on >= 5 frozen tasks of ours, with the authors' fai
 - `.claude/workflows/trial-run.js` — trial-run (working): freeze N>=5 tasks, noise floor, A/B arms, blind grade, verdict + TRIAL row · see also .claude/skills/tool-trial/SKILL.md
 - `tools/station/forge_check.py` — forge_check (working): the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP · see also .claude/skills/tool-trial/SKILL.md, .claude/skills/evo-guard/SKILL.md
 - upstream:styler-ai~ProjectAtlas — when tool-trial workflow: the first trial subject (tokens saved vs. arm A without the tool, N >= 5); the failed benchmark runs are read as part of the denominator · entry `repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md`
+
+## ui-critique
+
+_is this UI right, and what exactly is wrong with it, with evidence?_
+
+- `.claude/skills/design-review/SKILL.md` — design-review skill (working): measured design verdict in any station: detector score, contrast pairs, tokens, handoff lint
+- `tools/design/detector/detect.py` — design detector (impeccable port) (working): the studio detector CLI: impeccable's 59 rules in stdlib Python over HTML/CSS (+ line-regex engine for css/jsx/vue/svelte/astro), optional rendered pass, JSON + text report, 0-100 scores, verdict exit code; --check is audit row design_detector · see also tools/design/detector/PORT_MAP.md, governance/checks.d/design.json
 
 ## upstream-intake
 

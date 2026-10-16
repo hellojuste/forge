@@ -1,6 +1,6 @@
 {
  "_doc": "One row per upstream repo (28). sha = the 40-hex pin re-derived with `git -C <clone> rev-parse HEAD` on 2026-10-16; last_commit = `git log -1 --format=%cs` at the pin. Edited only by tools/kit/repin.py --apply (after a green report). kit_check.py registry checks it.",
- "denominator": 28,
+ "denominator": 30,
  "sources": [
   {
    "id": 1,
@@ -337,6 +337,32 @@
    "repo": "jo-inc/camofox-browser",
    "sha": "39c82094013480b373df6600d44c7f036f58356e",
    "url": "https://github.com/jo-inc/camofox-browser"
+  },
+  {
+   "id": 29,
+   "key": "getlago~lago-api",
+   "last_commit": "2026-10-08",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE",
+   "licence_file_present_at_pin": true,
+   "notice_file": null,
+   "repo": "getlago/lago-api",
+   "sha": "753abde3787f0931b4bf39df83b6a74960fe21a6",
+   "url": "https://github.com/getlago/lago-api",
+   "note": "bootstrap-only: the getlago/lago gitlink pin (DEF-venture-0001); read 2026-10-16 by reconcile-01 with a depth-1 fetch of exactly this sha (LICENSE = AGPL-3.0 text, 7247 files at pin)"
+  },
+  {
+   "id": 30,
+   "key": "getlago~lago-front",
+   "last_commit": "2026-10-08",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE",
+   "licence_file_present_at_pin": true,
+   "notice_file": null,
+   "repo": "getlago/lago-front",
+   "sha": "94911425749561bdce7696deb7bbeef044108e31",
+   "url": "https://github.com/getlago/lago-front",
+   "note": "bootstrap-only: the getlago/lago gitlink pin (DEF-venture-0001); read 2026-10-16 by reconcile-01 with a depth-1 fetch of exactly this sha (LICENSE = AGPL-3.0 text, 3435 files at pin)"
   }
  ]
 }

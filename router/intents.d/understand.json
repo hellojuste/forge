@@ -1,0 +1,33 @@
+{
+ "_why": "router row for the shared understand capability (commons since reconcile-01 wave 2, DEC-core-0012); was forge's station row `understand`.",
+ "intents": [
+  {
+   "name": "understand",
+   "description": "decipher and remember any target (path, owner~repo pin, or the kit): ProjectAtlas index + grounded openwiki wiki in one memory outside the station",
+   "contributed_by": "kit",
+   "router": {
+    "keywords": [
+     "decipher"
+    ],
+    "phrases": [
+     "understand this repo",
+     "understand this codebase",
+     "index this repo",
+     "code map",
+     "atlas index",
+     "memory for",
+     "understand.py"
+    ],
+    "path_patterns": [
+     "tools/kit/understand.py"
+    ],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "args": "<path|owner~repo|kit> [--atlas] [--wiki] [--refresh]",
+     "inline_gather": "python3 tools/kit/understand.py --list"
+    }
+   }
+  }
+ ]
+}

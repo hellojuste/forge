@@ -1,0 +1,18 @@
+<!doctype html>
+<!-- SYNTHETIC FIXTURE for tools/station/self_check.py --selftest: the hardened twin of ../defective. Every
+     HARDENING_CHECKLIST row self_check can see statically is in place; the selftest asserts zero FAIL rows. -->
+<html lang="en">
+<head><meta charset="utf-8"><title>Fixture shop (hardened)</title></head>
+<body>
+<h1>Fixture shop</h1>
+<form method="post" action="/signup">
+  <input type="hidden" name="csrf_token" value="fixture-token">
+  <label for="email">Email</label> <input id="email" name="email" type="email" autocomplete="email">
+  <div class="visually-hidden">
+    <label for="website_url">Leave this field empty</label>
+    <input id="website_url" name="website_url" type="text" aria-hidden="true" tabindex="-1" autocomplete="off">
+  </div>
+  <button type="submit">Sign up</button>
+</form>
+</body>
+</html>

@@ -44,7 +44,7 @@ def claims(text, workflow):
     for i, line in enumerate(text.splitlines(), 1):
         toks = re.findall(r"`([^`\n]+)`", line)
         if workflow:
-            toks += re.findall(r"(?<![\w/.`-])((?:[\w.-]+/)+[\w.-]+)", line)
+            toks += re.findall(r"(?<![\w/.`~-])((?:[\w.~-]+/)+[\w.~-]+)", line)  # `~`: held lanes owner~repo (DEF-venture-0002)
         for tk in toks:
             yield i, line, re.split(r"[#§]|:(?=\d)", tk.strip())[0]
 
@@ -235,6 +235,21 @@ def selftest():
         if len(run("see `tools/station/`\n")) != 1:  # on a station the claim must resolve
             ok = False
             print("FAIL station_only must gate on a station")
+        Path(t, "station.json").unlink()
+        # DEF-venture-0002: a bare workflow token carries `~` (held lane owner~repo); a dead one is reported, a live one resolves
+        Path(t, ".claude", "workflows").mkdir(parents=True, exist_ok=True)
+        Path(t, "repertoire", "a~b").mkdir(parents=True, exist_ok=True)
+        Path(t, "repertoire", "a~b", "real.md").write_text("x\n")
+        Path(t, "station.json").write_text("{}")
+        Path(t, "CLAUDE.md").write_text("clean\n")
+        Path(t, "map", "dirs.json").write_text(json.dumps(dict(reg, live_docs=reg["live_docs"] + [".claude/workflows/*"])))
+        Path(t, ".claude", "workflows", "w.js").write_text("// read repertoire/a~b/missing.md then repertoire/a~b/real.md\n")
+        got = [str(x) for x in scan(t)[0]]
+        if len(got) != 1 or "repertoire/a~b/missing.md" not in got[0]:
+            ok = False
+            print("FAIL bare `~` workflow token (DEF-venture-0002)", got)
+        Path(t, ".claude", "workflows", "w.js").unlink()
+        Path(t, "map", "dirs.json").write_text(json.dumps(reg))
         Path(t, "station.json").unlink()
         h, _ = body_hash(t, "py:def:tools/real.py::f")
         Path(t, "CLAUDE.md").write_text("grounds: py:def:tools/real.py::f#%s\n" % h)

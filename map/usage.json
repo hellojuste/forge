@@ -168,7 +168,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:37",
+     "evidence": "router/intents.json:149",
      "ref": "router/intents.json",
      "source": "router"
     }
@@ -194,7 +194,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:23",
+     "evidence": "router/intents.json:95",
      "ref": "router/intents.json",
      "source": "router"
     }
@@ -218,6 +218,19 @@
     }
    ]
   },
+  ".claude/skills/design-review/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/design-review",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/design.json:29",
+     "ref": "router/intents.d/design.json",
+     "source": "router"
+    }
+   ]
+  },
   ".claude/skills/evo-guard/SKILL.md": {
    "cold": null,
    "hand": [],
@@ -238,7 +251,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:30",
+     "evidence": "router/intents.json:124",
      "ref": "router/intents.json",
      "source": "router"
     }
@@ -303,6 +316,32 @@
     }
    ]
   },
+  ".claude/skills/shared-market-scan/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/shared-market-scan",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/research.json:23",
+     "ref": "router/intents.d/research.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/skills/site-protection/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/site-protection",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/protect.json:32",
+     "ref": "router/intents.d/protect.json",
+     "source": "router"
+    }
+   ]
+  },
   ".claude/skills/skill-author/SKILL.md": {
    "cold": null,
    "hand": [],
@@ -336,12 +375,12 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:44",
+     "evidence": "router/intents.json:181",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:9",
+     "evidence": "router/intents.json:30",
      "ref": "router/intents.json",
      "source": "router"
     }
@@ -592,6 +631,314 @@
      "evidence": "router/intents.d/brain.json:11",
      "ref": "router/intents.d/brain.json",
      "source": "router"
+    }
+   ]
+  },
+  "tools/design/contrast.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/contrast.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/design.json:68",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/skills/design-review/SKILL.md:15",
+     "ref": ".claude/skills/design-review/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/design/design_catalog.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/design_catalog.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/design.json:30",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/design.json:38",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/design.json:43",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/skills/design-review/SKILL.md:28",
+     "ref": ".claude/skills/design-review/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/design/detector/__init__.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/__init__.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/color.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/color.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/css.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/css.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/design_md.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/design_md.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/detect.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/detect.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/design.json:16",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/design.json:8",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/design.json:31",
+     "ref": "router/intents.d/design.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/design-review/SKILL.md:12",
+     "ref": ".claude/skills/design-review/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/design/detector/dom.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/dom.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/engine.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/engine.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/ignores.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/ignores.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/port_map.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/port_map.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/regex_engine.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/regex_engine.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/registry.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/registry.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/rendered.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/rendered.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/rules_color.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/rules_color.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/rules_layout.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/rules_layout.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/rules_motion_copy.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/rules_motion_copy.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/rules_type.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/rules_type.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/score.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/score.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tailwind.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tailwind.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/__init__.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/__init__.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/parity.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/parity.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_css_lengths.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_css_lengths.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_fragments.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_fragments.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_regex_engine.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_regex_engine.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_rendered.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_rendered.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_rules_color.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_rules_color.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_rules_layout.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_rules_layout.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_rules_motion_copy.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_rules_motion_copy.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_rules_type.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_rules_type.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/detector/tests/test_static_approx.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/detector/tests/test_static_approx.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/design/handoff.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/design/handoff.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/design.json:54",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/design.json:62",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/design.json:67",
+     "ref": "governance/checks.d/design.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/skills/design-review/SKILL.md:17",
+     "ref": ".claude/skills/design-review/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/design-review/SKILL.md:19",
+     "ref": ".claude/skills/design-review/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/design-review/SKILL.md:20",
+     "ref": ".claude/skills/design-review/SKILL.md",
+     "source": "skill"
     }
    ]
   },
@@ -913,6 +1260,11 @@
      "evidence": "tools/kit/sync.py:36",
      "ref": "tools/kit/sync.py",
      "source": "import"
+    },
+    {
+     "evidence": "tools/kit/understand.py:52",
+     "ref": "tools/kit/understand.py",
+     "source": "import"
     }
    ]
   },
@@ -1091,6 +1443,39 @@
     }
    ]
   },
+  "tools/kit/understand.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/understand.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/understand.json:16",
+     "ref": "governance/checks.d/understand.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/understand.json:21",
+     "ref": "governance/checks.d/understand.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/understand.json:8",
+     "ref": "governance/checks.d/understand.json",
+     "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/understand.json:22",
+     "ref": "router/intents.d/understand.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/understand.json:28",
+     "ref": "router/intents.d/understand.json",
+     "source": "router"
+    }
+   ]
+  },
   "tools/map/_common.py": {
    "cold": null,
    "hand": [],
@@ -1184,7 +1569,7 @@
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:10",
+     "evidence": "router/intents.json:32",
      "ref": "router/intents.json",
      "source": "router"
     },
@@ -1462,6 +1847,80 @@
      "evidence": "tools/map/map_check.py:34",
      "ref": "tools/map/map_check.py",
      "source": "check"
+    }
+   ]
+  },
+  "tools/protect/self_check.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/protect/self_check.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/protect.json:16",
+     "ref": "governance/checks.d/protect.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/protect.json:8",
+     "ref": "governance/checks.d/protect.json",
+     "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/protect.json:34",
+     "ref": "router/intents.d/protect.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/site-protection/SKILL.md:17",
+     "ref": ".claude/skills/site-protection/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/research/custody.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/research/custody.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/shared-market-scan/SKILL.md:14",
+     "ref": ".claude/skills/shared-market-scan/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/research/sizing.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/research/sizing.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/research.json:16",
+     "ref": "governance/checks.d/research.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/research.json:8",
+     "ref": "governance/checks.d/research.json",
+     "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/research.json:25",
+     "ref": "router/intents.d/research.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/shared-market-scan/SKILL.md:11",
+     "ref": ".claude/skills/shared-market-scan/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/shared-market-scan/SKILL.md:20",
+     "ref": ".claude/skills/shared-market-scan/SKILL.md",
+     "source": "skill"
     }
    ]
   },
@@ -1806,6 +2265,11 @@
    "kind": "tool",
    "triggers": [
     {
+     "evidence": "governance/checks.d/understand.json:19",
+     "ref": "governance/checks.d/understand.json",
+     "source": "check"
+    },
+    {
      "evidence": "router/intents.d/station.json:2",
      "ref": "router/intents.d/station.json",
      "source": "router"
@@ -1849,22 +2313,22 @@
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:17",
+     "evidence": "router/intents.json:126",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:24",
+     "evidence": "router/intents.json:183",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:31",
+     "evidence": "router/intents.json:72",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:45",
+     "evidence": "router/intents.json:97",
      "ref": "router/intents.json",
      "source": "router"
     },

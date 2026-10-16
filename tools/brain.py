@@ -469,6 +469,22 @@ def card(ctx, budget=None, full=False):
     return text if nbytes(text) <= budget else cut(text, budget - 40) + "\n... TRUNCATED card (budget)"
 
 
+def _memory_lines(ctx, max_lines=4):
+    """One `MEMORY <slug> · atlas <s> · wiki <s> · <path>` line per station.json memory.targets entry (empty list =
+    nothing, no subprocess). Runs tools/kit/understand.py --card with a short timeout; at most max_lines lines."""
+    u = ctx.root / "tools" / "kit" / "understand.py"
+    d = rjson(ctx.root / "commons" / "defaults.json", {}) or {}
+    targets = ((ctx.station_json.get("memory") or {}).get("targets") if "memory" in ctx.station_json
+               else (d.get("memory") or {}).get("targets")) or []
+    if not targets or not u.exists():
+        return ""
+    rc, o, _ = run([sys.executable, str(u), "--card"], ctx.root, timeout=8)
+    if rc is None:
+        return "MEMORY: card timed out — run python3 tools/kit/understand.py --list"
+    lines = [l for l in (o or "").splitlines() if l.startswith("MEMORY ")]
+    return "\n".join(lines[:max_lines] + (["MEMORY ... %d more (understand.py --list)" % (len(lines) - max_lines)] if len(lines) > max_lines else []))
+
+
 def card_budget(ctx):
     sj = ctx.station_json
     d = rjson(ctx.root / "commons" / "defaults.json", {}) or {}
@@ -918,6 +934,12 @@ def hook(event, raw, root=None):
                     parts.append(fn())
                 except Exception as e:  # noqa: BLE001 -- fail open, named
                     parts.append("BRAIN %s: not built (%s) — run python3 tools/brain.py ladder" % (name, type(e).__name__))
+            try:  # MEMORY lines (tools/kit/understand.py --card, R-kit-understand): only when memory.targets opts in
+                mem = _memory_lines(ctx)
+                if mem:
+                    parts.append(mem)
+            except Exception as e:  # noqa: BLE001 -- fail open, named
+                parts.append("MEMORY: not read (%s) — run python3 tools/kit/understand.py --list" % type(e).__name__)
             sa = ctx.root / "tools" / "station_audit.py"
             if sa.exists():
                 rc, o, _ = run([sys.executable, str(sa), "--state"], ctx.root, timeout=10)

@@ -1,0 +1,31 @@
+{
+ "_why": "the understand row (commons since reconcile-01 wave 2, DEC-core-0012): shared target memory built on station forge.",
+ "checks": [
+  {
+   "name": "understand",
+   "cmd": [
+    "python3",
+    "tools/kit/understand.py",
+    "--check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "understand",
+   "earned_by": "operator 2026-10-16 ('useful tools for deciphering and understanding anything and keeping memory and context'): forge proved understand.py on HKUDS~Vibe-Trading (47,609 symbols) and the kit; one commons owner lets every station keep one memory per target outside its tree. The row keeps the memory config well-formed, both tool pins present, and refuses an MCP opt-in whose telemetry row is unverified",
+   "selftest": [
+    "python3",
+    "tools/kit/understand.py",
+    "--selftest"
+   ],
+   "retires": "forge's private tools/station/understand.py (moved here)",
+   "inputs": [
+    "tools/kit/understand.py",
+    "commons/defaults.json",
+    "station.json",
+    "registry/sources.json",
+    "registry/telemetry.json"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  }
+ ]
+}

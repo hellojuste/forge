@@ -1,0 +1,29 @@
+{
+ "_why": "research programme check rows (commons since reconcile-01, DEC-core-0011): the shared market-scan (sizing + chain of custody) built on station research. Research keeps the NC lane, nc_stamp, nc_export, the gateway and its own custody row.",
+ "checks": [
+  {
+   "name": "market_scan",
+   "cmd": [
+    "python3",
+    "tools/research/sizing.py",
+    "scan"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "research",
+   "earned_by": "research-v2 proposal (career and venture call the same market-scan as research): every market figure carries its source, n, unit, geography and arithmetic, grounds re-found in hashed captures, both approaches, UNSOURCED never summed, and nothing from the CC BY-NC lane (KIT_PLAN 4.3 boundary)",
+   "selftest": [
+    "python3",
+    "tools/research/sizing.py",
+    "--selftest"
+   ],
+   "retires": "research deliverables.py's private sizing rules as the only home (it delegates here)",
+   "inputs": [
+    "work/**/sizing.json",
+    "engagements/**/sizing.json",
+    "tools/research/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  }
+ ]
+}

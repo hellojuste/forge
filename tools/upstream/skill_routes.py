@@ -331,6 +331,20 @@ def check(assignment, station, root, allow_seed=False):
     homed = {r["id"]: r for r in arows if r.get("home") == station}
     srows = U.rows_of(U.load_json(root / "router" / "skills.json", None), "skills")
     viol, work = [], []
+    # kind: gap (reconcile-01, research proposal): a station-authored gap skill with no census row; checked on its own
+    gaps = [r for r in srows if r.get("kind") == "gap" and not r.get("copy_of")]
+    srows = [r for r in srows if r not in gaps]
+    for r in gaps:
+        cid, path = str(r.get("id") or ""), r.get("path") or ""
+        if cid in aby:
+            viol.append("%s: a census id cannot be a gap row (route it by its assignment)" % cid)
+        if not re.match(r"^gap:\.claude/skills/[^/]+/SKILL\.md$", cid) or cid != "gap:" + path:
+            viol.append("%s: a gap row's id is gap:<path> and its path .claude/skills/<name>/SKILL.md" % cid)
+        elif not (root / path).is_file():
+            viol.append("%s: path %s does not exist" % (cid, path))
+        kw = [k for k in (r.get("keywords") or []) if str(k).strip()]
+        if len(kw) < MIN_KEYWORDS:
+            (work if allow_seed else viol).append("%s: %d keyword(s) (< %d)" % (cid, len(kw), MIN_KEYWORDS))
     own = [r for r in srows if not r.get("copy_of")]
     copies = [r for r in srows if r.get("copy_of")]
     count = {}
@@ -377,7 +391,7 @@ def check(assignment, station, root, allow_seed=False):
             viol.append("%s: copy_of %s but the assignment homes it in %s" % (cid, r.get("copy_of"), a.get("home")))
         if not r.get("path") or not (root / r["path"]).is_file():
             viol.append("%s: copy path %s does not exist" % (cid, r.get("path")))
-    return U.finish("skill_routes", viol, work, len(homed) + len(copies))
+    return U.finish("skill_routes", viol, work, len(homed) + len(copies) + len(gaps))
 
 
 # ---------------------------------------------------------------- matcher (identical to the commons router's)
@@ -886,6 +900,19 @@ def selftest():
             rc, out = _q(check, t / "assign.json", "home", t / "st2")
             assert rc == 1 and needle in out, (needle, out)
             cases += 1
+        # kind: gap (reconcile-01): a station gap skill routes without a census row; a dead path / census id / bad id fails
+        (st / ".claude/skills/edge-gap").mkdir(parents=True, exist_ok=True)
+        (st / ".claude/skills/edge-gap/SKILL.md").write_text("---\nname: edge-gap\n---\n")
+        gap = {"id": "gap:.claude/skills/edge-gap/SKILL.md", "name": "edge-gap", "kind": "gap", "path": ".claude/skills/edge-gap/SKILL.md",
+               "keywords": ["edge", "gap", "custody"], "home": "home"}
+        base_obj = U.load_json(st / "router/skills.json")
+        for g, want, needle in [(gap, 0, None), (dict(gap, path=".claude/skills/nope/SKILL.md", id="gap:.claude/skills/nope/SKILL.md"), 1, "does not exist"),
+                                (dict(gap, id="gap:skills/x/SKILL.md"), 1, "gap:<path>"), (dict(gap, keywords=["one"]), 1, "keyword(s)")]:
+            U.write_json(st / "router/skills.json", dict(base_obj, skills=base_obj["skills"] + [g]))
+            rc, out = _q(check, t / "assign.json", "home", st)
+            assert rc == want and (needle is None or needle in out), (g, out)
+            cases += 1
+        U.write_json(st / "router/skills.json", base_obj)
         # index
         rc, out = _q(index, st)
         txt = (st / "repertoire/INDEX.md").read_text()

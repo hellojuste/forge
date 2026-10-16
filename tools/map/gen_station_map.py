@@ -31,7 +31,23 @@ def show_json(root, ref, path):
         return {"_unreadable": True}
 
 
+def main_name(root):
+    """The kit's main ref (tools/kit/_kit.main_ref: local main, local claude/stable-kit-main, then remote forms -
+    REPRODUCE F2); plain `main` when the kit tools are absent. reconcile-01: a hosted checkout with local station/*
+    branches and no local `main` made this check UNREADABLE."""
+    kit = Path(root) / "tools" / "kit"
+    if (kit / "_kit.py").is_file():
+        sys.path.insert(0, str(kit))
+        try:
+            import _kit
+            return _kit.main_ref(str(root)) or "main"
+        except Exception:  # noqa: BLE001 - fall back to the literal name
+            return "main"
+    return "main"
+
+
 def rows(root):
+    main = main_name(root)
     refs = C.git(root, "for-each-ref", "--format=%(refname:short)", "refs/heads/station/", check=True).stdout.split()
     tags = C.git(root, "tag", "--list", "commons-v*", "--sort=-v:refname").stdout.split()
     tag_sha = C.git(root, "rev-list", "-n1", tags[0]).stdout.strip() if tags else None
@@ -40,8 +56,8 @@ def rows(root):
         sj = show_json(root, ref, "station.json") or {}
         sd = show_json(root, ref, "map/station_dirs.json") or {}
         purpose = sj.get("purpose") or (sd.get("meta") or {}).get("purpose") or ("UNREADABLE station.json" if sj.get("_unreadable") else "-")
-        behind = C.git(root, "rev-list", "--count", "%s..main" % ref, check=True).stdout.strip()
-        mb = C.git(root, "merge-base", "main", ref).stdout.strip()
+        behind = C.git(root, "rev-list", "--count", "%s..%s" % (ref, main), check=True).stdout.strip()
+        mb = C.git(root, "merge-base", main, ref).stdout.strip()
         lock = show_json(root, ref, "upstream/LOCK.json") or {}
         nlock = len(lock.get("rows", [])) if isinstance(lock, dict) else 0
         subj = C.git(root, "log", "-1", "--format=%s", ref).stdout.strip()

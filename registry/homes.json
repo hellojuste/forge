@@ -1,6 +1,6 @@
 {
  "_doc": "kit_plan.yml repo_landing as data: every repo -> station(s) + how (repertoire | tree | bootstrap | copy_from:<station>) or attic. KIT_PLAN 4.4.",
- "denominator": 28,
+ "denominator": 30,
  "homes": [
   {
    "attic": false,
@@ -624,6 +624,40 @@
    "skills_home": "no SKILL.md",
    "stations": [
     "quarantine"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 29,
+   "key": "getlago~lago-api",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "bootstrap",
+     "station": "venture"
+    }
+   ],
+   "repo": "getlago/lago-api",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 30,
+   "key": "getlago~lago-front",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "bootstrap",
+     "station": "venture"
+    }
+   ],
+   "repo": "getlago/lago-front",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "venture"
    ]
   }
  ]

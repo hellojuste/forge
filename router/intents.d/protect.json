@@ -1,0 +1,39 @@
+{
+ "_why": "router rows contributed by the protection programme (commons since reconcile-01, DEC-core-0011): protect the operator's OWN sites in every station.",
+ "intents": [
+  {
+   "name": "site-protection",
+   "description": "apply the protection pack and run the passive self-check on the operator's own site before launch",
+   "contributed_by": "kit",
+   "router": {
+    "keywords": [
+     "self_check",
+     "self-check"
+    ],
+    "phrases": [
+     "rate limit",
+     "rate limiting",
+     "bot protection",
+     "bot handling",
+     "harden my site",
+     "harden the site",
+     "security headers",
+     "launch checklist",
+     "protect my site",
+     "protection pack"
+    ],
+    "path_patterns": [
+     "tools/protect/",
+     "commons/packs/protection/"
+    ],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "skill": "site-protection",
+     "args": "the local build dir or the operator's own staging URL",
+     "inline_gather": "python3 tools/protect/self_check.py check"
+    }
+   }
+  }
+ ]
+}

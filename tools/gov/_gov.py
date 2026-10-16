@@ -167,7 +167,8 @@ def config(root):
 
 
 # ---------------------------------------------------------------- branch discipline (KIT_PLAN 3.3)
-COMMONS_SKILLS = {"closeout", "handoff", "checkpoint", "summon", "tier", "upstream-intake"}
+COMMONS_SKILLS = {"closeout", "handoff", "checkpoint", "summon", "tier", "upstream-intake",
+                  "design-review", "site-protection", "shared-market-scan"}  # +3 reconcile-01 (DEC-core-0011)
 COMMONS_WORKFLOWS = {"_template", "orient"}
 STATION_ONLY = [
     "station.json", "STATION.md", ".claude/rules/station.md", ".env", ".env.example", ".mcp.json",

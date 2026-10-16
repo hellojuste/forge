@@ -1,0 +1,23 @@
+{
+ "_why": "research programme rules (commons since reconcile-01, DEC-core-0011). Research stays owner of the NC lane (nc_stamp, nc_export) and of its own custody/deliverable rows.",
+ "rules": [
+  {
+   "id": "R-research-market-scan",
+   "headline": "A shared market-scan figure carries its source, n, unit, geography and arithmetic with grounds re-found in hashed captures; UNSOURCED is never summed; nothing NC-derived feeds it",
+   "owner": "tools/research/sizing.py",
+   "pointers": [
+    "tools/research/custody.py",
+    ".claude/skills/shared-market-scan/SKILL.md"
+   ],
+   "enforcement": {
+    "kind": "check",
+    "ref": "market_scan",
+    "by": "market_scan"
+   },
+   "earned_by": "research-v2 section 5 (market-scan written to be shared) + KIT_PLAN 4.3 NC boundary",
+   "rung": "hard",
+   "since": "DEC-core-0011",
+   "upstream": "NEVER"
+  }
+ ]
+}

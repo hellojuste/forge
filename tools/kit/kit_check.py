@@ -17,7 +17,7 @@ every copy checked). Retires: nothing (new with the kit).
       station audit checks it). --strict: a repo without station branches is a
       violation, not a skip.
   kit_check.py registry [--root R]
-      28 sources rows, 40-hex pins, unique ids/keys, https://github.com/<repo>
+      30 sources rows, 40-hex pins, unique ids/keys, https://github.com/<repo>
       urls; every repo landed on a tree station or in the attic; every
       quarantine.json repo lands ONLY on station/quarantine (study lanes on their
       own station); licences cover every repo; telemetry rows carry a boolean
@@ -37,7 +37,7 @@ import tempfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import _kit  # noqa: E402
 
-EXPECTED_SOURCES = 28
+EXPECTED_SOURCES = 30  # 28 + getlago~lago-api, getlago~lago-front bootstrap-only gitlink pins (reconcile-01, DEF-venture-0001)
 EXPECTED_SKILLS = 360
 HEX40 = re.compile(r"^[0-9a-f]{40}$")
 
