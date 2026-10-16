@@ -270,8 +270,8 @@ flowchart LR
 | `tool:tools/map/map_check.py` | runs | `tool:tools/map/usage_map.py` | tools/map/map_check.py:113 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/hooks/usage_log.py` | tools/map/usage_map.py:10 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/map_check.py` | tools/map/usage_map.py:83 |
-| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/setup_tool.py:552 |
-| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/runtree.py` | tools/station/setup_tool.py:544 |
+| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/setup_tool.py:555 |
+| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/runtree.py` | tools/station/setup_tool.py:547 |
 | `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/telemetry_plan.py:77 |
 | `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/runtree.py` | tools/station/telemetry_plan.py:78 |
 | `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/station_audit.py:331 |
