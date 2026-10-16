@@ -20,3 +20,5 @@ carries the evo and openwiki opt-out evidence (main commit 79ec056, "telemetry r
 so those four rows are LANDED. Still open for main: the ProjectAtlas row (`opt_out: unread`) — proposed text above.
 
 The offline status runs that would then flip each row are printed by `python3 tools/station/telemetry_plan.py all`.
+
+SUPERSEDED in part 2026-10-16 (forge-setup; the words above stay): the ProjectAtlas row is re-read at bed8ba3 with an opt-out (`PROJECTATLAS_NO_TELEMETRY`, runtime.rs:3608-3610) and a status run; rows for evo, openwiki, ProjectAtlas and a new rea row are proposed in `work/telemetry/setup-findings.md`.

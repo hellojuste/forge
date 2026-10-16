@@ -30,12 +30,15 @@ STATUS = {
     "evo-hq/evo": ("EVO_TELEMETRY=0 evo telemetry status",
                    "plugins/evo/src/evo/telemetry.py:102-112 (EVO_TELEMETRY in 0/false/off/no, or DO_NOT_TRACK in "
                    "1/true/yes; gate at 120-121); never `evo telemetry off` (cli.py:615-623 sends a final event)"),
-    "langchain-ai/openwiki": ("openwiki init --telemetry-file ow-telemetry.json   (expect {\"disabled\": true, \"sent\": false} in the file)",
+    "langchain-ai/openwiki": ("openwiki init --telemetry-file ow-telemetry.json   (expect {\"disabled\": true, \"sent\": false} in the file; "
+                              "without a model key: node -e the installed dist/telemetry/senders.js recordRun, see work/telemetry/setup-findings.md)",
                               "src/telemetry/gates.ts:28-32 (truthy OPENWIKI_TELEMETRY_DISABLED or DO_NOT_TRACK skips "
                               "the send, senders.ts:136); record that no request leaves the run (offline: no network)"),
-    "styler-ai/ProjectAtlas": ("atlas runtime-info",
-                               "crates/projectatlas-db/src/telemetry.rs:1 (local token accounting in the project DB; no "
-                               "network sender recorded) -- confirm the run prints no remote endpoint"),
+    "styler-ai/ProjectAtlas": ("PROJECTATLAS_NO_TELEMETRY=1 projectatlas runtime-info   (setup_tool.py's kit-bin/projectatlas sets it)",
+                               "crates/projectatlas-db/src/telemetry.rs:1 + core/src/telemetry.rs:1 (local token accounting in "
+                               "the project DB; no HTTP crate in the default build: `cargo tree -p projectatlas-cli -e normal` "
+                               "-> 0 of ureq/reqwest/hyper); PROJECTATLAS_NO_TELEMETRY 1/true/yes/on skips the local writes "
+                               "(crates/projectatlas-cli/src/runtime.rs:3608-3610, main.rs:4034-4040)"),
     "triggerdotdev/trigger.dev": ("npx trigger.dev@<pinned> --skip-telemetry whoami",
                                   "packages/cli-v3/src/mcp/telemetry.ts:18 (enabled only when the variable is "
                                   "undefined) -- the pinned version comes from the bootstrap tree's package.json"),

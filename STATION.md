@@ -27,10 +27,22 @@
 | add a new upstream to the stable | workflow `intake-run` (method: skill `upstream-intake`) |
 | architecture or refactor plan | workflow `arch-review` |
 | repin / bump an upstream | workflow `kit-repin` |
+| set up / install / remove rea, evo, openwiki, ProjectAtlas | workflow `setup` (`python3 tools/station/setup_tool.py <tool>`) |
 | telemetry: what a tool sends, how to verify its row | skill `telemetry-audit` (`python3 tools/station/telemetry_plan.py all`) |
 | is that gain bigger than the noise? | skill `noise-floor` |
 | audit a CI / test suite for false passes | skill `ci-suite-audit` |
 | write a new kit skill or workflow | skill `skill-author` (routing a new upstream's skills: `skill-route-intake`) |
+
+## Set up a tool
+```bash
+python3 tools/station/setup_tool.py rea            # or evo | openwiki | projectatlas
+python3 tools/station/setup_tool.py --all          # all four
+python3 tools/station/setup_tool.py evo --dry-run  # the plan, nothing written
+python3 tools/station/setup_tool.py --list         # ready / absent / wrong-version per tool
+python3 tools/station/setup_tool.py --check evo    # exit 0 = ready (the workflows' start check)
+python3 tools/station/setup_tool.py evo --remove   # install + run tree gone
+bash ~/.stable-kit/run/forge/evo@c70c04b/.kit-tool/kit-bin/evo --help   # run it (path printed by setup)
+```
 
 ## Where things are
 | path | what | writable? |
@@ -55,10 +67,12 @@ Every workflow: GATHER real output -> work -> a reader who did not do the work r
 | `intake-run` | `work/intake/<slug>.md` + held files + routed, surfaced skills | `forge_check.py output intake {path}` + `skill_routes.py check` + `skill_surface.py --check` |
 | `arch-review` | `work/arch/<slug>.md` (two designs, depth table, pick) | `forge_check.py output arch {path}` |
 | `kit-repin` | `work/repin/<key>-<sha7>.md` (`applied: no`) | `forge_check.py output repin {path}` + `repin.py --check` |
+| `setup` | rea / evo / openwiki / ProjectAtlas installed at the pin in a run tree | `setup_tool.py --check <tool>` |
 `tools/station/forge_check.py check` (`forge_gates`) runs the ten refusals: trial, holdout, telemetry, re_gate, repin, noise, wiki, arch, intake, roster.
 Skills: 21 held upstream skills are surfaced natively in `.claude/skills/` (links into `repertoire/`, read as data; DEC-core-0010); ours are tool-trial, evo-guard, telemetry-audit, kit-maintain, re-legal-gate, noise-floor, design-it-twice, ci-suite-audit, skill-route-intake, skill-author.
 
 ## Gates on this station
-- Telemetry: evo, openwiki and ProjectAtlas rows are `verified: false` until the operator's offline status run is recorded; no workflow starts them before that (`telemetry_plan.py gate <tool>` is each workflow's start check; `show <tool>` prints the run that flips it). `.env` pre-sets `OPENWIKI_TELEMETRY_DISABLED=1`, `EVO_TELEMETRY=0`, `DO_NOT_TRACK=1`. Never `evo telemetry off`: it sends a final event.
+- Telemetry: evo, openwiki and ProjectAtlas rows are `verified: false` until the operator's offline status run is recorded; no workflow starts them before that (`telemetry_plan.py gate <tool>` is each workflow's start check; `show <tool>` prints the run that flips it). `.env` pre-sets `OPENWIKI_TELEMETRY_DISABLED=1`, `EVO_TELEMETRY=0`, `DO_NOT_TRACK=1`. Never `evo telemetry off`: it sends a final event. The rows proposed for main after the setup runs are in `work/telemetry/setup-findings.md`.
+- Readiness: each tool workflow also gates on `setup_tool.py --check <tool>`, and refuses with the one setup command when that check fails. Installs live only under `~/.stable-kit/run/forge/<repo>@<sha7>/.kit-tool/`. The wrapper `kit-bin/<cli>` is named after the CLI, so act_gate still asks before `rea setup|update|analyze-*`, `evo ship`, `projectatlas init`, ...
 - Plugin hooks are never installed: evo's `.*` hook-drain and ProjectAtlas `readiness.sh` stay in `.upstream/`. act_gate asks before plugin installs, `evo ship`, `openwiki integrations install|auth|ingest`, REA setup/analyze, `repin.py --apply`, `git push`.
 - No MCP server is expected (`connector_scope` reports). Local ProjectAtlas/openwiki MCP entries are disabled examples in `.mcp.local.example.json`.
