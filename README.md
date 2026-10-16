@@ -105,9 +105,12 @@ Use one worktree per station. A working root that spans several stations loads t
 ## Upstream clones (bootstrap)
 
 Big upstream apps are not committed. They are `bootstrap` rows: a bare clone fetched at the exact 40-hex pin
-from `registry/sources.json` into the gitignored `.upstream/`, never checked out inside a station.
+from `registry/sources.json` into ONE cache shared by the kit checkout and every station worktree (the main
+checkout's gitignored `.upstream/`, or `$STABLE_KIT_UPSTREAM`), never checked out inside a station. Run it from
+the kit root or from any `~/stations/<x>`: both see the same pins.
 
 ```bash
+python3 tools/kit/bootstrap.py --station venture --dry-run   # preview: url · sha · files_at_pin · cache path · present/absent
 python3 tools/kit/bootstrap.py --station venture             # or --all, --attic, or <owner~repo> ...
 python3 tools/kit/bootstrap.py --all --bundle-out ~/kit-bundles   # offline bundles for later transport
 python3 tools/kit/bootstrap.py --all --from-bundle ~/kit-bundles  # restore without network

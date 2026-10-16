@@ -8,14 +8,15 @@ install scripts write into the working tree. A run tree under
 nothing (it is a run tree, outside the repo). Retires: hand worktrees.
 
   runtree.py <owner~repo> [--station X] [--workspace] [--root R] [--run-root DIR]
-      git -C .upstream/<owner~repo>.git worktree add --detach <run-root>/<station>/<repo>@<sha7> <sha>
+      git -C <cache>/<owner~repo>.git worktree add --detach <run-root>/<station>/<repo>@<sha7> <sha>
       --workspace (career-ops, ai-job-search: agent workspaces that assume they
       ARE the repo) also writes <tree>/.claude/settings.local.json wiring the kit
       floor hooks (deny_destructive; station_dispatch with act_gate /
       quarantine_gate) by absolute path into the station worktree, and prints
       the PRECEDENCE case-ii notice.
   runtree.py --list | --remove <owner~repo> [--station X] [--force] | --selftest
-Default run root: $STABLE_KIT_RUN or ~/.stable-kit/run.
+Default run root: $STABLE_KIT_RUN or ~/.stable-kit/run. <cache> is the bootstrap cache shared by the kit
+checkout and every station worktree ($STABLE_KIT_UPSTREAM, else the main checkout's .upstream/; REPRODUCE F4).
 Exit 0 ok · 1 refused (no bootstrap pin, dirty tree on remove) · 2 usage.
 """
 import argparse
@@ -109,7 +110,7 @@ def add(root, key, station=None, workspace=False, rr=None, log=print, station_ro
 
 
 def list_trees(root, log=print):
-    up = os.path.join(root, ".upstream")
+    up = _kit.upstream_cache(root)
     n = 0
     if os.path.isdir(up):
         for d in sorted(os.listdir(up)):
@@ -143,6 +144,7 @@ def remove(root, key, station=None, rr=None, force=False, log=print):
 
 
 def _selftest():
+    os.environ.pop(_kit.CACHE_ENV, None)  # fixtures must never touch the operator's configured cache
     tmp = tempfile.mkdtemp(prefix="kit-runtree-")
     quiet = lambda *a: None
     try:

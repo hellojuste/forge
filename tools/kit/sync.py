@@ -6,7 +6,9 @@ each merge left one stale (LL-24 "rebuild after combining"); and a station that
 edits a commons file turns every later merge into a hand-resolution (KIT_PLAN
 3.3 branch discipline). Retires: hand `git merge main` on stations.
 
-  sync.py [--root R] [--main main] [--no-audit]
+  sync.py [--root R] [--main <ref>] [--no-audit]
+      --main defaults to the kit's resolved main (tools/kit/_kit.main_ref: local main, local
+      claude/stable-kit-main, then origin/main or origin/claude/stable-kit-main - REPRODUCE F2).
       on a station branch: `git merge --no-ff main`. On conflict, for each
       conflicted path:
         * GENERATED (its first 3 lines declare it):
@@ -163,7 +165,7 @@ def do_sync(root, main_ref, audit=True):
     if not br:
         print("sync: detached HEAD; check out a station branch first")
         return 2
-    if br == main_ref:
+    if br == main_ref or br in ("main", _kit.HOSTED_PREFIX + "main"):
         print("sync: on %s; run sync on a station branch" % main_ref)
         return 2
     if _kit.git(root, "diff", "--quiet", "HEAD", check=False).returncode != 0:
@@ -293,6 +295,14 @@ def _selftest():
         assert _kit.git(repo, "merge-base", "--is-ancestor", "main", "HEAD", check=False).returncode == 0
         assert _kit.git_out(repo, "rev-parse", "HEAD^1") == head0, "a merge commit, not a rebase"
         assert do_sync(repo, "main") == 0, "second sync is a no-op"
+        assert main(["--root", repo, "--check"]) == 0, "default --main resolves to main"
+        # REPRODUCE F2: hosted naming - a station worktree on claude/stable-kit-alpha syncs from claude/stable-kit-main
+        hosted = _kit.fixture_layouts(repo, tmp)["hosted"]
+        _kit.git(hosted, "switch", "-q", "-c", "claude/stable-kit-alpha", "origin/claude/stable-kit-alpha")
+        assert _kit.main_ref(hosted) == "refs/heads/claude/stable-kit-main", _kit.main_ref(hosted)
+        assert main(["--root", hosted, "--check"]) == 0, "hosted layout: --check against the resolved main"
+        _kit.git(hosted, "switch", "-q", "claude/stable-kit-main")
+        assert main(["--root", hosted, "--no-audit"]) == 2, "hosted main itself is refused"
 
         # case 2: commons conflict -> abort, branch unchanged
         g("switch", "-q", "station/beta")
@@ -316,7 +326,7 @@ def main(argv=None):
     if "--selftest" in argv:
         return _selftest()
     root = os.getcwd()
-    main_ref = "main"
+    main_ref = None
     if "--root" in argv:
         root = argv[argv.index("--root") + 1]
     if "--main" in argv:
@@ -326,6 +336,12 @@ def main(argv=None):
         print("sync: not a git repo: %s" % root)
         return 2
     root = p.out.strip()
+    if main_ref is None:
+        full = _kit.main_ref(root)
+        if not full:
+            print("sync: no main ref (main, claude/stable-kit-main, local or remote-tracking); pass --main <ref>")
+            return 2
+        main_ref = re.sub(r"^refs/(heads|remotes)/", "", full)
     try:
         if "--check" in argv:
             return do_check(root, main_ref)

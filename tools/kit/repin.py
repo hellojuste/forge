@@ -9,7 +9,7 @@ invisible_dots). A pin moved without a report ships those silently.
 Retires: hand edits of registry/sources.json.
 
   repin.py --report <owner~repo> <new-sha> [--root R] [--no-fetch] [--paths p ...]
-      needs the bare clone .upstream/<owner~repo>.git (tools/kit/bootstrap.py);
+      needs the bare clone <cache>/<owner~repo>.git (tools/kit/bootstrap.py; shared cache);
       fetches the new sha (unless --no-fetch), then reports:
         1 path-scoped diff --stat for the held paths (station LOCK rows, or --paths)
         2 LICENSE blob diff (any licence file change STOPS)
@@ -64,11 +64,15 @@ def station_locks(root):
         st = _kit.read_json(os.path.join(root, "station.json")).get("name", "station")
         out.append((st, lock_rows(_kit.read_json(lp)) if os.path.isfile(lp) else []))
         return out
-    p = _kit.git(root, "for-each-ref", "--format=%(refname:short)", "refs/heads/station/", check=False)
-    for br in p.out.split():
-        t = _kit.git(root, "show", "%s:upstream/LOCK.json" % br, check=False)
+    # REPRODUCE F2: local, remote-tracking and hosted claude/stable-kit-* station refs
+    try:
+        refs = _kit.station_refs(root, _kit.known_stations(root))
+    except _kit.KitError:
+        refs = {}
+    for st, ref in refs.items():
+        t = _kit.git(root, "show", "%s:upstream/LOCK.json" % ref, check=False)
         rows = lock_rows(json.loads(t.out)) if t.returncode == 0 else []
-        out.append((br.split("/", 1)[1], rows))
+        out.append((st, rows))
     return out
 
 
@@ -193,6 +197,7 @@ def check(root, log=print):
 
 
 def _selftest():
+    os.environ.pop(_kit.CACHE_ENV, None)  # fixtures must never touch the operator's configured cache
     tmp = tempfile.mkdtemp(prefix="kit-repin-")
     quiet = lambda *a: None
     try:
