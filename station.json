@@ -45,7 +45,9 @@
   "\\brea(-agents(@\\S+)?)?\\s+analy[sz]e-",
   "\\bprojectatlas\\s+init\\b",
   "\\btools/kit/repin\\.py\\s+--apply\\b",
-  "\\bgit\\s+push\\b"
+  "\\bgit\\s+push\\b",
+  "^mcp__[^_]*rea[^_]*__(analy[sz]e_|capture_|observe_|instrument_|start_|load_frida|resume_frida|debug|gdb_|rizin_debug|execute_rizin|cutter_|install_adb|uninstall_adb|push_adb|stop_adb|pull_adb|open_binary|annotate_|set_)",
+  "^mcp__[^_]*atlas[^_]*__atlas_(init|root_set|reset_index|mcp_config|worktree_add|worktree_remove|strip_legacy_purpose)\\b"
  ],
  "irreversible_acts_why": {
   "\\bevo\\s+telemetry\\s+(on|off)\\b": "evo telemetry on flips the user-wide ~/.evo setting; evo telemetry off SENDS a final opt-out event before disabling (evo-hq/evo@c70c04b plugins/evo/src/evo/cli.py:615-623) -- opt out with EVO_TELEMETRY=0 / DO_NOT_TRACK=1 in the env instead",
@@ -58,7 +60,9 @@
   "\\brea(-agents(@\\S+)?)?\\s+analy[sz]e-": "an REA analysis run on a target needs a re-legal-gate row first (work/re/legal_gate.json)",
   "\\bprojectatlas\\s+init\\b": "projectatlas init writes a project-local index DB AND version-matched Claude Code/OpenCode MCP configs into the repo it runs in (README.md:53-58 at bed8ba3); run it only on a throwaway local clone",
   "\\btools/kit/repin\\.py\\s+--apply\\b": "rewrites a pin (registry/sources.json on main, upstream/LOCK.json here); only after the repin report is green",
-  "\\bgit\\s+push\\b": "pushes this branch off the machine (the operator places things himself)"
+  "\\bgit\\s+push\\b": "pushes this branch off the machine (the operator places things himself)",
+  "^mcp__[^_]*rea[^_]*__(analy[sz]e_|capture_|observe_|instrument_|start_|load_frida|resume_frida|debug|gdb_|rizin_debug|execute_rizin|cutter_|install_adb|uninstall_adb|push_adb|stop_adb|pull_adb|open_binary|annotate_|set_)": "an REA MCP tool that runs, attaches to, instruments or changes a target (analyze_*, capture_*, observe_*, frida, gdb/rizin debug, adb install/push/start) needs the re-legal-gate row first, exactly like `rea analyze-*` on the CLI (rea --mcp tools/list at 1bd5c5c: 207 tools)",
+  "^mcp__[^_]*atlas[^_]*__atlas_(init|root_set|reset_index|mcp_config|worktree_add|worktree_remove|strip_legacy_purpose)\\b": "ProjectAtlas MCP tools that write host MCP configs, rebind the root, clear the index or add/remove git worktrees (projectatlas mcp tools/list at bed8ba3: 43 tools); read tools (atlas_files, atlas_search, atlas_map, ...) never ask"
  },
  "connectors_expected": [],
  "connector_scope": "report",
@@ -72,5 +76,16 @@
  },
  "telemetry_rule": "no workflow starts a tool whose registry/telemetry.json row is verified:false (wiki-gen, optimize-loop, tool-trial check it in their GATHER stage)",
  "skill_hide": {},
- "skill_listing_budget_fraction": 0.013
+ "skill_listing_budget_fraction": 0.013,
+ "memory": {
+  "_why": "tools/station/understand.py: one shared memory per target OUTSIDE every station tree (atlas.db + openwiki pages + manifest.json); targets feed `understand.py --card` (SessionStart memory line, proposed for main)",
+  "root": "~/.stable-kit/memory",
+  "targets": [
+   "kit"
+  ]
+ },
+ "mcp_optin": {
+  "_why": "per-station opt-in for the forge tools' MCP servers: list a tool here, then `python3 tools/station/understand.py --mcp kit` (atlas) prints the .mcp.json entry; nothing is wired while this list is empty (connectors_expected stays [] and connector_scope reports any server). Enable only after the tool's TRIAL row says promote and its registry/telemetry.json row is verified (.mcp.local.example.json rule).",
+  "enabled": []
+ }
 }

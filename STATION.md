@@ -44,6 +44,16 @@ python3 tools/station/setup_tool.py evo --remove   # install + run tree gone
 bash ~/.stable-kit/run/forge/evo@c70c04b/.kit-tool/kit-bin/evo --help   # run it (path printed by setup)
 ```
 
+## Which tool for what
+| you want to | tool | one command |
+|---|---|---|
+| navigate code (any repo, pin or folder) | ProjectAtlas | `python3 tools/station/understand.py <path\|owner~repo\|kit> --atlas` |
+| document it (grounded wiki) | openwiki | `python3 tools/station/understand.py <target> --wiki` (needs a provider key in `.env`) |
+| optimise a measurable | evo | workflow `optimize-loop` (holdout frozen first) |
+| understand a closed binary or app | rea | workflow `reverse` (legal gate first; analyses are asked) |
+| what is ready, where, which version, telemetry | all four | `python3 tools/station/setup_tool.py --list` |
+Memory lives in `~/.stable-kit/memory/<target>/` (`manifest.json`, `atlas.db`, `wiki/`). Check it with `understand.py --list`. To serve the atlas over MCP, run `understand.py --mcp <target>`. That stays opt-in per station: `station.json` `mcp_optin.enabled` is empty here.
+
 ## Where things are
 | path | what | writable? |
 |---|---|---|

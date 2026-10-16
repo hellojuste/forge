@@ -1799,6 +1799,29 @@
     }
    ]
   },
+  "tools/station/understand.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/station/understand.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:2",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/station.json:333",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/station.json:339",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
   "tools/station_audit.py": {
    "cold": null,
    "hand": [],

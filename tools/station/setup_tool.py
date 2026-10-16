@@ -6,7 +6,8 @@ owner: STATION.md#Set up a tool . station forge (station-only; stdlib only)
   setup_tool.py <rea|evo|openwiki|projectatlas|--all> [--dry-run] [--remove]
   setup_tool.py --check <tool>     exit 0 only when the tool is ready at its pin (a workflow's start check);
                                    otherwise prints the one setup command and exits 1
-  setup_tool.py --list             one status line per tool
+  setup_tool.py --list             the forge tools status: ready/absent/wrong-version, version, where it lives,
+                                   telemetry state (registry row + the opt-outs the wrapper sets)
   setup_tool.py --selftest         stub installers on a fake PATH, a fixture kit and remote; no network
 
 One run, per tool:
@@ -894,9 +895,18 @@ def main(argv=None):
     if a.check:
         return check(ctx, a.check)
     if a.list:
+        reg = {}
+        try:
+            for r in _kit.read_json(os.path.join(ctx.root, "registry", "telemetry.json")).get("telemetry", []):
+                reg[str(r.get("repo", "")).replace("/", "~")] = r
+        except (OSError, ValueError):
+            pass
         for n in ORDER:
             s, d = status(ctx, n)
-            print("  %-13s %-14s %s" % (n, s, d))
+            r = reg.get(TOOLS[n]["key"])
+            tel = ("registry verified" if r and r.get("verified") else "registry unverified" if r else "no registry row") + \
+                  " · wrapper sets " + ",".join("%s=%s" % kv for kv in sorted(TOOLS[n]["telemetry_env"].items()))
+            print("  %-13s %-14s %s\n  %-13s %-14s telemetry: %s" % (n, s, d, "", "", tel))
         return 0
     names = ORDER if a.all else ([a.tool] if a.tool else [])
     if not names:

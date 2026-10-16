@@ -1,6 +1,6 @@
 # RETURNS — station forge · forge-setup
 
-owner: child session for claude/stable-kit-forge (parent PRIME session_01GbdVhRTvKX1mxo9qitPKER) · status: DONE (two items need main, one needs the operator's Windows run) ·
+owner: child session for claude/stable-kit-forge (parent PRIME session_01GbdVhRTvKX1mxo9qitPKER) · status: DONE for part 1 + the understand/MCP/gate pieces of the scope upgrade; heavy demos DEFERRED to the operator's local run (PRIME rule 2026-10-16) ·
 date: 2026-10-16 · branch: claude/stable-kit-forge · main merged (`tools/kit/sync.py`: already up to date at 097c376)
 
 **Order (verbatim):** "forge — one-step setup for rea, evo, openwiki and ProjectAtlas"
@@ -80,6 +80,49 @@ In the KIT_TREE forge row (owned by router/kit_tree.json), add `setup` to the wo
 | Windows branches untested on a real host | **filed** as `DEF-forge-0001` (trigger: `setup_tool.py --all` twice on the operator's Windows) |
 | SessionStart/PostToolUse HANDOFF hook (context ≥ 200k) | not acted on: the order ends this session after RETURNS; every milestone was committed and pushed by path, so a successor would start from the pushed branch |
 
+## Scope upgrade (PRIME relay 2026-10-16)
+
+PRIME relayed the operator's words verbatim: "this one we need to flesh out" and "they also whole cloth are useful tools for deciphering and understanding anything and keeping memory and context no?"
+
+**PRIME's follow-up rule:** a demo that cannot finish here, or that keeps prompting, is "deferred to the operator's local run" with its exact command.
+
+### Done and proven in this session
+
+| item | what | proof (numbers with their commands) |
+|---|---|---|
+| `tools/station/understand.py` | `<path\|owner~repo\|kit> [--atlas] [--wiki] [--refresh]`. It writes one memory per target in `~/.stable-kit/memory/<slug>/` (`$STABLE_KIT_MEMORY`; config `station.json` `memory` over `commons/defaults.json` over the built-in default). Each memory holds `manifest.json` (target, kind, commit, identity, read_from, per-part status/at/commit/tool_version), `atlas.db` and `wiki/`. Other modes: `--list`, `--mcp`, `--card`, `--check-wiki`. It imports only `tools/kit/*`. | `understand.py --selftest` → 7 cases OK: tools missing, atlas + blocked wiki, exists/refresh skip, new commit + wiki on the copy, ownership/grounding check (4 planted reds), folder target + mcp + card, config precedence |
+| ProjectAtlas index on a bootstrap pin | `understand.py HKUDS~Vibe-Trading` | 60s; 2,737 files parsed, 47,609 symbols, 180,777 relations; the wiki was `blocked` (no provider key) |
+| ProjectAtlas on the kit (main + every worktree) | `understand.py kit --atlas` | 4.9s. kit~main@097c376: 96 parsed / 1,635 symbols / 12,928 relations. kit~stable-kit-forge: 240 / 3,295 / 18,829. `--refresh` → "atlas unchanged -- skipped". The station tree stayed clean (`git status`). |
+| Atlas over MCP | `understand.py --mcp kit` → `bash <kit-bin>/projectatlas --db <memory>/atlas.db mcp` | stdio JSON-RPC: initialize → ProjectAtlas 0.5.0-rc3; tools/list → 43 tools; `atlas_files("setup tool install pin")` → `tools/station/understand.py` first |
+| rea over MCP | `bash <kit-bin>/rea --mcp` | initialize → rea 6.5.0; tools/list → 207 tools |
+| MCP gates | `station.json` irreversible_acts: rea MCP tools that run, attach to, instrument or change a target (`analyze_*`, `capture_*`, `observe_*`, frida, gdb/rizin debug, adb install/push/start, `open_binary`, `set_*`) and ProjectAtlas `atlas_init`, `root_set`, `reset_index`, `mcp_config`, `worktree_add/remove` | matched: `mcp__rea__analyze_javascript_application` asks, `mcp__rea__list_strings` does not, `mcp__atlas-kit-main__atlas_init` asks, `atlas_files` does not; act_gate selftest 24 OK |
+| per-station MCP opt-in | `station.json` `mcp_optin.enabled: []`. The snippet comes from `understand.py --mcp <target>`. Nothing is wired while the list is empty, and `.mcp.local.example.json`'s rule (TRIAL promote + verified telemetry first) stands. | — |
+| openwiki ownership | `--check-wiki`: openwiki writes prose pages only, and the kit's generators (map/*, SOLUTIONS, OWNERSHIP, SKILLS_INDEX) own indexes. The check is red when a page cites nothing, cites a path absent at the indexed commit, names a kit tool/skill/workflow that `map/atlas.json` does not know, or sits on a generated path. | selftest case 5 (each red planted, then removed) |
+| tools status | `setup_tool.py --list` | per tool: ready, version, `kit-bin` path, and telemetry (registry row state + the opt-outs the wrapper sets) |
+| which tool for what | STATION.md table (navigate → Atlas, document → openwiki, optimise → evo, closed binary → rea) | — |
+| router | intents `setup` and `understand`, each with frozen keywords plus claims | router selftest 219 cases OK |
+
+### Deferred to the operator's local run (exact commands, Windows 11 + Git Bash, from the forge worktree)
+
+| item | why not here | the command |
+|---|---|---|
+| openwiki grounded wiki of a station → `work/wiki/forge/` | No model provider key in the station `.env`. The container's own credentials belong to the session and environment, so I did not repurpose them. | fill `ANTHROPIC_API_KEY` (or OPENROUTER/OPENAI) in `.env`, then `python3 tools/station/understand.py kit --wiki` and `python3 tools/station/understand.py --check-wiki kit`, then workflow `wiki-gen {repo: ".", name: "forge", target_class: "kit"}` (copies pages under `work/wiki/forge/` + REVIEW.md) |
+| ProjectAtlas token trial n ≥ 5 per arm, plus the "99.8%" claim against its benchmarks and the failed run | 2N + K = 15 agent runs. The Workflow tool needs the operator's own opt-in. | `python3 tools/station/setup_tool.py projectatlas evo`, then workflow `trial-run {tool: "projectatlas", n: 5}` (verdict + TRIAL row; certain test `forge_check.py output trial work/trials/projectatlas.md`) |
+| evo end-to-end on a kit measurable with a held-out set | Needs a fresh labeled set: the router is at 219/219 on its own selftest, so that set has no headroom, and the keywords are frozen by contract. The holdout must be hashed before the first run. | write `work/optimize/router-paraphrase/prompts.json` (labelled paraphrases; a 20% holdout chosen by rule), then workflow `optimize-loop {slug: "router-paraphrase", repo: "<a clone of this branch outside the station>", metric: "router first-move accuracy on the in-sample prompts"}`. Ship = `evo ship` in that clone (act_gate asks); the winner is a patch proposal for main (the router is commons). |
+| rea gated demo on a self-built target | `rea analyze-*` is an act_gate ask by design, and the parent session asked that no demo block on a prompt | build any small bundle you own (e.g. `printf 'export const add=(a,b)=>a+b;\n' > /tmp/demo/app.js`), then workflow `reverse {slug: "demo-bundle", target: "/tmp/demo", owner: "operator", licence: "own", right: "own", question: "what does it export"}`. The gate row lands in `work/re/legal_gate.json`, the report at `work/re/demo-bundle.md`, and the evidence under `work/reverse/demo-bundle/`. |
+| evo dashboard | optional; launched from the run tree | `bash ~/.stable-kit/run/forge/evo@c70c04b/.kit-tool/kit-bin/evo dashboard` |
+
+## Promote to main (PRIME verifies, then moves)
+
+- **Files that move unchanged:**
+  - `tools/station/understand.py` → `tools/kit/understand.py`. It imports only `_kit`, `bootstrap` and `runtree`.
+  - Add a `"memory": {"root": "~/.stable-kit/memory", "targets": []}` block to `commons/defaults.json`.
+  - `setup_tool.py` stays forge-only: its tool table is forge's.
+- **Per-station MCP opt-in:** the `mcp_optin` block as in forge's `station.json` (`enabled: []` by default). The snippet comes from `understand.py --mcp <target>`. Main would add a commons generator that writes `.mcp.json` entries ONLY for the enabled tools, and the existing rule stays: TRIAL promote and a verified telemetry row first.
+- **Brain hook:** `tools/brain.py hook session-start` appends `understand.py --card` output, one `MEMORY <slug> · atlas <status> · wiki <status> · <path>` line per `memory.targets` entry, inside the existing `sessionstart_budget_bytes`.
+- **Registry and README:** rows in `work/telemetry/setup-findings.md`, the README line above.
+- **Gate patterns:** the two MCP rows in forge `station.json` `irreversible_acts` belong in any station that enables those MCP servers.
+
 ## Test tails (fresh `git clone` of the branch at a67f3ba; setup_tool re-run after this commit's fix)
 
 ```
@@ -88,12 +131,13 @@ python3 tools/upstream/workflows_check.py --root . --check
   workflows_parse: 0 violation(s) · 0 worklist · denominator 10
   certain_tests: 0 violation(s) · 0 worklist · denominator 10
   listing_budget: 0 violation(s) · 0 worklist · denominator 37
+python3 tools/station/understand.py --selftest      -> understand selftest OK (7 cases)
 python3 tools/station/setup_tool.py --selftest      -> setup_tool selftest OK (11 cases: missing prerequisite, old node, full setup, second run ready, dry-run, remove, wrong version, release binary + bad checksum, Windows wrapper, act_gate through the wrapper, readers)
   planted: version_matches -> always True  => selftest FAILS (caught); node install line changed => FAILS (caught)
 python3 tools/station/forge_check.py --selftest     -> selftest: PASS (20 planted defect(s) + clean + unreadable)
 python3 tools/station/forge_check.py check          -> forge_gates: 0 violation(s) · 0 worklist · denominator 19
 python3 tools/station/telemetry_plan.py --selftest  -> telemetry_plan selftest OK (8 cases)
-python3 .claude/hooks/intent_router.py --selftest   -> selftest OK (215 cases, 56 fixture prompts)
+python3 .claude/hooks/intent_router.py --selftest   -> selftest OK (219 cases, 56 fixture prompts)
 python3 .claude/hooks/act_gate.py --selftest        -> act_gate selftest OK (24 cases)
 python3 tools/upstream/skill_routes.py check --root .   -> skill_routes: 0 violation(s) · 0 worklist · denominator 29
 python3 tools/upstream/skill_surface.py --check     -> skill_surface: 0 violation(s) · 0 worklist · denominator 21

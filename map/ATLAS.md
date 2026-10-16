@@ -3,13 +3,13 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 18 · hook 12 · skill 16 · tool 55 · total 117 · upstream 6 · workflow 10
+census: dir 18 · hook 12 · skill 16 · tool 56 · total 118 · upstream 6 · workflow 10
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
 ## Dirs and what is in them
 
-83 nodes > cap 60: table instead of a hairball.
+84 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -76,6 +76,7 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `tool:tools/station/forge_check.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station/setup_tool.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station/telemetry_plan.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/station/understand.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station_audit.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/upstream/_uplib.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/upstream/ingest.py` | in | `dir:tools` | map/dirs.json:199 |
@@ -138,7 +139,7 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-79 nodes > cap 60: table instead of a hairball.
+80 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -270,10 +271,12 @@ flowchart LR
 | `tool:tools/map/map_check.py` | runs | `tool:tools/map/usage_map.py` | tools/map/map_check.py:113 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/hooks/usage_log.py` | tools/map/usage_map.py:10 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/map_check.py` | tools/map/usage_map.py:83 |
-| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/setup_tool.py:555 |
-| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/runtree.py` | tools/station/setup_tool.py:547 |
+| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/setup_tool.py:556 |
+| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/runtree.py` | tools/station/setup_tool.py:548 |
 | `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/telemetry_plan.py:77 |
 | `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/runtree.py` | tools/station/telemetry_plan.py:78 |
+| `tool:tools/station/understand.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/understand.py:186 |
+| `tool:tools/station/understand.py` | runs | `tool:tools/station/setup_tool.py` | tools/station/understand.py:479 |
 | `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/station_audit.py:331 |
 | `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/stop.py` | tools/station_audit.py:327 |
 | `tool:tools/upstream/_uplib.py` | runs | `tool:tools/map/_common.py` | tools/upstream/_uplib.py:8 |

@@ -221,6 +221,22 @@
   {
    "prompt": "never install projectatlas here",
    "must_route": false
+  },
+  {
+   "prompt": "understand this repo for me, I just cloned it",
+   "expect": "understand"
+  },
+  {
+   "prompt": "build a code map of Vibe-Trading",
+   "expect": "understand"
+  },
+  {
+   "prompt": "help me decipher this pile of sources",
+   "expect": "understand"
+  },
+  {
+   "prompt": "never index this repo, it is a client one",
+   "must_route": false
   }
  ]
 }

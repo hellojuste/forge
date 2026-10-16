@@ -4,8 +4,8 @@
   "dir": 18,
   "hook": 12,
   "skill": 16,
-  "tool": 55,
-  "total": 117,
+  "tool": 56,
+  "total": 118,
   "upstream": 6,
   "workflow": 10
  },
@@ -1425,14 +1425,14 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/station/setup_tool.py:555",
+   "evidence": "tools/station/setup_tool.py:556",
    "from": "tool:tools/station/setup_tool.py",
    "kind": "runs",
    "to": "tool:tools/kit/bootstrap.py",
    "token": "tools/kit/bootstrap.py"
   },
   {
-   "evidence": "tools/station/setup_tool.py:547",
+   "evidence": "tools/station/setup_tool.py:548",
    "from": "tool:tools/station/setup_tool.py",
    "kind": "runs",
    "to": "tool:tools/kit/runtree.py",
@@ -1458,6 +1458,27 @@
    "kind": "runs",
    "to": "tool:tools/kit/runtree.py",
    "token": "tools/kit/runtree.py"
+  },
+  {
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/station/understand.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/station/understand.py:186",
+   "from": "tool:tools/station/understand.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/bootstrap.py",
+   "token": "tools/kit/bootstrap.py"
+  },
+  {
+   "evidence": "tools/station/understand.py:479",
+   "from": "tool:tools/station/understand.py",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
   },
   {
    "evidence": "map/dirs.json:199",
@@ -2494,6 +2515,12 @@
    "id": "tool:tools/station/telemetry_plan.py",
    "label": "telemetry_plan.py",
    "source": "tools/station/telemetry_plan.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/station/understand.py",
+   "label": "understand.py",
+   "source": "tools/station/understand.py"
   },
   {
    "class": "tool",
