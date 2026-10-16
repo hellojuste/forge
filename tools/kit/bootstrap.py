@@ -9,12 +9,18 @@ outside the repo (tools/kit/runtree.py). Retires: ad-hoc `git clone` of upstream
 
   bootstrap.py <owner~repo>... | --all | --station <x> | --attic
                [--root R] [--registry sources.json] [--from-bundle DIR] [--bundle-out DIR] [--list]
-    -> .upstream/<owner~repo>.git (bare, gitignored), `git fetch` of exactly the
-       pinned sha from registry/sources.json, ref refs/heads/pin -> the sha,
-       verified with rev-parse; never checked out.
+    -> <cache>/<owner~repo>.git (bare), `git fetch` of exactly the pinned sha from
+       registry/sources.json, ref refs/heads/pin -> the sha, verified with rev-parse;
+       never checked out. <cache> is ONE directory shared by the kit checkout and every
+       linked station worktree (REPRODUCE F4; tools/kit/_kit.upstream_cache):
+       $STABLE_KIT_UPSTREAM, else the main checkout's gitignored `.upstream/`
+       (`git rev-parse --git-common-dir`/..), so a bootstrap run from the kit root is
+       seen from ~/stations/<x> and the reverse.
     --from-bundle DIR   use DIR/<owner~repo>.bundle instead of the network
     --bundle-out DIR    write DIR/<owner~repo>.bundle (ref pin) for offline transport
     --list              coverage: which rows have their pin locally
+    --dry-run           no network, no writes: per selected row key · url · sha ·
+                        files_at_pin (from the LOCK rows) · cache path · present/absent
   bootstrap.py --selftest   (a local fixture "remote"; no network)
 Exit 0 all requested pins present · 1 a pin missing or mismatched · 2 usage.
 """
@@ -64,7 +70,54 @@ def select(src, homes, attic, keys=(), all_=False, station=None, attic_flag=Fals
 
 
 def bare_path(root, key):
-    return os.path.join(root, ".upstream", key + ".git")
+    return os.path.join(_kit.upstream_cache(root), key + ".git")
+
+
+def lock_sizes(root):
+    """{key: files_at_pin} from this checkout's upstream/LOCK.json and from every station ref's LOCK
+    (on main the LOCKs live on the station branches). Unreadable LOCKs are skipped: a preview, not a check."""
+    docs = []
+    lp = os.path.join(root, "upstream", "LOCK.json")
+    if os.path.isfile(lp):
+        try:
+            docs.append(_kit.read_json(lp))
+        except (OSError, ValueError):
+            pass
+    try:
+        refs = _kit.station_refs(root, _kit.known_stations(root)).values()
+    except _kit.KitError:
+        refs = []
+    for ref in refs:
+        p = _kit.git(root, "show", "%s:upstream/LOCK.json" % ref, check=False)
+        if p.returncode == 0:
+            try:
+                docs.append(json.loads(p.out))
+            except ValueError:
+                pass
+    out = {}
+    for d in docs:
+        for r in (d if isinstance(d, list) else (d.get("rows") or d.get("lock") or [])):
+            k = r.get("key") or str(r.get("repo", "")).replace("/", "~")
+            if r.get("files_at_pin") is not None:
+                out.setdefault(k, r["files_at_pin"])
+    return out
+
+
+def dry_run(root, rows, from_bundle=None, log=print):
+    """REPRODUCE F7: what a bootstrap would fetch, without the network and without writing."""
+    sizes = lock_sizes(root)
+    cache = _kit.upstream_cache(root)
+    log("bootstrap --dry-run · cache %s · %d row(s) selected · no network, nothing written" % (cache, len(rows)))
+    have = 0
+    for r in rows:
+        bare = bare_path(root, r["key"])
+        pres = has_pin(bare, r["sha"])
+        have += pres
+        srcs = os.path.join(from_bundle, r["key"] + ".bundle") if from_bundle else r.get("url", "?")
+        log("  %-45s %s · %s · files_at_pin %s · %s · %s" % (
+            r["key"], srcs, r["sha"], sizes.get(r["key"], "?"), bare, "present" if pres else "absent (would fetch)"))
+    log("bootstrap --dry-run: %d / %d pins already present; %d would be fetched" % (have, len(rows), len(rows) - have))
+    return 0
 
 
 def has_pin(bare, sha):
@@ -155,7 +208,7 @@ def coverage(root, src, log=print):
         h = has_pin(bare_path(root, s["key"]), s["sha"])
         n += h
         log("  %-45s %s" % (s["key"], "pin present" if h else "-"))
-    log("bootstrap coverage: %d / %d registry rows have their pin in .upstream/" % (n, len(src)))
+    log("bootstrap coverage: %d / %d registry rows have their pin in %s" % (n, len(src), _kit.upstream_cache(root)))
     return 0
 
 
@@ -186,6 +239,7 @@ def make_kit_root(tmp, rows, homes=None, attic=None):
 
 
 def _selftest():
+    os.environ.pop(_kit.CACHE_ENV, None)  # fixtures must never write to the operator's configured cache
     tmp = tempfile.mkdtemp(prefix="kit-boot-")
     quiet = lambda *a: None
     try:
@@ -218,10 +272,51 @@ def _selftest():
         assert run(root2, select(*load_registry(root2), keys=["o~r"]), from_bundle=bdir, log=quiet) == 0, "offline bundle restore"
         assert _kit.run(["git", "-C", bare_path(root2, "o~r"), "rev-parse", "pin"]).out.strip() == v1
         assert run(root2, [dict(rows[0], key="o~r", sha=v2)], from_bundle=bdir, log=quiet) == 1, "bundle lacks v2"
+        # --dry-run: no network, no writes, says present/absent
+        lines = []
+        root3 = make_kit_root(os.path.join(tmp, "third"), [dict(rows[0], url="https://invalid.example/none")], homes[:1])
+        assert dry_run(root3, select(*load_registry(root3), station="alpha"), log=lines.append) == 0
+        assert not os.path.exists(os.path.join(root3, ".upstream")), "dry-run wrote"
+        assert any("absent (would fetch)" in l for l in lines) and "0 / 1" in lines[-1], lines
+        lines = []
+        dry_run(root, sel, log=lines.append)
+        assert "1 / 1" in lines[-1], lines
+        _selftest_shared_cache(tmp, url, v1)
         print("selftest OK")
         return 0
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+def _selftest_shared_cache(tmp, url, v1):
+    """REPRODUCE F4: a bootstrap from the main checkout is seen from a linked worktree, and the reverse."""
+    quiet = lambda *a: None
+    rows = [{"key": "o~r", "repo": "o/r", "url": url, "sha": v1}]
+    homes = [{"key": "o~r", "lands": [{"station": "alpha", "how": "bootstrap"}]}]
+    kit = make_kit_root(os.path.join(tmp, "wt"), rows, homes)
+    _kit.run(["git", "init", "-q", "-b", "main", kit])
+    _kit.fixture_git_config(kit)
+    open(os.path.join(kit, ".gitignore"), "w").write(".upstream/\n")
+    _kit.stage_paths(kit)
+    _kit.commit(kit, "m")
+    _kit.git(kit, "branch", "station/alpha")
+    wt = os.path.join(tmp, "wt-stations", "alpha")
+    _kit.git(kit, "worktree", "add", "-q", wt, "station/alpha")
+    assert os.path.realpath(_kit.upstream_cache(wt)) == os.path.realpath(os.path.join(kit, ".upstream")), _kit.upstream_cache(wt)
+    assert run(kit, select(*load_registry(kit), keys=["o~r"]), log=quiet) == 0
+    assert has_pin(bare_path(wt, "o~r"), v1), "pin fetched from the kit root must be visible in the worktree"
+    lines = []
+    coverage(wt, load_registry(wt)[0], log=lines.append)
+    assert "1 / 1" in lines[-1], lines
+    shutil.rmtree(os.path.join(kit, ".upstream"))
+    assert run(wt, select(*load_registry(wt), keys=["o~r"]), log=quiet) == 0
+    assert has_pin(bare_path(kit, "o~r"), v1) and not os.path.exists(os.path.join(wt, ".upstream")), "worktree bootstrap lands in the shared cache"
+    alt = os.path.join(tmp, "alt-cache")
+    os.environ[_kit.CACHE_ENV] = alt
+    try:
+        assert bare_path(wt, "o~r") == os.path.join(alt, "o~r.git"), "$STABLE_KIT_UPSTREAM overrides"
+    finally:
+        os.environ.pop(_kit.CACHE_ENV, None)
 
 
 def main(argv=None):
@@ -235,6 +330,7 @@ def main(argv=None):
     ap.add_argument("--from-bundle")
     ap.add_argument("--bundle-out")
     ap.add_argument("--list", action="store_true")
+    ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args(argv)
     if a.selftest:
@@ -250,6 +346,8 @@ def main(argv=None):
     if not rows:
         ap.print_help()
         return 2
+    if a.dry_run:
+        return dry_run(a.root, rows, a.from_bundle)
     try:
         return run(a.root, rows, a.from_bundle, a.bundle_out)
     except _kit.KitError as e:

@@ -230,6 +230,12 @@ def decide(payload, root=None, station=None):
         if r is None:
             continue
         reason = verdict(root, station, r, op, content)
+        if not reason:
+            # DEC-core-0010: a surfaced skill (.claude/skills/<n> -> a lane) must not become a write path into the lane
+            real = rel(Path(os.path.realpath(str(root))), os.path.realpath(str(Path(root) / r)))
+            if real and real != r:
+                reason = verdict(root, station, real, op, content)
+                r = real if reason else r
         if reason and not released(root, "deny_upstream_write:" + r, r):
             return reason
     return None
@@ -301,6 +307,14 @@ def selftest():
         assert d("Write", file_path="upstream/a~b/x.py", content="y") is None, "a committed release row on main allows"
         assert d("Write", file_path="upstream/a~b/y.py", content="y"), "the release covers only its match"
         cases += 2
+        # a write through a surfaced skill symlink resolves into the lane and is denied (DEC-core-0010)
+        (root / "upstream/a~b/skills/sk").mkdir(parents=True, exist_ok=True)
+        (root / ".claude/skills").mkdir(parents=True, exist_ok=True)
+        os.symlink("../../upstream/a~b/skills/sk", str(root / ".claude/skills/sk"))
+        assert d("Write", file_path=".claude/skills/sk/SKILL.md", content="y"), "write through a lane symlink is denied"
+        assert d("Edit", file_path=".claude/skills/sk/SKILL.md", old_string="a", new_string="b"), "edit through a lane symlink is denied"
+        assert d("Write", file_path=".claude/skills/own/SKILL.md", content="y") is None, "a real kit skill dir stays writable"
+        cases += 3
         # hook protocol: exit 2 + stderr on deny, 0 otherwise
         import subprocess
         p = subprocess.run([sys.executable, __file__], input=json.dumps({"tool_name": "Write", "tool_input": {"file_path": "upstream/q~r/a", "content": "x"},

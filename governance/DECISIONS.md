@@ -78,3 +78,19 @@ words: > "intent study under a per section while maintaining our skills where th
 locator: operator ORDER 4, relayed verbatim in the stable-kit-b2b workflow task, 2026-10-16
 covers: [router/intents.json]
 note: Mirrors and symlinks route to their canonical copy; the router's skill fall-through reads router/skills.json.
+
+## DEC-core-0009 · 2026-10-16 · Router ranks one-sentence prompts instead of refusing them; bare high-collision keywords become phrases; handoff and checkpoint are routed
+kind: rule
+status: CURRENT
+words: > "how would someone resolve these into a rational decision tree set of subfolders"
+locator: operator ORDER 1 (design/OPERATOR_ORDERS.md on claude/stable-kit-design), applied after the independent reviews design/review/CRITIC.md F2-F4, F9, F12 and LEAN.md F6, F7, 2026-10-16
+covers: [.claude/hooks/intent_router.py, router/intents.json, router/kit_tree.json]
+note: multi_intent_cap now refuses only prompts that look like documents (>= 3 newlines, or >= 4 clauses and > 300 chars); keywords match plurals; governance-admin `ledger` became phrases with an `exclude` for "general ledger"/"grootboek"; kit_tree drops bare client/erp/dashboard/market/markets and gains `claims` (career, venture, quarantine); the WRONG STATION hint counts phrases; an ABSENT first move always prints a fall back. Re-test: python3 .claude/hooks/intent_router.py --selftest (REAL_MAIN_CASES = the 18-task table, 19/19 to the right station).
+
+## DEC-core-0010 · 2026-10-16 · The 6-skill listing cap is retired: every canonical skill homed in a station is natively visible; only true duplicates are hidden, in the settings file Claude Code reads
+kind: rule
+status: CURRENT
+words: > "its nuts to think there would only use 6 anyway what is the point of doing all this ... ? weird built out"
+locator: operator ruling relayed verbatim by PRIME session_01GbdVhRTvKX1mxo9qitPKER to child slice main-commons, 2026-10-16, reacting to the reviews' "listed_max 6" design (design/review/LEAN.md F2)
+covers: [tools/upstream/skill_surface.py, tools/upstream/workflows_check.py, .claude/settings.json, commons/defaults.json, templates/station.json.tmpl, tools/gov/_gov.py]
+note: tools/upstream/skill_surface.py --write symlinks every canonical router/skills.json row inside a lane to .claude/skills/<name> (Claude Code follows skill-dir symlinks; the directory name invokes the skill) and GENERATES .claude/settings.json skillOverrides from station.json skill_hide (duplicates only: mirror|variant|fixture|harness) plus skillListingBudgetFraction from station.json skill_listing_budget_fraction. commons_drift hashes settings.json without those two keys (tools/gov/_gov.py GENERATED_SETTINGS_KEYS); skill_surface --check (MUST) proves them and the links current. listing_budget is hygiene plus a REPORT against the real budget (1% of the context window), never a cap. Supersedes the R-skill-overrides and R-listing-budget wording settled under DEC-core-0001 (listed_max 6, listing_budget_bytes 2400; station.json skill_overrides, which Claude Code never read). The router stays an extra precision layer, never a gate. Upstream instruction files still never auto-load: the _upstream_claude renames and claudeMdExcludes stand, and claudeMdExcludes now also covers CLAUDE.md/AGENTS.md reached through a surfaced skill link.

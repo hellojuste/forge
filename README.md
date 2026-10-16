@@ -9,8 +9,10 @@ registry of every upstream pin, and the kit tools. Each station is a branch fork
 own material: upstream method text and trees, gap skills, router rows, workflows and seeds. Open Claude in a
 station's worktree and it sees that station's purpose, rules, router and skills, and nothing else.
 
-Every one of the 360 upstream `SKILL.md` files is homed in exactly one station and routed by intent
-(`SKILLS_INDEX.md`). Nothing is excluded: the three stealth tools are packed together in `station/quarantine`,
+Every one of the 360 upstream `SKILL.md` files is homed in exactly one station (`SKILLS_INDEX.md`). In its station
+every canonical skill is natively visible and invocable by Claude Code; only true duplicates (mirrors, harness
+variants, test fixtures) are hidden, and the intent router is an extra precision layer, never a gate (operator
+ruling 2026-10-16: "its nuts to think there would only use 6 anyway"). Nothing is excluded: the three stealth tools are packed together in `station/quarantine`,
 AutoHedge sits whole in a study lane in `station/markets`, and two apps with no job sit in the attic as registry
 rows you can fetch on demand.
 
@@ -105,9 +107,12 @@ Use one worktree per station. A working root that spans several stations loads t
 ## Upstream clones (bootstrap)
 
 Big upstream apps are not committed. They are `bootstrap` rows: a bare clone fetched at the exact 40-hex pin
-from `registry/sources.json` into the gitignored `.upstream/`, never checked out inside a station.
+from `registry/sources.json` into ONE cache shared by the kit checkout and every station worktree (the main
+checkout's gitignored `.upstream/`, or `$STABLE_KIT_UPSTREAM`), never checked out inside a station. Run it from
+the kit root or from any `~/stations/<x>`: both see the same pins.
 
 ```bash
+python3 tools/kit/bootstrap.py --station venture --dry-run   # preview: url · sha · files_at_pin · cache path · present/absent
 python3 tools/kit/bootstrap.py --station venture             # or --all, --attic, or <owner~repo> ...
 python3 tools/kit/bootstrap.py --all --bundle-out ~/kit-bundles   # offline bundles for later transport
 python3 tools/kit/bootstrap.py --all --from-bundle ~/kit-bundles  # restore without network

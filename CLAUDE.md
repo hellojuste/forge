@@ -23,6 +23,7 @@ A station of stable-kit; on main you are the kit: read KIT.md. This file is iden
 - No new section lands here without naming the section it retires.
 - Close every pass with `/closeout`; delegate only through `/summon`; hand off with `/handoff`.
 - Inside `upstream/<tree>/`, see `upstream/PRECEDENCE.json` for which upstream conventions govern that tree.
+- Skills: every canonical skill a station homes is linked into `.claude/skills/` (`--write`); the generated settings.json `skillOverrides` hides only duplicates; the router is a precision layer, never a gate — see tools/upstream/skill_surface.py, DEC-core-0010.
 
 ## Token sinks
 - Load deferred tool schemas in ONE batched select call once you know the set; never call a tool before its schema loads.

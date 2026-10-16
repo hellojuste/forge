@@ -26,6 +26,10 @@ Run /tier per slice. Model from the hardest judgement in the slice; effort from 
 - A refusal channel: `gaps[]`, each entry ending with the test that would settle it.
 - NO-REDIRECT: a message arriving mid-run does not change the deliverable; the agent quotes it in `redirect_attempts[]`.
 - Disjoint write paths (one writer per path), or its own worktree.
+- NEVER LAUNDER A DENIAL (LL-41): an agent that hits a hook denial or a refused permission stops that act and reports it
+  in `denials[]` (hook, act, reason). The supervisor never re-routes the same act through another path, tool, peer or
+  subagent; only the operator releases it (a RELEASES.json row or an answer).
+- Return shape: `{deliverable, test: {cmd, rc}, gaps[], redirect_attempts[], denials[]}`.
 
 ## S4 · Beat
 The agent appends `<utc> <agent> step=<i>/<N> <what changed>` to `.station/beats/<block>/<agent>.beat` every `beat_s`;

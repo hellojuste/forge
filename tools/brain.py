@@ -421,15 +421,23 @@ def _router_rows(root):
         rows += (rjson(p, {}) or {}).get("intents", []) if p.exists() else []
     return rows
 
-def _move(fm):
-    if fm.get("skill"):
-        return "/" + fm["skill"]
-    if fm.get("workflow"):
-        return "workflow " + fm["workflow"]
-    return fm.get("inline_gather") or fm.get("command") or ""
+def _move(fm, root=None):
+    """The card's first move. A skill/workflow target is checked on disk: an ABSENT one is flagged and never sent to
+    alone — its inline_gather (else the commons find gather) is the move (CRITIC F1, LEAN F1 card part)."""
+    kind, name = ("skill", fm["skill"]) if fm.get("skill") else (("workflow", fm["workflow"]) if fm.get("workflow") else (None, None))
+    if not kind:
+        return fm.get("inline_gather") or fm.get("command") or ""
+    label = ("/" + name) if kind == "skill" else ("workflow " + name)
+    if root is None:
+        return label
+    rel = (".claude/skills/%s/SKILL.md" % name) if kind == "skill" else (".claude/workflows/%s.js" % name)
+    if (Path(root) / rel).exists():
+        return label
+    return "%s [ABSENT] — instead: %s" % (label, fm.get("inline_gather") or "python3 tools/map/find.py <words>")
 
-def card(ctx, budget=None):
-    """The ORIENTATION CARD (RF-09: purpose first, never a wall)."""
+def card(ctx, budget=None, full=False):
+    """The ORIENTATION CARD (RF-09: purpose first, never a wall). full=True returns the untruncated text (audit
+    CARD-BUDGET measures it: a card cut to fit is an overrun, not a pass — LEAN F8)."""
     sj = ctx.station_json
     d = rjson(ctx.root / "commons" / "defaults.json", {}) or {}
     budget = budget or sj.get("sessionstart_budget_bytes") or d.get("sessionstart_budget_bytes") or 1500
@@ -441,7 +449,7 @@ def card(ctx, budget=None):
                    "map/STATIONS.md not generated yet (python3 tools/map/gen_station_map.py --write)"))
     else:
         out.append("STATION %s — %s" % (ctx.station, ctx.purpose or "(purpose unset in station.json)"))
-    moves = [(r.get("name"), _move((r.get("router") or {}).get("first_move") or {})) for r in _router_rows(ctx.root)
+    moves = [(r.get("name"), _move((r.get("router") or {}).get("first_move") or {}, ctx.root)) for r in _router_rows(ctx.root)
              if r.get("scope") != "main" or not (ctx.root / "station.json").exists()]
     moves = [m for m in moves if m[1]][:3]
     out.append("first moves: " + (" | ".join("%s -> %s" % m for m in moves) if moves else "router rows not found"))
@@ -456,15 +464,23 @@ def card(ctx, budget=None):
     fc = re.search(r"first_command:\s*(.+)", nb or "")
     out.append("NEXT: " + (fc.group(1).strip() if fc else ("see %s" % ctx.rel(ck) if ck else "none yet (brain/sessions/ empty)")))
     text = "\n".join(out)
+    if full:
+        return text
     return text if nbytes(text) <= budget else cut(text, budget - 40) + "\n... TRUNCATED card (budget)"
 
-def _ladder(ctx, source="startup", budget=None):
+
+def card_budget(ctx):
+    sj = ctx.station_json
+    d = rjson(ctx.root / "commons" / "defaults.json", {}) or {}
+    return sj.get("sessionstart_budget_bytes") or d.get("sessionstart_budget_bytes") or 1500
+
+def _ladder(ctx, source="startup", budget=None, card_printed=False):
     tight = source in ("compact", "fork")
     b = ctx.cfg["budgets"]
     budget = budget or (b["tight"] if tight else b["start"])
     secs = [("header", "BRAIN LADDER · station=%s · source=%s · budget=%d B · %s" % (ctx.station, source, budget, BANNER))]
     if not tight:
-        st = ["purpose: %s" % (ctx.purpose or "-")]
+        st = [] if card_printed else ["purpose: %s" % (ctx.purpose or "-")]  # LEAN F8: the card already led with it
         inst = sorted(ctx.rel(p) for lane in HELD for pat in ("*/CLAUDE.md", "*/AGENTS.md", "*/_upstream_CLAUDE.md",
                       "*/_upstream_AGENTS.md") for p in (ctx.root / lane).glob(pat))
         if inst:
@@ -476,7 +492,8 @@ def _ladder(ctx, source="startup", budget=None):
             rc, o, _ = run(ctx.cfg["role_cmd"], ctx.root)
             if rc == 0 and o.strip():
                 st.append(cut(o.strip(), 200))
-        secs.append(("station", "\n".join(st)))
+        if st:
+            secs.append(("station", "\n".join(st)))
     ck = newest_checkpoint(ctx)
     if ck is None:
         secs.append(("chain link", "chain link: none yet (brain/sessions/ empty)"))
@@ -496,7 +513,7 @@ def _ladder(ctx, source="startup", budget=None):
         loops = sorted(load_loops(ctx), key=lambda r: (last.get(r["id"], ""), r["id"]))[:ctx.cfg["loops_per_session"]]
         if loops:
             secs.append(("loops", "\n".join("LOOP %s · %s · verifier: %s · record: python3 tools/brain.py consider %s "
-                                            "do|defer|decline \"why\"" % (r["id"], r["what"][:80], r["verifier"], r["id"]) for r in loops)))
+                                            "do|defer|decline \"why\"" % (r["id"], _word_cut(r["what"], 80), r["verifier"], r["id"]) for r in loops)))
     cards = [n for n in nodes if n.get("class") == "card" and n.get("status") != "superseded"]
     states = {n["id"]: card_state(ctx, n) for n in cards} if ctx.on("cards") else {}
     stale = sum(1 for s in states.values() if s[0] == "STALE")
@@ -509,6 +526,14 @@ def _ladder(ctx, source="startup", budget=None):
                                         if states[i][0] == "FRESH" else "CARD %s STALE — %s · digest withheld · python3 "
                                         "tools/brain.py card refresh %s" % (i, states[i][1], i) for i, n in ((n["id"], n) for n in cards))))
     return fit(secs, budget, floor=[n for n, _ in secs].index("chain link") + 1)
+
+def _word_cut(text, n):
+    """Cut at a word boundary with an ellipsis (REPRODUCE F10c: LOOP lines were cut mid-word)."""
+    text = str(text or "")
+    if len(text) <= n:
+        return text
+    head = text[:n].rsplit(" ", 1)[0] or text[:n]
+    return head.rstrip(" ,;:") + "…"
 
 def ladder(source="startup", budget=None, ctx=None):
     """Importable form (contract: ladder(source, budget) -> str)."""
@@ -650,10 +675,17 @@ def stop_check(payload, ctx=None):
 def audit(ctx):
     nodes, bad = load_all(ctx)
     G = {g: [] for g in ("PARSE", "ID", "CLASS", "STATUS", "FIELDS", "SOURCE-UNSTATED", "SOURCE-DUP", "GONE", "CARD-DIGEST",
-                         "CARD-SOURCES", "PARKED-TRIGGER", "REFUTED-LINK", "NEGATIVE-FIELDS", "TOUCHES", "INDEX-STALE", "LOOPS-SHAPE")}
+                         "CARD-SOURCES", "PARKED-TRIGGER", "REFUTED-LINK", "NEGATIVE-FIELDS", "TOUCHES", "INDEX-STALE", "LOOPS-SHAPE", "CARD-BUDGET")}
     W = {w: [] for w in ("floating", "stale-cards", "trigger-no-cmd-or-recheck", "due", "promoted-uncited", "external-source",
                          "orphan-tags", "manual", "unknown-config")}
     G["PARSE"] += ["%s: %s" % b for b in bad]
+    try:
+        cb, ct = card_budget(ctx), card(ctx, full=True)
+        if nbytes(ct) > cb:
+            G["CARD-BUDGET"].append("SessionStart card %d B > sessionstart_budget_bytes %d (it would print TRUNCATED; shorten "
+                                    "the purpose or the router first moves)" % (nbytes(ct), cb))
+    except Exception as e:  # noqa: BLE001 -- the card itself is built fail-open; a broken card is a finding
+        G["CARD-BUDGET"].append("card not built: %s" % type(e).__name__)
     byid, seen_src = {}, {}
     for n in nodes:
         f, nid, c = ctx.rel(n["_path"]), n.get("id", ""), n.get("class")
@@ -881,7 +913,7 @@ def hook(event, raw, root=None):
         ctx = Ctx(root)
         if event == "session-start":
             parts = []
-            for name, fn in (("card", lambda: card(ctx)), ("ladder", lambda: _ladder(ctx, payload.get("source") or "startup"))):
+            for name, fn in (("card", lambda: card(ctx)), ("ladder", lambda: _ladder(ctx, payload.get("source") or "startup", card_printed=True))):
                 try:
                     parts.append(fn())
                 except Exception as e:  # noqa: BLE001 -- fail open, named
@@ -1139,6 +1171,23 @@ def selftest(channels=False):
         out, rc = hook("session-start", "{}", t)
         T("ladder.g malformed brain.json exits 0 with one line", rc == 0 and "not built" in out)
         (t / "brain" / "brain.json").write_text("{}")
+        # LEAN F8 / CRITIC F1 card part: purpose printed once; an ABSENT workflow target is flagged with its fall back
+        (t / "router" / "intents.d").mkdir(parents=True, exist_ok=True)
+        (t / "router" / "intents.d" / "station.json").write_text(json.dumps({"intents": [
+            {"name": "edge", "router": {"first_move": {"workflow": "edge-research", "inline_gather": "ls work/"}}},
+            {"name": "qlik", "router": {"first_move": {"workflow": "qlik-review"}}}]}))
+        out, rc = hook("session-start", json.dumps({"source": "startup"}), t)
+        T("card: purpose printed once", out.count("test station") == 1)
+        T("card: ABSENT workflow flagged with its gather", "edge -> workflow edge-research [ABSENT] — instead: ls work/" in out)
+        T("card: ABSENT workflow without gather falls back to find", "qlik -> workflow qlik-review [ABSENT] — instead: python3 tools/map/find.py <words>" in out)
+        (t / ".claude" / "workflows").mkdir(parents=True, exist_ok=True)
+        (t / ".claude" / "workflows" / "edge-research.js").write_text("x")
+        out, rc = hook("session-start", json.dumps({"source": "startup"}), t)
+        T("card: PRESENT workflow sent to directly", "edge -> workflow edge-research |" in out or "edge -> workflow edge-research\n" in out)
+        (t / "router" / "intents.d" / "station.json").unlink()
+        shutil.rmtree(t / ".claude" / "workflows")
+        T("word cut", _word_cut("command and deploy the thing", 15) == "command and…")
+        (t / "brain" / "brain.json").write_text("{}")
         ctx = Ctx(t)
         # surface
         _mk(t, "aside", "st-0006", title="deploy billing aside", touches=["deploy", "map:billing"])
@@ -1195,6 +1244,8 @@ def selftest(channels=False):
                   "TOUCHES": lambda: ((t / "ids.txt").write_text("tool:a\n"), (t / "brain/brain.json").write_text(
                       json.dumps({"map": {"ids_file": "ids.txt"}})), _mk(t, "idea", "st-0021", touches=["map:tool:b"])),
                   "INDEX-STALE": lambda: (t / "brain" / "INDEX.md").write_text(index_render(ctx) + "x"),
+                  "CARD-BUDGET": lambda: (t / "station.json").write_text(json.dumps(dict(json.loads((t / "station.json").read_text()),
+                                                                                           purpose="p" * 2000))),
                   "LOOPS-SHAPE": lambda: (t / "brain" / "LOOPS.md").write_text(
                       "| id | what | verifier | state | stop | trigger |\n|---|---|---|---|---|---|\n| l | w | `test -e x` | nope/ | goal: 1 | t |\n")}
         snap = Path(tmp) / "snap"

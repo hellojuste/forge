@@ -19,11 +19,13 @@ Checks (headline `<check>: <n> violation(s) · <m> worklist · denominator <d>`)
                          (`test -f`, `ls`, `cat`, `stat`, `true`, `echo`), does not mutate (`rm`, `>` other than
                          `2>&1`, `git commit`, `git push`, `--write`, `sed -i`, `mv`), and the workflow does not
                          hard-code a passing verdict.
-  listing_budget   MUST  skills listed per turn (every `.claude/skills/*/SKILL.md` not overridden to
-                         `user-invocable-only`/`off` by `.claude/settings.json` skillOverrides, `commons/defaults.json`
-                         skill_overrides or `station.json` skill_overrides) <= listed_max (6) and their name+description
-                         bytes <= listing_budget_bytes (2400); every description <= 200 chars; frontmatter parses;
-                         an override naming no skill or naming a workflow is a violation.
+  listing_budget   MUST  hygiene + REPORT (DEC-core-0010 retired the 6-skill cap): kit-authored `.claude/skills/*/SKILL.md`
+                         (real directories) parse, name == directory, description <= 200 chars; every
+                         `.claude/settings.json` skillOverrides row names a skill and takes on|name-only|
+                         user-invocable-only|off. The listing itself is REPORTED against Claude Code's real budget
+                         (tools/upstream/skill_surface.py report: 1% of the context window unless
+                         skillListingBudgetFraction is set); over budget is one worklist row, never red, never a hide.
+                         Only settings.json counts as hidden: the harness reads nothing else (LEAN F2).
 CLI: workflows_check.py [workflows_parse|certain_tests|listing_budget] --root <dir> [--check] [--selftest]
      (no check name = all three; --check is the default mode and is accepted for symmetry with the other tools)
 Exit: 0 clean · 1 violation · 2 node absent (the parse gate cannot do its job; never a silent pass).
@@ -41,6 +43,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _uplib as U  # noqa: E402
+import skill_surface  # noqa: E402
 
 DESC_MAX = 200
 EXISTENCE_ONLY = re.compile(r"^\s*(test\s+-[efds]|\[\s+-[efds]|ls\b|cat\b|stat\b|true\b|echo\b|:\s*$|exit\s+0)")
@@ -214,56 +217,52 @@ def check_certain_tests(root):
 
 
 def overrides(root):
-    root = Path(root)
-    out = {}
-    s = U.load_json(root / ".claude" / "settings.json", {}) or {}
-    out.update(s.get("skillOverrides") or {})
-    d = U.load_json(root / "commons" / "defaults.json", {}) or {}
-    out.update(d.get("skill_overrides") or {})
-    st = U.station_json(root) or {}
-    out.update(st.get("skill_overrides") or {})
-    return out, d, st
+    """The overrides Claude Code READS: .claude/settings.json skillOverrides only (LEAN F2: station.json and
+    commons/defaults.json are never read by the harness, so they never count as hidden)."""
+    s = U.load_json(Path(root) / ".claude" / "settings.json", {}) or {}
+    return dict(s.get("skillOverrides") or {})
 
 
 def check_listing_budget(root):
+    """DEC-core-0010: a REPORT against Claude Code's real listing budget, never a cap. Violations are hygiene only:
+    a kit-authored skill (a real directory) whose frontmatter lacks name/description, names another directory, or runs
+    past DESC_MAX; an override with a value Claude Code does not take; an override naming no skill. A surfaced
+    upstream skill (a symlink into a lane, tools/upstream/skill_surface.py) is data: its frontmatter is worklist."""
     root = Path(root)
     viol, work = [], []
-    ov, defaults, st = overrides(root)
-    max_n = st.get("listed_max", defaults.get("listed_max", 6))
-    max_b = st.get("listing_budget_bytes", defaults.get("listing_budget_bytes", 2400))
-    names, listed, total = set(), [], 0
+    ov = overrides(root)
+    names = set()
     for d in skill_dirs(root):
         f = d / "SKILL.md"
+        surfaced = d.is_symlink()
+        rel = (d.relative_to(root) / "SKILL.md").as_posix()
         if not f.is_file():
-            viol.append("%s: no SKILL.md" % d.relative_to(root).as_posix())
+            (work if surfaced else viol).append("%s: no SKILL.md%s" % (rel, " (dangling surface link)" if surfaced else ""))
             continue
-        fm = U.frontmatter(f.read_text(encoding="utf-8"))
+        names.add(d.name)
+        fm = U.frontmatter(f.read_text(encoding="utf-8", errors="replace")) or {}
         name, desc = fm.get("name"), fm.get("description", "")
-        rel = f.relative_to(root).as_posix()
+        if surfaced:
+            if not desc:
+                work.append("%s: upstream frontmatter has no description (listed by name only)" % rel)
+            continue
         if not name or not desc:
             viol.append("%s: frontmatter lacks name or description" % rel)
             continue
         if name != d.name:
             viol.append("%s: frontmatter name %r != directory %r" % (rel, name, d.name))
-        names.add(d.name)
         if len(desc) > DESC_MAX:
             viol.append("%s: description %d chars > %d" % (rel, len(desc), DESC_MAX))
-        if ov.get(d.name) in ("user-invocable-only", "off"):
-            continue
-        listed.append(d.name)
-        total += len(name.encode()) + len(desc.encode())
     wf = {p.stem for p in workflows(root)}
     for k, v in sorted(ov.items()):
         if k not in names:
             (work if k in wf else viol).append("override %s=%s names no skill here%s" % (k, v, " (it is a workflow: a workflow is not listed; drop the row)" if k in wf else ""))
-        if v not in ("user-invocable-only", "off", "on", "listed"):
-            viol.append("override %s has unknown value %r" % (k, v))
-    if len(listed) > max_n:
-        viol.append("%d skills listed (%s) > listed_max %d" % (len(listed), ", ".join(listed), max_n))
-    if total > max_b:
-        viol.append("listed name+description %d B > listing_budget_bytes %d" % (total, max_b))
+        if v not in skill_surface.OVERRIDE_STATES:
+            viol.append("override %s has value %r; Claude Code takes %s" % (k, v, " | ".join(skill_surface.OVERRIDE_STATES)))
+    rwork, line, used, cap = skill_surface.report(root, quiet=True)
+    work += rwork
     rc = U.finish("listing_budget", viol, work, len(names))
-    print("  listed: %s · %d B of %d · %d of max %d" % (", ".join(listed) or "none", total, max_b, len(listed), max_n))
+    print(line)
     return rc
 
 
@@ -345,29 +344,38 @@ def selftest():
         ok, _ = node_check(f.read_text())
         assert ok is False, "wrapped gate rejects a syntax error"
         cases += 1
-    # listing budget
+    # listing budget: a report, never a cap (DEC-core-0010); only settings.json counts as hidden (LEAN F2)
     with tempfile.TemporaryDirectory() as t:
-        for i in range(6):
+        for i in range(40):
             _skill(t, "s%d" % i, "x" * 150)
         rc, out = _q(check_listing_budget, t)
-        assert rc == 0, out
-        _skill(t, "s6", "seventh")
+        assert rc == 0 and "40 skill(s) listed" in out and "fits" in out, out
+        U.write_json(Path(t) / "commons/defaults.json", {"context_window_tokens": 1000})
         rc, out = _q(check_listing_budget, t)
-        assert rc == 1 and "> listed_max 6" in out, out
+        assert rc == 0 and "OVER" in out and "1 worklist" in out and "skill_listing_budget_fraction" in out, "over budget is worklist, never red: " + out
         U.write_json(Path(t) / "station.json", {"name": "x", "skill_overrides": {"s6": "user-invocable-only"}})
         rc, out = _q(check_listing_budget, t)
-        assert rc == 0, out
-        U.write_json(Path(t) / "station.json", {"name": "x", "listing_budget_bytes": 500})
+        assert rc == 0 and "40 skill(s) listed, 0 hidden" in out, "a station.json override is NOT hidden (the harness never reads it): " + out
+        U.write_json(Path(t) / ".claude/settings.json", {"skillOverrides": {"s6": "off", "ghost": "off"}})
         rc, out = _q(check_listing_budget, t)
-        assert rc == 1 and "listing_budget_bytes" in out, out
-        U.write_json(Path(t) / "station.json", {"name": "x", "skill_overrides": {"s6": "user-invocable-only", "ghost": "off"}})
+        assert rc == 1 and "names no skill" in out and "39 skill(s) listed, 1 hidden" in out, out
+        U.write_json(Path(t) / ".claude/settings.json", {"skillOverrides": {"s6": "listed"}})
         rc, out = _q(check_listing_budget, t)
-        assert rc == 1 and "names no skill" in out, out
+        assert rc == 1 and "Claude Code takes" in out, out
+        U.write_json(Path(t) / ".claude/settings.json", {"skillOverrides": {}})
         _skill(t, "long", "y" * 201)
-        U.write_json(Path(t) / "station.json", {"name": "x", "skill_overrides": {"s6": "off", "long": "off"}})
         rc, out = _q(check_listing_budget, t)
         assert rc == 1 and "description 201 chars" in out, out
-        cases += 6
+        (Path(t) / ".claude/skills/long/SKILL.md").unlink()
+        (Path(t) / ".claude/skills/long").rmdir()
+        lane = Path(t) / "repertoire/o~r/skills/up"
+        lane.mkdir(parents=True)
+        (lane / "SKILL.md").write_text("---\nname: Up Skill\ndescription: %s\n---\n" % ("z" * 900))
+        import os
+        os.symlink("../../repertoire/o~r/skills/up", str(Path(t) / ".claude/skills/up"))
+        rc, out = _q(check_listing_budget, t)
+        assert rc == 0, "a surfaced upstream skill's long description and foreign name are data, not violations: " + out
+        cases += 7
     print("workflows_check selftest OK (%d cases)" % cases)
     return 0
 

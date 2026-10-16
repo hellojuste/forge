@@ -9,7 +9,11 @@
   "**/study/**",
   "**/nc-lane/**",
   "**/_upstream_claude/**",
-  "**/.upstream/**"
+  "**/.upstream/**",
+  "**/.claude/skills/*/**/CLAUDE.md",
+  "**/.claude/skills/*/**/AGENTS.md",
+  "**/.claude/skills/*/CLAUDE.md",
+  "**/.claude/skills/*/AGENTS.md"
  ],
  "skillOverrides": {},
  "permissions": {
@@ -21,7 +25,8 @@
    "Bash(python3 tools/station_audit.py*)",
    "Bash(python3 tools/gov/gov_check.py*)",
    "Bash(python3 tools/map/find.py*)",
-   "Bash(python3 tools/brain.py near*)"
+   "Bash(python3 tools/brain.py near*)",
+   "Bash(python3 tools/upstream/skill_surface.py*)"
   ]
  },
  "hooks": {

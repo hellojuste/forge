@@ -42,7 +42,7 @@ def render(root):
             head = p.read_text(encoding="utf-8", errors="replace")[:4000]
         except OSError:
             head = ""
-        meta = {"sha256": _gov.sha256_file(p)}
+        meta = {"sha256": _gov.commons_sha256(p, rel)}
         if _gov.declares_generated(head, root):
             meta["generated"] = True
         files[rel] = meta

@@ -3424,11 +3424,11 @@
    "copies_on": [],
    "home": "venture",
    "id": "17:.github/skills/custom-fields-development/SKILL.md",
-   "kind": "variant",
+   "kind": "mirror",
    "name": "custom-fields-development",
    "problems": [],
    "repo": "relaticle/relaticle",
-   "route": "upstream/relaticle~relaticle/.github/skills/custom-fields-development/SKILL.md",
+   "route": "-> 17:.claude/skills/custom-fields-development/SKILL.md",
    "status": "ROUTED"
   },
   {
@@ -3993,7 +3993,7 @@
    "status": "ROUTED"
   }
  ],
- "source": "git repo /tmp/claude-0/-home-user-lettuce/431d396a-81ea-59ef-a7f5-685e1f1e4149/scratchpad/stable-kit/out/stable-kit",
+ "source": "this repo (git, every station ref: local, remote-tracking or claude/stable-kit-*)",
  "stations_seen": [
   "career",
   "client-bi",

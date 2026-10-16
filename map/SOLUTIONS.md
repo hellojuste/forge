@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-64 catalogued thing(s) · 6 upstream(s) · 30 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+67 catalogued thing(s) · 6 upstream(s) · 30 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## architecture-review
 
@@ -60,9 +60,11 @@ _never lose a falsification; check it before testing again_
 _one runner, one exit code: which checks are red?_
 
 - `tools/gov/_gov.py` — governance library (working): shared loaders, schema validator, headline and git helpers for the governance tools
+- `tools/gov/carry_design.py` — design docs carry (working): carry the lean lessons and programme specs verbatim into docs/design/ and prove every cited LL id resolves
 - `tools/gov/gov_check.py` — governance checks (working): claudemd, station, rules, canon, decisions, ledger, defects, releases, hooks, admission, commons_drift, main_purity, router_targets
 - `tools/gov/new_row.py` — register row writer (working): append a DEC/L/DEF row with the station's prefix and next id
 - `tools/station_audit.py` — the one audit runner (working): run every registered check (checks.json + checks.d/*.json) with MUST_BE_CLEAN/WORKLIST classes, one exit code and a --state line
+- `tools/upstream/skill_surface.py` — skill surface (working): surface every canonical station skill into .claude/skills (symlink), generate settings.json skillOverrides for duplicates only, report the listing against the real budget · see also tools/upstream/workflows_check.py, tools/upstream/skill_routes.py
 - `tools/upstream/workflows_check.py` — workflow checks (working): parse every saved workflow and check its CERTAIN_TEST can fail and does not mutate
 
 ## holdout-validation
@@ -97,6 +99,7 @@ _build, zip, verify and bootstrap the kit and its branches_
 - `tools/kit/assemble.py` — kit assembler (working): build the one repo: main from the commons + root, a station branch per overlay, then station map and skills index
 - `tools/kit/bootstrap.py` — upstream bootstrap (working): bare-clone a bootstrap upstream at its 40-hex pin into .upstream/ (or from a bundle)
 - `tools/kit/doctor.py` — doctor (working): report the local kit's health: git, caches, bootstrap needs, worktree layout
+- `tools/kit/held_modes.py` — held-file mode record (working): record and check every held upstream file whose git mode at the pin differs from its station branch (SAFETY 5) · see also tools/kit/kit_check.py
 - `tools/kit/kit_check.py` — kit checks (working): decision tree == router kit_tree == STATIONS.md; registry pins and landings
 - `tools/kit/make_zip.py` — zip maker (working): bundle, zip and verify the kit repo
 

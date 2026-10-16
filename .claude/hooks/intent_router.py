@@ -10,13 +10,22 @@ Behaviour:
  2. the prompt is lowercased and split into clauses at , ; : ! ? newline and ". "; keywords match whole words,
     phrases and path_patterns as substrings, file_types as token suffixes, patterns as regexes; a hit is cancelled
     by a negator within neg_window words before it in the same clause ("never touch upstream/x" is not a request).
- 3. >= multi_intent_cap intents matched -> "ROUTER: n intents matched (...) — not routed; likely a pasted document".
+ 2b. whole-word keywords also match their plural (`s`, `es`, `y`->`ies`): "papers" hits `paper` (CRITIC F12, LEAN F7).
+    A row's `exclude` phrases are blanked out of the clause before that row matches ("general ledger" never hits
+    the commons `the ledger`, CRITIC F4). A row's `claims` keywords rank it first inside its tie slot and let a
+    kit_tree leaf hint on one hit ("posting", "cv" -> career even when the prompt names a client tool, CRITIC F3).
+ 3. >= multi_intent_cap intents matched AND the prompt looks like a document (>= doc_min_newlines newlines, or
+    >= doc_min_clauses clauses and > doc_min_chars chars; router_tie_rule) -> "ROUTER: n intents matched (...) — not
+    routed; likely a pasted document". A one-sentence prompt is never a document (CRITIC F2): it is ranked instead.
  4. otherwise the earliest matched intent in router_tie_rule.order wins (`station:*` stands for every
-    contributed_by station row and every kit_tree leaf); conversational or nothing -> no FIRST MOVE line.
+    contributed_by station row and every kit_tree leaf); inside one slot: claims hit, then hit count, then file
+    order; conversational or nothing -> no FIRST MOVE line.
  5. FIRST MOVE line with PRESENT/ABSENT read live from disk (.claude/skills/<n>/SKILL.md, .claude/workflows/<n>.js).
+    An ABSENT target never stands alone: its inline_gather is the fall back, else the commons find gather (CRITIC F1).
  6. on main (no station.json) kit_tree leaves route: "STATION: <x> — git worktree add ~/stations/<x> station/<x>".
-    On a station, scope:main rows only hint: a leaf for ANOTHER station beating every local intent by >= 2 keyword
-    hits prints "WRONG STATION? this looks like <x> (git worktree add ../<x> station/<x>)".
+    On a station, scope:main rows only hint: a leaf for ANOTHER station whose keyword+phrase hits beat every local
+    intent by >= 2 (by >= 2 total, or 1 claims hit, when no local intent matched; CRITIC F9) prints
+    "WRONG STATION? this looks like <x> (git worktree add ../<x> station/<x>)".
  7. no intent fired -> skill fall-through from router/skills.json: <= 2 "SKILL: read <path> (<name>)" lines
     (match_skills: whole-word keyword hits, then phrases, canonical before variant; mirror/symlink rows resolve
     through route_to). An intent's FIRST MOVE won -> the TOP skill match is ALSO printed as one "SKILL: read" line
@@ -101,12 +110,38 @@ def _negated(clause, start, negators, window):
 
 
 def _kw_re(kw):
-    return re.compile(r"(?<![a-z0-9])" + re.escape(kw.lower()) + r"(?![a-z0-9])")
+    """Whole word, plus its plural: kw+s, kw+es, and kw[:-1]+ies for a kw ending in a consonant + y."""
+    k = kw.lower()
+    alts = [re.escape(k) + r"(?:s|es)?"]
+    if len(k) > 2 and k.endswith("y") and k[-2] not in "aeiou":
+        alts.append(re.escape(k[:-1]) + "ies")
+    return re.compile(r"(?<![a-z0-9])(?:" + "|".join(alts) + r")(?![a-z0-9])")
+
+
+def _blank(cls, excludes):
+    """Clauses with each exclude phrase overwritten by spaces (offsets kept, so negator windows still hold)."""
+    ex = [e.lower() for e in excludes or [] if e.strip()]
+    if not ex:
+        return cls
+    out = []
+    for c in cls:
+        for e in ex:
+            c = c.replace(e, " " * len(e))
+        out.append(c)
+    return out
+
+
+def claim_hit(row_router, prompt, negators, window, cls=None):
+    """True when one of the row's `claims` keywords (whole word, plural-tolerant, not negated) is in the prompt."""
+    cl = row_router.get("claims") or []
+    if not cl:
+        return False
+    return hits({"keywords": cl, "exclude": row_router.get("exclude")}, prompt, negators, window, cls)["kw"] > 0
 
 
 def hits(row_router, prompt, negators, window, cls=None):
     """{'kw': n, 'phrase': n, 'other': n} distinct non-negated items that match."""
-    cls = cls if cls is not None else clauses(prompt)
+    cls = _blank(cls if cls is not None else clauses(prompt), row_router.get("exclude"))
     out = {"kw": 0, "phrase": 0, "other": 0}
 
     def any_hit(finder):
@@ -157,6 +192,7 @@ def _order_index(row, order):
     return len(order)
 
 
+ABSENT_FALLBACK = "python3 tools/map/find.py <words>"
 NEGATORS_DEFAULT = ("no", "never", "don't", "dont", "do not", "not", "without", "stop")
 SKILL_ALSO_MIN_HITS = 2
 
@@ -195,8 +231,25 @@ def scored_skills(prompt, rows, k=2, negators=NEGATORS_DEFAULT, window=3):
     return out
 
 
-def skill_line(r):
-    return "SKILL: read %s (%s)" % (r.get("path") or r.get("id"), r.get("name") or r.get("id"))
+def surfaced(root):
+    """{lane skill dir: surface name} for the .claude/skills/<n> symlinks tools/upstream/skill_surface.py wrote."""
+    d = Path(root) / ".claude" / "skills"
+    out = {}
+    try:
+        for p in d.iterdir():
+            if p.is_symlink():
+                out[os.path.normpath(os.path.join(".claude/skills", os.readlink(str(p)))).replace("\\", "/")] = p.name
+    except OSError:
+        pass
+    return out
+
+
+def skill_line(r, links=None):
+    """SKILL: read <path> (<name>), plus ` · /<surface>` when the skill is natively invocable (DEC-core-0010)."""
+    path = r.get("path") or r.get("id")
+    line = "SKILL: read %s (%s)" % (path, r.get("name") or r.get("id"))
+    n = (links or {}).get(str(Path(str(path)).parent.as_posix())) if path else None
+    return line + (" · /%s" % n if n else "")
 
 
 def first_move_line(root, row):
@@ -214,7 +267,17 @@ def first_move_line(root, row):
         return "FIRST MOVE (%s): run `%s`%s" % (name, gather or "(no gather named)", args)
     if gather:
         line += (" — fall back to: `%s`" if not present else " · gather: `%s`") % gather
+    elif not present:
+        line += " — do not invoke it; fall back to: `%s`" % ABSENT_FALLBACK
     return line
+
+
+def looks_like_document(prompt, tie):
+    """CRITIC F2: only a multi-line or long multi-clause prompt can be a pasted document."""
+    nl = prompt.count("\n")
+    if nl >= int(tie.get("doc_min_newlines", 3)):
+        return True
+    return len(clauses(prompt)) >= int(tie.get("doc_min_clauses", 4)) and len(prompt) > int(tie.get("doc_min_chars", 300))
 
 
 def _station_of(row):
@@ -241,24 +304,29 @@ def route(prompt, root, payload=None):
             matched.append((r, h, i))
     lines = []
     if hints:
-        best_local = max([h["kw"] for _, h, _ in matched] or [0])
+        best_local = max([_total(h) for _, h, _ in matched] or [0])
         cand = []
         for r in hints:
             if _station_of(r) == station:
                 continue
-            h = hits(r.get("router") or {}, prompt, negators, window, cls)
-            if h["kw"] >= best_local + 2:
-                cand.append((h["kw"], r))
+            rr = r.get("router") or {}
+            h = hits(rr, prompt, negators, window, cls)
+            t = _total(h)
+            claimed = claim_hit(rr, prompt, negators, window, cls)
+            if (best_local and t >= best_local + 2) or (not best_local and (t >= 2 or (t and claimed))):
+                cand.append((t, claimed, r))
         if cand:
-            cand.sort(key=lambda x: -x[0])
-            x = _station_of(cand[0][1])
+            cand.sort(key=lambda x: (-x[1], -x[0]))
+            x = _station_of(cand[0][2])
             lines.append("WRONG STATION? this looks like %s (git worktree add ../%s station/%s)" % (x, x, x))
-    if len(matched) >= cap:
+    if len(matched) >= cap and looks_like_document(prompt, tie):
         names = ",".join(r.get("name", "?") for r, _, _ in matched)
         lines.append("ROUTER: %d intents matched (%s) — not routed; likely a pasted document" % (len(matched), names))
         return lines
     if matched:
-        matched.sort(key=lambda m: (_order_index(m[0], order), -_total(m[1]), m[2]))
+        matched.sort(key=lambda m: (_order_index(m[0], order),
+                                    not claim_hit(m[0].get("router") or {}, prompt, negators, window, cls),
+                                    -_total(m[1]), m[2]))
         win = matched[0][0]
         if win.get("name") == "conversational":
             return lines
@@ -275,8 +343,9 @@ def route(prompt, root, payload=None):
     sk = Path(root) / "router" / "skills.json"
     if sk.exists():
         rows = _load(sk).get("skills", [])
+        links = surfaced(root)
         for r in match_skills(prompt, rows, 2, negators, window):
-            lines.append(skill_line(r))
+            lines.append(skill_line(r, links))
     return lines
 
 
@@ -296,7 +365,7 @@ def skill_also(prompt, root, table, win, lines, negators, window):
     own = ((win.get("router") or {}).get("first_move") or {}).get("skill")
     if own and (r.get("path") or "").rstrip("/") in (".claude/skills/%s/SKILL.md" % own, ".claude/skills/%s" % own):
         return None
-    line = skill_line(r)
+    line = skill_line(r, surfaced(root))
     if len("\n".join(lines + [line]).encode("utf-8")) > int(table.get("max_out_bytes", 1200)):
         return None
     return line
@@ -369,6 +438,7 @@ def main():
 
 
 # ---------------------------------------------------------------- selftest
+ABSENT_FB = " — do not invoke it; fall back to: `%s`" % ABSENT_FALLBACK
 FIXTURE_STATION_INTENTS = {"intents": [
     {"name": "edge", "description": "fixture", "contributed_by": "station",
      "router": {"keywords": ["backtest", "edge", "expectancy"], "phrases": ["walk forward"], "first_move": {"workflow": "edge-research"}}},
@@ -385,6 +455,10 @@ FIXTURE_KIT_TREE = {"intents": [
     {"name": "station:client-bi", "description": "fixture", "scope": "main", "contributed_by": "kit",
      "router": {"keywords": ["qlik", "erp", "dashboard", "kpi", "client"], "phrases": ["load script"],
                 "first_move": {"inline_gather": "git worktree add ~/stations/client-bi station/client-bi"}}},
+    {"name": "station:career", "description": "fixture", "scope": "main", "contributed_by": "kit",
+     "router": {"keywords": ["cv", "resume", "job", "interview"], "phrases": ["cover letter"],
+                "claims": ["cv", "resume", "job", "posting"],
+                "first_move": {"inline_gather": "git worktree add ~/stations/career station/career"}}},
 ]}
 FIXTURE_SKILLS = {"skills": [
     {"id": "s1", "name": "market-sizing", "kind": "canonical", "path": "repertoire/a/market-sizing/SKILL.md",
@@ -422,8 +496,19 @@ COMMONS_CASES = [
     ("hello", None, "greeting"),
     ("Never touch governance/x.", None, "prohibition is not a request (path)"),
     ("never build on main", None, "prohibition is not a request (keyword)"),
-    ("rule, build, closeout, delegate: a pasted spec", "ROUTER: 4 intents matched", "pasted document"),
-    ("fix the ledger rule; build the tool; fan out workers", "ROUTER: 3 intents matched", "3-intent paste"),
+    ("rule, build, closeout, delegate: a pasted spec", "FIRST MOVE (governance-admin)", "one short line is never a document (CRITIC F2)"),
+    ("fix the ledger rule; build the tool; fan out workers", "FIRST MOVE (governance-admin)", "3 intents in one sentence: ranked, not refused"),
+    ("Spec\n1. the rule\n2. build the tool\n3. fan out workers\n4. closeout", "ROUTER: 4 intents matched", "multi-line paste"),
+    ("the rule changes, then we build it, then we fan out the subagents to apply it everywhere, and the closeout happens"
+     " after the review of all the files that were touched by the change, which can take a long while to complete when"
+     " every station has to be revisited one after the other by the workers, so plan for it now", "ROUTER: 4 intents matched",
+     "long multi-clause paste"),
+    ("reconcile the revenue kpi against the general ledger", None, "general ledger is not the governance ledger (CRITIC F4)"),
+    ("add a row to the ledger", "FIRST MOVE (governance-admin)", "the ledger phrase still routes"),
+    ("write a handoff for the next session", "FIRST MOVE (handoff)", "handoff route (LEAN F6)"),
+    ("context is running out, hand off now", "FIRST MOVE (handoff)", "handoff phrase"),
+    ("record a checkpoint, the commit landed", "FIRST MOVE (checkpoint)", "checkpoint route (LEAN F6)"),
+    ("who owns these decisions", "FIRST MOVE (governance-admin)", "plural keyword (decision)"),
     ("write a workflow file .claude/workflows/x.js", "FIRST MOVE (delegate)", "path + file type"),
     ("x " * 900 + "build", "FIRST MOVE (build)", "long prompt still <= 1200 B"),
 ]
@@ -432,6 +517,29 @@ MAIN_CASES = [
     ("study camofox fingerprinting", "STATION: quarantine", "Q0 first"),
     ("fix the qlik load script for the client", "STATION: client-bi", "client leaf"),
     ("never open camofox", None, "negated leaf"),
+    ("evaluate this job posting for a qlik developer", "STATION: career", "claims beat an earlier leaf (CRITIC F3)"),
+]
+# CRITIC section 1 (18 realistic operator tasks) + REPRODUCE F6, run against the REAL main table (no station.json)
+REAL_MAIN_CASES = [
+    ("Backtest a mean-reversion edge on BTC 4h with walk-forward OOS and tell me the expectancy", "markets"),
+    ("Review the Qlik load script for Kanon, the ApplyMap on COMPANY is producing nulls", "client-bi"),
+    ("Reconcile revenue KPI in the dashboard against AccountView general ledger for Gema", "client-bi"),
+    ("Build a Power BI report for Wilvo showing production hours", "client-bi"),
+    ("Build an MVP for a SaaS invoicing tool for Dutch freelancers with BTW handling", "venture"),
+    ("Should I build a CRM for small installers? do market sizing and competitor analysis", "venture"),
+    ("Tailor my CV for a senior BI consultant posting and prepare for the interview", "career"),
+    ("Evaluate this job posting for a Qlik developer role in Utrecht", "career"),
+    ("Design a landing page with tasteful motion for my product and critique the UI", "studio"),
+    ("Investigate who is behind this crypto token from public sources and screenshots", "research"),
+    ("Do a literature review on volatility forecasting, GARCH vs realized volatility", "research"),
+    ("Figure out how AutoHedge signs Solana transactions before I run it", "markets"),
+    ("Study how camofox evades browser fingerprinting", "quarantine"),
+    ("Research the market for project management tools", "research"),
+    ("Audit this Twitter claim that the strategy returns 300 percent a year", "markets"),
+    ("Write a PRD for a client portal feature", "venture"),
+    ("Size the market for Dutch ERP consultancies", "research"),
+    ("Design a dashboard for my startup's metrics", "venture"),
+    ("find papers on transformer interpretability", "research"),
 ]
 STATION_CASES = [
     ("run a backtest on the edge", "FIRST MOVE (edge)", "station intent beats commons"),
@@ -443,20 +551,22 @@ STATION_CASES = [
     ("draw a mermaid flowchart", "SKILL: read repertoire/c/mermaid/SKILL.md", "skill fall-through"),
     ("sizing please", "SKILL: read repertoire/a/market-sizing/SKILL.md", "mirror resolves via route_to"),
     ("no mermaid please", None, "negated skill"),
-    ("edge", "FIRST MOVE (edge): workflow edge-research [ABSENT]", "ABSENT target"),
+    ("Review the Qlik load script for Kanon", "WRONG STATION? this looks like client-bi", "hint counts phrases (CRITIC F9)"),
+    ("Tailor my CV for a BI role", "WRONG STATION? this looks like career", "one claims hit hints when nothing local matched"),
+    ("edge", "FIRST MOVE (edge): workflow edge-research [ABSENT]" + ABSENT_FB, "ABSENT target"),
 ]
 # fix2-commons 6 (ROUTER SHADOWING): (prompt, exact expected output lines, label) on the fixture station
 SHADOW_CASES = [
-    ("backtest the tam market sizing edge", ["FIRST MOVE (edge): workflow edge-research [ABSENT]",
+    ("backtest the tam market sizing edge", ["FIRST MOVE (edge): workflow edge-research [ABSENT]" + ABSENT_FB,
                                             "SKILL: read repertoire/a/market-sizing/SKILL.md (market-sizing)"],
      "intent wins AND the top skill clears the threshold: both lines, FIRST MOVE first"),
-    ("backtest a mermaid edge", ["FIRST MOVE (edge): workflow edge-research [ABSENT]"],
+    ("backtest a mermaid edge", ["FIRST MOVE (edge): workflow edge-research [ABSENT]" + ABSENT_FB],
      "intent wins, top skill scores 1 (< skill_also_min_hits 2): no SKILL line"),
-    ("run a backtest on the edge", ["FIRST MOVE (edge): workflow edge-research [ABSENT]"],
+    ("run a backtest on the edge", ["FIRST MOVE (edge): workflow edge-research [ABSENT]" + ABSENT_FB],
      "intent wins, no skill hit: no SKILL line"),
-    ("backtest the edge, no tam no market", ["FIRST MOVE (edge): workflow edge-research [ABSENT]"],
+    ("backtest the edge, no tam no market", ["FIRST MOVE (edge): workflow edge-research [ABSENT]" + ABSENT_FB],
      "negated skill keywords never co-route"),
-    ("update the journal fills for the mermaid flowchart diagram", ["FIRST MOVE (journal): workflow journal-review [ABSENT]",
+    ("update the journal fills for the mermaid flowchart diagram", ["FIRST MOVE (journal): workflow journal-review [ABSENT]" + ABSENT_FB,
                                                                     "SKILL: read repertoire/c/mermaid/SKILL.md (mermaid)"],
      "second intent + a 3-hit skill"),
 ]
@@ -465,6 +575,11 @@ SHADOW_CASES = [
 def _load_cases(p):
     """Tolerant reader for station selftest files: list | {cases|prompts: [...]} | {prompt: expect}."""
     d = _load(p)
+    if isinstance(d, dict) and ("positive" in d or "negative" in d):
+        # the shape tools/upstream/skill_routes.py documents (ASSEMBLY_NOTES C2: one shape, two readers)
+        d = {"cases": [c if isinstance(c, dict) else {"prompt": c[0], "expect": c[1]} if isinstance(c, list) else {"prompt": c}
+                       for c in d.get("positive") or []] +
+                      [{"prompt": c if isinstance(c, str) else c.get("prompt"), "negative": True} for c in d.get("negative") or []]}
     if isinstance(d, dict) and not any(k in d for k in ("cases", "prompts", "tests")):
         items = [{"prompt": k, "expect": v} for k, v in d.items() if not k.startswith("_")]
     else:
@@ -569,12 +684,12 @@ def selftest(root=None):
             ok(len(respond({"prompt": prompt}, rt).encode("utf-8")) <= 1200, "%s: over budget" % label)
         tbl = json.loads((rt / "router" / "intents.json").read_text())
         (rt / "router" / "intents.json").write_text(json.dumps(dict(tbl, skill_also_min_hits=1)))
-        ok(route("backtest a mermaid edge", rt) == ["FIRST MOVE (edge): workflow edge-research [ABSENT]",
+        ok(route("backtest a mermaid edge", rt) == ["FIRST MOVE (edge): workflow edge-research [ABSENT]" + ABSENT_FB,
                                                     "SKILL: read repertoire/c/mermaid/SKILL.md (mermaid)"],
            "skill_also_min_hits is read from router/intents.json")
         (rt / "router" / "intents.json").write_text(json.dumps(dict(tbl, max_out_bytes=200)))
         tight = route("backtest the tam market sizing edge", rt)
-        ok(tight == ["FIRST MOVE (edge): workflow edge-research [ABSENT]"] or
+        ok(tight == ["FIRST MOVE (edge): workflow edge-research [ABSENT]" + ABSENT_FB] or
            len("\n".join(tight).encode("utf-8")) <= 200, "co-routed SKILL line respects max_out_bytes: %r" % tight)
         own = dict(FIXTURE_SKILLS, skills=FIXTURE_SKILLS["skills"] + [
             {"id": "s5", "name": "edge-research", "kind": "canonical", "path": ".claude/skills/edge-research/SKILL.md",
@@ -584,7 +699,7 @@ def selftest(root=None):
         st_own = json.loads((rt / "router" / "intents.d" / "station.json").read_text())
         st_own["intents"][0]["router"]["first_move"] = {"skill": "edge-research"}
         (rt / "router" / "intents.d" / "station.json").write_text(json.dumps(st_own))
-        ok(route("backtest the edge sharpe", rt) == ["FIRST MOVE (edge): skill /edge-research [ABSENT]"],
+        ok(route("backtest the edge sharpe", rt) == ["FIRST MOVE (edge): skill /edge-research [ABSENT]" + ABSENT_FB],
            "the first move's own skill is never repeated as a SKILL line: %r" % route("backtest the edge sharpe", rt))
         (rt / "router" / "intents.d" / "station.json").write_text(json.dumps(FIXTURE_STATION_INTENTS))
         (rt / "router" / "skills.json").write_text(json.dumps(FIXTURE_SKILLS))
@@ -598,12 +713,26 @@ def selftest(root=None):
         r = match_skills("market sizing for tam", FIXTURE_SKILLS["skills"], k=2)
         ok([x["id"] for x in r] == ["s1", "s2"], "match_skills top-2 canonical then variant: %r" % [x["id"] for x in r])
         ok(match_skills("nothing relevant", FIXTURE_SKILLS["skills"]) == [], "match_skills empty")
+        # ASSEMBLY_NOTES C2 / CRITIC F14: the positive/negative shape skill_routes.py documents is read too
+        (rt / "pn.json").write_text(json.dumps({"positive": [{"prompt": "draw a mermaid", "expect": "s4"}], "negative": ["hello there"]}))
+        ok(_load_cases(rt / "pn.json") == [("draw a mermaid", "s4"), ("hello there", None)], "positive/negative shape: %r" % _load_cases(rt / "pn.json"))
+        # DEC-core-0010: a surfaced skill (.claude/skills/<n> -> its lane dir) is named as /<n> beside the read path
+        (rt / "repertoire/c/mermaid").mkdir(parents=True)
+        (rt / "repertoire/c/mermaid/SKILL.md").write_text("---\nname: mermaid\n---\n")
+        os.symlink("../../repertoire/c/mermaid", str(rt / ".claude/skills/mermaid"))
+        ok(route("draw a mermaid flowchart", rt) == ["SKILL: read repertoire/c/mermaid/SKILL.md (mermaid) · /mermaid"],
+           "surfaced skill named natively: %r" % route("draw a mermaid flowchart", rt))
+        (rt / ".claude/skills/mermaid").unlink()
         # broken table -> one 'could not classify' line, exit 0
         (rt / "router" / "intents.json").write_text("{broken")
         out = respond({"prompt": "build"}, rt)
         ok(out.startswith("intent_router: could not classify"), "unreadable table: %r" % out)
     # 4. the real station's own selftest files, if present
     root = Path(root) if root else src
+    if (root / "router" / "kit_tree.json").exists() and not (root / "station.json").exists():
+        for prompt, want in REAL_MAIN_CASES:
+            out = respond({"prompt": prompt, "session_id": "selftest"}, root)
+            ok(out.startswith("STATION: %s " % want), "real main table %r: want STATION: %s, got %r" % (prompt, want, out[:120]))
     files = sorted((root / "router" / "intents.d").glob("*.selftest.json")) if (root / "router" / "intents.d").is_dir() else []
     for f in files:
         try:

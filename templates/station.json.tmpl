@@ -1,5 +1,5 @@
 {
- "_why": "station.json (station-only; never on main). Filled from templates/station.json.tmpl by the station builder: replace every {{...}} value, keep the keys. Validated by tools/gov/gov_check.py station against commons/schema/station.schema.json; any key here overrides commons/defaults.json by deep merge (hooks.PreToolUse is a UNION with the commons modules). No secret values belong here (they go in .env).",
+ "_why": "station.json (station-only; never on main). Filled from templates/station.json.tmpl by the station builder: replace every {{...}} value, keep the keys. Validated by tools/gov/gov_check.py station against commons/schema/station.schema.json; any key here overrides commons/defaults.json by deep merge (hooks.PreToolUse is a UNION with the commons modules). No secret values belong here (they go in .env). Skills: every canonical skill in router/skills.json is surfaced into .claude/skills/ by tools/upstream/skill_surface.py --write (DEC-core-0010); skill_hide holds ONLY true duplicates {name: {state: off|user-invocable-only|name-only, why: mirror|variant|fixture|harness, of: canonical}}; skill_listing_budget_fraction (optional number) is carried into .claude/settings.json skillListingBudgetFraction.",
  "name": "{{station}}",
  "purpose": "{{one sentence: the noun this station owns and what it does with it}}",
  "branch": "station/{{station}}",
@@ -11,14 +11,7 @@
  "hooks": {
   "PreToolUse": []
  },
- "skill_overrides": {
-  "checkpoint": "user-invocable-only",
-  "summon": "user-invocable-only",
-  "tier": "user-invocable-only",
-  "upstream-intake": "user-invocable-only"
- },
- "listing_budget_bytes": 2400,
- "listed_max": 6,
+ "skill_hide": {},
  "quarantined": [],
  "irreversible_acts": [],
  "connectors_expected": [],

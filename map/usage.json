@@ -60,7 +60,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:101",
+     "evidence": ".claude/settings.json:106",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -73,7 +73,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:55",
+     "evidence": ".claude/settings.json:60",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -86,7 +86,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:59",
+     "evidence": ".claude/settings.json:64",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -99,7 +99,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:68",
+     "evidence": ".claude/settings.json:73",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -112,7 +112,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:44",
+     "evidence": ".claude/settings.json:49",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
@@ -137,7 +137,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:90",
+     "evidence": ".claude/settings.json:95",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -150,7 +150,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:129",
+     "evidence": ".claude/settings.json:134",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -161,7 +161,13 @@
    "hand": [],
    "home": "/checkpoint",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "router/intents.json:37",
+     "ref": "router/intents.json",
+     "source": "router"
+    }
+   ]
   },
   ".claude/skills/closeout/SKILL.md": {
    "cold": null,
@@ -170,7 +176,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:22",
+     "evidence": "router/intents.json:23",
      "ref": "router/intents.json",
      "source": "router"
     }
@@ -188,7 +194,13 @@
    "hand": [],
    "home": "/handoff",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "router/intents.json:30",
+     "ref": "router/intents.json",
+     "source": "router"
+    }
+   ]
   },
   ".claude/skills/kit-maintain/SKILL.md": {
    "cold": null,
@@ -211,7 +223,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:29",
+     "evidence": "router/intents.json:44",
      "ref": "router/intents.json",
      "source": "router"
     },
@@ -241,7 +253,13 @@
    "hand": [],
    "home": "/tool-trial",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": ".claude/workflows/trial-run.js:34",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    }
+   ]
   },
   ".claude/skills/upstream-intake/SKILL.md": {
    "cold": null,
@@ -267,6 +285,13 @@
    "cold": null,
    "hand": [],
    "home": "workflow orient",
+   "kind": "workflow",
+   "triggers": []
+  },
+  ".claude/workflows/trial-run.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow trial-run",
    "kind": "workflow",
    "triggers": []
   },
@@ -312,17 +337,17 @@
      "source": "check"
     },
     {
-     "evidence": ".claude/settings.json:110",
+     "evidence": ".claude/settings.json:115",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
     {
-     "evidence": ".claude/settings.json:24",
+     "evidence": ".claude/settings.json:28",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
     {
-     "evidence": ".claude/settings.json:34",
+     "evidence": ".claude/settings.json:39",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
@@ -358,6 +383,24 @@
      "evidence": "tools/gov/new_row.py:24",
      "ref": "tools/gov/new_row.py",
      "source": "import"
+    }
+   ]
+  },
+  "tools/gov/carry_design.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/gov/carry_design.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:264",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:277",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
     }
    ]
   },
@@ -584,7 +627,7 @@
      "source": "check"
     },
     {
-     "evidence": ".claude/settings.json:22",
+     "evidence": ".claude/settings.json:26",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -610,7 +653,7 @@
    "kind": "tool",
    "triggers": [
     {
-     "evidence": "tools/kit/bootstrap.py:29",
+     "evidence": "tools/kit/bootstrap.py:35",
      "ref": "tools/kit/bootstrap.py",
      "source": "import"
     },
@@ -620,17 +663,17 @@
      "source": "import"
     },
     {
-     "evidence": "tools/kit/runtree.py:29",
+     "evidence": "tools/kit/runtree.py:30",
      "ref": "tools/kit/runtree.py",
      "source": "import"
     },
     {
-     "evidence": "tools/kit/skills_index.py:61",
+     "evidence": "tools/kit/skills_index.py:62",
      "ref": "tools/kit/skills_index.py",
      "source": "import"
     },
     {
-     "evidence": "tools/kit/sync.py:34",
+     "evidence": "tools/kit/sync.py:36",
      "ref": "tools/kit/sync.py",
      "source": "import"
     }
@@ -665,6 +708,13 @@
    "cold": null,
    "hand": [],
    "home": "python3 tools/kit/doctor.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/held_modes.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/held_modes.py",
    "kind": "tool",
    "triggers": []
   },
@@ -725,6 +775,11 @@
      "evidence": ".claude/skills/tool-trial/SKILL.md:20",
      "ref": ".claude/skills/tool-trial/SKILL.md",
      "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:84",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -842,7 +897,7 @@
    "kind": "tool",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:23",
+     "evidence": ".claude/settings.json:27",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
@@ -1007,7 +1062,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:72",
+     "evidence": ".claude/settings.json:77",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -1020,7 +1075,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:81",
+     "evidence": ".claude/settings.json:86",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -1033,7 +1088,7 @@
    "kind": "hook",
    "triggers": [
     {
-     "evidence": ".claude/settings.json:119",
+     "evidence": ".claude/settings.json:124",
      "ref": ".claude/settings.json",
      "source": "hook"
     }
@@ -1178,6 +1233,16 @@
      "evidence": ".claude/skills/tool-trial/SKILL.md:36",
      "ref": ".claude/skills/tool-trial/SKILL.md",
      "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:21",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:30",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -1198,22 +1263,27 @@
      "source": "check"
     },
     {
-     "evidence": ".claude/settings.json:21",
+     "evidence": ".claude/settings.json:25",
      "ref": ".claude/settings.json",
      "source": "hook"
     },
     {
-     "evidence": "router/intents.json:16",
+     "evidence": "router/intents.json:17",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:23",
+     "evidence": "router/intents.json:24",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:30",
+     "evidence": "router/intents.json:31",
+     "ref": "router/intents.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.json:45",
      "ref": "router/intents.json",
      "source": "router"
     },
@@ -1271,6 +1341,11 @@
      "evidence": ".claude/workflows/orient.js:19",
      "ref": ".claude/workflows/orient.js",
      "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:29",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
     }
    ]
   },
@@ -1296,12 +1371,17 @@
      "source": "import"
     },
     {
+     "evidence": "tools/upstream/skill_surface.py:51",
+     "ref": "tools/upstream/skill_surface.py",
+     "source": "import"
+    },
+    {
      "evidence": "tools/upstream/upstream_checks.py:48",
      "ref": "tools/upstream/upstream_checks.py",
      "source": "import"
     },
     {
-     "evidence": "tools/upstream/workflows_check.py:43",
+     "evidence": "tools/upstream/workflows_check.py:45",
      "ref": "tools/upstream/workflows_check.py",
      "source": "import"
     }
@@ -1386,6 +1466,34 @@
     }
    ]
   },
+  "tools/upstream/skill_surface.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/skill_surface.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:304",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:314",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:323",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/settings.json:29",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
   "tools/upstream/upstream_checks.py": {
    "cold": null,
    "hand": [],
@@ -1423,22 +1531,22 @@
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:305",
+     "evidence": "governance/checks.d/upstream.json:332",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:313",
+     "evidence": "governance/checks.d/upstream.json:340",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:328",
+     "evidence": "governance/checks.d/upstream.json:355",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.d/upstream.json:336",
+     "evidence": "governance/checks.d/upstream.json:363",
      "ref": "governance/checks.d/upstream.json",
      "source": "check"
     },

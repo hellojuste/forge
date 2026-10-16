@@ -262,6 +262,17 @@
    "status": "working",
    "title": "governance library"
   },
+  "tools/gov/carry_design.py": {
+   "doc": "docs/design/LEAN_LESSONS.md",
+   "kin": [],
+   "purpose": "carry the lean lessons and programme specs verbatim into docs/design/ and prove every cited LL id resolves",
+   "see_also": [],
+   "solves": [
+    "governance-audit"
+   ],
+   "status": "working",
+   "title": "design docs carry"
+  },
   "tools/gov/gen_manifest.py": {
    "doc": null,
    "kin": [],
@@ -355,6 +366,19 @@
    ],
    "status": "working",
    "title": "doctor"
+  },
+  "tools/kit/held_modes.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "record and check every held upstream file whose git mode at the pin differs from its station branch (SAFETY 5)",
+   "see_also": [
+    "tools/kit/kit_check.py"
+   ],
+   "solves": [
+    "kit-assembly"
+   ],
+   "status": "working",
+   "title": "held-file mode record"
   },
   "tools/kit/kit_check.py": {
    "doc": null,
@@ -642,6 +666,20 @@
    ],
    "status": "working",
    "title": "skill routes"
+  },
+  "tools/upstream/skill_surface.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "surface every canonical station skill into .claude/skills (symlink), generate settings.json skillOverrides for duplicates only, report the listing against the real budget",
+   "see_also": [
+    "tools/upstream/workflows_check.py",
+    "tools/upstream/skill_routes.py"
+   ],
+   "solves": [
+    "governance-audit"
+   ],
+   "status": "working",
+   "title": "skill surface"
   },
   "tools/upstream/upstream_checks.py": {
    "doc": null,

@@ -256,6 +256,28 @@
     "--selftest"
    ],
    "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/carry_design.py",
+    "--check"
+   ],
+   "earned_by": "LEAN review F3: 30 tracked files cited LL-01..LL-51 and two brain nodes cited _design/LEAN_LESSONS.md, a file never shipped",
+   "gate_subcount": null,
+   "inputs": [
+    "*"
+   ],
+   "name": "design_docs",
+   "programme": "map",
+   "retires": "the dangling _design/LEAN_LESSONS.md citations",
+   "selftest": [
+    "python3",
+    "tools/gov/carry_design.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
   }
  ]
 }

@@ -55,17 +55,18 @@
   },
   {
    "id": "R-skill-overrides",
-   "headline": "Per-skill listing overrides live in station.json skill_overrides; the commons settings.json skillOverrides stays {} so the file is identical on every branch",
-   "owner": ".claude/settings.json",
+   "headline": "Only true duplicates are hidden: .claude/settings.json skillOverrides is GENERATED per station by tools/upstream/skill_surface.py from station.json skill_hide (why: mirror|variant|fixture|harness); every canonical skill homed in a station is surfaced natively under .claude/skills/",
+   "owner": "tools/upstream/skill_surface.py",
    "pointers": [],
    "enforcement": {
     "kind": "not-hookable",
-    "why": "listing is decided at session start from files; the listing_budget check (governance/checks.d/upstream.json) measures it"
+    "why": "listing is decided at session start from files; the skill_surface check (governance/checks.d/upstream.json, tools/upstream/skill_surface.py --check) proves the links and the generated settings keys"
    },
    "rung": "soft",
-   "upstream": "N/A",
+   "upstream": "NEVER",
    "earned_by": "LEAN LL-02 (the per-turn cost of a skill is its listing line); KIT_PLAN 3.3 overlay discipline",
-   "since": "DEC-core-0001"
+   "since": "DEC-core-0010",
+   "superseded_text": "Per-skill listing overrides live in station.json skill_overrides; the commons settings.json skillOverrides stays {} so the file is identical on every branch — SUPERSEDED 2026-10-16 by DEC-core-0010"
   },
   {
    "id": "R-irreversible",

@@ -424,15 +424,32 @@ def check_telemetry(root):
 
 
 # ---------------------------------------------------------------- offline_complete
+def upstream_cache(root):
+    """The shared bootstrap cache (tools/kit/_kit.upstream_cache: $STABLE_KIT_UPSTREAM, else the main checkout's
+    .upstream/ seen from every linked station worktree); <root>/.upstream when tools/kit is not present."""
+    kp = Path(root) / "tools" / "kit" / "_kit.py"
+    if kp.exists():
+        try:
+            import importlib.util
+            spec = importlib.util.spec_from_file_location("_kit_for_upstream_checks", str(kp))
+            m = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(m)
+            return Path(m.upstream_cache(str(root)))
+        except Exception:  # noqa: BLE001 -- fall back to the per-root cache, named in the headline row
+            pass
+    return Path(root) / ".upstream"
+
+
 def check_offline_complete(root):
     root = Path(root)
     rows = [r for r in lock_rows(root) if r.get("held") == "bootstrap"]
     viol, work = [], []
+    cache = upstream_cache(root) if rows else root / ".upstream"
     for r in rows:
         slug = str(r.get("repo", "")).replace("/", "~")
-        bare = root / ".upstream" / ("%s.git" % slug)
+        bare = cache / ("%s.git" % slug)
         if not bare.is_dir():
-            work.append("%s: .upstream/%s.git absent (run python3 tools/kit/bootstrap.py %s)" % (r.get("repo"), slug, slug))
+            work.append("%s: %s/%s.git absent (run python3 tools/kit/bootstrap.py %s)" % (r.get("repo"), cache, slug, slug))
             continue
         p = subprocess.run(["git", "-C", str(bare), "cat-file", "-e", "%s^{commit}" % r.get("sha")], capture_output=True)
         if p.returncode != 0:
@@ -613,7 +630,19 @@ def selftest(name):
             _edit_json(root / "upstream/LOCK.json", lambda o: o["rows"][2].__setitem__("sha", "c" * 40))
             rc, out = _quiet(fn, root)
             assert rc == 0 and "1 worklist" in out.splitlines()[0], ("missing pinned commit is WORKLIST", out)
-            cases += 3
+            # REPRODUCE F4 (main-kittools handover): the cache is the kit's shared one, not <root>/.upstream
+            _edit_json(root / "upstream/LOCK.json", lambda o: o["rows"][2].__setitem__("sha", sha))
+            shared = root.parent / (root.name + "_shared")
+            shutil_mv = __import__("shutil").move
+            shared.mkdir()
+            shutil_mv(str(root / ".upstream/b~big.git"), str(shared / "b~big.git"))
+            (root / "tools/kit").mkdir(parents=True, exist_ok=True)
+            (root / "tools/kit/_kit.py").write_text("def upstream_cache(root):\n    return %r\n" % str(shared))
+            rc, out = _quiet(fn, root)
+            assert rc == 0 and "0 worklist" in out.splitlines()[0], ("the shared cache is read", out)
+            __import__("shutil").rmtree(str(root / "tools/kit"))
+            __import__("shutil").rmtree(str(shared))
+            cases += 4
             import shutil
             shutil.rmtree(src)
     # an empty tree (main, no lanes) is green with denominator 0
