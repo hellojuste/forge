@@ -582,7 +582,7 @@
    "kind": "tool",
    "triggers": [
     {
-     "evidence": "tools/kit/bootstrap.py:29",
+     "evidence": "tools/kit/bootstrap.py:35",
      "ref": "tools/kit/bootstrap.py",
      "source": "import"
     },
@@ -592,7 +592,7 @@
      "source": "import"
     },
     {
-     "evidence": "tools/kit/sync.py:34",
+     "evidence": "tools/kit/sync.py:36",
      "ref": "tools/kit/sync.py",
      "source": "import"
     }

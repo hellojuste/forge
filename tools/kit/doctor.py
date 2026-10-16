@@ -43,10 +43,18 @@ def report(root, log=print):
     if not isrepo:
         log("  repo    : NOT a git repo (unzip dropped .git?) -> git clone stable-kit.bundle stable-kit (UNZIP.md)")
         return 0
-    br = _kit.run(["git", "-C", root, "for-each-ref", "--format=%(refname:short)", "refs/heads/"], check=False).out.split()
-    st_br = [b for b in br if b.startswith("station/")]
+    # REPRODUCE F2: stations may be local, remote-tracking (plain clone) or hosted claude/stable-kit-<x>
+    refs = _kit.station_refs(root, _kit.known_stations(root))
+    remote_only = sorted(s for s, r in refs.items() if r.startswith("refs/remotes/"))
     cur = _kit.run(["git", "-C", root, "symbolic-ref", "--short", "-q", "HEAD"], check=False).out.strip() or "(detached)"
-    log("  branches: %d (main + %d station) · current %s" % (len(br), len(st_br), cur))
+    log("  stations: %d (%d local, %d remote-tracking only) · main %s · current %s" % (
+        len(refs), len(refs) - len(remote_only), len(remote_only), _kit.main_ref(root) or "MISSING", cur))
+    if remote_only:
+        ex = remote_only[0]
+        log("  remote-only stations: %s  -> git worktree add ~/stations/%s -b station/%s %s  (one per station; or "
+            "git fetch origin 'refs/heads/station/*:refs/heads/station/*' when the remote uses station/<x>)" % (
+                ", ".join(remote_only), ex, ex, refs[ex].replace("refs/remotes/", "", 1)))
+    short = {s: r.split("/", 2)[2] if r.startswith("refs/heads/") else r for s, r in refs.items()}
     wt = _kit.run(["git", "-C", root, "worktree", "list", "--porcelain"], check=False).out
     trees = []
     for blk in wt.split("\n\n"):
@@ -59,11 +67,11 @@ def report(root, log=print):
     log("  worktrees (%d):" % len(trees))
     for path, b in trees:
         log("    %-14s %s" % (b, path))
-    missing = [b for b in st_br if b not in {t[1] for t in trees}]
+    missing = [s for s in refs if short[s] not in {t[1] for t in trees}]
     if missing:
-        log("  stations without a worktree: %s  -> git worktree add ~/stations/<x> station/<x>" % ", ".join(m.split("/", 1)[1] for m in missing))
+        log("  stations without a worktree: %s  -> git worktree add ~/stations/<x> station/<x>" % ", ".join(missing))
     # multi-station working root: station worktrees nested under one directory you open Claude in
-    nested = [p for p, b in trees if b.startswith("station/") and os.path.abspath(p).startswith(root + os.sep)]
+    nested = [p for p, b in trees if b in set(short.values()) and os.path.abspath(p).startswith(root + os.sep)]
     if nested or os.path.basename(root) == "stations":
         log("  NOTE multi-station working root: Claude loads the hooks/CLAUDE.md of ONE branch only — open Claude inside one station worktree")
     # bootstrap coverage per LOCK row (this branch) or per registry bootstrap row (main)
@@ -91,17 +99,20 @@ def report(root, log=print):
         rows.append(ok)
         if not ok:
             need.append(k)
-    log("  .upstream/ coverage: %d / %d %s have their pin" % (sum(rows), len(rows), scope))
+    log("  bootstrap cache %s (shared by every worktree): %d / %d %s have their pin" % (
+        _kit.upstream_cache(root), sum(rows), len(rows), scope))
     if need:
         log("  bootstrap needed (%d): %s" % (len(need), " ".join(need)))
-        log("    -> python3 tools/kit/bootstrap.py %s   (or --all; offline: --from-bundle <dir>)" % (
-            "--station " + _kit.read_json(os.path.join(root, "station.json")).get("name", "<x>")
-            if os.path.isfile(os.path.join(root, "station.json")) else "--all"))
+        on_station = os.path.isfile(os.path.join(root, "station.json"))
+        log("    -> python3 tools/kit/bootstrap.py %s --dry-run, then without --dry-run   (%s; offline: --from-bundle <dir>)" % (
+            "--station " + _kit.read_json(os.path.join(root, "station.json")).get("name", "<x>") if on_station else "--all",
+            "or --all" if on_station else "or --station <x>"))
     log("  next: README.md (decision tree) · KIT.md · python3 tools/station_audit.py --state")
     return 0
 
 
 def _selftest():
+    os.environ.pop(_kit.CACHE_ENV, None)  # fixtures must never touch the operator's configured cache
     tmp = tempfile.mkdtemp(prefix="kit-doctor-")
     try:
         lines = []
@@ -119,10 +130,17 @@ def _selftest():
         assert report(root, log=lines.append) == 0
         assert any("0 / 1" in l for l in lines) and any("bootstrap needed (1): o~r" in l for l in lines), lines
         assert any("stations without a worktree: alpha" in l for l in lines), lines
+        assert any("or --station <x>" in l and "--all --dry-run" in l for l in lines), lines  # REPRODUCE F10 (b)
         bootstrap.run(root, [{"key": "o~r", "url": "file://" + remote, "sha": v1}], log=lambda *a: None)
         lines = []
         report(root, log=lines.append)
         assert any("1 / 1" in l for l in lines), lines
+        for lay, lrepo in _kit.fixture_layouts(root, tmp).items():  # REPRODUCE F2
+            lines = []
+            report(lrepo, log=lines.append)
+            assert any(l.startswith("  stations: 1 (") for l in lines), (lay, lines)
+            if lay != "local":
+                assert any("remote-only stations: alpha" in l for l in lines), (lay, lines)
         print("selftest OK")
         return 0
     finally:

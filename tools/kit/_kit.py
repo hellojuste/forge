@@ -284,6 +284,159 @@ def stations_from_tree(root):
     return out
 
 
+# ---------------------------------------------------------------- refs (REPRODUCE F2)
+# A kit repo shows up in three layouts and every kit tool must read all three:
+#   (1) the build / an unpacked zip: local branches `main` + `station/<x>`;
+#   (2) a plain `git clone`: only `main` is local, stations are `refs/remotes/<remote>/station/<x>`;
+#   (3) the temporary hosting: branches `claude/stable-kit-<x>` (and `claude/stable-kit-main`),
+#       local or remote-tracking.
+# Preference: local before remote-tracking, `station/<x>` before the hosted name, remote `origin` first.
+HOSTED_PREFIX = "claude/stable-kit-"
+NOT_STATIONS = {"main", "design", "HEAD"}
+
+
+def _ref_rank(refname):
+    """refname -> (name, rank) for a station ref, or None. Lower rank wins."""
+    m = re.match(r"^refs/heads/station/([^/]+)$", refname)
+    if m:
+        return m.group(1), 0
+    m = re.match(r"^refs/heads/" + re.escape(HOSTED_PREFIX) + r"([^/]+)$", refname)
+    if m:
+        return m.group(1), 1
+    m = re.match(r"^refs/remotes/([^/]+)/station/([^/]+)$", refname)
+    if m:
+        return m.group(2), 2 if m.group(1) == "origin" else 3
+    m = re.match(r"^refs/remotes/([^/]+)/" + re.escape(HOSTED_PREFIX) + r"([^/]+)$", refname)
+    if m:
+        return m.group(2), 4 if m.group(1) == "origin" else 5
+    return None
+
+
+def station_refs(repo, known=None):
+    """{station: full refname} over all three layouts. `known` (an iterable of station names, e.g.
+    stations_from_tree) filters the hosted names, so `claude/stable-kit-<anything>` is not a station
+    unless the tree names it. Names with `--` (build scratch branches) are skipped."""
+    p = git(repo, "for-each-ref", "--format=%(refname)", "refs/heads/station/", "refs/heads/claude/",
+            "refs/remotes/", check=False)
+    if p.returncode != 0:
+        raise KitError("git for-each-ref failed in %s: %s" % (repo, p.err.strip()))
+    known = set(known) if known else None
+    best = {}
+    for ref in p.out.split():
+        hit = _ref_rank(ref)
+        if not hit:
+            continue
+        name, rank = hit
+        if name in NOT_STATIONS or "--" in name or (known is not None and name not in known):
+            continue
+        if name not in best or rank < best[name][0] or (rank == best[name][0] and ref < best[name][1]):
+            best[name] = (rank, ref)
+    return {k: v[1] for k, v in sorted(best.items())}
+
+
+def main_ref(repo):
+    """The full refname of the kit's main: local `main`, local `claude/stable-kit-main`, then the
+    remote-tracking forms (origin first). None when no candidate exists."""
+    cands = ["refs/heads/main", "refs/heads/%smain" % HOSTED_PREFIX]
+    p = git(repo, "for-each-ref", "--format=%(refname)", "refs/remotes/", check=False)
+    rem = sorted(p.out.split()) if p.returncode == 0 else []
+    for suffix in ("main", HOSTED_PREFIX + "main"):
+        for r in sorted(rem, key=lambda x: (not x.startswith("refs/remotes/origin/"), x)):
+            if re.match(r"^refs/remotes/[^/]+/" + re.escape(suffix) + "$", r):
+                cands.append(r)
+    for c in cands:
+        if git(repo, "rev-parse", "--verify", "-q", c + "^{commit}", check=False).returncode == 0:
+            return c
+    return None
+
+
+def known_stations(root):
+    """Station names from router/kit_tree.json, or None when the tree is unreadable (no filter)."""
+    try:
+        return stations_from_tree(root) or None
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
+# ---------------------------------------------------------------- shared bootstrap cache (REPRODUCE F4)
+CACHE_ENV = "STABLE_KIT_UPSTREAM"
+
+
+def upstream_cache(root):
+    """The ONE bootstrap cache for a kit checkout and all its linked worktrees.
+    $STABLE_KIT_UPSTREAM wins; else `<git common dir>/../.upstream` when the common dir is a
+    `.git` directory (the main checkout's gitignored `.upstream/`, seen by every
+    `git worktree add ~/stations/<x>`); else `<git common dir>/stable-kit-upstream` (bare kit);
+    else (not a git repo) `<root>/.upstream`."""
+    env = os.environ.get(CACHE_ENV, "").strip()
+    if env:
+        return os.path.abspath(os.path.expanduser(env))
+    p = run(["git", "-C", root, "rev-parse", "--path-format=absolute", "--git-common-dir"], check=False)
+    common = p.out.strip() if p.returncode == 0 else ""
+    if not common:
+        return os.path.join(os.path.abspath(root), ".upstream")
+    if os.path.basename(common.rstrip(os.sep)) == ".git":
+        return os.path.join(os.path.dirname(common.rstrip(os.sep)), ".upstream")
+    return os.path.join(common, "stable-kit-upstream")
+
+
+def fixture_layouts(src, tmp):
+    """Selftest helper: from a fixture kit repo `src` with local `main` + `station/<x>`, make the two
+    other layouts a kit tool must read. Returns {"local": src, "clone": <plain git clone: main local,
+    stations remote-tracking>, "hosted": <clone of a remote whose branches are claude/stable-kit-*>}."""
+    env = clean_git_env()
+    clone = os.path.join(tmp, "layout-clone")
+    run(["git", "clone", "-q", src, clone], env=env)
+    bare = os.path.join(tmp, "layout-hosted.git")
+    run(["git", "init", "-q", "--bare", bare], env=env)
+    specs = ["refs/heads/main:refs/heads/%smain" % HOSTED_PREFIX]
+    for ref in git(src, "for-each-ref", "--format=%(refname)", "refs/heads/station/").out.split():
+        specs.append("%s:refs/heads/%s%s" % (ref, HOSTED_PREFIX, ref.rsplit("/", 1)[1]))
+    git(src, "-c", "push.negotiate=false", "push", "-q", bare, *specs)
+    run(["git", "-C", bare, "symbolic-ref", "HEAD", "refs/heads/%smain" % HOSTED_PREFIX], env=env)
+    hosted = os.path.join(tmp, "layout-hosted")
+    run(["git", "clone", "-q", bare, hosted], env=env)
+    for r in (clone, hosted):
+        fixture_git_config(r)
+    return {"local": src, "clone": clone, "hosted": hosted}
+
+
+def _cli(argv):
+    """`python3 tools/kit/_kit.py station-ref <x|station/x|claude/stable-kit-x> [repo]` prints the
+    resolved full refname (exit 1 when absent); `main-ref [repo]`; `upstream-cache [root]`.
+    Used by split.sh so the shell and the python tools resolve refs the same way."""
+    if not argv:
+        die("usage: _kit.py station-ref <name> [repo] | main-ref [repo] | upstream-cache [root]")
+    cmd = argv[0]
+    try:
+        if cmd == "station-ref" and len(argv) >= 2:
+            name = argv[1]
+            for pre in ("station/", HOSTED_PREFIX):
+                if name.startswith(pre):
+                    name = name[len(pre):]
+            ref = station_refs(argv[2] if len(argv) > 2 else ".").get(name)
+            if not ref:
+                return 1
+            print(ref)
+            return 0
+        if cmd == "main-ref":
+            ref = main_ref(argv[1] if len(argv) > 1 else ".")
+            if not ref:
+                return 1
+            print(ref)
+            return 0
+        if cmd == "upstream-cache":
+            print(upstream_cache(argv[1] if len(argv) > 1 else "."))
+            return 0
+    except KitError as e:
+        die(str(e))
+    die("usage: _kit.py station-ref <name> [repo] | main-ref [repo] | upstream-cache [root]")
+
+
 def die(msg, code=2):
     sys.stderr.write(msg.rstrip() + "\n")
     sys.exit(code)
+
+
+if __name__ == "__main__":
+    sys.exit(_cli(sys.argv[1:]))

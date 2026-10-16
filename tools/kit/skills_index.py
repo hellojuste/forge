@@ -269,7 +269,7 @@ def load_assignment(root):
 class BuildSource:
     def __init__(self, build):
         self.build = build
-        self.desc = "build dir " + build
+        self.desc = "build dir " + os.path.basename(os.path.abspath(build))
 
     def stations(self):
         sd = os.path.join(self.build, "stations")
@@ -295,16 +295,22 @@ class BuildSource:
 class GitSource:
     def __init__(self, repo):
         self.repo = repo
-        self.desc = "git repo " + repo
+        # LEAN F4: never an absolute host path in a GENERATED file; the refs are read live
+        self.desc = "this repo (git, every station ref: local, remote-tracking or claude/stable-kit-*)"
         self._ls = {}
+        self._refs = None
+
+    def refs(self):
+        if self._refs is None:
+            self._refs = _kit.station_refs(self.repo, _kit.known_stations(self.repo))
+        return self._refs
 
     def stations(self):
-        out = _kit.git_out(self.repo, "for-each-ref", "--format=%(refname:short)", "refs/heads/station/")
-        return sorted(x.split("/", 1)[1] for x in out.splitlines() if x.strip() and "--" not in x)
+        return sorted(self.refs())
 
     def _files(self, st):
         if st not in self._ls:
-            out = _kit.git(self.repo, "ls-tree", "-r", "--name-only", "-z", "station/" + st).out
+            out = _kit.git(self.repo, "ls-tree", "-r", "--name-only", "-z", self.refs()[st]).out
             self._ls[st] = set(x for x in out.split("\0") if x)
         return self._ls[st]
 
@@ -315,7 +321,7 @@ class GitSource:
             f for f in files if f.startswith("router/skills.d/") and f.endswith(".json")
             and not f.endswith(".selftest.json"))
         for n in names:
-            txt = _kit.git(self.repo, "show", "station/%s:%s" % (st, n)).out
+            txt = _kit.git(self.repo, "show", "%s:%s" % (self.refs()[st], n)).out
             out.append((n, json.loads(txt)))
         return out
 
@@ -767,6 +773,16 @@ skills:
             from_build = None
             from_git = repo
         assert cmd_write_or_check(G, root, write=False) == 0, "git source must pass"
+        # REPRODUCE F2: a plain clone (stations remote-tracking) and the hosted claude/stable-kit-* naming
+        for lay, lrepo in _kit.fixture_layouts(repo, tmp).items():
+            G.from_git = lrepo
+            assert sorted(GitSource(lrepo).refs()) == ["alpha", "beta"], (lay, GitSource(lrepo).refs())
+            assert cmd_write_or_check(G, root, write=False) == 0, "git source must pass in layout %s" % lay
+        G.from_git = repo
+        assert cmd_write_or_check(G, root, write=True) == 0
+        idx = _kit.read_json(os.path.join(root, "registry", "skills_index.json"))
+        assert tmp not in json.dumps(idx) and tmp not in open(os.path.join(root, "SKILLS_INDEX.md")).read(), \
+            "LEAN F4: no absolute path in a GENERATED file"
         _kit.git(repo, "switch", "-q", "station/alpha")
         os.remove(os.path.join(repo, "repertoire/o~r/skills/b/SKILL.md"))
         _kit.stage_paths(repo)

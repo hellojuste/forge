@@ -879,7 +879,7 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/kit/bootstrap.py:29",
+   "evidence": "tools/kit/bootstrap.py:35",
    "from": "tool:tools/kit/bootstrap.py",
    "kind": "imports",
    "to": "tool:tools/kit/_kit.py",
@@ -914,14 +914,14 @@
    "token": "bootstrap"
   },
   {
-   "evidence": "tools/kit/doctor.py:97",
+   "evidence": "tools/kit/doctor.py:107",
    "from": "tool:tools/kit/doctor.py",
    "kind": "runs",
    "to": "tool:tools/kit/bootstrap.py",
    "token": "tools/kit/bootstrap.py"
   },
   {
-   "evidence": "tools/kit/doctor.py:100",
+   "evidence": "tools/kit/doctor.py:110",
    "from": "tool:tools/kit/doctor.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -949,7 +949,7 @@
    "token": "tools/kit/assemble.py"
   },
   {
-   "evidence": "tools/kit/kit_check.py:338",
+   "evidence": "tools/kit/kit_check.py:343",
    "from": "tool:tools/kit/kit_check.py",
    "kind": "runs",
    "to": "tool:tools/map/gen_station_map.py",
@@ -963,7 +963,7 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/kit/make_zip.py:32",
+   "evidence": "tools/kit/make_zip.py:39",
    "from": "tool:tools/kit/make_zip.py",
    "kind": "imports",
    "to": "tool:tools/kit/_kit.py",
@@ -991,21 +991,21 @@
    "token": "bootstrap"
   },
   {
-   "evidence": "tools/kit/repin.py:95",
+   "evidence": "tools/kit/repin.py:99",
    "from": "tool:tools/kit/repin.py",
    "kind": "runs",
    "to": "tool:tools/kit/bootstrap.py",
    "token": "tools/kit/bootstrap.py"
   },
   {
-   "evidence": "tools/kit/repin.py:138",
+   "evidence": "tools/kit/repin.py:142",
    "from": "tool:tools/kit/repin.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "tools/kit/repin.py:163",
+   "evidence": "tools/kit/repin.py:167",
    "from": "tool:tools/kit/repin.py",
    "kind": "runs",
    "to": "tool:tools/upstream/ingest.py",
@@ -1019,35 +1019,35 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/kit/runtree.py:71",
+   "evidence": "tools/kit/runtree.py:72",
    "from": "tool:tools/kit/runtree.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/deny_destructive.py",
    "token": ".claude/hooks/deny_destructive.py"
   },
   {
-   "evidence": "tools/kit/runtree.py:72",
+   "evidence": "tools/kit/runtree.py:73",
    "from": "tool:tools/kit/runtree.py",
    "kind": "runs",
    "to": "tool:.claude/hooks/station_dispatch.py",
    "token": ".claude/hooks/station_dispatch.py"
   },
   {
-   "evidence": "tools/kit/runtree.py:29",
+   "evidence": "tools/kit/runtree.py:30",
    "from": "tool:tools/kit/runtree.py",
    "kind": "imports",
    "to": "tool:tools/kit/_kit.py",
    "token": "_kit"
   },
   {
-   "evidence": "tools/kit/runtree.py:30",
+   "evidence": "tools/kit/runtree.py:31",
    "from": "tool:tools/kit/runtree.py",
    "kind": "imports",
    "to": "tool:tools/kit/bootstrap.py",
    "token": "bootstrap"
   },
   {
-   "evidence": "tools/kit/runtree.py:86",
+   "evidence": "tools/kit/runtree.py:87",
    "from": "tool:tools/kit/runtree.py",
    "kind": "runs",
    "to": "tool:tools/kit/bootstrap.py",
@@ -1075,49 +1075,49 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/kit/sync.py:46",
+   "evidence": "tools/kit/sync.py:48",
    "from": "tool:tools/kit/sync.py",
    "kind": "runs",
    "to": "tool:tools/brain.py",
    "token": "tools/brain.py"
   },
   {
-   "evidence": "tools/kit/sync.py:43",
+   "evidence": "tools/kit/sync.py:45",
    "from": "tool:tools/kit/sync.py",
    "kind": "runs",
    "to": "tool:tools/gov/gen_ownership.py",
    "token": "tools/gov/gen_ownership.py"
   },
   {
-   "evidence": "tools/kit/sync.py:34",
+   "evidence": "tools/kit/sync.py:36",
    "from": "tool:tools/kit/sync.py",
    "kind": "imports",
    "to": "tool:tools/kit/_kit.py",
    "token": "_kit"
   },
   {
-   "evidence": "tools/kit/sync.py:45",
+   "evidence": "tools/kit/sync.py:47",
    "from": "tool:tools/kit/sync.py",
    "kind": "runs",
    "to": "tool:tools/map/map_check.py",
    "token": "tools/map/map_check.py"
   },
   {
-   "evidence": "tools/kit/sync.py:255",
+   "evidence": "tools/kit/sync.py:257",
    "from": "tool:tools/kit/sync.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "tools/kit/sync.py:47",
+   "evidence": "tools/kit/sync.py:49",
    "from": "tool:tools/kit/sync.py",
    "kind": "runs",
    "to": "tool:tools/upstream/notice.py",
    "token": "tools/upstream/notice.py"
   },
   {
-   "evidence": "tools/kit/sync.py:48",
+   "evidence": "tools/kit/sync.py:50",
    "from": "tool:tools/kit/sync.py",
    "kind": "runs",
    "to": "tool:tools/upstream/skill_routes.py",

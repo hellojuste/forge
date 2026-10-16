@@ -81,17 +81,17 @@
    "sha256": "6db25d299614afd6e4138ee9c303a755b2b115f926b82567fce6e53757ded346"
   },
   "KIT.md": {
-   "sha256": "96fdc35b89baa695638a119ec52a20ddfd70d3e155445d1361639426cef97cca"
+   "sha256": "b979a7341da0958512c3f423a7346e758f3b0733af882d20c7e53e999bc6659c"
   },
   "README.md": {
-   "sha256": "96fbf6c42a44fc099e3d3e9b23b2b0e20184010087fe7b804671c972e62af3db"
+   "sha256": "d10df1bf28b0548a426f884b23fc281554aa5c1ccc4b836705f21605b2f85bf5"
   },
   "SKILLS_INDEX.md": {
    "generated": true,
    "sha256": "a81d25b9fa2fb0084d45e0e66e14340a6dc362b0b692adb34ada357276f91d11"
   },
   "UNZIP.md": {
-   "sha256": "bf2db4ce982d3add8416ef7e7dc31597b0e9ffc502c055897604921b77001706"
+   "sha256": "00fb328ce46783d5e5d882191a663c930b5b4335da133b840321e882650c6d70"
   },
   "brain/INDEX.md": {
    "generated": true,
@@ -212,7 +212,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "c523ba8e4a7d50e93d524954daa93a5ac30ada32d782e534e4dd165e067bff1c"
+   "sha256": "691b953c41266886c62eecc38906e7cf1632018286adca6505759ec073f92029"
   },
   "map/README.md": {
    "generated": true,
@@ -228,7 +228,7 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "ee3da1eb86cd2bf78bac15002854a60c9bf922a6b9979f7e66385dce53c5219a"
+   "sha256": "7299c8adbce9ba515e4a4acd11843b3f91dbafe63c759d3f2f53de284267a994"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
@@ -247,7 +247,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "c4f8f156cb0e75b74124c033571a208c986984a7b094fdc1677918cc28a5db82"
+   "sha256": "7c6400263d7236efbbd22e73a38351cee785106069828fa3736b9784aa77c098"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -328,37 +328,37 @@
    "sha256": "ce622f28f9026d8930a649f73399de90489ec48c6c6e0574a99baccf52af4f3a"
   },
   "tools/kit/_kit.py": {
-   "sha256": "80f9c6510b18088daca10d90c175575a4e12acf8d2832c37856dc77071d01310"
+   "sha256": "32dd180adb7da9f9d848aa5bf93ec02da4e6d581bbea628edd88e08129da8c81"
   },
   "tools/kit/assemble.py": {
    "sha256": "902e6eb58e15a7525e8a7566600491e112419edeb9c0af33e17082a84b9fd665"
   },
   "tools/kit/bootstrap.py": {
-   "sha256": "255f79ba2cf9ec8c590107ebcdbc608d8d7835115e906c22e72594826cdcd760"
+   "sha256": "ca07bceac8f4ee2cd8a682306da796a74500a2a05e79b877030e879553853242"
   },
   "tools/kit/doctor.py": {
-   "sha256": "e6001bfcd66e0eced2435c597fcffba810c2c03b79dbd6af9e13805f887a666c"
+   "sha256": "a107942cc9bf99ca217d092e3e65a25bf3db199801308f857b571fa121792cc0"
   },
   "tools/kit/kit_check.py": {
-   "sha256": "42edc9a7a2360fb6531d9bf20b325acd52a3866699a5d5158ccdc5545db79868"
+   "sha256": "6e38400842bfbdd92dd2443dcd4c63d9d069f52368ae3643df6a172d39c943ff"
   },
   "tools/kit/make_zip.py": {
-   "sha256": "8d428788d0e794de18d4ac3f18066287d06a511a1c4bdcbeecdc8f635ebb6a33"
+   "sha256": "dd430ce3ac145b2f1eb1dd9fca0beb41a47fffbd00a066a85390acf546abde9c"
   },
   "tools/kit/repin.py": {
-   "sha256": "2a486f314f71569482bc1adf3a2007c23df3d88d37a5ecc2badd1cfa9c675473"
+   "sha256": "14623dcc13307c600df5e2e6d1282d0371508e1bb4171878185938ea6c9fe6cc"
   },
   "tools/kit/runtree.py": {
-   "sha256": "fcac9492829cc33d3c8b224c8a6cdc4b15ff29ca54c548b425e4adce0d152e1c"
+   "sha256": "572c677de41bac830edade6224cb9baf07e53c254815f9c0b6ea045c1cabca03"
   },
   "tools/kit/skills_index.py": {
-   "sha256": "393fb9a539e7d487902bf461c9dd7d39b7b157ce6bee4e064318f8f7d547b4d0"
+   "sha256": "265bfa4c90c888ef1edfe1e86ecbeb8f6335e555b2f3b91b4a9c20bfb651c89a"
   },
   "tools/kit/split.sh": {
-   "sha256": "448842f2560819d06309374829f239eca93b0a049e9681e21e305bd7a52e5eb4"
+   "sha256": "17593802cebc33e5856b36a5003d5ea2f3e0dc7f6cd0cda7a8ae201aaa8da4f6"
   },
   "tools/kit/sync.py": {
-   "sha256": "0be2c4cb0136d026f127c6d0663d1dced9b7545e84e552852a3e7d485985a85e"
+   "sha256": "86b523c5b4ed58016d1877a5af9fd659dccbac54befebe3273f0df93e75ac5d4"
   },
   "tools/map/_common.py": {
    "sha256": "4884aa0c138103478268d1ba4768a040394a51ff2a9912612699dbb4f80ce171"
