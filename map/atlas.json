@@ -1621,7 +1621,14 @@
    "token": "tools/gov/_gov.py"
   },
   {
-   "evidence": "tools/upstream/upstream_checks.py:435",
+   "evidence": "tools/upstream/upstream_checks.py:640",
+   "from": "tool:tools/upstream/upstream_checks.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/_kit.py",
+   "token": "tools/kit/_kit.py"
+  },
+  {
+   "evidence": "tools/upstream/upstream_checks.py:452",
    "from": "tool:tools/upstream/upstream_checks.py",
    "kind": "runs",
    "to": "tool:tools/kit/bootstrap.py",

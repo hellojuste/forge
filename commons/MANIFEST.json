@@ -266,7 +266,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "3e5f6540aff04b2f207f75b4ae5efef011907d476f41ffd3a8631d8c652485e3"
+   "sha256": "8a45e993f82e4c10a49120c3cfa0f4632960ca5026a31b1fbba4d8e53c8db923"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -450,7 +450,7 @@
    "sha256": "d54ccfe9570f9be2dbb27b49374cb8f056732920d23bf9a94f8aa446c0403e97"
   },
   "tools/upstream/upstream_checks.py": {
-   "sha256": "cb087388dcc91529f8adc72e09a93eeea5c3fb4e9cc4f701b70a6cb702fdb4de"
+   "sha256": "cf16f63ea0f7291885148a22012bc14296b3324febc0e3f2a2d34bcf96f0653c"
   },
   "tools/upstream/workflows_check.py": {
    "sha256": "9f57aa4975a1bd20c23022d86cb35a96ef6ae341c10c16bb045b8da8a56b952d"
