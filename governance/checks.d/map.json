@@ -1,0 +1,261 @@
+{
+ "_why": "mapping programme check rows (PROGRAMME_MAPPING 6, KIT contract commons-mapbrain 2). Knob-off rows print '<check>: skipped (knob map=<k>)' and exit 0.",
+ "checks": [
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/map/check_paths.py",
+    "--check"
+   ],
+   "earned_by": "lettuce L205/L276/L285: 54 unresolved path claims in 20 live docs after a tree move; workflow prompts named 13 dead paths",
+   "gate_subcount": null,
+   "inputs": [
+    "CLAUDE.md",
+    "README.md",
+    "KIT.md",
+    "STATION.md",
+    ".claude/**",
+    "commons/packs/**",
+    "map/dirs.json"
+   ],
+   "name": "paths",
+   "programme": "map",
+   "retires": "lettuce audit_paths (code_roots bug retired)",
+   "selftest": [
+    "python3",
+    "tools/map/check_paths.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/map/gen_dir_readmes.py",
+    "--check"
+   ],
+   "earned_by": "lettuce R18/R47 + L310: dirs without a README after a move; a root/space rule with no domain became undrainable",
+   "gate_subcount": null,
+   "inputs": [
+    "map/dirs.json",
+    "map/station_dirs.json",
+    "**/README.md"
+   ],
+   "name": "dirs",
+   "programme": "map",
+   "retires": "lettuce gen_dir_readmes + TREE.yml mapping:",
+   "selftest": [
+    "python3",
+    "tools/map/gen_dir_readmes.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/map/upstream_check.py",
+    "--check"
+   ],
+   "earned_by": "lettuce vendor/USAGE.yml: unpinned vendor trees and 4 unlisted upstream CLAUDE.md/AGENTS.md (leak risk)",
+   "gate_subcount": null,
+   "inputs": [
+    "upstream/LOCK.json",
+    "map/upstream.json",
+    "map/station_upstream.json",
+    "map/tags.json",
+    "repertoire/**",
+    "upstream/**",
+    "study/**",
+    "nc-lane/**"
+   ],
+   "name": "upstream",
+   "programme": "map",
+   "retires": "nothing in the kit (first upstream usage check)",
+   "selftest": [
+    "python3",
+    "tools/map/upstream_check.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/map/gen_solutions.py",
+    "--check"
+   ],
+   "earned_by": "lettuce LIB_OVERLAP 2026-07-31 (a parallel type built beside an existing one) + audit_catalog's one-level glob that missed an upload for eleven days",
+   "gate_subcount": null,
+   "inputs": [
+    "map/catalog.json",
+    "map/station_catalog.json",
+    "map/tags.json",
+    "tools/**",
+    ".claude/**"
+   ],
+   "name": "catalog",
+   "programme": "map",
+   "retires": "lettuce dossiers + build_index.py + audit_catalog/taxonomy",
+   "selftest": [
+    "python3",
+    "tools/map/gen_solutions.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/map/usage_map.py",
+    "--check"
+   ],
+   "earned_by": "lettuce L290 (151 of 251 entries without a trigger; 50 false triggers from a path-literal scan), L368, L294",
+   "gate_subcount": null,
+   "inputs": [
+    "map/usage.json",
+    "map/usage_hand.json",
+    ".claude/settings.json",
+    "governance/checks*.json",
+    "governance/checks.d/**",
+    "router/**",
+    "tools/**",
+    ".claude/**"
+   ],
+   "name": "usage",
+   "programme": "map",
+   "retires": "lettuce gen_usage_map --apply door + INSTRUMENTS.yml FLAG gate",
+   "selftest": [
+    "python3",
+    "tools/map/usage_map.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/map/gen_atlas.py",
+    "--check"
+   ],
+   "earned_by": "lettuce ARTIFACTS.md 2026-08-26 (registry pages stale by about 2x) + G16.1 (drawing and hub shared no id)",
+   "gate_subcount": null,
+   "inputs": [
+    "map/atlas.json",
+    "map/ATLAS.md",
+    "map/atlas_schema.json",
+    "map/*.json",
+    ".claude/**",
+    "tools/**",
+    "router/**"
+   ],
+   "name": "atlas",
+   "programme": "map",
+   "retires": "lettuce render_atlas.py, graph.yml, CROSSWALK.yml",
+   "selftest": [
+    "python3",
+    "tools/map/gen_atlas.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "WORKLIST",
+   "cmd": [
+    "python3",
+    "tools/map/gen_dir_readmes.py",
+    "--placement"
+   ],
+   "earned_by": "lettuce L310: 143 space-paths no check reported; placement rules R50-R53 generalised",
+   "gate_subcount": null,
+   "inputs": [
+    "map/dirs.json",
+    "**"
+   ],
+   "name": "placement",
+   "programme": "map",
+   "retires": "lettuce audit_layout placement half",
+   "selftest": [
+    "python3",
+    "tools/map/gen_dir_readmes.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "WORKLIST",
+   "cmd": [
+    "python3",
+    "tools/map/gen_atlas.py",
+    "--orphans"
+   ],
+   "earned_by": "lettuce BRAIN_SUBSTRATE_PLAN: 600 nodes in 338 components; an unconnected node is a tool nobody reaches",
+   "gate_subcount": null,
+   "inputs": [
+    "map/atlas.json",
+    "tools/**",
+    ".claude/**"
+   ],
+   "name": "orphans",
+   "programme": "map",
+   "retires": "lettuce atlas --components",
+   "selftest": [
+    "python3",
+    "tools/map/gen_atlas.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "WORKLIST",
+   "cmd": [
+    "python3",
+    "tools/map/usage_map.py",
+    "--cold"
+   ],
+   "earned_by": "lettuce L290: entries with no trigger are either cold or mis-wired; counted, never hidden",
+   "gate_subcount": null,
+   "inputs": [
+    "map/usage.json",
+    "map/usage_hand.json"
+   ],
+   "name": "cold",
+   "programme": "map",
+   "retires": "lettuce audit_usage --cold",
+   "selftest": [
+    "python3",
+    "tools/map/usage_map.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "WORKLIST",
+   "cmd": [
+    "python3",
+    "tools/map/gen_station_map.py",
+    "--check"
+   ],
+   "earned_by": "lettuce BRANCH_MAP.md: branches rendered against main so a branch behind or off an old base is seen; main only (prints skipped (not main) on a station)",
+   "gate_subcount": null,
+   "inputs": [
+    "map/STATIONS.md"
+   ],
+   "name": "station_map",
+   "programme": "map",
+   "retires": "lettuce gen_branch_map.py fixed classification lists",
+   "selftest": [
+    "python3",
+    "tools/map/gen_station_map.py",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  }
+ ]
+}

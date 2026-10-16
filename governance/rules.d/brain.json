@@ -1,0 +1,50 @@
+{
+ "_why": "one rule row per brain mechanism. The brain only POINTS to upstream/PRECEDENCE.json (owner governance); it never writes under a held lane.",
+ "rules": [
+  {
+   "earned_by": "lettuce L267, BRAIN_G16_UNDONE, N-register preamble",
+   "enforcement": {
+    "kind": "check",
+    "ref": "brain_audit",
+    "why": "MUST_BE_CLEAN check"
+   },
+   "headline": "Memory nodes parse, carry a real source with a verbatim quote, and every refutation links its negative",
+   "id": "R-brain-audit",
+   "owner": "tools/brain.py",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce render_bank --check",
+   "enforcement": {
+    "kind": "check",
+    "ref": "brain_index",
+    "why": "MUST_BE_CLEAN check"
+   },
+   "headline": "brain/INDEX.md is generated; a hand edit is drift",
+   "id": "R-brain-index",
+   "owner": "tools/brain.py",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce L272, L335, L115",
+   "enforcement": {
+    "kind": "hook",
+    "ref": "tools/brain.py",
+    "why": "SessionStart and PostToolUse Write|Edit wired in .claude/settings.json; the router and stop.py call surface()/stop_check() in-process; every drop prints TRUNCATED"
+   },
+   "headline": "Memory is served by hooks with named byte budgets: the SessionStart card + ladder, per-prompt surface, post-write checkpoint check",
+   "id": "R-brain-serving",
+   "owner": "tools/brain.py",
+   "pointers": [],
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER"
+  }
+ ]
+}

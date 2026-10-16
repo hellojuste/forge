@@ -1,0 +1,630 @@
+{
+ "_doc": "kit_plan.yml repo_landing as data: every repo -> station(s) + how (repertoire | tree | bootstrap | copy_from:<station>) or attic. KIT_PLAN 4.4.",
+ "denominator": 28,
+ "homes": [
+  {
+   "attic": false,
+   "id": 1,
+   "key": "Imbad0202~academic-research-skills",
+   "lands": [
+    {
+     "branch": "station/research",
+     "how": "repertoire",
+     "station": "research"
+    },
+    {
+     "branch": "station/research",
+     "how": "bootstrap",
+     "station": "research"
+    }
+   ],
+   "repo": "Imbad0202/academic-research-skills",
+   "skills_home": "research",
+   "stations": [
+    "research"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 2,
+   "key": "MadsLorentzen~ai-job-search",
+   "lands": [
+    {
+     "branch": "station/career",
+     "how": "repertoire",
+     "station": "career"
+    },
+    {
+     "branch": "station/career",
+     "how": "bootstrap",
+     "station": "career"
+    }
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "skills_home": "career",
+   "stations": [
+    "career"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 3,
+   "key": "phuryn~pm-skills",
+   "lands": [
+    {
+     "branch": "station/client-bi",
+     "how": "copy_from:venture",
+     "station": "client-bi"
+    },
+    {
+     "branch": "station/venture",
+     "how": "repertoire",
+     "station": "venture"
+    },
+    {
+     "branch": "station/venture",
+     "how": "copy_from:research",
+     "station": "venture"
+    },
+    {
+     "branch": "station/career",
+     "how": "repertoire",
+     "station": "career"
+    },
+    {
+     "branch": "station/career",
+     "how": "copy_from:venture",
+     "station": "career"
+    },
+    {
+     "branch": "station/research",
+     "how": "repertoire",
+     "station": "research"
+    },
+    {
+     "branch": "station/forge",
+     "how": "repertoire",
+     "station": "forge"
+    }
+   ],
+   "repo": "phuryn/pm-skills",
+   "skills_home": "venture",
+   "stations": [
+    "career",
+    "client-bi",
+    "forge",
+    "research",
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 4,
+   "key": "supabase~supabase",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "repertoire",
+     "station": "venture"
+    },
+    {
+     "branch": "station/venture",
+     "how": "bootstrap",
+     "station": "venture"
+    }
+   ],
+   "repo": "supabase/supabase",
+   "skills_home": "venture",
+   "stations": [
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 5,
+   "key": "getmaxun~maxun",
+   "lands": [
+    {
+     "branch": "station/quarantine",
+     "how": "tree",
+     "station": "quarantine"
+    }
+   ],
+   "repo": "getmaxun/maxun",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "quarantine"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 6,
+   "key": "santifer~career-ops",
+   "lands": [
+    {
+     "branch": "station/career",
+     "how": "repertoire",
+     "station": "career"
+    },
+    {
+     "branch": "station/career",
+     "how": "bootstrap",
+     "station": "career"
+    }
+   ],
+   "repo": "santifer/career-ops",
+   "skills_home": "career",
+   "stations": [
+    "career"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 7,
+   "key": "amruthpillai~reactive-resume",
+   "lands": [
+    {
+     "branch": "station/career",
+     "how": "repertoire",
+     "station": "career"
+    },
+    {
+     "branch": "station/career",
+     "how": "bootstrap",
+     "station": "career"
+    }
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "skills_home": "career",
+   "stations": [
+    "career"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 8,
+   "key": "feder-cr~Jobs_Applier_AI_Agent_AIHawk",
+   "lands": [
+    {
+     "branch": "station/quarantine",
+     "how": "tree",
+     "station": "quarantine"
+    }
+   ],
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "skills_home": "quarantine",
+   "stations": [
+    "quarantine"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 9,
+   "key": "interviewstreet~hiring-agent",
+   "lands": [
+    {
+     "branch": "station/career",
+     "how": "tree",
+     "station": "career"
+    }
+   ],
+   "repo": "interviewstreet/hiring-agent",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "career"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 10,
+   "key": "Paramchoudhary~ResumeSkills",
+   "lands": [
+    {
+     "branch": "station/career",
+     "how": "repertoire",
+     "station": "career"
+    }
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "skills_home": "career",
+   "stations": [
+    "career"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 11,
+   "key": "emilkowalski~skills",
+   "lands": [
+    {
+     "branch": "station/client-bi",
+     "how": "copy_from:studio",
+     "station": "client-bi"
+    },
+    {
+     "branch": "station/venture",
+     "how": "copy_from:studio",
+     "station": "venture"
+    },
+    {
+     "branch": "station/studio",
+     "how": "repertoire",
+     "station": "studio"
+    }
+   ],
+   "repo": "emilkowalski/skills",
+   "skills_home": "studio",
+   "stations": [
+    "client-bi",
+    "studio",
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 12,
+   "key": "pbakaus~impeccable",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "copy_from:studio",
+     "station": "venture"
+    },
+    {
+     "branch": "station/studio",
+     "how": "repertoire",
+     "station": "studio"
+    },
+    {
+     "branch": "station/studio",
+     "how": "bootstrap",
+     "station": "studio"
+    }
+   ],
+   "repo": "pbakaus/impeccable",
+   "skills_home": "studio",
+   "stations": [
+    "studio",
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 13,
+   "key": "frappe~erpnext",
+   "lands": [
+    {
+     "branch": "station/client-bi",
+     "how": "tree",
+     "station": "client-bi"
+    },
+    {
+     "branch": "station/client-bi",
+     "how": "bootstrap",
+     "station": "client-bi"
+    }
+   ],
+   "repo": "frappe/erpnext",
+   "skills_home": "client-bi",
+   "stations": [
+    "client-bi"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 14,
+   "key": "makeplane~plane",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "tree",
+     "station": "venture"
+    },
+    {
+     "branch": "station/venture",
+     "how": "bootstrap",
+     "station": "venture"
+    }
+   ],
+   "repo": "makeplane/plane",
+   "skills_home": "venture",
+   "stations": [
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 15,
+   "key": "triggerdotdev~trigger.dev",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "repertoire",
+     "station": "venture"
+    },
+    {
+     "branch": "station/venture",
+     "how": "bootstrap",
+     "station": "venture"
+    }
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "skills_home": "venture",
+   "stations": [
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 16,
+   "key": "getlago~lago",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "tree",
+     "station": "venture"
+    }
+   ],
+   "repo": "getlago/lago",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 17,
+   "key": "relaticle~relaticle",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "tree",
+     "station": "venture"
+    },
+    {
+     "branch": "station/venture",
+     "how": "bootstrap",
+     "station": "venture"
+    }
+   ],
+   "repo": "relaticle/relaticle",
+   "skills_home": "venture",
+   "stations": [
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 18,
+   "key": "styler-ai~ProjectAtlas",
+   "lands": [
+    {
+     "branch": "station/forge",
+     "how": "repertoire",
+     "station": "forge"
+    },
+    {
+     "branch": "station/forge",
+     "how": "bootstrap",
+     "station": "forge"
+    }
+   ],
+   "repo": "styler-ai/ProjectAtlas",
+   "skills_home": "forge",
+   "stations": [
+    "forge"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 19,
+   "key": "evo-hq~evo",
+   "lands": [
+    {
+     "branch": "station/forge",
+     "how": "repertoire",
+     "station": "forge"
+    },
+    {
+     "branch": "station/forge",
+     "how": "bootstrap",
+     "station": "forge"
+    }
+   ],
+   "repo": "evo-hq/evo",
+   "skills_home": "forge",
+   "stations": [
+    "forge"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 20,
+   "key": "langchain-ai~openwiki",
+   "lands": [
+    {
+     "branch": "station/research",
+     "how": "copy_from:forge",
+     "station": "research"
+    },
+    {
+     "branch": "station/forge",
+     "how": "repertoire",
+     "station": "forge"
+    },
+    {
+     "branch": "station/forge",
+     "how": "bootstrap",
+     "station": "forge"
+    }
+   ],
+   "repo": "langchain-ai/openwiki",
+   "skills_home": "forge",
+   "stations": [
+    "forge",
+    "research"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 21,
+   "key": "morluto~rea",
+   "lands": [
+    {
+     "branch": "station/forge",
+     "how": "repertoire",
+     "station": "forge"
+    },
+    {
+     "branch": "station/forge",
+     "how": "bootstrap",
+     "station": "forge"
+    }
+   ],
+   "repo": "morluto/rea",
+   "skills_home": "forge",
+   "stations": [
+    "forge"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 22,
+   "key": "The-Swarm-Corporation~AutoHedge",
+   "lands": [
+    {
+     "branch": "station/markets",
+     "how": "tree",
+     "station": "markets"
+    }
+   ],
+   "repo": "The-Swarm-Corporation/AutoHedge",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "markets"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 23,
+   "key": "HKUDS~Vibe-Trading",
+   "lands": [
+    {
+     "branch": "station/markets",
+     "how": "repertoire",
+     "station": "markets"
+    },
+    {
+     "branch": "station/markets",
+     "how": "bootstrap",
+     "station": "markets"
+    },
+    {
+     "branch": "station/research",
+     "how": "copy_from:markets",
+     "station": "research"
+    }
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "skills_home": "markets",
+   "stations": [
+    "markets",
+    "research"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 24,
+   "key": "Fincept-Corporation~FinceptTerminal",
+   "lands": [
+    {
+     "branch": "station/markets",
+     "how": "bootstrap",
+     "station": "markets"
+    }
+   ],
+   "repo": "Fincept-Corporation/FinceptTerminal",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "markets"
+   ]
+  },
+  {
+   "attic": true,
+   "id": 25,
+   "key": "danny-avila~LibreChat",
+   "lands": [
+    {
+     "branch": "station/markets",
+     "how": "copy_from:forge",
+     "station": "markets"
+    },
+    {
+     "branch": "station/forge",
+     "how": "repertoire",
+     "station": "forge"
+    },
+    {
+     "how": "attic",
+     "note": "attic (app)",
+     "station": null
+    }
+   ],
+   "repo": "danny-avila/LibreChat",
+   "skills_home": "forge",
+   "stations": [
+    "forge",
+    "markets"
+   ]
+  },
+  {
+   "attic": true,
+   "id": 26,
+   "key": "Open-LLM-VTuber~Open-LLM-VTuber",
+   "lands": [
+    {
+     "how": "attic",
+     "note": "attic (app)",
+     "station": null
+    }
+   ],
+   "repo": "Open-LLM-VTuber/Open-LLM-VTuber",
+   "skills_home": "no SKILL.md",
+   "stations": []
+  },
+  {
+   "attic": false,
+   "id": 27,
+   "key": "cloudflare~agentic-inbox",
+   "lands": [
+    {
+     "branch": "station/venture",
+     "how": "tree",
+     "station": "venture"
+    }
+   ],
+   "repo": "cloudflare/agentic-inbox",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "venture"
+   ]
+  },
+  {
+   "attic": false,
+   "id": 28,
+   "key": "jo-inc~camofox-browser",
+   "lands": [
+    {
+     "branch": "station/quarantine",
+     "how": "tree",
+     "station": "quarantine"
+    }
+   ],
+   "repo": "jo-inc/camofox-browser",
+   "skills_home": "no SKILL.md",
+   "stations": [
+    "quarantine"
+   ]
+  }
+ ]
+}

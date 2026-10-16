@@ -1,0 +1,4 @@
+{
+ "_why": "Committed operator exceptions that release a DENY or an ASK (GOV 3.8; LEAN LL-16: a human's exception is a committed row quoting the human, never an env var). Row: {id: REL-nnnn, scope: <hook stem> or <hook stem>:<pattern|path> (act_gate:, quarantine_gate:), match: <substring of the command or path>, words: <the human's verbatim words>, locator: <where they were said>, utc: <ISO>, expires: <ISO, at most 7 days after utc>}. Hooks read the PROTECTED branch's copy (git show main:governance/RELEASES.json) so a session cannot grant itself; gov_check.py releases validates the working copy. Expired rows are history: never delete them.",
+ "releases": []
+}

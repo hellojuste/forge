@@ -1,0 +1,300 @@
+{
+ "_schema": "station-dirs/1",
+ "_why": "commons dir registry (owner of directory roles). A station adds rows in map/station_dirs.json (station-only). readme: none = this row is the description (the dir's files belong to another slice); map/ and brain/ READMEs are generated.",
+ "_why_root_ceiling": "off on the commons: a station root adds ~10 station-only entries (station.json, .env, lanes...); a station may set its own ceiling in map/station_dirs.json",
+ "_why_station_only": "KIT_PLAN 3.3 station-only class: a commons doc may name these; check_paths gates them only on a station branch",
+ "dirs": {
+  ".claude": {
+   "holds": [
+    "settings.json",
+    "hooks/",
+    "skills/",
+    "workflows/",
+    "rules/ (station-only)"
+   ],
+   "never_holds": [
+    "upstream agent files (they are neutralised into the lanes)",
+    "data"
+   ],
+   "readme": "none",
+   "role": "Claude Code wiring: settings.json, commons hooks, the commons skill set and workflows."
+  },
+  "brain": {
+   "holds": [
+    "nodes/<class>/<id>--<slug>.md",
+    "LOOPS.md",
+    "INDEX.md (generated)",
+    "sessions/",
+    "brain.json.default (+ brain.json, station-only)",
+    "considered.jsonl (append-only, merge=union)"
+   ],
+   "never_holds": [
+    "upstream memory systems (one paper node points at each)",
+    "caches (brain/.cache/ is gitignored)"
+   ],
+   "readme": "generated",
+   "role": "The station's memory: one node per file, the loop register, checkpoints and handoffs; read by tools/brain.py."
+  },
+  "commons": {
+   "holds": [
+    "defaults.json",
+    "schema/",
+    "packs/",
+    "MANIFEST.json (generated)"
+   ],
+   "never_holds": [
+    "station-specific values (station.json overrides)"
+   ],
+   "readme": "none",
+   "role": "Kit-wide constants, schemas, shared method packs and the commons manifest."
+  },
+  "engagements": {
+   "holds": [
+    "one dir per engagement"
+   ],
+   "never_holds": [
+    "commons files"
+   ],
+   "optional": true,
+   "readme": "none",
+   "role": "Per-client or per-venture working folders (station-only)."
+  },
+  "governance": {
+   "holds": [
+    "rules.json",
+    "checks.json",
+    "checks.d/",
+    "rules.d/",
+    "DECISIONS.md",
+    "LEDGER.md",
+    "DEFECTS.md",
+    "HISTORY.md",
+    "OWNERSHIP.md (generated)"
+   ],
+   "never_holds": [
+    "code",
+    "upstream text"
+   ],
+   "readme": "none",
+   "role": "Rules, checks, decisions, ledger, defects, releases: the one owner of precedence and of every rule's enforcement."
+  },
+  "map": {
+   "holds": [
+    "dirs/upstream/tags/catalog/usage_hand/atlas_schema .json (hand)",
+    "SOLUTIONS.md, usage.json, atlas.json, ATLAS.md, STATIONS.md (generated)",
+    "station_*.json (station-only overlays)"
+   ],
+   "never_holds": [
+    "scripts (they live in tools/map/)",
+    "observed usage (that is .usage/, gitignored)"
+   ],
+   "readme": "generated",
+   "role": "The mapping programme's registries and generated views: what is here, has it been built, is it used, do the docs tell the truth."
+  },
+  "nc-lane": {
+   "holds": [
+    "<owner~repo>/ trees"
+   ],
+   "never_holds": [
+    "commercial exports"
+   ],
+   "optional": true,
+   "readme": "none",
+   "role": "Held lane: CC BY-NC material, never exported commercially."
+  },
+  "notes": {
+   "holds": [
+    "notes"
+   ],
+   "never_holds": [
+    "commons files"
+   ],
+   "optional": true,
+   "readme": "none",
+   "role": "Station notes (station-only)."
+  },
+  "registry": {
+   "holds": [
+    "*.json",
+    "SKILL_CENSUS.yml"
+   ],
+   "never_holds": [
+    "upstream bytes"
+   ],
+   "readme": "none",
+   "role": "Kit-wide registries on main: sources and pins, homes, licences, telemetry, attic, quarantine, skill assignment and index."
+  },
+  "repertoire": {
+   "holds": [
+    "<owner~repo>/ trees",
+    "INDEX.md (generated)"
+   ],
+   "never_holds": [
+    "station edits (use _PATCHES/)"
+   ],
+   "optional": true,
+   "readme": "none",
+   "role": "Held lane: permissive upstream method text, neutralised at ingest; read-only to agents."
+  },
+  "router": {
+   "holds": [
+    "intents.json",
+    "intents.d/*.json",
+    "kit_tree.json (main)",
+    "skills.json (station-only)"
+   ],
+   "never_holds": [
+    "code (the router is .claude/hooks/intent_router.py)"
+   ],
+   "readme": "none",
+   "role": "Intent routing data: the commons rows, programme fragments and the kit decision tree."
+  },
+  "study": {
+   "holds": [
+    "<owner~repo>/ trees",
+    "startup notes"
+   ],
+   "never_holds": [
+    "armed keys by default"
+   ],
+   "optional": true,
+   "readme": "none",
+   "role": "Held lane: material held for study first (AutoHedge), disarmed by default."
+  },
+  "templates": {
+   "holds": [
+    "station.json.tmpl",
+    "STATION.md.tmpl",
+    "rules_station.md.tmpl",
+    "env.example.tmpl"
+   ],
+   "never_holds": [
+    "live configuration"
+   ],
+   "readme": "none",
+   "role": "Templates the station builders instantiate."
+  },
+  "tools": {
+   "holds": [
+    "station_audit.py",
+    "gov/",
+    "map/",
+    "brain.py",
+    "upstream/",
+    "kit/",
+    "station/ (station-only)"
+   ],
+   "never_holds": [
+    "data",
+    "upstream code",
+    "generated outputs"
+   ],
+   "readme": "none",
+   "role": "Every script the kit runs: stdlib Python, one programme per subfolder."
+  },
+  "upstream": {
+   "holds": [
+    "<owner~repo>/ trees",
+    "LOCK/PRECEDENCE/PROVENANCE/RENAMES .json"
+   ],
+   "never_holds": [
+    "station edits (use _PATCHES/)"
+   ],
+   "optional": true,
+   "readme": "none",
+   "role": "Held lane: copyleft/whole upstream trees held unmodified + the station's upstream ledgers."
+  },
+  "work": {
+   "holds": [
+    "engagements/",
+    "notes/",
+    "study/notes/"
+   ],
+   "never_holds": [
+    "upstream material",
+    "commons files"
+   ],
+   "optional": true,
+   "readme": "none",
+   "role": "The station's own working area (station-only)."
+  }
+ },
+ "exclude": [
+  ".upstream/",
+  ".git/",
+  ".usage/",
+  ".cache/"
+ ],
+ "held": [
+  "repertoire/",
+  "upstream/",
+  "study/",
+  "nc-lane/"
+ ],
+ "live_docs": [
+  "CLAUDE.md",
+  "README.md",
+  "KIT.md",
+  "UNZIP.md",
+  "STATION.md",
+  ".claude/rules/*.md",
+  ".claude/skills/*/SKILL.md",
+  ".claude/workflows/*",
+  "commons/packs/**/*.md"
+ ],
+ "meta": {
+  "date": "2026-10-16",
+  "owner": "commons-mapbrain",
+  "purpose": "stable-kit main: the shared core and the decision tree"
+ },
+ "placement": [
+  {
+   "_why": "scripts live in one place; held lanes are never placement-checked",
+   "allowed_roots": [
+    "tools/",
+    ".claude/hooks/"
+   ],
+   "ext": ".py"
+  }
+ ],
+ "prior_art_globs": [
+  "tools/**/*.py",
+  ".claude/hooks/**/*.py",
+  ".claude/skills/*/SKILL.md",
+  ".claude/workflows/*"
+ ],
+ "registers": {
+  "negative": "brain/nodes/negative"
+ },
+ "registry_depth": 1,
+ "root_ceiling": null,
+ "station_only": [
+  "station.json",
+  "STATION.md",
+  ".claude/rules/station.md",
+  ".env",
+  ".env.example",
+  ".mcp.json",
+  ".mcp.local.example.json",
+  "NOTICE.md",
+  "QUARANTINE.md",
+  "upstream/*.json",
+  "repertoire/**",
+  "upstream/**",
+  "study/**",
+  "nc-lane/**",
+  "router/intents.d/station*.json",
+  "router/skills*.json",
+  "router/REASSIGN.md",
+  "governance/checks.d/station.json",
+  "governance/rules.d/station.json",
+  "governance/STATION_*.md",
+  ".claude/hooks/station/**",
+  "tools/station/**",
+  "map/station_*.json",
+  "brain/brain.json",
+  "work/**",
+  "engagements/**",
+  "notes/**"
+ ]
+}

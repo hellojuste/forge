@@ -1,0 +1,5 @@
+{
+ "_schema": "station-usage-hand/1",
+ "_why": "hand triggers with path:line evidence, or cold {reason, evidence}; cold beside a trigger is INVALID. Operator-run kit tools (bootstrap, doctor, repin, split) stay NO-TRIGGER (worklist) until a doc line they are run from is cited here.",
+ "entries": {}
+}

@@ -1,0 +1,29 @@
+{
+ "_why": "upstream/LOCK.json: one row per held component (repo x how x lane x copy_of). Written by tools/upstream/ingest.py; checked by upstream_checks.py upstream_lock (40-hex, how vocabulary, lane consistent, sha == registry/sources.json pin) and offline_complete (bootstrap rows).",
+ "type": "object",
+ "required": ["rows"],
+ "properties": {
+  "_why": {"type": "string"},
+  "rows": {"type": "array", "items": {
+   "type": "object",
+   "required": ["repo", "sha", "how", "lane", "held_root", "held", "licence"],
+   "properties": {
+    "repo": {"type": "string", "pattern": "^[^/\\s]+/[^/\\s]+$"},
+    "repo_id": {"type": ["integer", "null"]},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "how": {"type": "string", "pattern": "^(bootstrap|repertoire|tree|copy_from:[a-z][a-z0-9-]*)$"},
+    "lane": {"type": ["string", "null"], "enum": ["repertoire", "upstream", "study", "nc-lane", null]},
+    "held_root": {"type": "string"},
+    "paths": {"type": "array", "items": {"type": "string"}},
+    "held": {"type": "string", "enum": ["committed", "sparse-committed", "bootstrap"]},
+    "licence": {"type": "string"},
+    "licence_file": {"type": ["string", "null"]},
+    "licence_files": {"type": "array", "items": {"type": "string"}},
+    "notice_files": {"type": "array", "items": {"type": "string"}},
+    "copy_of": {"type": ["string", "null"]},
+    "mode": {"type": "string", "enum": ["data", "workspace"]},
+    "files_at_pin": {"type": "integer", "minimum": 0}
+   }
+  }}
+ }
+}

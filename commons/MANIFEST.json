@@ -1,0 +1,424 @@
+{
+ "_generated_by": "tools/gov/gen_manifest.py --write",
+ "_why": "commons identity: every path identical on every branch (commons_drift). Generated files are presence-only.",
+ "files": {
+  ".claude/hooks/_cmdscan.py": {
+   "sha256": "a3644dd3b91d2996ac4529768a722433b50989f00cebde5da0d67390327272f0"
+  },
+  ".claude/hooks/_release.py": {
+   "sha256": "e40cf30c3bad6afc22e24152ce26106c90cc228e957a718a4159cc46e0942312"
+  },
+  ".claude/hooks/_report.py": {
+   "sha256": "33072fd2e744c86922cd5b596ddf0e01784019f890407d84a730480d8d27caec"
+  },
+  ".claude/hooks/act_gate.py": {
+   "sha256": "cc6ef72122eb785aa35163543d2588cbd4ce003935088bd2ffc548073904e77b"
+  },
+  ".claude/hooks/connector_scope.py": {
+   "sha256": "d77981a9fdd88c71f844246bb752bc084d35bfc8487184cd9d2255a02616ed78"
+  },
+  ".claude/hooks/context_threshold.py": {
+   "sha256": "7441b8592626fff85efe8b518ae75d52aaeafa387af07987845975ee204c10fc"
+  },
+  ".claude/hooks/deny_destructive.py": {
+   "sha256": "6c5cc76241ca804ebe9adb530e6194b3d173a0df6766888a2db33246684cbfb5"
+  },
+  ".claude/hooks/deny_noted_defect.py": {
+   "sha256": "90e4567fbae34611a83afc74f3f2ffa056912ad51234cf85959e604e82dbdafa"
+  },
+  ".claude/hooks/deny_upstream_write.py": {
+   "sha256": "ff790125901e31324db4ca8c07c75e879013383d08bc32f845a485aa060a538a"
+  },
+  ".claude/hooks/intent_router.py": {
+   "sha256": "e17a9c780eca00bd88f3e4101edd803dda0b50f2540f5b4c5840b1816245c0fa"
+  },
+  ".claude/hooks/quarantine_gate.py": {
+   "sha256": "b89335e4883072c5ba05e8ac6cd4a201a40336db9642a38f173fcfa933730d00"
+  },
+  ".claude/hooks/station_dispatch.py": {
+   "sha256": "44b53f0fe5dc464ba40949cabc7c16e574e3a803f277883113619a1ef9115c36"
+  },
+  ".claude/hooks/stop.py": {
+   "sha256": "c16e60784fd6b7483030a87cdf14dd06b0b847d4ca089a17beea8681aba21a7a"
+  },
+  ".claude/settings.json": {
+   "sha256": "fd4c798c6c2f62ea963bd41e8d13af7fecd2bf216df2ebbc0333013f359328c8"
+  },
+  ".claude/skills/checkpoint/SKILL.md": {
+   "sha256": "55b194f2b880aa4d1d2cf580232629ce2f78e6ac0816540f4d2de025006d1203"
+  },
+  ".claude/skills/closeout/SKILL.md": {
+   "sha256": "6e407a97656fa598da739fb9c0c259536211d015e9356bdf1055f298333bc083"
+  },
+  ".claude/skills/handoff/SKILL.md": {
+   "sha256": "e724c4df5289a035e6c01a707c3c1cd422123178ff6a46195e6dcddc2ecb55bb"
+  },
+  ".claude/skills/summon/SKILL.md": {
+   "sha256": "bae35e77f4defb5a0b75683d8ac49b49c0d837860532d8dbc5d51f6f3ec7c81d"
+  },
+  ".claude/skills/tier/SKILL.md": {
+   "sha256": "6f2ec2e7ea2031f34e38dad751b1fd932f5acde8b8d0562a8d160d6936ad6533"
+  },
+  ".claude/skills/upstream-intake/SKILL.md": {
+   "sha256": "59755c27290d260a1bc3e090a509f0b0ca2a20aabeac3cbdcbf6802c6b22a8e0"
+  },
+  ".claude/workflows/_template.js": {
+   "sha256": "673c85d54b1b1e369a5efcd4ace5c7f4e4bcf856a0b23b0e3258cb679ffd7278"
+  },
+  ".claude/workflows/orient.js": {
+   "sha256": "0cece934d2b60e111c1bdd607bbac77e1f3245739ddc397ab4c50335bf61666c"
+  },
+  ".gitattributes": {
+   "sha256": "6ed295f9614586384151f66ce343ddf4c07edcd6a9897127e633d553234f4f5f"
+  },
+  ".gitignore": {
+   "sha256": "41ba301c7c0dcecdf110fa902680c38ac764317027694d20cc7f70180e9721bb"
+  },
+  "ASSEMBLY_NOTES.md": {
+   "sha256": "bf9a002abb489dca83dc3a73e2168223c0c666d497e23a1569488953a3c5f962"
+  },
+  "CLAUDE.md": {
+   "sha256": "6db25d299614afd6e4138ee9c303a755b2b115f926b82567fce6e53757ded346"
+  },
+  "KIT.md": {
+   "sha256": "96fdc35b89baa695638a119ec52a20ddfd70d3e155445d1361639426cef97cca"
+  },
+  "README.md": {
+   "sha256": "96fbf6c42a44fc099e3d3e9b23b2b0e20184010087fe7b804671c972e62af3db"
+  },
+  "SKILLS_INDEX.md": {
+   "generated": true,
+   "sha256": "117f9695534998b1ecaea013b946816c11befcf01dda00fedb5111a63e456288"
+  },
+  "UNZIP.md": {
+   "sha256": "bf2db4ce982d3add8416ef7e7dc31597b0e9ffc502c055897604921b77001706"
+  },
+  "brain/INDEX.md": {
+   "generated": true,
+   "sha256": "a0f7283f8dbeb5f23cab3ab895cd3e594df2894e27731597beddc4b6d862049b"
+  },
+  "brain/LOOPS.md": {
+   "sha256": "8dd74af4ad4311d685d229e0d0c6e6e34eaf6a3c9455493b2baaae21355d33e2"
+  },
+  "brain/README.md": {
+   "generated": true,
+   "sha256": "c12a932898b74cb324d530cb763f3a6456feb6739265c7289485e554d9e0fedc"
+  },
+  "brain/brain.json.default": {
+   "sha256": "a1f96e98011dc7d62ac18d227fd397c83e452f754905a1d35a21a68950968bbc"
+  },
+  "brain/nodes/idea/core-0001--lean-lessons-carried-from-lettuce-every-count-carries-its-de.md": {
+   "sha256": "eb2f623498e196468ed92ba4579b67c05fe0576be5246db91f6cd95df5c3f79d"
+  },
+  "brain/nodes/negative/core-0002--a-falsification-kept-outside-the-searched-store-is-found-aga.md": {
+   "sha256": "0d44de6538202777a7df3cdc97cf6f17e9a3bfe108bf302b3b44b263ce3e0dbe"
+  },
+  "brain/nodes/paper/core-0003--kit-md-how-main-the-station-branches-sync-bootstrap-split-an.md": {
+   "sha256": "01bffbbf54369223e6481a0f9ba13900a6a84539cc4c8e5a7105795e97e0d0df"
+  },
+  "brain/sessions/.keep": {
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "commons/defaults.json": {
+   "sha256": "ea94872e6ce2dc682316f903770ea56ce15c23fa0300af18000173f20c7d2ee4"
+  },
+  "commons/packs/design/SHEET_GRAMMAR.md": {
+   "sha256": "7d31a119376181ff1095c4bd30ecfe0a875fc13bdbc52cf1d6636f45cfd77869"
+  },
+  "commons/packs/grade/RUBRIC.md": {
+   "sha256": "b706384fdee8d4e8a0d01ba94ad055f81ae425799868a757e6a395c4e92b489a"
+  },
+  "commons/packs/research/NEGATIVE_RESULTS.md": {
+   "sha256": "e2a4f66b684fe139684230d8a72e95c1b03b6bd1a2697ac093c1137e75228b60"
+  },
+  "commons/packs/research/SOURCE_HOP.md": {
+   "sha256": "b792d42eaef8b4c3ea3853a658b7242373c0c8451b19160aba8941064dd8c929"
+  },
+  "commons/packs/trading/FIT_LENS.md": {
+   "sha256": "ffbe61e1267e63ce9d0c9dda3488aeb5bc57f67c5b680d84ab21abbeeba9f765"
+  },
+  "commons/packs/trading/MEASUREMENT_CONTRACT.md": {
+   "sha256": "a97f7812cda095e85dfd7544ef7dec764a6cd2752db777c3913eec47f61d64ef"
+  },
+  "commons/packs/trading/NEGATIVE_RESULTS.md": {
+   "sha256": "d55c5bcc3f6504a71b1e8ba1cc53f70bbe0faef37d87a2cdf97ff2b3047e461d"
+  },
+  "commons/packs/trading/PREREGISTRATIONS.md": {
+   "sha256": "59465c6ed81fb19478bf8e55629399b9aa45f6610006f609ecb41881cd54becf"
+  },
+  "commons/schema/intents.schema.json": {
+   "sha256": "a75397b0acec19bed5c249eeafb580e728a7dce3e3740054794aafcf13d27642"
+  },
+  "commons/schema/precedence.schema.json": {
+   "sha256": "d70db7bf3ac053cb22f8d0075f35e0900d9dbacd763010fa39465ad35f642783"
+  },
+  "commons/schema/provenance.schema.json": {
+   "sha256": "6e825a619b2809c2d3703f58d83584c55d7c5b79328ec7d6e9da2ccf72757d92"
+  },
+  "commons/schema/skill_routes.schema.json": {
+   "sha256": "ffa5185c3083b4e2dc4dd7e64e2c3c07836641a8924c71a9fa6d00d7ec5d362a"
+  },
+  "commons/schema/station.schema.json": {
+   "sha256": "f91e842eeccc8cb69687ccdb4b800efbec8a80f95d63385ff81ff7c9f968be75"
+  },
+  "commons/schema/telemetry.schema.json": {
+   "sha256": "8c50bfa6895cab2db36c547b3ca803d51f0993822038f3cf91021c3daa8351ac"
+  },
+  "commons/schema/upstream_lock.schema.json": {
+   "sha256": "698167c94af4bf98b7b43f0aa7e1be1dfbe91f76916c83272075ffe8d40017c2"
+  },
+  "governance/DECISIONS.md": {
+   "sha256": "7ccd519ea0bb86eb86809a143c691603df7f08076626c93060ebe94a84c1ce54"
+  },
+  "governance/DEFECTS.md": {
+   "sha256": "07358be17a209e3afa48f726671a0d3d81bf8532b8f30e60fc27648d667194bc"
+  },
+  "governance/HISTORY.md": {
+   "sha256": "8c3cb62e4644fa98f6d5697c52048a406639b14a9d2bd58e3651e0f264516af2"
+  },
+  "governance/LEDGER.md": {
+   "sha256": "cca8e73d1d988d167c3558247885045b88fd58a5fb7f798dfc375ac5de4fca07"
+  },
+  "governance/OWNERSHIP.md": {
+   "generated": true,
+   "sha256": "18f39058fe03b670124674f6513c59ec1ef2c15b1dea0fd621bc0621d035b95b"
+  },
+  "governance/RELEASES.json": {
+   "sha256": "e1e90988acf76001e7d96bd0aae111610534cdb5f27e5f98ea7953320e400be8"
+  },
+  "governance/checks.d/brain.json": {
+   "sha256": "4912e284c1c1af2c51b0c926e0f5edee259f41eb83322ac4a0983b2c839c4a14"
+  },
+  "governance/checks.d/map.json": {
+   "sha256": "95b092d04e88b10693ef20431acfc38b27aa4b9e2f1a3eb34f6524c150004dc4"
+  },
+  "governance/checks.d/upstream.json": {
+   "sha256": "7f6d5524ec45e870ca6a6704e73e2e6afc8bff7d15a6c55dd73ab97a3cb0affa"
+  },
+  "governance/checks.json": {
+   "sha256": "d4f230ae32ccb55f44eb59f4638581cc7065a8211b2e8fabe2cf718800017169"
+  },
+  "governance/rules.d/brain.json": {
+   "sha256": "226142b4faf61c05592e4b9f3fad1c02614fb9e16cf4b572e4ca041213faf6f2"
+  },
+  "governance/rules.d/map.json": {
+   "sha256": "78539460d885e773598b797267fa6715d4395bf52eeaaa304cff6688a2a1f4bd"
+  },
+  "governance/rules.d/upstream.json": {
+   "sha256": "b6368bb2efa642a12e9d1e35b04036aec9a5656e5a23386ebf2c366d2554358f"
+  },
+  "governance/rules.json": {
+   "sha256": "29ad2a9d8907549352065e54ef28567018e92834747f3df80ab36fa377aae114"
+  },
+  "map/ATLAS.md": {
+   "generated": true,
+   "sha256": "af1a82754ad1c33c38b29549572c391840531f3722168f8b0bd873b550d5301f"
+  },
+  "map/README.md": {
+   "generated": true,
+   "sha256": "921761f155af7d2280bcf429cfd057e33d40fd8b738054afedc16ff7305c00ae"
+  },
+  "map/SOLUTIONS.md": {
+   "generated": true,
+   "sha256": "8f0024c5d4cccc68fa417363ef92b345915818f0ffc3b1741ba5c92ab1e7c096"
+  },
+  "map/STATIONS.md": {
+   "generated": true,
+   "sha256": "0484f2c32f01825ec8d116efe84fad9d76dfccc970c02209b481457e0fb7807e"
+  },
+  "map/atlas.json": {
+   "generated": true,
+   "sha256": "1f524dcdb5c6ba92b952b06177b37cf44b65bdf24a8688abd98aaf4f8af2b5d1"
+  },
+  "map/atlas_schema.json": {
+   "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
+  },
+  "map/catalog.json": {
+   "sha256": "895445993d240b1b9aa6fedda82cf1b01732fd1d5909ceaab5501886688b8261"
+  },
+  "map/dirs.json": {
+   "sha256": "f3dec79e55937bde4a74f68e9f600d15bb602bcd6a7a4741a39a159e42ab4576"
+  },
+  "map/tags.json": {
+   "sha256": "b221c048d20e76cff4b244bf52d12ca6939bd56e4cc18a73b74fc0c96d748d34"
+  },
+  "map/upstream.json": {
+   "sha256": "854b9158bd899e51ba5a994801ee9e0fa32dbb8affb619aa10435501ca658703"
+  },
+  "map/usage.json": {
+   "generated": true,
+   "sha256": "007de5a0ae0cb4fdeb58fe4b5851284092ed75555e52c4cb983d1c7dbafca869"
+  },
+  "map/usage_hand.json": {
+   "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
+  },
+  "registry/SKILL_CENSUS.yml": {
+   "generated": true,
+   "sha256": "fae4a9bbce8cd80b0664dd683a35710bbc09c9bb37e1f235941eea11e03fd830"
+  },
+  "registry/attic.json": {
+   "sha256": "92d248a0ce5233b8d233a80604749c9b2ea825e3a42ba4f8b2b52877ee9adcb4"
+  },
+  "registry/homes.json": {
+   "sha256": "1bc38817887ce01f46cbed6629c1dd70e9d85328c68f68a2f87f914f5374f814"
+  },
+  "registry/licences.json": {
+   "sha256": "97b0df88cbf58ed2f633318329721aa32dc08b4c2f2fa38f5c1aaca2b62a3436"
+  },
+  "registry/quarantine.json": {
+   "sha256": "b2b6ff92af1118a93cd504baeb3d825ebab3151c895107e5adc005a7936b2e6b"
+  },
+  "registry/skill_assignment.json": {
+   "generated": true,
+   "sha256": "011998db38aeb73046874b3994a6687e1fe7db7d971dd7a0d5b9e64b5cf046ca"
+  },
+  "registry/skills_index.json": {
+   "generated": true,
+   "sha256": "a3fee7f0d19918a4ecd6a960bf85f2bd16dade762fb040e559df1192c783fc5c"
+  },
+  "registry/sources.json": {
+   "sha256": "43fd9e92bb13bac0744c7b5989379eec8314467b1fc51a21851649351c5a4b0c"
+  },
+  "registry/telemetry.json": {
+   "sha256": "90de919e27cdfc0e9ca939089e12184b4ece6e5289d806eb30fcefcf1060a7c1"
+  },
+  "router/intents.d/brain.json": {
+   "sha256": "93dd315862fef677f2c571f370c65331775370a645a47bc2c762a27e7b2b4d66"
+  },
+  "router/intents.d/map.json": {
+   "sha256": "77e526df7e188dfb69ca3de8826325f4b0bc19cc6aa9247f6c02c093bcfb1d95"
+  },
+  "router/intents.d/upstream.json": {
+   "sha256": "28ec200b6b4cbdb956b9520b6ae3662d6ba3ecdd23992ce22af226ea7b57e99f"
+  },
+  "router/intents.json": {
+   "sha256": "dc3676ef39bff1d065c7f3f36883c745a9968bb6cab6f5636930da584e4ea6ac"
+  },
+  "router/kit_tree.json": {
+   "sha256": "5fb87155edd32dc8b1330b4019dd90b0c3bfaa1c95563d6446910c246c2064e1"
+  },
+  "templates/STATION.md.tmpl": {
+   "sha256": "b090470fe8d2283fd760a9d6114e2474631a335feab1fc2ca66a149667f03465"
+  },
+  "templates/env.example.tmpl": {
+   "sha256": "59730542923a903d60ed1dea9b8337612d25c8a3572d8ab633375b95cd3c440a"
+  },
+  "templates/rules_station.md.tmpl": {
+   "sha256": "608415c8cd20fe44e7340466312c674a17770648729a1a5152c4d7f2965d9453"
+  },
+  "templates/station.json.tmpl": {
+   "sha256": "84b397ce23df2838b4c5104a8f07a2b627586079cfba33f6fc00500d8ea9968b"
+  },
+  "tools/brain.py": {
+   "sha256": "a1dbf191bb34f923ab1f2afb1ef42ad4d02fffddc3a6429d941f7b235886b1c6"
+  },
+  "tools/gov/_gov.py": {
+   "sha256": "dc575ee758da9e5d8e584beb444b8103629b086e5eeec9961c0dbf4ec1d249f0"
+  },
+  "tools/gov/gen_manifest.py": {
+   "sha256": "96791793f0299e9a6748e52864bae7906acff1686065369d99f93a426f7f68d5"
+  },
+  "tools/gov/gen_ownership.py": {
+   "sha256": "9af83204a8848b21f4c47de12fc49a35577ebbbe3000d114cff0bafd030c283b"
+  },
+  "tools/gov/gov_check.py": {
+   "sha256": "5e2541b821ae87e62441813377361489c219b5ef727f25f1d659cabd49e4b1bc"
+  },
+  "tools/gov/new_row.py": {
+   "sha256": "ce622f28f9026d8930a649f73399de90489ec48c6c6e0574a99baccf52af4f3a"
+  },
+  "tools/kit/_kit.py": {
+   "sha256": "80f9c6510b18088daca10d90c175575a4e12acf8d2832c37856dc77071d01310"
+  },
+  "tools/kit/assemble.py": {
+   "sha256": "902e6eb58e15a7525e8a7566600491e112419edeb9c0af33e17082a84b9fd665"
+  },
+  "tools/kit/bootstrap.py": {
+   "sha256": "255f79ba2cf9ec8c590107ebcdbc608d8d7835115e906c22e72594826cdcd760"
+  },
+  "tools/kit/doctor.py": {
+   "sha256": "e6001bfcd66e0eced2435c597fcffba810c2c03b79dbd6af9e13805f887a666c"
+  },
+  "tools/kit/kit_check.py": {
+   "sha256": "42edc9a7a2360fb6531d9bf20b325acd52a3866699a5d5158ccdc5545db79868"
+  },
+  "tools/kit/make_zip.py": {
+   "sha256": "8d428788d0e794de18d4ac3f18066287d06a511a1c4bdcbeecdc8f635ebb6a33"
+  },
+  "tools/kit/repin.py": {
+   "sha256": "2a486f314f71569482bc1adf3a2007c23df3d88d37a5ecc2badd1cfa9c675473"
+  },
+  "tools/kit/runtree.py": {
+   "sha256": "fcac9492829cc33d3c8b224c8a6cdc4b15ff29ca54c548b425e4adce0d152e1c"
+  },
+  "tools/kit/skills_index.py": {
+   "sha256": "393fb9a539e7d487902bf461c9dd7d39b7b157ce6bee4e064318f8f7d547b4d0"
+  },
+  "tools/kit/split.sh": {
+   "sha256": "448842f2560819d06309374829f239eca93b0a049e9681e21e305bd7a52e5eb4"
+  },
+  "tools/kit/sync.py": {
+   "sha256": "0be2c4cb0136d026f127c6d0663d1dced9b7545e84e552852a3e7d485985a85e"
+  },
+  "tools/map/_common.py": {
+   "sha256": "4884aa0c138103478268d1ba4768a040394a51ff2a9912612699dbb4f80ce171"
+  },
+  "tools/map/check_paths.py": {
+   "sha256": "097cc29a8e57a306d6234bb098dcaa16f0c1b41e8c11c5d34f17290cefe13b6b"
+  },
+  "tools/map/find.py": {
+   "sha256": "2cb86c6f111aafdd72e4c9d03d966e62fd712e83e109af4936003693d1ea0a3b"
+  },
+  "tools/map/gen_atlas.py": {
+   "sha256": "974c26b12dfaf24a63244dac1af085f0d5afc1104e5d2539c04d002cb6ce00bc"
+  },
+  "tools/map/gen_dir_readmes.py": {
+   "sha256": "2a804ca21feff0dbb524b7fc3e044bc0196807ba523915d8e0a3f02cc55d6b08"
+  },
+  "tools/map/gen_solutions.py": {
+   "sha256": "e4831fec94f7f76b427ad3c29b7a3e8207e5bcb498905cc1b24d9312bc26f9d9"
+  },
+  "tools/map/gen_station_map.py": {
+   "sha256": "f885eb1d8d2259f59f25e6f39f4cfe04efdd0062f7485e32e50c2ac1fda431c8"
+  },
+  "tools/map/hooks/deny_generated_edit.py": {
+   "sha256": "6b6b7e8a3be96cf7db70d437a50ef52850874218c9a7ed64fdb92926ed4f170c"
+  },
+  "tools/map/hooks/prior_art.py": {
+   "sha256": "647745bde8f61a6d1ff953ca6e94d8c7573b009fe6090e560127ac02f6531e90"
+  },
+  "tools/map/hooks/usage_log.py": {
+   "sha256": "4ec6a7c7393a0fa034571fb7f7588a7d9fb7fed743041a6056912cbadf10e6d5"
+  },
+  "tools/map/map_check.py": {
+   "sha256": "e5e8164818fde01eb7adeffd304f0ad7ef4df6b5d56e9cec0be9417e79096933"
+  },
+  "tools/map/upstream_check.py": {
+   "sha256": "76f1009fbb82d1a552bda2ec62f4aee58839c099ab6d3a4e97ba1a0485ede3a3"
+  },
+  "tools/map/usage_map.py": {
+   "sha256": "0381d73c446f469934968cdca90820382a4eef504b5c478e4d8b5fbb6904fb52"
+  },
+  "tools/station_audit.py": {
+   "sha256": "88b4778c2da31b81cd88ae8c61584bd33486f366b84827130c15a8cadb5fc153"
+  },
+  "tools/upstream/_uplib.py": {
+   "sha256": "5e578a6151acb63b309acb9ce6596cd9f606124c123da63e36081f3651fbf9dd"
+  },
+  "tools/upstream/ingest.py": {
+   "sha256": "8a824cbacbf3d0e940147b61e792376c9db693db9d3c316320ee8e1bf4102e2f"
+  },
+  "tools/upstream/notice.py": {
+   "sha256": "b70048e78d60f3b358ee603231378117a55bcfe88a19c48aa68ecbe1062cd6c1"
+  },
+  "tools/upstream/skill_routes.py": {
+   "sha256": "0f468c86ed13a2557813b8e40fe9962b4c3e69d5d24fe3b39831d75a07154d26"
+  },
+  "tools/upstream/upstream_checks.py": {
+   "sha256": "cb087388dcc91529f8adc72e09a93eeea5c3fb4e9cc4f701b70a6cb702fdb4de"
+  },
+  "tools/upstream/workflows_check.py": {
+   "sha256": "4d608ce48881c30c530ac8192a11469740dd198568097978882a0ff1f5d69c74"
+  }
+ }
+}

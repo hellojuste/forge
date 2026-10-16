@@ -1,0 +1,117 @@
+{
+ "_doc": "One row per tool with on-by-default (or possible) telemetry. verified flips to true ONLY with the file and line proving the switch AND the tool's own offline status run by the operator (J2 GA6). A workflow never starts a tool whose row is verified:false (wired by the equip block into service-up, wiki-gen, optimize-loop). Seeded from INV (c); station builders' returned rows are merged in block E.",
+ "denominator": 10,
+ "rule": "never start a tool whose row is verified:false",
+ "telemetry": [
+  {
+   "evidence": "plugins/evo/src/evo/telemetry.py",
+   "note": "also: plugins/evo/hooks/hooks.json pipes full hook stdin to an external evo-hook-drain binary; never wired (KIT_PLAN 6)",
+   "opt_out": "EVO_TELEMETRY (read at telemetry.py:103) and DO_NOT_TRACK (telemetry.py:111); exact off-value unconfirmed",
+   "opt_out_candidate_env": {
+    "DO_NOT_TRACK": "1"
+   },
+   "repo": "evo-hq/evo",
+   "station": "forge",
+   "tool": "evo",
+   "verified": false
+  },
+  {
+   "evidence": "src/telemetry/config.ts:39 (FIRST_RUN_NOTICE_OPT_OUT text)",
+   "note": "pre-set in forge .env (KIT_PLAN 6)",
+   "opt_out": "OPENWIKI_TELEMETRY_DISABLED=1 (or DO_NOT_TRACK=1), per the tool's own notice string; the reading branch of the code is not yet cited",
+   "opt_out_candidate_env": {
+    "OPENWIKI_TELEMETRY_DISABLED": "1"
+   },
+   "repo": "langchain-ai/openwiki",
+   "station": "forge",
+   "tool": "openwiki",
+   "verified": false
+  },
+  {
+   "evidence": "crates/context/src/telemetry.rs (env_opts_out at :58; api_base https://impeccable.style/api at :44) + README engine \"roll\" request",
+   "note": "",
+   "opt_out": "env_opts_out(...) exists; the variable name it is called with is unread",
+   "opt_out_candidate_env": {},
+   "repo": "pbakaus/impeccable",
+   "station": "studio",
+   "tool": "impeccable",
+   "verified": false
+  },
+  {
+   "evidence": "README.md section \"Analytics and tracking\" (self-host analytics); api/front are unpinned submodules (KIT_PLAN G7)",
+   "note": "",
+   "opt_out": "unread (lives in the lago-api submodule)",
+   "opt_out_candidate_env": {},
+   "repo": "getlago/lago",
+   "station": "venture",
+   "tool": "lago",
+   "verified": false
+  },
+  {
+   "evidence": "packages/cli-v3/src/mcp/telemetry.ts:9,18 (posthog-node)",
+   "note": "file:line found; verified stays false until the operator runs the CLI offline status (J2 GA6)",
+   "opt_out": "TRIGGER_TELEMETRY_DISABLED (any value; telemetry.ts:18 returns enabled only when undefined) or --skip-telemetry",
+   "opt_out_candidate_env": {
+    "TRIGGER_TELEMETRY_DISABLED": "1"
+   },
+   "repo": "triggerdotdev/trigger.dev",
+   "station": "venture",
+   "tool": "trigger cli-v3",
+   "verified": false
+  },
+  {
+   "evidence": "server/src/utils/analytics.ts:37 (posthog)",
+   "note": "quarantined tree; never started by a workflow",
+   "opt_out": "MAXUN_TELEMETRY must equal \"true\" to send (analytics.ts:37); leave it unset",
+   "opt_out_candidate_env": {
+    "MAXUN_TELEMETRY": "false"
+   },
+   "repo": "getmaxun/maxun",
+   "station": "quarantine",
+   "tool": "maxun",
+   "verified": false
+  },
+  {
+   "evidence": "fincept-qt/src/core/telemetry/CloudTelemetryProvider.cpp",
+   "note": "AGPL desktop app, reference only, never built by a workflow",
+   "opt_out": "unread",
+   "opt_out_candidate_env": {},
+   "repo": "Fincept-Corporation/FinceptTerminal",
+   "station": "markets",
+   "tool": "fincept-terminal",
+   "verified": false
+  },
+  {
+   "evidence": "lib/reporter.js, lib/sentry.js:10 (SENTRY_DSN), workers/crash-reporter/",
+   "note": "quarantined tree; never started by a workflow",
+   "opt_out": "sentry off while SENTRY_DSN is unset (sentry.js:2,10); lib/reporter.js switch unread",
+   "opt_out_candidate_env": {
+    "SENTRY_DSN": ""
+   },
+   "repo": "jo-inc/camofox-browser",
+   "station": "quarantine",
+   "tool": "camofox-browser",
+   "verified": false
+  },
+  {
+   "evidence": "apps/api/plane/license/bgtasks/telemetry_metrics.py (OTLP metrics export)",
+   "note": "",
+   "opt_out": "unread (the OTLP exporter env names are at :47,:55; the on/off switch is not cited)",
+   "opt_out_candidate_env": {},
+   "repo": "makeplane/plane",
+   "station": "venture",
+   "tool": "plane",
+   "verified": false
+  },
+  {
+   "evidence": "crates/projectatlas-core/src/telemetry.rs, crates/projectatlas-db/src/telemetry.rs",
+   "note": "its readiness.sh downloads at setup; never wired",
+   "opt_out": "unread",
+   "opt_out_candidate_env": {},
+   "repo": "styler-ai/ProjectAtlas",
+   "station": "forge",
+   "tool": "projectatlas",
+   "verified": false
+  }
+ ]
+}

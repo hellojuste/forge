@@ -1,0 +1,26 @@
+{
+ "_why": "upstream/PRECEDENCE.json: one row per held tree (and per bootstrap cache). KIT_PLAN 5 rank 4: an upstream governs ONLY the closed SUBTREE vocabulary inside its own tree; every kit-floor mechanism is upstream: NEVER. Stub rows are written by ingest.py; summary_of_upstream_asks is a hand paraphrase (never a copied sentence). Checked by upstream_checks.py precedence.",
+ "type": "object",
+ "required": ["default", "rows"],
+ "properties": {
+  "_why": {"type": "string"},
+  "default": {"type": "string", "enum": ["station"]},
+  "rows": {"type": "array", "items": {
+   "type": "object",
+   "required": ["path", "governs", "summary_of_upstream_asks", "loaded"],
+   "properties": {
+    "path": {"type": "string"},
+    "repo": {"type": "string"},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "licence": {"type": "string"},
+    "agent_files_found": {"type": "array", "items": {"type": "string"}},
+    "agent_files_renamed_to": {"type": "array", "items": {"type": "string"}},
+    "loaded": {"type": "string", "pattern": "^never-auto"},
+    "governs": {"type": "array", "items": {"type": "string", "enum": ["build", "code-style", "test-runner", "commit-format", "layout"]}},
+    "adopted": {"type": "array", "items": {"type": "string", "enum": ["build", "code-style", "test-runner", "commit-format", "layout"]}},
+    "summary_of_upstream_asks": {"type": "string"},
+    "mode": {"type": "string", "enum": ["data", "workspace"]}
+   }
+  }}
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "_why": "mapping programme router rows (PROGRAMME_MAPPING 6). First moves are commands only (no skill/workflow targets to go ABSENT).",
+ "intents": [
+  {
+   "contributed_by": "map",
+   "description": "has this already been built, tried or held upstream?",
+   "name": "find",
+   "router": {
+    "file_types": [],
+    "first_move": {
+     "inline_gather": "python3 tools/map/find.py <words>"
+    },
+    "keywords": [
+     "prior art",
+     "already built",
+     "already exists",
+     "tried before"
+    ],
+    "path_patterns": [],
+    "patterns": [],
+    "phrases": [
+     "does this exist",
+     "does x exist",
+     "have we tried",
+     "is there a tool",
+     "is there already",
+     "did we build"
+    ]
+   }
+  },
+  {
+   "contributed_by": "map",
+   "description": "where is it, what uses it, what does it depend on?",
+   "name": "where",
+   "router": {
+    "file_types": [],
+    "first_move": {
+     "inline_gather": "python3 tools/map/gen_atlas.py --show <id|word>"
+    },
+    "keywords": [
+     "atlas",
+     "who calls",
+     "depends on"
+    ],
+    "path_patterns": [],
+    "patterns": [],
+    "phrases": [
+     "where is",
+     "what uses",
+     "what depends on",
+     "which hook runs",
+     "what calls"
+    ]
+   }
+  },
+  {
+   "contributed_by": "map",
+   "description": "a registry changed or a generated map is stale",
+   "name": "map-regen",
+   "router": {
+    "file_types": [],
+    "first_move": {
+     "inline_gather": "python3 tools/map/map_check.py --write && python3 tools/map/map_check.py --check"
+    },
+    "keywords": [
+     "map_check",
+     "map stale",
+     "regenerate the map",
+     "solutions.md",
+     "atlas.json",
+     "usage.json"
+    ],
+    "path_patterns": [
+     "map/"
+    ],
+    "patterns": [],
+    "phrases": [
+     "registry changed",
+     "map is stale",
+     "regenerate map",
+     "update the atlas"
+    ]
+   }
+  }
+ ]
+}

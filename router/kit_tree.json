@@ -1,0 +1,293 @@
+{
+ "_doc": "The operator decision tree (KIT_PLAN 2.1) as router rows, in Q-order (first yes wins; order = cost if misplaced, highest first). scope:main - on main these leaves route (STATION: <name> - git worktree add ...); on a station branch they only produce a WRONG STATION? hint. Kept equal to README.md and map/STATIONS.md by tools/kit/kit_check.py tree.",
+ "fallback": "none of the above (a quick question, a handoff, a delegation) -> whichever station you are in: the commons is everywhere; on main read KIT.md",
+ "intents": [
+  {
+   "name": "station:quarantine",
+   "q": "Q0",
+   "description": "Study camofox, Maxun, AIHawk/invisible_dots, or any stealth / anti-bot / fingerprinting tool?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/quarantine",
+   "note": "read-only study; install/run asks you first",
+   "router": {
+    "keywords": [
+     "camofox",
+     "maxun",
+     "aihawk",
+     "invisible_dots",
+     "invisible-playwright",
+     "stealth",
+     "anti-bot",
+     "antibot",
+     "fingerprint",
+     "fingerprinting",
+     "captcha",
+     "evasion"
+    ],
+    "phrases": [
+     "stealth browser",
+     "anti-bot",
+     "bot detection",
+     "browser fingerprint"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/quarantine station/quarantine"
+    }
+   }
+  },
+  {
+   "name": "station:client-bi",
+   "q": "Q1",
+   "description": "Touch a CLIENT's data, ERP, Qlik app, load script, KPI or dashboard?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/client-bi",
+   "note": "engagements/<client>/ or a station/client-bi--<client> sub-branch",
+   "router": {
+    "keywords": [
+     "client",
+     "klant",
+     "erp",
+     "qlik",
+     "qvf",
+     "qvs",
+     "kpi",
+     "dashboard",
+     "applymap",
+     "nprinting",
+     "dwh",
+     "accountview",
+     "trimergo",
+     "ridder"
+    ],
+    "phrases": [
+     "load script",
+     "set analysis",
+     "section access",
+     "client data",
+     "reload error"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/client-bi station/client-bi"
+    }
+   }
+  },
+  {
+   "name": "station:markets",
+   "q": "Q2",
+   "description": "Markets: a trade idea, edge, backtest, journal, Pine/TradingView, AutoHedge?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/markets",
+   "note": "AutoHedge = study lane, disarmed by default",
+   "router": {
+    "keywords": [
+     "market",
+     "markets",
+     "trade",
+     "trading",
+     "edge",
+     "backtest",
+     "journal",
+     "pine",
+     "tradingview",
+     "autohedge",
+     "vibe-trading",
+     "sharpe",
+     "expectancy",
+     "walk-forward",
+     "solana"
+    ],
+    "phrases": [
+     "trade idea",
+     "trading journal",
+     "walk forward",
+     "e[r]"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/markets station/markets"
+    }
+   }
+  },
+  {
+   "name": "station:venture",
+   "q": "Q3",
+   "description": "MY business: decide what to build, build it, or run it (customers, CRM, invoices/BTW, billing, jobs, inbox)?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/venture",
+   "note": "a second venture forks station/venture--<name>",
+   "router": {
+    "keywords": [
+     "business",
+     "venture",
+     "startup",
+     "mvp",
+     "prd",
+     "crm",
+     "invoice",
+     "invoices",
+     "btw",
+     "billing",
+     "lago",
+     "supabase",
+     "trigger.dev",
+     "relaticle",
+     "plane",
+     "inbox",
+     "launch",
+     "pricing"
+    ],
+    "phrases": [
+     "side business",
+     "what to build",
+     "go to market",
+     "my customers"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/venture station/venture"
+    }
+   }
+  },
+  {
+   "name": "station:career",
+   "q": "Q4",
+   "description": "My career: CV, applications, interviews, offers?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/career",
+   "note": "dormant until used; career-ops / ai-job-search run in workspace mode",
+   "router": {
+    "keywords": [
+     "career",
+     "cv",
+     "resume",
+     "application",
+     "apply",
+     "interview",
+     "offer",
+     "vacancy",
+     "vacature",
+     "solliciteren",
+     "linkedin",
+     "job"
+    ],
+    "phrases": [
+     "job search",
+     "cover letter",
+     "job offer"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/career station/career"
+    }
+   }
+  },
+  {
+   "name": "station:studio",
+   "q": "Q5",
+   "description": "Visual / interaction design, motion, UI critique not owned by a product?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/studio",
+   "note": "",
+   "router": {
+    "keywords": [
+     "design",
+     "ui",
+     "ux",
+     "motion",
+     "animation",
+     "easing",
+     "typography",
+     "palette",
+     "prototype",
+     "mockup",
+     "impeccable",
+     "layout",
+     "brand"
+    ],
+    "phrases": [
+     "ui critique",
+     "design review",
+     "visual design"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/studio station/studio"
+    }
+   }
+  },
+  {
+   "name": "station:research",
+   "q": "Q6",
+   "description": "Find something out from PUBLIC sources (literature, a market, repos, screenshots/posts)?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/research",
+   "note": "the only CC BY-NC lane",
+   "router": {
+    "keywords": [
+     "research",
+     "investigate",
+     "literature",
+     "paper",
+     "papers",
+     "citation",
+     "sources",
+     "screenshot",
+     "post",
+     "survey",
+     "review"
+    ],
+    "phrases": [
+     "find out",
+     "literature review",
+     "deep dive",
+     "market scan",
+     "systematic review"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/research station/research"
+    }
+   }
+  },
+  {
+   "name": "station:forge",
+   "q": "Q7",
+   "description": "Improve the agents/tooling, trial a tool, ingest a new upstream, repin, maintain the kit?",
+   "scope": "main",
+   "contributed_by": "kit",
+   "branch": "station/forge",
+   "note": "",
+   "router": {
+    "keywords": [
+     "agent",
+     "agents",
+     "tooling",
+     "tool",
+     "hook",
+     "hooks",
+     "skill",
+     "workflow",
+     "upstream",
+     "ingest",
+     "repin",
+     "kit",
+     "evo",
+     "openwiki",
+     "projectatlas",
+     "rea"
+    ],
+    "phrases": [
+     "new upstream",
+     "trial a tool",
+     "maintain the kit",
+     "reverse engineer"
+    ],
+    "first_move": {
+     "inline_gather": "git worktree add ~/stations/forge station/forge"
+    }
+   }
+  }
+ ]
+}

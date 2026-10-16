@@ -1,0 +1,27 @@
+{
+ "_why": "upstream/PROVENANCE.json: one row per held file (byte-identical upstream bytes get a sidecar row because a header would break --- frontmatter). Written only by tools/upstream/ingest.py; re-hashed by upstream_checks.py provenance. Validated by tools/gov/_gov.py validate() (subset: type, required, enum, pattern, items, properties, minimum).",
+ "type": "object",
+ "required": ["rows"],
+ "properties": {
+  "_why": {"type": "string"},
+  "rows": {"type": "array", "items": {
+   "type": "object",
+   "required": ["path", "repo", "sha", "source_path", "sha256", "lane", "role"],
+   "properties": {
+    "path": {"type": "string", "pattern": "^(repertoire|upstream|study|nc-lane)/[^/]+~[^/]+/.+"},
+    "repo": {"type": "string", "pattern": "^[^/\\s]+/[^/\\s]+$"},
+    "repo_id": {"type": ["integer", "null"]},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "source_path": {"type": "string"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bytes": {"type": "integer", "minimum": 0},
+    "renamed_from": {"type": ["string", "null"]},
+    "symlink_from": {"type": ["string", "null"]},
+    "copy_of": {"type": ["string", "null"]},
+    "lane": {"type": "string", "enum": ["repertoire", "upstream", "study", "nc-lane"]},
+    "role": {"type": "string", "enum": ["held", "licence", "notice"]},
+    "licence_file": {"type": ["string", "null"]}
+   }
+  }}
+ }
+}

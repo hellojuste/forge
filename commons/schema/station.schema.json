@@ -1,0 +1,44 @@
+{
+ "_why": "station.json (station-only; absent on main). Validated by tools/gov/_gov.py validate() (subset: type, required, enum, pattern, items, properties, minimum) via gov_check.py station. Other programmes own their own blocks (map, brain, upstream keys); this schema fixes only the keys governance and the dispatcher read.",
+ "type": "object",
+ "required": ["name"],
+ "properties": {
+  "name": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+  "knobs": {"type": "object", "properties": {
+   "gov": {"type": "string", "enum": ["core", "standard", "fleet"]},
+   "map": {"type": "string", "enum": ["XS", "S", "M", "L"]},
+   "brain": {"type": "string", "enum": ["tiny", "small", "medium"]}}},
+  "gov": {"type": "object", "properties": {
+   "claude_md_budget": {"type": "integer", "minimum": 1024},
+   "claude_md_sections": {"type": "array", "items": {"type": "string"}},
+   "hot_path": {"type": "array", "items": {"type": "string"}},
+   "state_budget": {"type": "integer", "minimum": 100},
+   "ctx_warn": {"type": "integer", "minimum": 1},
+   "ctx_handoff": {"type": "integer", "minimum": 1},
+   "ctx_repeat": {"type": "integer", "minimum": 1},
+   "beat_s": {"type": "integer", "minimum": 1},
+   "ceiling_s": {"type": "integer", "minimum": 1},
+   "margin_s": {"type": "integer", "minimum": 0},
+   "stale_beats": {"type": "integer", "minimum": 1},
+   "block_max_agents": {"type": "integer", "minimum": 1},
+   "block_window_s": {"type": "integer", "minimum": 1},
+   "model_roster": {"type": "object"},
+   "efforts": {"type": "array", "items": {"type": "string"}},
+   "defect_watch": {"type": "array", "items": {"type": "string"}},
+   "hedge_regex": {"type": "string"},
+   "protected_branches": {"type": "array", "items": {"type": "string"}},
+   "upstream_dirs": {"type": "array", "items": {"type": "string", "pattern": "/$"}},
+   "patch_dir_name": {"type": "string"},
+   "protect_stash": {"type": "boolean"},
+   "release_scopes": {"type": "array", "items": {"type": "string"}}}},
+  "hooks": {"type": "object", "properties": {
+   "PreToolUse": {"type": "array", "items": {"type": "string", "pattern": "^(station/)?[a-z_][a-z0-9_]*$"}}}},
+  "skill_overrides": {"type": "object"},
+  "quarantined": {"type": "array", "items": {"type": "string"}},
+  "irreversible_acts": {"type": "array", "items": {"type": "string"}},
+  "connectors_expected": {"type": "array", "items": {"type": "string"}},
+  "connector_scope": {"type": "string", "enum": ["report", "deny"]},
+  "live_surfaces": {"type": "array", "items": {"type": "string"}},
+  "nc_lane": {"type": "boolean"}
+ }
+}

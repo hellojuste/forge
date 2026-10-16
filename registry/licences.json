@@ -1,0 +1,318 @@
+{
+ "_doc": "Licence per repo (root) plus nested licences that govern held subtrees (nearest LICENSE wins; KIT_PLAN 4.1). class drives the lane rule.",
+ "denominator": 28,
+ "licences": [
+  {
+   "class": "non-commercial",
+   "id": 1,
+   "key": "Imbad0202~academic-research-skills",
+   "licence": "CC-BY-NC-4.0",
+   "licence_file": "LICENSE",
+   "notice_file": "NOTICE.md",
+   "repo": "Imbad0202/academic-research-skills",
+   "rule": "nc-lane/ in station/research only; outputs stamped (nc_export MUST)"
+  },
+  {
+   "class": "permissive",
+   "id": 2,
+   "key": "MadsLorentzen~ai-job-search",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "MadsLorentzen/ai-job-search",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 3,
+   "key": "phuryn~pm-skills",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "phuryn/pm-skills",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 4,
+   "key": "supabase~supabase",
+   "licence": "Apache-2.0",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "supabase/supabase",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "copyleft",
+   "id": 5,
+   "key": "getmaxun~maxun",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "getmaxun/maxun",
+   "rule": "hold UNMODIFIED under upstream/<owner~repo>/ beside its licence file; station files cite, never copy (licence_filter MUST)"
+  },
+  {
+   "class": "permissive",
+   "id": 6,
+   "key": "santifer~career-ops",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "santifer/career-ops",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 7,
+   "key": "amruthpillai~reactive-resume",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "amruthpillai/reactive-resume",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 8,
+   "key": "feder-cr~Jobs_Applier_AI_Agent_AIHawk",
+   "licence": "MIT (root; invisible_engine_dots/LICENSE credits nanobot)",
+   "licence_file": "LICENSE",
+   "notice_file": "THIRD_PARTY_NOTICES.md",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 9,
+   "key": "interviewstreet~hiring-agent",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "interviewstreet/hiring-agent",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 10,
+   "key": "Paramchoudhary~ResumeSkills",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "Paramchoudhary/ResumeSkills",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 11,
+   "key": "emilkowalski~skills",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "emilkowalski/skills",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 12,
+   "key": "pbakaus~impeccable",
+   "licence": "Apache-2.0",
+   "licence_file": "LICENSE",
+   "notice_file": "NOTICE.md",
+   "repo": "pbakaus/impeccable",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "copyleft",
+   "id": 13,
+   "key": "frappe~erpnext",
+   "licence": "GPL-3.0",
+   "licence_file": "license.txt",
+   "notice_file": null,
+   "repo": "frappe/erpnext",
+   "rule": "hold UNMODIFIED under upstream/<owner~repo>/ beside its licence file; station files cite, never copy (licence_filter MUST)"
+  },
+  {
+   "class": "copyleft",
+   "id": 14,
+   "key": "makeplane~plane",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE.txt",
+   "notice_file": null,
+   "repo": "makeplane/plane",
+   "rule": "hold UNMODIFIED under upstream/<owner~repo>/ beside its licence file; station files cite, never copy (licence_filter MUST)"
+  },
+  {
+   "class": "permissive",
+   "id": 15,
+   "key": "triggerdotdev~trigger.dev",
+   "licence": "Apache-2.0 (root); packages/cli-v3 is MIT (packages/cli-v3/LICENSE)",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "triggerdotdev/trigger.dev",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "copyleft",
+   "id": 16,
+   "key": "getlago~lago",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "getlago/lago",
+   "rule": "hold UNMODIFIED under upstream/<owner~repo>/ beside its licence file; station files cite, never copy (licence_filter MUST)"
+  },
+  {
+   "class": "copyleft",
+   "id": 17,
+   "key": "relaticle~relaticle",
+   "licence": "AGPL-3.0",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "relaticle/relaticle",
+   "rule": "hold UNMODIFIED under upstream/<owner~repo>/ beside its licence file; station files cite, never copy (licence_filter MUST)"
+  },
+  {
+   "class": "permissive",
+   "id": 18,
+   "key": "styler-ai~ProjectAtlas",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "styler-ai/ProjectAtlas",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 19,
+   "key": "evo-hq~evo",
+   "licence": "Apache-2.0",
+   "licence_file": "LICENSE",
+   "notice_file": "NOTICE",
+   "repo": "evo-hq/evo",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 20,
+   "key": "langchain-ai~openwiki",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "langchain-ai/openwiki",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 21,
+   "key": "morluto~rea",
+   "licence": "MIT (+ per-engine notices: THIRD_PARTY_NOTICES.md, licenses/)",
+   "licence_file": "LICENSE",
+   "notice_file": "THIRD_PARTY_NOTICES.md",
+   "repo": "morluto/rea",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 22,
+   "key": "The-Swarm-Corporation~AutoHedge",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "The-Swarm-Corporation/AutoHedge",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 23,
+   "key": "HKUDS~Vibe-Trading",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": "NOTICE",
+   "repo": "HKUDS/Vibe-Trading",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "copyleft",
+   "id": 24,
+   "key": "Fincept-Corporation~FinceptTerminal",
+   "licence": "AGPL-3.0 (open-core)",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "Fincept-Corporation/FinceptTerminal",
+   "rule": "hold UNMODIFIED under upstream/<owner~repo>/ beside its licence file; station files cite, never copy (licence_filter MUST)"
+  },
+  {
+   "class": "permissive",
+   "id": 25,
+   "key": "danny-avila~LibreChat",
+   "licence": "MIT (root); the two Pocock skills carry their own MIT LICENSE",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "danny-avila/LibreChat",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 26,
+   "key": "Open-LLM-VTuber~Open-LLM-VTuber",
+   "licence": "MIT + LICENSE-Live2D.md (sample models not MIT)",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "Open-LLM-VTuber/Open-LLM-VTuber",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 27,
+   "key": "cloudflare~agentic-inbox",
+   "licence": "Apache-2.0",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "cloudflare/agentic-inbox",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  },
+  {
+   "class": "permissive",
+   "id": 28,
+   "key": "jo-inc~camofox-browser",
+   "licence": "MIT",
+   "licence_file": "LICENSE",
+   "notice_file": null,
+   "repo": "jo-inc/camofox-browser",
+   "rule": "repertoire/ or tree; keep LICENSE beside the held tree; NOTICE carried into NOTICE.md"
+  }
+ ],
+ "nested": [
+  {
+   "governs": "packages/cli-v3/** (the five canonical trigger skills)",
+   "licence": "MIT",
+   "path": "packages/cli-v3/LICENSE",
+   "repo": "triggerdotdev/trigger.dev"
+  },
+  {
+   "governs": "the two Pocock skills",
+   "licence": "MIT (c) Matt Pocock",
+   "path": ".claude/skills/codebase-design/LICENSE and .claude/skills/improve-codebase-architecture/LICENSE",
+   "repo": "danny-avila/LibreChat"
+  },
+  {
+   "governs": "invisible_engine_dots/**",
+   "licence": "credits nanobot (read at ingest)",
+   "path": "invisible_engine_dots/LICENSE",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk"
+  },
+  {
+   "governs": "Live2D sample models",
+   "licence": "Live2D sample-model terms (not MIT)",
+   "path": "LICENSE-Live2D.md",
+   "repo": "Open-LLM-VTuber/Open-LLM-VTuber"
+  },
+  {
+   "governs": "bundled engines",
+   "licence": "per-engine notices",
+   "path": "THIRD_PARTY_NOTICES.md, licenses/",
+   "repo": "morluto/rea"
+  }
+ ]
+}

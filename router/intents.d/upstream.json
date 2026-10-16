@@ -1,0 +1,42 @@
+{
+ "_why": "router rows contributed by the upstream programme (commons). Loaded after router/intents.json; the tie order in router/intents.json router_tie_rule names `ingest`.",
+ "intents": [
+  {
+   "name": "ingest",
+   "description": "bring a new upstream repo, skill or tool into a station (licence, lane, ingest, precedence, routes)",
+   "contributed_by": "upstream",
+   "router": {
+    "keywords": [
+     "ingest",
+     "vendor",
+     "upstream",
+     "repin"
+    ],
+    "phrases": [
+     "new repo",
+     "add a repo",
+     "add to the stable",
+     "new upstream",
+     "bring in",
+     "import this repo",
+     "add this skill pack"
+    ],
+    "path_patterns": [
+     "upstream/",
+     "repertoire/",
+     "study/",
+     "nc-lane/"
+    ],
+    "file_types": [],
+    "patterns": [
+     "github\\.com/[\\w.-]+/[\\w.-]+"
+    ],
+    "first_move": {
+     "skill": "upstream-intake",
+     "args": "the repo (owner/repo) and what it is wanted for",
+     "inline_gather": "python3 tools/upstream/upstream_checks.py all --root ."
+    }
+   }
+  }
+ ]
+}

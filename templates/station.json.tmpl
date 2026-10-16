@@ -1,0 +1,29 @@
+{
+ "_why": "station.json (station-only; never on main). Filled from templates/station.json.tmpl by the station builder: replace every {{...}} value, keep the keys. Validated by tools/gov/gov_check.py station against commons/schema/station.schema.json; any key here overrides commons/defaults.json by deep merge (hooks.PreToolUse is a UNION with the commons modules). No secret values belong here (they go in .env).",
+ "name": "{{station}}",
+ "purpose": "{{one sentence: the noun this station owns and what it does with it}}",
+ "branch": "station/{{station}}",
+ "knobs": {"gov": "{{core|standard|fleet}}", "map": "{{XS|S|M|L}}", "brain": "{{tiny|small|medium}}"},
+ "packs": [],
+ "gov": {
+  "model_roster": {"small": "<set me>", "medium": "<set me>", "large": "<set me>"}
+ },
+ "hooks": {
+  "PreToolUse": []
+ },
+ "skill_overrides": {
+  "checkpoint": "user-invocable-only",
+  "summon": "user-invocable-only",
+  "tier": "user-invocable-only",
+  "upstream-intake": "user-invocable-only"
+ },
+ "listing_budget_bytes": 2400,
+ "listed_max": 6,
+ "quarantined": [],
+ "irreversible_acts": [],
+ "connectors_expected": [],
+ "connector_scope": "report",
+ "live_surfaces": [],
+ "nc_lane": false,
+ "services": []
+}

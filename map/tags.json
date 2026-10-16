@@ -1,0 +1,27 @@
+{
+ "_schema": "station-tags/1",
+ "_why": "CLOSED vocabulary: add a tag here first, never freelance one in an entry (lettuce TAXONOMY.md rule). Stations add tags in map/station_tags.json.",
+ "problems": {
+  "closeout": "end a pass: ledger, defects, handoff, asides",
+  "delegation": "summon subagents by protocol: size, tier, contract, heartbeat",
+  "doc-truth": "do the documents' path and code claims still resolve?",
+  "falsification-register": "never lose a falsification; check it before testing again",
+  "governance-audit": "one runner, one exit code: which checks are red?",
+  "hook-safety": "stop an irreversible or wrong-place act before it happens",
+  "kit-assembly": "build, zip, verify and bootstrap the kit and its branches",
+  "licence-compliance": "may this be held, exported, combined?",
+  "map-freshness": "are the generated maps and indexes true to the tree right now?",
+  "memory-retrieval": "what did we already learn, decide or refute about this?",
+  "orientation": "what is this station for and what do I do first?",
+  "prior-art": "is this already built, tried or held upstream?",
+  "routing": "which first move does this prompt need, which station?",
+  "rule-ownership": "which file owns this rule, and what enforces it?",
+  "session-continuity": "where did the last session stop, and what is NEXT?",
+  "skill-routing": "which of the census skills answers this, and where does it live?",
+  "station-sync": "bring commons changes to a station without a broken merge",
+  "upstream-intake": "bring a new upstream in: licence, lane, neutralisation, provenance",
+  "upstream-pinning": "which exact commit is held, and has it been edited?",
+  "usage-observation": "is this tool/skill/upstream actually used, declared or observed?"
+ },
+ "techniques": {}
+}

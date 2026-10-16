@@ -1,0 +1,23 @@
+{
+ "_why": "registry/telemetry.json: one row per upstream tool that can phone home (KIT_PLAN 6). A row is verified only with the file+line proving the opt-out switch, or a recorded run of the tool's own offline status command by the operator. Checked by upstream_checks.py telemetry (verified:false = WORKLIST; verified:true without evidence = VIOLATION). Workflows that start a tool (service-up, wiki-gen, optimize-loop) refuse a tool whose row is unverified.",
+ "type": "object",
+ "required": ["rows"],
+ "properties": {
+  "_why": {"type": "string"},
+  "rows": {"type": "array", "items": {
+   "type": "object",
+   "required": ["tool", "repo", "evidence", "opt_out", "verified"],
+   "properties": {
+    "tool": {"type": "string"},
+    "repo": {"type": "string", "pattern": "^[^/\\s]+/[^/\\s]+$"},
+    "station": {"type": "string"},
+    "evidence": {"type": "string"},
+    "evidence_line": {"type": ["integer", "string", "null"]},
+    "opt_out": {"type": "string"},
+    "verified": {"type": "boolean"},
+    "verified_by_run": {"type": ["string", "null"]},
+    "notes": {"type": "string"}
+   }
+  }}
+ }
+}

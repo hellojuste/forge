@@ -1,0 +1,135 @@
+{
+ "$schema": "https://json.schemastore.org/claude-code-settings.json",
+ "claudeMdExcludes": [
+  "**/upstream/**/CLAUDE.md",
+  "**/upstream/**/CLAUDE.local.md",
+  "**/upstream/**/AGENTS.md",
+  "**/upstream/**/.claude/**",
+  "**/repertoire/**",
+  "**/study/**",
+  "**/nc-lane/**",
+  "**/_upstream_claude/**",
+  "**/.upstream/**"
+ ],
+ "skillOverrides": {},
+ "permissions": {
+  "allow": [
+   "Bash(git status*)",
+   "Bash(git log*)",
+   "Bash(git diff*)",
+   "Bash(git show*)",
+   "Bash(python3 tools/station_audit.py*)",
+   "Bash(python3 tools/gov/gov_check.py*)",
+   "Bash(python3 tools/map/find.py*)",
+   "Bash(python3 tools/brain.py near*)"
+  ]
+ },
+ "hooks": {
+  "SessionStart": [
+   {
+    "matcher": "startup|resume|clear|compact",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 tools/brain.py hook session-start"
+     }
+    ]
+   }
+  ],
+  "UserPromptSubmit": [
+   {
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 .claude/hooks/intent_router.py"
+     }
+    ]
+   }
+  ],
+  "PreToolUse": [
+   {
+    "matcher": "Bash",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 .claude/hooks/deny_destructive.py"
+     },
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 .claude/hooks/deny_noted_defect.py"
+     }
+    ]
+   },
+   {
+    "matcher": "Bash|Edit|Write|MultiEdit|NotebookEdit",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 .claude/hooks/deny_upstream_write.py"
+     },
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 tools/map/hooks/deny_generated_edit.py"
+     }
+    ]
+   },
+   {
+    "matcher": "Write",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 tools/map/hooks/prior_art.py"
+     }
+    ]
+   },
+   {
+    "matcher": ".*",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 .claude/hooks/station_dispatch.py"
+     }
+    ]
+   }
+  ],
+  "PostToolUse": [
+   {
+    "matcher": "Bash",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 .claude/hooks/context_threshold.py"
+     }
+    ]
+   },
+   {
+    "matcher": "Write|Edit",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 tools/brain.py hook post-write"
+     }
+    ]
+   },
+   {
+    "matcher": "Bash|Skill|Read|Task",
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 tools/map/hooks/usage_log.py"
+     }
+    ]
+   }
+  ],
+  "Stop": [
+   {
+    "hooks": [
+     {
+      "type": "command",
+      "command": "cd \"${CLAUDE_PROJECT_DIR:-.}\" || exit 0; python3 .claude/hooks/stop.py"
+     }
+    ]
+   }
+  ]
+ }
+}

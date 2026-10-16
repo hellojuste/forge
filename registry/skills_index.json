@@ -1,0 +1,4691 @@
+{
+ "_generated_by": "tools/kit/skills_index.py",
+ "counts": {
+  "PENDING": 360
+ },
+ "denominator": 360,
+ "rows": [
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/SKILL.md",
+   "kind": "canonical",
+   "name": "vibe-trading",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/adr-hshare/SKILL.md",
+   "kind": "canonical",
+   "name": "adr-hshare",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/adr-hshare/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/akshare/SKILL.md",
+   "kind": "canonical",
+   "name": "akshare",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/akshare/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/alpha-zoo/SKILL.md",
+   "kind": "canonical",
+   "name": "alpha-zoo",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/alpha-zoo/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/ashare-pre-st-filter/SKILL.md",
+   "kind": "canonical",
+   "name": "ashare-pre-st-filter",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ashare-pre-st-filter/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/asset-allocation/SKILL.md",
+   "kind": "canonical",
+   "name": "asset-allocation",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/asset-allocation/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/backtest-diagnose/SKILL.md",
+   "kind": "canonical",
+   "name": "backtest-diagnose",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/backtest-diagnose/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/behavioral-finance/SKILL.md",
+   "kind": "canonical",
+   "name": "behavioral-finance",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/behavioral-finance/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/bottleneck-hunter/SKILL.md",
+   "kind": "canonical",
+   "name": "bottleneck-hunter",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/bottleneck-hunter/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/candlestick/SKILL.md",
+   "kind": "canonical",
+   "name": "candlestick",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/candlestick/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/ccxt/SKILL.md",
+   "kind": "canonical",
+   "name": "ccxt",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ccxt/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/chanlun/SKILL.md",
+   "kind": "canonical",
+   "name": "chanlun",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/chanlun/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/commodity-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "commodity-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/commodity-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/convertible-bond/SKILL.md",
+   "kind": "canonical",
+   "name": "convertible-bond",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/convertible-bond/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/corporate-events/SKILL.md",
+   "kind": "canonical",
+   "name": "corporate-events",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/corporate-events/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/correlation-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "correlation-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/correlation-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/correlation-regime/SKILL.md",
+   "kind": "canonical",
+   "name": "correlation-regime",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/correlation-regime/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/credit-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "credit-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/credit-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/cross-market-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "cross-market-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/cross-market-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/crypto-derivatives/SKILL.md",
+   "kind": "canonical",
+   "name": "crypto-derivatives",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/crypto-derivatives/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/data-routing/SKILL.md",
+   "kind": "canonical",
+   "name": "data-routing",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/data-routing/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/deep-company-series/SKILL.md",
+   "kind": "canonical",
+   "name": "deep-company-series",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/deep-company-series/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/defi-yield/SKILL.md",
+   "kind": "canonical",
+   "name": "defi-yield",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/defi-yield/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/dividend-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "dividend-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/dividend-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/doc-reader/SKILL.md",
+   "kind": "canonical",
+   "name": "doc-reader",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/doc-reader/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/earnings-forecast/SKILL.md",
+   "kind": "canonical",
+   "name": "earnings-forecast",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/earnings-forecast/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/earnings-revision/SKILL.md",
+   "kind": "canonical",
+   "name": "earnings-revision",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/earnings-revision/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/eastmoney/SKILL.md",
+   "kind": "canonical",
+   "name": "eastmoney",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/eastmoney/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/edgar-sec-filings/SKILL.md",
+   "kind": "canonical",
+   "name": "edgar-sec-filings",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/edgar-sec-filings/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/elliott-wave/SKILL.md",
+   "kind": "canonical",
+   "name": "elliott-wave",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/elliott-wave/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/etf-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "etf-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/etf-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/event-driven/SKILL.md",
+   "kind": "canonical",
+   "name": "event-driven",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/event-driven/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/execution-model/SKILL.md",
+   "kind": "canonical",
+   "name": "execution-model",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/execution-model/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/factor-research/SKILL.md",
+   "kind": "canonical",
+   "name": "factor-research",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/factor-research/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/financial-statement/SKILL.md",
+   "kind": "canonical",
+   "name": "financial-statement",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/financial-statement/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/fund-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "fund-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/fund-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/fundamental-filter/SKILL.md",
+   "kind": "canonical",
+   "name": "fundamental-filter",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/fundamental-filter/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/geopolitical-risk/SKILL.md",
+   "kind": "canonical",
+   "name": "geopolitical-risk",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/geopolitical-risk/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/global-macro/SKILL.md",
+   "kind": "canonical",
+   "name": "global-macro",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/global-macro/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/harmonic/SKILL.md",
+   "kind": "canonical",
+   "name": "harmonic",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/harmonic/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/hedging-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "hedging-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/hedging-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/hk-connect-flow/SKILL.md",
+   "kind": "canonical",
+   "name": "hk-connect-flow",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/hk-connect-flow/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/ichimoku/SKILL.md",
+   "kind": "canonical",
+   "name": "ichimoku",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ichimoku/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/investor-lenses/SKILL.md",
+   "kind": "canonical",
+   "name": "investor-lenses",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/investor-lenses/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/liquidation-heatmap/SKILL.md",
+   "kind": "canonical",
+   "name": "liquidation-heatmap",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/liquidation-heatmap/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/macro-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "macro-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/macro-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/management-deep-dive/SKILL.md",
+   "kind": "canonical",
+   "name": "management-deep-dive",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/management-deep-dive/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/market-microstructure/SKILL.md",
+   "kind": "canonical",
+   "name": "market-microstructure",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/market-microstructure/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/minute-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "minute-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/minute-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/ml-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "ml-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/ml-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/mootdx/SKILL.md",
+   "kind": "canonical",
+   "name": "mootdx",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/mootdx/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/multi-factor/SKILL.md",
+   "kind": "canonical",
+   "name": "multi-factor",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/multi-factor/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/okx-market/SKILL.md",
+   "kind": "canonical",
+   "name": "okx-market",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/okx-market/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/onchain-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "onchain-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/onchain-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/options-advanced/SKILL.md",
+   "kind": "canonical",
+   "name": "options-advanced",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/options-advanced/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/options-payoff/SKILL.md",
+   "kind": "canonical",
+   "name": "options-payoff",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/options-payoff/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/options-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "options-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/options-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/pair-trading/SKILL.md",
+   "kind": "canonical",
+   "name": "pair-trading",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/pair-trading/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/performance-attribution/SKILL.md",
+   "kind": "canonical",
+   "name": "performance-attribution",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/performance-attribution/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/perp-funding-basis/SKILL.md",
+   "kind": "canonical",
+   "name": "perp-funding-basis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/perp-funding-basis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/pine-script/SKILL.md",
+   "kind": "canonical",
+   "name": "pine-script",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/pine-script/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/private-company-research/SKILL.md",
+   "kind": "canonical",
+   "name": "private-company-research",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/private-company-research/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/quant-statistics/SKILL.md",
+   "kind": "canonical",
+   "name": "quant-statistics",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/quant-statistics/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/qveris/SKILL.md",
+   "kind": "canonical",
+   "name": "qveris",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/qveris/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/regulatory-knowledge/SKILL.md",
+   "kind": "canonical",
+   "name": "regulatory-knowledge",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/regulatory-knowledge/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/report-generate/SKILL.md",
+   "kind": "canonical",
+   "name": "report-generate",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/report-generate/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/research-discipline/SKILL.md",
+   "kind": "canonical",
+   "name": "research-discipline",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/research-discipline/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/research-goal/SKILL.md",
+   "kind": "canonical",
+   "name": "research-goal",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/research-goal/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/risk-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "risk-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/risk-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/seasonal/SKILL.md",
+   "kind": "canonical",
+   "name": "seasonal",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/seasonal/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/sec-edgar/SKILL.md",
+   "kind": "canonical",
+   "name": "sec-edgar",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/sec-edgar/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/sector-rotation/SKILL.md",
+   "kind": "canonical",
+   "name": "sector-rotation",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/sector-rotation/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/sentiment-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "sentiment-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/sentiment-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/shadow-account/SKILL.md",
+   "kind": "canonical",
+   "name": "shadow-account",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/shadow-account/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/smc/SKILL.md",
+   "kind": "canonical",
+   "name": "smc",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/smc/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/social-media-intelligence/SKILL.md",
+   "kind": "canonical",
+   "name": "social-media-intelligence",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/social-media-intelligence/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/stablecoin-flow/SKILL.md",
+   "kind": "canonical",
+   "name": "stablecoin-flow",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/stablecoin-flow/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/strategy-dev-manager/SKILL.md",
+   "kind": "canonical",
+   "name": "strategy-dev-manager",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/strategy-dev-manager/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/strategy-discovery/SKILL.md",
+   "kind": "canonical",
+   "name": "strategy-discovery",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/strategy-discovery/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/strategy-generate/SKILL.md",
+   "kind": "canonical",
+   "name": "strategy-generate",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/strategy-generate/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/technical-basic/SKILL.md",
+   "kind": "canonical",
+   "name": "technical-basic",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/technical-basic/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/thesis-tracker/SKILL.md",
+   "kind": "canonical",
+   "name": "thesis-tracker",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/thesis-tracker/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/token-unlock-treasury/SKILL.md",
+   "kind": "canonical",
+   "name": "token-unlock-treasury",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/token-unlock-treasury/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/trade-journal/SKILL.md",
+   "kind": "canonical",
+   "name": "trade-journal",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/trade-journal/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/tushare/SKILL.md",
+   "kind": "canonical",
+   "name": "tushare",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/tushare/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/us-etf-flow/SKILL.md",
+   "kind": "canonical",
+   "name": "us-etf-flow",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/us-etf-flow/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/valuation-model/SKILL.md",
+   "kind": "canonical",
+   "name": "valuation-model",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/valuation-model/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/vnpy-export/SKILL.md",
+   "kind": "canonical",
+   "name": "vnpy-export",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/vnpy-export/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/volatility/SKILL.md",
+   "kind": "canonical",
+   "name": "volatility",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/volatility/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/web-reader/SKILL.md",
+   "kind": "canonical",
+   "name": "web-reader",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/web-reader/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "markets",
+   "id": "23:agent/src/skills/yfinance/SKILL.md",
+   "kind": "canonical",
+   "name": "yfinance",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "HKUDS/Vibe-Trading",
+   "route": "repertoire/HKUDS~Vibe-Trading/agent/src/skills/yfinance/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "1:academic-paper-reviewer/SKILL.md",
+   "kind": "canonical",
+   "name": "academic-paper-reviewer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Imbad0202/academic-research-skills",
+   "route": "nc-lane/Imbad0202~academic-research-skills/academic-paper-reviewer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "1:academic-paper/SKILL.md",
+   "kind": "canonical",
+   "name": "academic-paper",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Imbad0202/academic-research-skills",
+   "route": "nc-lane/Imbad0202~academic-research-skills/academic-paper/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "1:academic-pipeline/SKILL.md",
+   "kind": "canonical",
+   "name": "academic-pipeline",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Imbad0202/academic-research-skills",
+   "route": "nc-lane/Imbad0202~academic-research-skills/academic-pipeline/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "1:deep-research/SKILL.md",
+   "kind": "canonical",
+   "name": "deep-research",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Imbad0202/academic-research-skills",
+   "route": "nc-lane/Imbad0202~academic-research-skills/deep-research/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "1:sr-screener/SKILL.md",
+   "kind": "canonical",
+   "name": "sr-screener",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Imbad0202/academic-research-skills",
+   "route": "nc-lane/Imbad0202~academic-research-skills/sr-screener/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.agents/skills/freehire-search/SKILL.md",
+   "kind": "canonical",
+   "name": "freehire-search",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/.agents/skills/freehire-search/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.agents/skills/jobbank-search/SKILL.md",
+   "kind": "canonical",
+   "name": "jobbank-search",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobbank-search/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.agents/skills/jobdanmark-search/SKILL.md",
+   "kind": "canonical",
+   "name": "jobdanmark-search",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobdanmark-search/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.agents/skills/jobindex-search/SKILL.md",
+   "kind": "canonical",
+   "name": "jobindex-search",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobindex-search/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.agents/skills/jobnet-search/SKILL.md",
+   "kind": "canonical",
+   "name": "jobnet-search",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/.agents/skills/jobnet-search/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.agents/skills/linkedin-search/SKILL.md",
+   "kind": "canonical",
+   "name": "linkedin-search",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/.agents/skills/linkedin-search/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.claude/skills/job-application-assistant/SKILL.md",
+   "kind": "canonical",
+   "name": "job-application-assistant",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/_upstream_claude/skills/job-application-assistant/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.claude/skills/job-scraper/SKILL.md",
+   "kind": "canonical",
+   "name": "scrape",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/_upstream_claude/skills/job-scraper/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "2:.claude/skills/upskill/SKILL.md",
+   "kind": "canonical",
+   "name": "upskill",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "MadsLorentzen/ai-job-search",
+   "route": "repertoire/MadsLorentzen~ai-job-search/_upstream_claude/skills/upskill/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:.agents/skills/executive-resume-writer/SKILL.md",
+   "kind": "mirror",
+   "name": "executive-resume-writer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "-> 10:skills/executive-resume-writer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:.agents/skills/interview-prep-generator/SKILL.md",
+   "kind": "mirror",
+   "name": "interview-prep-generator",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "-> 10:skills/interview-prep-generator/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:.agents/skills/job-description-analyzer/SKILL.md",
+   "kind": "mirror",
+   "name": "job-description-analyzer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "-> 10:skills/job-description-analyzer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:.agents/skills/linkedin-profile-optimizer/SKILL.md",
+   "kind": "mirror",
+   "name": "linkedin-profile-optimizer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "-> 10:skills/linkedin-profile-optimizer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:.agents/skills/offer-comparison-analyzer/SKILL.md",
+   "kind": "mirror",
+   "name": "offer-comparison-analyzer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "-> 10:skills/offer-comparison-analyzer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:.agents/skills/portfolio-case-study-writer/SKILL.md",
+   "kind": "mirror",
+   "name": "portfolio-case-study-writer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "-> 10:skills/portfolio-case-study-writer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:.agents/skills/reference-list-builder/SKILL.md",
+   "kind": "mirror",
+   "name": "reference-list-builder",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "-> 10:skills/reference-list-builder/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/academic-cv-builder/SKILL.md",
+   "kind": "canonical",
+   "name": "academic-cv-builder",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/academic-cv-builder/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/application-form-filler/SKILL.md",
+   "kind": "canonical",
+   "name": "application-form-filler",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/application-form-filler/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/career-changer-translator/SKILL.md",
+   "kind": "canonical",
+   "name": "career-changer-translator",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/career-changer-translator/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/cold-email-writer/SKILL.md",
+   "kind": "canonical",
+   "name": "cold-email-writer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/cold-email-writer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/cover-letter-generator/SKILL.md",
+   "kind": "canonical",
+   "name": "cover-letter-generator",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/cover-letter-generator/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/creative-portfolio-resume/SKILL.md",
+   "kind": "canonical",
+   "name": "creative-portfolio-resume",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/creative-portfolio-resume/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/executive-resume-writer/SKILL.md",
+   "kind": "canonical",
+   "name": "executive-resume-writer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/executive-resume-writer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/interview-prep-generator/SKILL.md",
+   "kind": "canonical",
+   "name": "interview-prep-generator",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/interview-prep-generator/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/job-description-analyzer/SKILL.md",
+   "kind": "canonical",
+   "name": "job-description-analyzer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/job-description-analyzer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/linkedin-profile-optimizer/SKILL.md",
+   "kind": "canonical",
+   "name": "linkedin-profile-optimizer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/linkedin-profile-optimizer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/offer-comparison-analyzer/SKILL.md",
+   "kind": "canonical",
+   "name": "offer-comparison-analyzer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/offer-comparison-analyzer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/portfolio-case-study-writer/SKILL.md",
+   "kind": "canonical",
+   "name": "portfolio-case-study-writer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/portfolio-case-study-writer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/reference-list-builder/SKILL.md",
+   "kind": "canonical",
+   "name": "reference-list-builder",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/reference-list-builder/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/resume-ats-optimizer/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-ats-optimizer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/resume-ats-optimizer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/resume-bullet-writer/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-bullet-writer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/resume-bullet-writer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/resume-formatter/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-formatter",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/resume-formatter/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/resume-quantifier/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-quantifier",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/resume-quantifier/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/resume-section-builder/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-section-builder",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/resume-section-builder/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/resume-tailor/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-tailor",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/resume-tailor/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/resume-version-manager/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-version-manager",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/resume-version-manager/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/salary-negotiation-prep/SKILL.md",
+   "kind": "canonical",
+   "name": "salary-negotiation-prep",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/salary-negotiation-prep/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "10:skills/tech-resume-optimizer/SKILL.md",
+   "kind": "canonical",
+   "name": "tech-resume-optimizer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "Paramchoudhary/ResumeSkills",
+   "route": "repertoire/Paramchoudhary~ResumeSkills/skills/tech-resume-optimizer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/interview-prep/SKILL.md",
+   "kind": "canonical",
+   "name": "interview-prep",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/interview-prep/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/job-application-manager/SKILL.md",
+   "kind": "canonical",
+   "name": "job-application-manager",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/job-application-manager/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/mock-interview/SKILL.md",
+   "kind": "canonical",
+   "name": "mock-interview",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/mock-interview/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/offer-negotiation/SKILL.md",
+   "kind": "canonical",
+   "name": "offer-negotiation",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/offer-negotiation/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/resume-builder/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-builder",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-builder/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/resume-bullet-writer/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-bullet-writer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-bullet-writer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/resume-content-guide/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-content-guide",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-content-guide/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "7:plugins/reactive-resume/skills/resume-tailor/SKILL.md",
+   "kind": "canonical",
+   "name": "resume-tailor",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "amruthpillai/reactive-resume",
+   "route": "repertoire/amruthpillai~reactive-resume/plugins/reactive-resume/skills/resume-tailor/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "25:.claude/skills/codebase-design/SKILL.md",
+   "kind": "canonical",
+   "name": "codebase-design",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "danny-avila/LibreChat",
+   "route": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/codebase-design/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "25:.claude/skills/improve-codebase-architecture/SKILL.md",
+   "kind": "canonical",
+   "name": "improve-codebase-architecture",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "danny-avila/LibreChat",
+   "route": "repertoire/danny-avila~LibreChat/_upstream_claude/skills/improve-codebase-architecture/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "25:e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+   "kind": "fixture",
+   "name": "e2e-deployment-skill",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "danny-avila/LibreChat",
+   "route": "repertoire/danny-avila~LibreChat/e2e/fixtures/deployment-skills/e2e-deployment-skill/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/animate-expo/SKILL.md",
+   "kind": "canonical",
+   "name": "animate-expo",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/animate-expo/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/animate/SKILL.md",
+   "kind": "canonical",
+   "name": "animate",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/animate/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/animation-performance/SKILL.md",
+   "kind": "canonical",
+   "name": "animation-performance",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/animation-performance/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/animation-vocabulary/SKILL.md",
+   "kind": "canonical",
+   "name": "animation-vocabulary",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/animation-vocabulary/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/apple-design/SKILL.md",
+   "kind": "canonical",
+   "name": "apple-design",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/apple-design/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/ask-sonner/SKILL.md",
+   "kind": "canonical",
+   "name": "ask-sonner",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/ask-sonner/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/break-ui/SKILL.md",
+   "kind": "canonical",
+   "name": "break-ui",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/break-ui/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/emil-design-eng/SKILL.md",
+   "kind": "canonical",
+   "name": "emil-design-eng",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/emil-design-eng/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/find-animation-opportunities/SKILL.md",
+   "kind": "canonical",
+   "name": "find-animation-opportunities",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/find-animation-opportunities/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/improve-animations/SKILL.md",
+   "kind": "canonical",
+   "name": "improve-animations",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/improve-animations/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/mobile-native/SKILL.md",
+   "kind": "canonical",
+   "name": "mobile-native",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/mobile-native/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/pick-ui-library/SKILL.md",
+   "kind": "canonical",
+   "name": "pick-ui-library",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/pick-ui-library/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/prototype/SKILL.md",
+   "kind": "canonical",
+   "name": "prototype",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/prototype/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/review-animations/SKILL.md",
+   "kind": "canonical",
+   "name": "review-animations",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/review-animations/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "11:skills/write-swift/SKILL.md",
+   "kind": "canonical",
+   "name": "write-swift",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "emilkowalski/skills",
+   "route": "repertoire/emilkowalski~skills/skills/write-swift/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/discover/SKILL.md",
+   "kind": "mirror",
+   "name": "discover",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "-> 19:plugins/evo/skills/discover/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/infra-setup/SKILL.md",
+   "kind": "mirror",
+   "name": "infra-setup",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "-> 19:plugins/evo/skills/infra-setup/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/optimize/SKILL.md",
+   "kind": "mirror",
+   "name": "optimize",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "-> 19:plugins/evo/skills/optimize/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/report/SKILL.md",
+   "kind": "mirror",
+   "name": "report",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "-> 19:plugins/evo/skills/report/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/ship/SKILL.md",
+   "kind": "mirror",
+   "name": "ship",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "-> 19:plugins/evo/skills/ship/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/npm/skills/subagent/SKILL.md",
+   "kind": "mirror",
+   "name": "subagent",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "-> 19:plugins/evo/skills/subagent/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/skills/discover/SKILL.md",
+   "kind": "canonical",
+   "name": "discover",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/plugins/evo/skills/discover/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/skills/finetuning/SKILL.md",
+   "kind": "canonical",
+   "name": "finetuning",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/plugins/evo/skills/finetuning/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/skills/infra-setup/SKILL.md",
+   "kind": "canonical",
+   "name": "infra-setup",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/plugins/evo/skills/infra-setup/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/skills/optimize/SKILL.md",
+   "kind": "canonical",
+   "name": "optimize",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/plugins/evo/skills/optimize/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/skills/report/SKILL.md",
+   "kind": "canonical",
+   "name": "report",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/plugins/evo/skills/report/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/skills/ship/SKILL.md",
+   "kind": "canonical",
+   "name": "ship",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/plugins/evo/skills/ship/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:plugins/evo/skills/subagent/SKILL.md",
+   "kind": "canonical",
+   "name": "subagent",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/plugins/evo/skills/subagent/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "19:scripts/rlm_eval/baseline_SKILL.md",
+   "kind": "fixture",
+   "name": "optimize",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "evo-hq/evo",
+   "route": "repertoire/evo-hq~evo/scripts/rlm_eval/baseline_SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "quarantine",
+   "id": "8:invisible_engine_dots/skills/invisible-playwright/SKILL.md",
+   "kind": "canonical",
+   "name": "invisible-playwright",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "route": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/invisible_engine_dots/skills/invisible-playwright/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "client-bi",
+   "id": "13:.agents/skills/accounts-code-review/SKILL.md",
+   "kind": "canonical",
+   "name": "accounts-code-review",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "frappe/erpnext",
+   "route": "upstream/frappe~erpnext/.agents/skills/accounts-code-review/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "20:integrations/openwiki/SKILL.md",
+   "kind": "canonical",
+   "name": "openwiki",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "langchain-ai/openwiki",
+   "route": "repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "20:skills/mermaid-diagrams/SKILL.md",
+   "kind": "canonical",
+   "name": "mermaid-diagrams",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "langchain-ai/openwiki",
+   "route": "repertoire/langchain-ai~openwiki/skills/mermaid-diagrams/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "20:skills/write-connector/SKILL.md",
+   "kind": "canonical",
+   "name": "write-connector",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "langchain-ai/openwiki",
+   "route": "repertoire/langchain-ai~openwiki/skills/write-connector/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "14:.claude/skills/branch-name/SKILL.md",
+   "kind": "canonical",
+   "name": "branch-name",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "makeplane/plane",
+   "route": "upstream/makeplane~plane/_upstream_claude/skills/branch-name/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "14:.claude/skills/create-pull-request/SKILL.md",
+   "kind": "canonical",
+   "name": "create-pull-request",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "makeplane/plane",
+   "route": "upstream/makeplane~plane/_upstream_claude/skills/create-pull-request/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "14:.claude/skills/react-doctor/SKILL.md",
+   "kind": "canonical",
+   "name": "react-doctor",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "makeplane/plane",
+   "route": "upstream/makeplane~plane/_upstream_claude/skills/react-doctor/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "14:.claude/skills/release-notes/SKILL.md",
+   "kind": "canonical",
+   "name": "release-notes",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "makeplane/plane",
+   "route": "upstream/makeplane~plane/_upstream_claude/skills/release-notes/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "14:.claude/skills/translate/SKILL.md",
+   "kind": "canonical",
+   "name": "translate",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "makeplane/plane",
+   "route": "upstream/makeplane~plane/_upstream_claude/skills/translate/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "21:.agents/skills/rea-changelog-update/SKILL.md",
+   "kind": "canonical",
+   "name": "rea-changelog-update",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "morluto/rea",
+   "route": "repertoire/morluto~rea/.agents/skills/rea-changelog-update/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "21:.agents/skills/rea-ci-tests-audit/SKILL.md",
+   "kind": "canonical",
+   "name": "rea-ci-tests-audit",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "morluto/rea",
+   "route": "repertoire/morluto~rea/.agents/skills/rea-ci-tests-audit/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "21:.agents/skills/rea-tool-design/SKILL.md",
+   "kind": "canonical",
+   "name": "rea-tool-design",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "morluto/rea",
+   "route": "repertoire/morluto~rea/.agents/skills/rea-tool-design/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "21:.agents/skills/reverse-engineer-anything/SKILL.md",
+   "kind": "canonical",
+   "name": "reverse-engineer-anything",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "morluto/rea",
+   "route": "repertoire/morluto~rea/.agents/skills/reverse-engineer-anything/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.agent/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.agent/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.agents/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.agents/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.claude/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/_upstream_claude/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.cursor/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.cursor/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.dsh/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.dsh/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.gemini/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.gemini/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.github/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.github/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.grok/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.grok/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.hermes/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.hermes/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.kiro/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.kiro/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.omp/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.omp/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.opencode/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.opencode/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.pi/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.pi/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.qoder/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.qoder/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.rovodev/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.rovodev/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.trae-cn/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.trae-cn/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.trae/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.trae/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.veto/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.veto/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:.vibe/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/.vibe/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:cursor-plugin/skills/impeccable/SKILL.md",
+   "kind": "variant",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/cursor-plugin/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:plugin/skills/impeccable/SKILL.md",
+   "kind": "canonical",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/plugin/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+   "kind": "fixture",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:tests/oracle/workspaces/ctx-pin/.claude/skills/audit/SKILL.md",
+   "kind": "fixture",
+   "name": "audit",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/_upstream_claude/skills/audit/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:tests/oracle/workspaces/ctx-pin/.claude/skills/impeccable/SKILL.md",
+   "kind": "fixture",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "studio",
+   "id": "12:tests/oracle/workspaces/ctx-pin/.cursor/skills/impeccable/SKILL.md",
+   "kind": "fixture",
+   "name": "impeccable",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "pbakaus/impeccable",
+   "route": "repertoire/pbakaus~impeccable/tests/oracle/workspaces/ctx-pin/.agents/skills/impeccable/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "3:pm-ai-shipping/skills/code-review/SKILL.md",
+   "kind": "canonical",
+   "name": "code-review",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/code-review/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "3:pm-ai-shipping/skills/intended-vs-implemented/SKILL.md",
+   "kind": "canonical",
+   "name": "intended-vs-implemented",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/intended-vs-implemented/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "3:pm-ai-shipping/skills/shipping-artifacts/SKILL.md",
+   "kind": "canonical",
+   "name": "shipping-artifacts",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-ai-shipping/skills/shipping-artifacts/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-data-analytics/skills/ab-test-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "ab-test-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-data-analytics/skills/ab-test-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-data-analytics/skills/cohort-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "cohort-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-data-analytics/skills/cohort-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-data-analytics/skills/sql-queries/SKILL.md",
+   "kind": "canonical",
+   "name": "sql-queries",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-data-analytics/skills/sql-queries/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/brainstorm-okrs/SKILL.md",
+   "kind": "canonical",
+   "name": "brainstorm-okrs",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/brainstorm-okrs/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/create-prd/SKILL.md",
+   "kind": "canonical",
+   "name": "create-prd",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/create-prd/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/dummy-dataset/SKILL.md",
+   "kind": "canonical",
+   "name": "dummy-dataset",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/dummy-dataset/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/job-stories/SKILL.md",
+   "kind": "canonical",
+   "name": "job-stories",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/job-stories/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/outcome-roadmap/SKILL.md",
+   "kind": "canonical",
+   "name": "outcome-roadmap",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/outcome-roadmap/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/pre-mortem/SKILL.md",
+   "kind": "canonical",
+   "name": "pre-mortem",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/pre-mortem/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/prioritization-frameworks/SKILL.md",
+   "kind": "canonical",
+   "name": "prioritization-frameworks",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/prioritization-frameworks/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/release-notes/SKILL.md",
+   "kind": "canonical",
+   "name": "release-notes",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/release-notes/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/retro/SKILL.md",
+   "kind": "canonical",
+   "name": "retro",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/retro/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/sprint-plan/SKILL.md",
+   "kind": "canonical",
+   "name": "sprint-plan",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/sprint-plan/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/stakeholder-map/SKILL.md",
+   "kind": "canonical",
+   "name": "stakeholder-map",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/stakeholder-map/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/strategy-red-team/SKILL.md",
+   "kind": "canonical",
+   "name": "strategy-red-team",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/strategy-red-team/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/summarize-meeting/SKILL.md",
+   "kind": "canonical",
+   "name": "summarize-meeting",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/summarize-meeting/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/test-scenarios/SKILL.md",
+   "kind": "canonical",
+   "name": "test-scenarios",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/test-scenarios/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/user-stories/SKILL.md",
+   "kind": "canonical",
+   "name": "user-stories",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/user-stories/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-execution/skills/wwas/SKILL.md",
+   "kind": "canonical",
+   "name": "wwas",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-execution/skills/wwas/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-go-to-market/skills/beachhead-segment/SKILL.md",
+   "kind": "canonical",
+   "name": "beachhead-segment",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-go-to-market/skills/beachhead-segment/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-go-to-market/skills/competitive-battlecard/SKILL.md",
+   "kind": "canonical",
+   "name": "competitive-battlecard",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-go-to-market/skills/competitive-battlecard/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-go-to-market/skills/growth-loops/SKILL.md",
+   "kind": "canonical",
+   "name": "growth-loops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-go-to-market/skills/growth-loops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-go-to-market/skills/gtm-motions/SKILL.md",
+   "kind": "canonical",
+   "name": "gtm-motions",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-go-to-market/skills/gtm-motions/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-go-to-market/skills/gtm-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "gtm-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-go-to-market/skills/gtm-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-go-to-market/skills/ideal-customer-profile/SKILL.md",
+   "kind": "canonical",
+   "name": "ideal-customer-profile",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-go-to-market/skills/ideal-customer-profile/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "3:pm-market-research/skills/competitor-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "competitor-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-market-research/skills/competitor-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "3:pm-market-research/skills/customer-journey-map/SKILL.md",
+   "kind": "canonical",
+   "name": "customer-journey-map",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-market-research/skills/customer-journey-map/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "3:pm-market-research/skills/market-segments/SKILL.md",
+   "kind": "canonical",
+   "name": "market-segments",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-market-research/skills/market-segments/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "3:pm-market-research/skills/market-sizing/SKILL.md",
+   "kind": "canonical",
+   "name": "market-sizing",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-market-research/skills/market-sizing/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "3:pm-market-research/skills/sentiment-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "sentiment-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-market-research/skills/sentiment-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "3:pm-market-research/skills/user-personas/SKILL.md",
+   "kind": "canonical",
+   "name": "user-personas",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-market-research/skills/user-personas/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "research",
+   "id": "3:pm-market-research/skills/user-segmentation/SKILL.md",
+   "kind": "canonical",
+   "name": "user-segmentation",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-market-research/skills/user-segmentation/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-marketing-growth/skills/marketing-ideas/SKILL.md",
+   "kind": "canonical",
+   "name": "marketing-ideas",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/marketing-ideas/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-marketing-growth/skills/north-star-metric/SKILL.md",
+   "kind": "canonical",
+   "name": "north-star-metric",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/north-star-metric/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-marketing-growth/skills/positioning-ideas/SKILL.md",
+   "kind": "canonical",
+   "name": "positioning-ideas",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/positioning-ideas/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-marketing-growth/skills/product-name/SKILL.md",
+   "kind": "canonical",
+   "name": "product-name",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/product-name/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-marketing-growth/skills/value-prop-statements/SKILL.md",
+   "kind": "canonical",
+   "name": "value-prop-statements",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-marketing-growth/skills/value-prop-statements/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/analyze-feature-requests/SKILL.md",
+   "kind": "canonical",
+   "name": "analyze-feature-requests",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/analyze-feature-requests/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/brainstorm-experiments-existing/SKILL.md",
+   "kind": "canonical",
+   "name": "brainstorm-experiments-existing",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-experiments-existing/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/brainstorm-experiments-new/SKILL.md",
+   "kind": "canonical",
+   "name": "brainstorm-experiments-new",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-experiments-new/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/brainstorm-ideas-existing/SKILL.md",
+   "kind": "canonical",
+   "name": "brainstorm-ideas-existing",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-ideas-existing/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/brainstorm-ideas-new/SKILL.md",
+   "kind": "canonical",
+   "name": "brainstorm-ideas-new",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/brainstorm-ideas-new/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/identify-assumptions-existing/SKILL.md",
+   "kind": "canonical",
+   "name": "identify-assumptions-existing",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/identify-assumptions-existing/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/identify-assumptions-new/SKILL.md",
+   "kind": "canonical",
+   "name": "identify-assumptions-new",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/identify-assumptions-new/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/interview-script/SKILL.md",
+   "kind": "canonical",
+   "name": "interview-script",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/interview-script/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/metrics-dashboard/SKILL.md",
+   "kind": "canonical",
+   "name": "metrics-dashboard",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/metrics-dashboard/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/opportunity-solution-tree/SKILL.md",
+   "kind": "canonical",
+   "name": "opportunity-solution-tree",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/opportunity-solution-tree/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/prioritize-assumptions/SKILL.md",
+   "kind": "canonical",
+   "name": "prioritize-assumptions",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/prioritize-assumptions/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/prioritize-features/SKILL.md",
+   "kind": "canonical",
+   "name": "prioritize-features",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/prioritize-features/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-discovery/skills/summarize-interview/SKILL.md",
+   "kind": "canonical",
+   "name": "summarize-interview",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-discovery/skills/summarize-interview/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/ansoff-matrix/SKILL.md",
+   "kind": "canonical",
+   "name": "ansoff-matrix",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/ansoff-matrix/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/business-model/SKILL.md",
+   "kind": "canonical",
+   "name": "business-model",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/business-model/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/lean-canvas/SKILL.md",
+   "kind": "canonical",
+   "name": "lean-canvas",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/lean-canvas/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/monetization-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "monetization-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/monetization-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/pestle-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "pestle-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/pestle-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/porters-five-forces/SKILL.md",
+   "kind": "canonical",
+   "name": "porters-five-forces",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/porters-five-forces/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/pricing-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "pricing-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/pricing-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/product-strategy/SKILL.md",
+   "kind": "canonical",
+   "name": "product-strategy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/product-strategy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/product-vision/SKILL.md",
+   "kind": "canonical",
+   "name": "product-vision",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/product-vision/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/startup-canvas/SKILL.md",
+   "kind": "canonical",
+   "name": "startup-canvas",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/startup-canvas/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/swot-analysis/SKILL.md",
+   "kind": "canonical",
+   "name": "swot-analysis",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/swot-analysis/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-product-strategy/skills/value-proposition/SKILL.md",
+   "kind": "canonical",
+   "name": "value-proposition",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-product-strategy/skills/value-proposition/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-toolkit/skills/draft-nda/SKILL.md",
+   "kind": "canonical",
+   "name": "draft-nda",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-toolkit/skills/draft-nda/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-toolkit/skills/grammar-check/SKILL.md",
+   "kind": "canonical",
+   "name": "grammar-check",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-toolkit/skills/grammar-check/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "3:pm-toolkit/skills/privacy-policy/SKILL.md",
+   "kind": "canonical",
+   "name": "privacy-policy",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-toolkit/skills/privacy-policy/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "3:pm-toolkit/skills/review-resume/SKILL.md",
+   "kind": "canonical",
+   "name": "review-resume",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "phuryn/pm-skills",
+   "route": "repertoire/phuryn~pm-skills/pm-toolkit/skills/review-resume/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/agent-browser-relaticle/SKILL.md",
+   "kind": "canonical",
+   "name": "agent-browser-relaticle",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/agent-browser-relaticle/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/ai-sdk-development/SKILL.md",
+   "kind": "canonical",
+   "name": "ai-sdk-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/ai-sdk-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/business-review/SKILL.md",
+   "kind": "canonical",
+   "name": "business-review",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/business-review/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/cashier-stripe-development/SKILL.md",
+   "kind": "canonical",
+   "name": "cashier-stripe-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/cashier-stripe-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/configuring-horizon/SKILL.md",
+   "kind": "canonical",
+   "name": "configuring-horizon",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/configuring-horizon/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/custom-fields-development/SKILL.md",
+   "kind": "canonical",
+   "name": "custom-fields-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/custom-fields-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/echo-development/SKILL.md",
+   "kind": "canonical",
+   "name": "echo-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/echo-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/filament-development/SKILL.md",
+   "kind": "canonical",
+   "name": "filament-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/filament-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/fortify-development/SKILL.md",
+   "kind": "canonical",
+   "name": "fortify-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/fortify-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/infer-conventions/SKILL.md",
+   "kind": "canonical",
+   "name": "infer-conventions",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/infer-conventions/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/laravel-best-practices/SKILL.md",
+   "kind": "canonical",
+   "name": "laravel-best-practices",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/laravel-best-practices/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/laravel-query-builder/SKILL.md",
+   "kind": "canonical",
+   "name": "laravel-query-builder",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/laravel-query-builder/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/livewire-development/SKILL.md",
+   "kind": "canonical",
+   "name": "livewire-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/livewire-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/mcp-development/SKILL.md",
+   "kind": "canonical",
+   "name": "mcp-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/mcp-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/medialibrary-development/SKILL.md",
+   "kind": "canonical",
+   "name": "medialibrary-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/medialibrary-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/passport-development/SKILL.md",
+   "kind": "canonical",
+   "name": "passport-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/passport-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/pennant-development/SKILL.md",
+   "kind": "canonical",
+   "name": "pennant-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/pennant-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/screenshot-with-callout/SKILL.md",
+   "kind": "canonical",
+   "name": "screenshot-with-callout",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/screenshot-with-callout/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/sluggable-development/SKILL.md",
+   "kind": "canonical",
+   "name": "sluggable-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/sluggable-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/socialite-development/SKILL.md",
+   "kind": "canonical",
+   "name": "socialite-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/socialite-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/spatie-javascript/SKILL.md",
+   "kind": "canonical",
+   "name": "spatie-javascript",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-javascript/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/spatie-laravel-php/SKILL.md",
+   "kind": "canonical",
+   "name": "spatie-laravel-php",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-laravel-php/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/spatie-security/SKILL.md",
+   "kind": "canonical",
+   "name": "spatie-security",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-security/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/spatie-version-control/SKILL.md",
+   "kind": "canonical",
+   "name": "spatie-version-control",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/spatie-version-control/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/tailwindcss-development/SKILL.md",
+   "kind": "canonical",
+   "name": "tailwindcss-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/tailwindcss-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.claude/skills/testing-best-practices/SKILL.md",
+   "kind": "canonical",
+   "name": "testing-best-practices",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/_upstream_claude/skills/testing-best-practices/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.github/skills/custom-fields-development/SKILL.md",
+   "kind": "variant",
+   "name": "custom-fields-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/.github/skills/custom-fields-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.github/skills/flowforge-development/SKILL.md",
+   "kind": "canonical",
+   "name": "flowforge-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/.github/skills/flowforge-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.github/skills/livewire-development/SKILL.md",
+   "kind": "mirror",
+   "name": "livewire-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "-> 17:.claude/skills/livewire-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.github/skills/manual-testing/SKILL.md",
+   "kind": "canonical",
+   "name": "manual-testing",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "upstream/relaticle~relaticle/.github/skills/manual-testing/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "17:.github/skills/tailwindcss-development/SKILL.md",
+   "kind": "mirror",
+   "name": "tailwindcss-development",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "relaticle/relaticle",
+   "route": "-> 17:.claude/skills/tailwindcss-development/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "6:.agents/skills/career-ops/SKILL.md",
+   "kind": "canonical",
+   "name": "career-ops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "santifer/career-ops",
+   "route": "repertoire/santifer~career-ops/.agents/skills/career-ops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "6:.antigravitycli/skills/career-ops/SKILL.md",
+   "kind": "symlink",
+   "name": "career-ops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "santifer/career-ops",
+   "route": "-> 6:.agents/skills/career-ops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "6:.claude/skills/career-ops/SKILL.md",
+   "kind": "symlink",
+   "name": "career-ops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "santifer/career-ops",
+   "route": "-> 6:.agents/skills/career-ops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "6:.grok/skills/career-ops/SKILL.md",
+   "kind": "symlink",
+   "name": "career-ops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "santifer/career-ops",
+   "route": "-> 6:.agents/skills/career-ops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "6:.kimi/skills/career-ops/SKILL.md",
+   "kind": "symlink",
+   "name": "career-ops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "santifer/career-ops",
+   "route": "-> 6:.agents/skills/career-ops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "6:.opencode/skills/career-ops/SKILL.md",
+   "kind": "symlink",
+   "name": "career-ops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "santifer/career-ops",
+   "route": "-> 6:.agents/skills/career-ops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "career",
+   "id": "6:.qwen/skills/career-ops/SKILL.md",
+   "kind": "symlink",
+   "name": "career-ops",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "santifer/career-ops",
+   "route": "-> 6:.agents/skills/career-ops/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "18:plugins/projectatlas/skills/projectatlas/SKILL.md",
+   "kind": "canonical",
+   "name": "projectatlas",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "styler-ai/ProjectAtlas",
+   "route": "repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "forge",
+   "id": "18:skills/codex-coding-plugin/SKILL.md",
+   "kind": "canonical",
+   "name": "codex-coding-plugin",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "styler-ai/ProjectAtlas",
+   "route": "repertoire/styler-ai~ProjectAtlas/skills/codex-coding-plugin/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/api-types/SKILL.md",
+   "kind": "canonical",
+   "name": "api-types",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/api-types/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/ask-the-docs/SKILL.md",
+   "kind": "canonical",
+   "name": "ask-the-docs",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/ask-the-docs/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/clickhouse-logs-queries/SKILL.md",
+   "kind": "canonical",
+   "name": "clickhouse-logs-queries",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/clickhouse-logs-queries/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/copywriting/SKILL.md",
+   "kind": "canonical",
+   "name": "copywriting",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/copywriting/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/dev-toolbar-review/SKILL.md",
+   "kind": "canonical",
+   "name": "dev-toolbar-review",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/dev-toolbar-review/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/edit-the-docs/SKILL.md",
+   "kind": "canonical",
+   "name": "edit-the-docs",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/edit-the-docs/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/pm-the-docs/SKILL.md",
+   "kind": "canonical",
+   "name": "pm-the-docs",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/pm-the-docs/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/react-hook-form/SKILL.md",
+   "kind": "canonical",
+   "name": "react-hook-form",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/react-hook-form/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/review-the-docs/SKILL.md",
+   "kind": "canonical",
+   "name": "review-the-docs",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/review-the-docs/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/safe-sql-execution/SKILL.md",
+   "kind": "canonical",
+   "name": "safe-sql-execution",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/safe-sql-execution/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/studio-e2e-tests/SKILL.md",
+   "kind": "canonical",
+   "name": "studio-e2e-tests",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/studio-e2e-tests/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/studio-error-handling/SKILL.md",
+   "kind": "canonical",
+   "name": "studio-error-handling",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/studio-error-handling/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/studio-mock-api-tests/SKILL.md",
+   "kind": "canonical",
+   "name": "studio-mock-api-tests",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/studio-mock-api-tests/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/studio-queries/SKILL.md",
+   "kind": "canonical",
+   "name": "studio-queries",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/studio-queries/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/studio-shortcuts/SKILL.md",
+   "kind": "canonical",
+   "name": "studio-shortcuts",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/studio-shortcuts/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/studio-testing/SKILL.md",
+   "kind": "canonical",
+   "name": "studio-testing",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/studio-testing/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/studio-ui-patterns/SKILL.md",
+   "kind": "canonical",
+   "name": "studio-ui-patterns",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/studio-ui-patterns/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/telemetry-standards/SKILL.md",
+   "kind": "canonical",
+   "name": "telemetry-standards",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/telemetry-standards/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/test-the-docs/SKILL.md",
+   "kind": "canonical",
+   "name": "test-the-docs",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/test-the-docs/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/vercel-composition-patterns/SKILL.md",
+   "kind": "canonical",
+   "name": "vercel-composition-patterns",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/vercel-composition-patterns/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/vitest/SKILL.md",
+   "kind": "canonical",
+   "name": "vitest",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/vitest/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:.agents/skills/write-the-docs/SKILL.md",
+   "kind": "canonical",
+   "name": "write-the-docs",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/.agents/skills/write-the-docs/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "4:apps/studio/.claude/skills/explorer/SKILL.md",
+   "kind": "canonical",
+   "name": "explorer",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "supabase/supabase",
+   "route": "repertoire/supabase~supabase/apps/studio/_upstream_claude/skills/explorer/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:.claude/skills/drizzle/SKILL.md",
+   "kind": "canonical",
+   "name": "drizzle",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/drizzle/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:.claude/skills/errors-api-e2e/SKILL.md",
+   "kind": "canonical",
+   "name": "errors-api-e2e",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/errors-api-e2e/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:.claude/skills/span-timeline-events/SKILL.md",
+   "kind": "canonical",
+   "name": "span-timeline-events",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/span-timeline-events/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:.claude/skills/trigger-dev-tasks/SKILL.md",
+   "kind": "canonical",
+   "name": "trigger-dev-tasks",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/_upstream_claude/skills/trigger-dev-tasks/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+   "kind": "canonical",
+   "name": "trigger-authoring-chat-agent",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-authoring-chat-agent/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+   "kind": "canonical",
+   "name": "trigger-authoring-tasks",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-authoring-tasks/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+   "kind": "canonical",
+   "name": "trigger-chat-agent-advanced",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-chat-agent-advanced/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+   "kind": "canonical",
+   "name": "trigger-cost-savings",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-cost-savings/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/cli-v3/skills/trigger-getting-started/SKILL.md",
+   "kind": "canonical",
+   "name": "trigger-getting-started",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-getting-started/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+   "kind": "canonical",
+   "name": "trigger-realtime-and-frontend",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/cli-v3/skills/trigger-realtime-and-frontend/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/trigger-sdk/skills/trigger-authoring-chat-agent/SKILL.md",
+   "kind": "variant",
+   "name": "trigger-authoring-chat-agent",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-authoring-chat-agent/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md",
+   "kind": "variant",
+   "name": "trigger-authoring-tasks",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-authoring-tasks/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/trigger-sdk/skills/trigger-chat-agent-advanced/SKILL.md",
+   "kind": "variant",
+   "name": "trigger-chat-agent-advanced",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-chat-agent-advanced/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/trigger-sdk/skills/trigger-cost-savings/SKILL.md",
+   "kind": "variant",
+   "name": "trigger-cost-savings",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-cost-savings/SKILL.md",
+   "status": "PENDING"
+  },
+  {
+   "copies_on": [],
+   "home": "venture",
+   "id": "15:packages/trigger-sdk/skills/trigger-realtime-and-frontend/SKILL.md",
+   "kind": "variant",
+   "name": "trigger-realtime-and-frontend",
+   "problems": [
+    "no station source (pre-routing state on main)"
+   ],
+   "repo": "triggerdotdev/trigger.dev",
+   "route": "repertoire/triggerdotdev~trigger.dev/packages/trigger-sdk/skills/trigger-realtime-and-frontend/SKILL.md",
+   "status": "PENDING"
+  }
+ ],
+ "source": "pre-routing (no station source)",
+ "stations_seen": []
+}

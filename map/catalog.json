@@ -1,0 +1,678 @@
+{
+ "_schema": "station-catalog/1",
+ "_why": "one entry per reusable commons thing; stations add theirs in map/station_catalog.json. A key not yet present in a partial build fails DEAD-ENTRY until the tree is assembled (that is the claim being checked). Kit-root files (tools/kit/*, shipped by build/root onto main) are catalogued HERE too, helpers included: on an assembled main every in-scope file needs an entry (fix2-commons 1: tools/kit/_kit.py had none and assembly STOPPED at step 3).",
+ "entries": {
+  ".claude/hooks/_cmdscan.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "shared shell-command tokeniser for the Bash hooks",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "command scanner"
+  },
+  ".claude/hooks/_release.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "read committed operator releases (governance/RELEASES.json) for deny/ask hooks",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "release reader"
+  },
+  ".claude/hooks/_report.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "emit model-facing or operator-facing hook output on the right channel",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "hook report channel"
+  },
+  ".claude/hooks/act_gate.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "hook module: ask before irreversible acts",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "act gate"
+  },
+  ".claude/hooks/connector_scope.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "hook module: report connector use outside the station's expected set",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "connector scope"
+  },
+  ".claude/hooks/context_threshold.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PostToolUse + router line: the handoff reminder at the context thresholds",
+   "see_also": [],
+   "solves": [
+    "session-continuity"
+   ],
+   "status": "working",
+   "title": "context threshold"
+  },
+  ".claude/hooks/deny_destructive.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PreToolUse Bash: deny erasure of uncommitted or unmerged work",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "destructive-git guard"
+  },
+  ".claude/hooks/deny_noted_defect.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PreToolUse git commit: a defect only written down is a defect shipped",
+   "see_also": [],
+   "solves": [
+    "hook-safety",
+    "closeout"
+   ],
+   "status": "working",
+   "title": "noted-defect guard"
+  },
+  ".claude/hooks/deny_upstream_write.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PreToolUse: held lanes are read-only except _PATCHES/",
+   "see_also": [],
+   "solves": [
+    "hook-safety",
+    "upstream-intake"
+   ],
+   "status": "working",
+   "title": "lane write guard"
+  },
+  ".claude/hooks/intent_router.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "UserPromptSubmit: route the prompt to its first move; appends the brain surface and context line",
+   "see_also": [],
+   "solves": [
+    "routing",
+    "memory-retrieval"
+   ],
+   "status": "working",
+   "title": "intent router"
+  },
+  ".claude/hooks/quarantine_gate.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "hook module: ask before installing or running a quarantined tree",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "quarantine gate"
+  },
+  ".claude/hooks/station_dispatch.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PreToolUse .*: run the hook modules station.json names; deny > ask > report",
+   "see_also": [],
+   "solves": [
+    "hook-safety"
+   ],
+   "status": "working",
+   "title": "station hook dispatcher"
+  },
+  ".claude/hooks/stop.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "Stop: the close-out line; calls brain.stop_check in-process",
+   "see_also": [],
+   "solves": [
+    "closeout"
+   ],
+   "status": "working",
+   "title": "stop hook"
+  },
+  ".claude/skills/checkpoint/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "write a brain/sessions checkpoint whose NEXT block the ladder serves",
+   "see_also": [],
+   "solves": [
+    "session-continuity"
+   ],
+   "status": "working",
+   "title": "checkpoint skill"
+  },
+  ".claude/skills/closeout/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "end a pass: ledger rows, defects, asides line, handoff when needed",
+   "see_also": [],
+   "solves": [
+    "closeout"
+   ],
+   "status": "working",
+   "title": "closeout skill"
+  },
+  ".claude/skills/handoff/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "write the durable handoff with the five-field header and re-derived negatives",
+   "see_also": [],
+   "solves": [
+    "session-continuity"
+   ],
+   "status": "working",
+   "title": "handoff skill"
+  },
+  ".claude/skills/summon/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "delegate by protocol: work-list, tier, one deliverable, heartbeat, verify",
+   "see_also": [],
+   "solves": [
+    "delegation"
+   ],
+   "status": "working",
+   "title": "summon skill"
+  },
+  ".claude/skills/tier/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "score an unstarted item to a model and effort with a named STOP",
+   "see_also": [],
+   "solves": [
+    "delegation"
+   ],
+   "status": "working",
+   "title": "tier skill"
+  },
+  ".claude/skills/upstream-intake/SKILL.md": {
+   "doc": null,
+   "kin": [],
+   "purpose": "licence, telemetry, agent files, lane choice, ingest, provenance, skill routes",
+   "see_also": [],
+   "solves": [
+    "upstream-intake"
+   ],
+   "status": "working",
+   "title": "upstream-intake skill"
+  },
+  ".claude/workflows/_template.js": {
+   "doc": null,
+   "kin": [],
+   "purpose": "the saved-workflow skeleton: live GATHER and a certain-test stage",
+   "see_also": [],
+   "solves": [
+    "delegation"
+   ],
+   "status": "working",
+   "title": "workflow template"
+  },
+  ".claude/workflows/orient.js": {
+   "doc": null,
+   "kin": [],
+   "purpose": "gather card, audit state, router top rows and git log into one orientation summary",
+   "see_also": [],
+   "solves": [
+    "orientation"
+   ],
+   "status": "working",
+   "title": "orient workflow"
+  },
+  "tools/brain.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "new/near/ladder/surface/audit/index/card/loops/check-checkpoint/hook: the station's one memory script",
+   "see_also": [
+    "tools/map/find.py"
+   ],
+   "solves": [
+    "memory-retrieval",
+    "session-continuity",
+    "falsification-register"
+   ],
+   "status": "working",
+   "title": "the brain"
+  },
+  "tools/gov/_gov.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "shared loaders, schema validator, headline and git helpers for the governance tools",
+   "see_also": [],
+   "solves": [
+    "governance-audit"
+   ],
+   "status": "working",
+   "title": "governance library"
+  },
+  "tools/gov/gen_manifest.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "hash every commons path into commons/MANIFEST.json for commons_drift",
+   "see_also": [],
+   "solves": [
+    "station-sync"
+   ],
+   "status": "working",
+   "title": "commons manifest generator"
+  },
+  "tools/gov/gen_ownership.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "render governance/OWNERSHIP.md from rules.json + rules.d",
+   "see_also": [],
+   "solves": [
+    "rule-ownership"
+   ],
+   "status": "working",
+   "title": "ownership table generator"
+  },
+  "tools/gov/gov_check.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "claudemd, station, rules, canon, decisions, ledger, defects, releases, hooks, admission, commons_drift, main_purity, router_targets",
+   "see_also": [],
+   "solves": [
+    "governance-audit",
+    "rule-ownership"
+   ],
+   "status": "working",
+   "title": "governance checks"
+  },
+  "tools/gov/new_row.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "append a DEC/L/DEF row with the station's prefix and next id",
+   "see_also": [],
+   "solves": [
+    "governance-audit",
+    "closeout"
+   ],
+   "status": "working",
+   "title": "register row writer"
+  },
+  "tools/kit/_kit.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "shared git runner, GENERATED-declaration test and census reader that every tools/kit/* script imports by path",
+   "see_also": [
+    "tools/map/_common.py"
+   ],
+   "solves": [
+    "kit-assembly"
+   ],
+   "status": "working",
+   "title": "kit helpers"
+  },
+  "tools/kit/assemble.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "build the one repo: main from the commons + root, a station branch per overlay, then station map and skills index",
+   "see_also": [],
+   "solves": [
+    "kit-assembly"
+   ],
+   "status": "working",
+   "title": "kit assembler"
+  },
+  "tools/kit/bootstrap.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "bare-clone a bootstrap upstream at its 40-hex pin into .upstream/ (or from a bundle)",
+   "see_also": [],
+   "solves": [
+    "kit-assembly",
+    "upstream-pinning"
+   ],
+   "status": "working",
+   "title": "upstream bootstrap"
+  },
+  "tools/kit/doctor.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "report the local kit's health: git, caches, bootstrap needs, worktree layout",
+   "see_also": [],
+   "solves": [
+    "kit-assembly",
+    "orientation"
+   ],
+   "status": "working",
+   "title": "doctor"
+  },
+  "tools/kit/kit_check.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "decision tree == router kit_tree == STATIONS.md; registry pins and landings",
+   "see_also": [],
+   "solves": [
+    "kit-assembly",
+    "routing"
+   ],
+   "status": "working",
+   "title": "kit checks"
+  },
+  "tools/kit/make_zip.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "bundle, zip and verify the kit repo",
+   "see_also": [],
+   "solves": [
+    "kit-assembly"
+   ],
+   "status": "working",
+   "title": "zip maker"
+  },
+  "tools/kit/repin.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "report and apply a new upstream pin after its diff, licence and certain tests",
+   "see_also": [],
+   "solves": [
+    "upstream-pinning"
+   ],
+   "status": "working",
+   "title": "repin"
+  },
+  "tools/kit/runtree.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "check out a bootstrapped upstream into a worktree OUTSIDE the station to run it",
+   "see_also": [],
+   "solves": [
+    "upstream-intake"
+   ],
+   "status": "working",
+   "title": "run trees"
+  },
+  "tools/kit/skills_index.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "route all census SKILL.md files to a station and check none is unrouted",
+   "see_also": [],
+   "solves": [
+    "skill-routing"
+   ],
+   "status": "working",
+   "title": "skills index"
+  },
+  "tools/kit/split.sh": {
+   "doc": null,
+   "kin": [],
+   "purpose": "turn one station branch into a one-branch repo with a kit remote",
+   "see_also": [],
+   "solves": [
+    "station-sync"
+   ],
+   "status": "working",
+   "title": "station split"
+  },
+  "tools/kit/sync.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "merge main into a station, regenerate GENERATED conflicts, abort on any other",
+   "see_also": [],
+   "solves": [
+    "station-sync"
+   ],
+   "status": "working",
+   "title": "station sync"
+  },
+  "tools/map/_common.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "GEN_DECL, tracked-file walk, domain classes, overlays, knobs, headline",
+   "see_also": [],
+   "solves": [
+    "map-freshness"
+   ],
+   "status": "working",
+   "title": "map core"
+  },
+  "tools/map/check_paths.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "every live-doc path claim resolves; grounded claims track their code",
+   "see_also": [],
+   "solves": [
+    "doc-truth"
+   ],
+   "status": "working",
+   "title": "path claims"
+  },
+  "tools/map/find.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "search falsifications first, then the catalog, upstreams and atlas; prints matched terms, never a score",
+   "see_also": [
+    "tools/brain.py"
+   ],
+   "solves": [
+    "prior-art",
+    "falsification-register"
+   ],
+   "status": "working",
+   "title": "prior-art search"
+  },
+  "tools/map/gen_atlas.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "one-id-space graph of dirs, tools, hooks, skills, workflows, upstreams and intents, with evidence",
+   "see_also": [],
+   "solves": [
+    "map-freshness",
+    "prior-art"
+   ],
+   "status": "working",
+   "title": "atlas"
+  },
+  "tools/map/gen_dir_readmes.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "check every dir is registered and render generated READMEs",
+   "see_also": [],
+   "solves": [
+    "map-freshness",
+    "orientation"
+   ],
+   "status": "working",
+   "title": "dir registry"
+  },
+  "tools/map/gen_solutions.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "render map/SOLUTIONS.md and check every tool/skill/workflow is catalogued",
+   "see_also": [],
+   "solves": [
+    "prior-art"
+   ],
+   "status": "working",
+   "title": "solutions catalog"
+  },
+  "tools/map/gen_station_map.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "render map/STATIONS.md: every station branch against main",
+   "see_also": [],
+   "solves": [
+    "station-sync",
+    "orientation"
+   ],
+   "status": "working",
+   "title": "station map"
+  },
+  "tools/map/hooks/deny_generated_edit.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PreToolUse: deny a hand edit of a GENERATED file; restores from a recorded source are exempt",
+   "see_also": [],
+   "solves": [
+    "hook-safety",
+    "map-freshness"
+   ],
+   "status": "working",
+   "title": "generated-edit guard"
+  },
+  "tools/map/hooks/prior_art.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PreToolUse Write: point a new tool/skill/workflow at what exists (with brain hits)",
+   "see_also": [
+    "tools/brain.py"
+   ],
+   "solves": [
+    "prior-art"
+   ],
+   "status": "working",
+   "title": "prior-art hook"
+  },
+  "tools/map/hooks/usage_log.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "PostToolUse: append one observed-usage event (map M+)",
+   "see_also": [],
+   "solves": [
+    "usage-observation"
+   ],
+   "status": "working",
+   "title": "usage log hook"
+  },
+  "tools/map/map_check.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "the one driver: write, check, quick, list, coverage, selftest",
+   "see_also": [],
+   "solves": [
+    "map-freshness"
+   ],
+   "status": "working",
+   "title": "map driver"
+  },
+  "tools/map/upstream_check.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "every held upstream has a usage row, a 40-hex pin, live paths and visible instruction files",
+   "see_also": [],
+   "solves": [
+    "upstream-pinning",
+    "prior-art"
+   ],
+   "status": "working",
+   "title": "upstream usage index"
+  },
+  "tools/map/usage_map.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "declared triggers per tool/skill/workflow/upstream plus the observed-use quadrants",
+   "see_also": [],
+   "solves": [
+    "usage-observation"
+   ],
+   "status": "working",
+   "title": "usage map"
+  },
+  "tools/station_audit.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "run every registered check (checks.json + checks.d/*.json) with MUST_BE_CLEAN/WORKLIST classes, one exit code and a --state line",
+   "see_also": [],
+   "solves": [
+    "governance-audit"
+   ],
+   "status": "working",
+   "title": "the one audit runner"
+  },
+  "tools/upstream/_uplib.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "lanes, neutralisation map, licence classifier and byte-stable JSON for the upstream tools",
+   "see_also": [],
+   "solves": [
+    "upstream-intake"
+   ],
+   "status": "working",
+   "title": "upstream library"
+  },
+  "tools/upstream/ingest.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "copy pinned upstream blobs into a lane, neutralised, with LOCK/PROVENANCE/RENAMES/PRECEDENCE rows",
+   "see_also": [],
+   "solves": [
+    "upstream-intake",
+    "upstream-pinning"
+   ],
+   "status": "working",
+   "title": "upstream ingest"
+  },
+  "tools/upstream/notice.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "render NOTICE.md from LOCK + PROVENANCE + carried NOTICE files",
+   "see_also": [],
+   "solves": [
+    "licence-compliance"
+   ],
+   "status": "working",
+   "title": "NOTICE generator"
+  },
+  "tools/upstream/skill_routes.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "seed, index and check the per-station skill routing rows",
+   "see_also": [],
+   "solves": [
+    "skill-routing"
+   ],
+   "status": "working",
+   "title": "skill routes"
+  },
+  "tools/upstream/upstream_checks.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "vendor_leak, precedence, upstream_lock, provenance, licence_filter, nc_export, notice, telemetry and related checks",
+   "see_also": [],
+   "solves": [
+    "upstream-pinning",
+    "licence-compliance"
+   ],
+   "status": "working",
+   "title": "upstream checks"
+  },
+  "tools/upstream/workflows_check.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "parse every saved workflow and check its CERTAIN_TEST can fail and does not mutate",
+   "see_also": [],
+   "solves": [
+    "governance-audit"
+   ],
+   "status": "working",
+   "title": "workflow checks"
+  }
+ },
+ "exclusions": [],
+ "scope": [
+  "tools/**/*.py",
+  "tools/**/*.sh",
+  ".claude/hooks/**/*.py",
+  ".claude/skills/*/SKILL.md",
+  ".claude/workflows/*"
+ ]
+}

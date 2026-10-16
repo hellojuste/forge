@@ -1,0 +1,23 @@
+{
+ "_doc": "Repos (or apps) with no station job: registry row + bootstrap on demand. Nothing is excluded (ORDER 4).",
+ "attic": [
+  {
+   "fetch": "python3 tools/kit/bootstrap.py --attic",
+   "id": 26,
+   "key": "Open-LLM-VTuber~Open-LLM-VTuber",
+   "reason": "no job in any domain (INV: domain fit none); Live2D sample models carry separate terms (LICENSE-Live2D.md); root CLAUDE.md would lazy-load if checked out",
+   "repo": "Open-LLM-VTuber/Open-LLM-VTuber",
+   "sha": "992309c0aa19845960228f880013d4685fde93b5",
+   "where": "attic (registry/attic.json row on main; tools/kit/bootstrap.py --attic fetches the bare clone at the pin)"
+  },
+  {
+   "fetch": "python3 tools/kit/bootstrap.py --attic",
+   "id": 25,
+   "key": "danny-avila~LibreChat",
+   "reason": "the app (MongoDB + Meilisearch stack) has no station job; the two Pocock skills do",
+   "repo": "danny-avila/LibreChat (the app)",
+   "sha": "e1dfc10449ff713faffacd60273fddcfe2c0a698",
+   "where": "attic for the app (bootstrap --attic); its 3 skills are homed in forge"
+  }
+ ]
+}

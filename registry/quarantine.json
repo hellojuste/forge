@@ -1,0 +1,49 @@
+{
+ "_doc": "Every quarantined path on every branch. station/quarantine holds camofox-browser, Maxun and AIHawk/invisible_dots TOGETHER (ORDER 4 b: \"quarantine, it exists, its public, its on github, just pack them together\"); AutoHedge is a study lane on station/markets (ORDER 4 a). The ask gate keeps the operator in the loop; nothing is walled (ORDER 5).",
+ "quarantine": [
+  {
+   "branch": "station/markets",
+   "gate": "quarantine_gate: install/run inside this path ASKS; reads always allowed",
+   "key": "The-Swarm-Corporation~AutoHedge",
+   "kind": "live-signing study lane, disarmed by default (ORDER 4 a)",
+   "lane": "study/",
+   "path": "study/The-Swarm-Corporation~AutoHedge/",
+   "repo": "The-Swarm-Corporation/AutoHedge",
+   "sha": "c549c7950da112286e76725d49f6a25de8fa99bd",
+   "station": "markets"
+  },
+  {
+   "branch": "station/quarantine",
+   "gate": "quarantine_gate: install/run inside this path ASKS; reads always allowed",
+   "key": "jo-inc~camofox-browser",
+   "kind": "evasion/stealth study (ORDER 4 b)",
+   "lane": "upstream/",
+   "path": "upstream/jo-inc~camofox-browser/",
+   "repo": "jo-inc/camofox-browser",
+   "sha": "39c82094013480b373df6600d44c7f036f58356e",
+   "station": "quarantine"
+  },
+  {
+   "branch": "station/quarantine",
+   "gate": "quarantine_gate: install/run inside this path ASKS; reads always allowed",
+   "key": "getmaxun~maxun",
+   "kind": "evasion/stealth study (ORDER 4 b)",
+   "lane": "upstream/",
+   "path": "upstream/getmaxun~maxun/",
+   "repo": "getmaxun/maxun",
+   "sha": "a1e5733248eb31ab724a90f4ff407cae5f4a04d3",
+   "station": "quarantine"
+  },
+  {
+   "branch": "station/quarantine",
+   "gate": "quarantine_gate: install/run inside this path ASKS; reads always allowed",
+   "key": "feder-cr~Jobs_Applier_AI_Agent_AIHawk",
+   "kind": "evasion/stealth study (ORDER 4 b)",
+   "lane": "upstream/",
+   "path": "upstream/feder-cr~Jobs_Applier_AI_Agent_AIHawk/",
+   "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+   "sha": "ef69f5e19c1b46e41e743234fa5019e39442adcb",
+   "station": "quarantine"
+  }
+ ]
+}

@@ -1,0 +1,349 @@
+{
+ "_why": "upstream programme check rows (commons-upstream slice). Loaded by tools/station_audit.py with governance/checks.json; every row carries admission fields (earned_by, selftest, retires, class). Identical on every branch: a check that has nothing to look at on main prints a denominator-0 headline and exits 0.",
+ "checks": [
+  {
+   "name": "vendor_leak",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "vendor_leak"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "lettuce INTENTS.yml vendor_nested (open, measured 2026-10-15): one Read of a vendored README LISTED three nested upstream skills; no directory exclude covers a nested .claude/skills (LEAN LL-03)",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "vendor_leak",
+    "--selftest"
+   ],
+   "retires": "lettuce vendor_nested register row + the claudeMdExcludes-only defence (now second layer)",
+   "inputs": [
+    "repertoire/**",
+    "upstream/**",
+    "study/**",
+    "nc-lane/**",
+    "CLAUDE.md",
+    ".claude/rules/**",
+    ".claude/skills/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "precedence",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "precedence"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "an upstream contributing guide asking for `git add -A` or its own hooks must never switch off a station rail; LEAN § PRECEDENCE + GOV 5 (governs limited to the SUBTREE vocabulary)",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "precedence",
+    "--selftest"
+   ],
+   "retires": "nothing overlaps (first precedence register); LEAN CA-14 precedence",
+   "inputs": [
+    "upstream/PRECEDENCE.json",
+    "upstream/LOCK.json",
+    "repertoire/**",
+    "upstream/**",
+    "study/**",
+    "nc-lane/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "upstream_lock",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "upstream_lock"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "LEAN LL-08: a held tree whose pin is not recorded cannot be repinned or diffed honestly; KIT_PLAN 4.1 how vocabulary; registry/sources.json is the pin of record",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "upstream_lock",
+    "--selftest"
+   ],
+   "retires": "lettuce vendor/README.md hand table of lifted repos",
+   "inputs": [
+    "upstream/LOCK.json",
+    "registry/sources.json",
+    "repertoire/**",
+    "upstream/**",
+    "study/**",
+    "nc-lane/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "provenance",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "provenance"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "LEAN LL-08 'kept verbatim': an upstream file edited in place reads exactly like the pinned one unless its sha256 is re-derived; JUDGE_2 F1 (symlink blobs hashed as content)",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "provenance",
+    "--selftest"
+   ],
+   "retires": "lettuce vendor/CHECKLIST.md removals list (hand-kept)",
+   "inputs": [
+    "upstream/PROVENANCE.json",
+    "repertoire/**",
+    "upstream/**",
+    "study/**",
+    "nc-lane/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "licence_filter",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "licence_filter"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "LEAN LL-09 (12 copyleft + 1 non-commercial repos were not lifted into lettuce) and JUDGE_2 F9: copyleft is held only unmodified beside its licence; a copied copyleft line in station code is a relicensing defect",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "licence_filter",
+    "--selftest"
+   ],
+   "retires": "LEAN CA-14 licence_filter (distribution: proprietary form)",
+   "inputs": [
+    "upstream/PROVENANCE.json",
+    "repertoire/**",
+    "upstream/**",
+    "study/**",
+    "nc-lane/**",
+    "tools/**",
+    ".claude/**",
+    "work/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "nc_export",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "nc_export"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "ORDER 4 / KIT_PLAN 4.3 research: CC BY-NC 4.0 method text (academic-research-skills) may inform only non-commercial outputs; an unstamped output or a deliverable citing nc-lane/ is the leak",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "nc_export",
+    "--selftest"
+   ],
+   "retires": "nothing overlaps (first nc-lane rule)",
+   "inputs": [
+    "nc-lane/**",
+    "work/**",
+    "engagements/**",
+    "station.json"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "notice",
+   "cmd": [
+    "python3",
+    "tools/upstream/notice.py",
+    "--root",
+    ".",
+    "--check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "Apache-2.0 4(d) and MIT attribution travel with held files; a hand-kept NOTICE drifts from LOCK the moment a second ingest runs (LEAN LL-24: a generated file is a claim)",
+   "selftest": [
+    "python3",
+    "tools/upstream/notice.py",
+    "--selftest"
+   ],
+   "retires": "nothing overlaps",
+   "inputs": [
+    "NOTICE.md",
+    "upstream/LOCK.json",
+    "upstream/PROVENANCE.json"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "skill_routes",
+   "cmd": [
+    "python3",
+    "tools/upstream/skill_routes.py",
+    "check"
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "ORDER 4 (d) verbatim: 'ensuring all 359 are inclusive in these as well with the relevant intent routing where each would live'; LEAN LL-02 (127,286 chars of upstream skill listing are routed, never listed)",
+   "selftest": [
+    "python3",
+    "tools/upstream/skill_routes.py",
+    "--selftest"
+   ],
+   "retires": "nothing overlaps (station half of tools/kit/skills_index.py --check)",
+   "inputs": [
+    "router/skills.json",
+    "registry/skill_assignment.json",
+    "repertoire/**",
+    "upstream/**",
+    "study/**",
+    "nc-lane/**"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "workflows_parse",
+   "cmd": [
+    "python3",
+    "tools/upstream/workflows_check.py",
+    "workflows_parse",
+    "--root",
+    "."
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "lettuce tools/audit_intents.py measurement on node v22: bare `node --check` on an ESM workflow returns 0 for every syntax error; only the harness-wrapped body is a real gate (LEAN CA-14 workflows_parse)",
+   "selftest": [
+    "python3",
+    "tools/upstream/workflows_check.py",
+    "--selftest"
+   ],
+   "retires": "lettuce audit_intents parse gates (ported)",
+   "inputs": [
+    ".claude/workflows/*.js",
+    ".claude/skills/*/SKILL.md"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "certain_tests",
+   "cmd": [
+    "python3",
+    "tools/upstream/workflows_check.py",
+    "certain_tests",
+    "--root",
+    "."
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "lettuce admin workflow named `prime_record.py --cost-report`, which exits 2 on every run (workflow/DCI item 3); LEAN LL-25 / CA-17: a certain test must be able to fail and must not mutate",
+   "selftest": [
+    "python3",
+    "tools/upstream/workflows_check.py",
+    "--selftest"
+   ],
+   "retires": "lettuce audit_intents certain-test claim check (ported)",
+   "inputs": [
+    ".claude/workflows/*.js"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "listing_budget",
+   "cmd": [
+    "python3",
+    "tools/upstream/workflows_check.py",
+    "listing_budget",
+    "--root",
+    "."
+   ],
+   "class": "MUST_BE_CLEAN",
+   "programme": "upstream",
+   "earned_by": "LEAN LL-02: lettuce carries 71 skillOverrides rows because every listed skill costs its listing line every turn; a skill/workflow name clash hides both",
+   "selftest": [
+    "python3",
+    "tools/upstream/workflows_check.py",
+    "--selftest"
+   ],
+   "retires": "lettuce audit_intents listing() (ported)",
+   "inputs": [
+    ".claude/skills/*/SKILL.md",
+    ".claude/settings.json",
+    "station.json",
+    "commons/defaults.json"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "telemetry",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "telemetry"
+   ],
+   "class": "WORKLIST",
+   "programme": "upstream",
+   "earned_by": "KIT_PLAN 6: ten held tools phone home (Maxun posthog, camofox reporter/sentry, evo, openwiki ...); an opt-out switch is a claim until a file+line or the tool's own offline status run proves it",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "telemetry",
+    "--selftest"
+   ],
+   "retires": "nothing overlaps",
+   "inputs": [
+    "registry/telemetry.json"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  },
+  {
+   "name": "offline_complete",
+   "cmd": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "offline_complete"
+   ],
+   "class": "WORKLIST",
+   "programme": "upstream",
+   "earned_by": "KIT_PLAN 4.1 honest denominator: 18 of 28 repos are complete only after bootstrap.py fetches their pin; the count must be printed, not assumed",
+   "selftest": [
+    "python3",
+    "tools/upstream/upstream_checks.py",
+    "offline_complete",
+    "--selftest"
+   ],
+   "retires": "nothing overlaps",
+   "inputs": [
+    "upstream/LOCK.json",
+    ".upstream/*.git"
+   ],
+   "timeout_s": 120,
+   "gate_subcount": null
+  }
+ ]
+}

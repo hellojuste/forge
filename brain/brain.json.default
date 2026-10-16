@@ -1,0 +1,15 @@
+{
+ "_why": "commons brain config (PROGRAMME_BRAIN 3.2). A station overrides any key in brain/brain.json (station-only). Knob tiers come from station.json knobs.brain (main: small). The map join resolves map:<id> touches against the atlas; on a station without an atlas (map XS/S) the join is reported unavailable and TOUCHES is skipped with a named line.",
+ "asides_line": {"enabled": true},
+ "budgets": {"prior_art": 800, "prompt": 1500, "start": 7000, "tight": 1900},
+ "due_per_session": 3,
+ "log_surface": false,
+ "loops_per_session": 2,
+ "map": {"cites_cmd": null, "ids_cmd": "python3 tools/map/gen_atlas.py --ids", "ids_file": null, "neighbours_cmd": "python3 tools/map/gen_atlas.py --neighbours", "neighbours_file": null},
+ "near": {"expand_map": true},
+ "prior_art": {"enabled": true, "globs": ["tools/*.py", "tools/**/*.py", ".claude/skills/*/SKILL.md", ".claude/workflows/*"]},
+ "purpose": "stable-kit main: the shared core (governance, mapping, brain), the decision tree and the kit tools",
+ "role_cmd": null,
+ "station": "core",
+ "surface": {"cap": 3, "classes": ["aside", "card", "negative"], "enabled": true, "min_tag_len": 4, "w": 0.5}
+}

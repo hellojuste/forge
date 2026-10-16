@@ -1,0 +1,29 @@
+{
+ "_why": "router/skills.json: the skill fall-through tier of the commons router (KIT_PLAN 7.2). One row per census row homed in the station (kit_plan skills_assignment) + one per held copy (copy_of = the home station). Seeded by tools/upstream/skill_routes.py seed (keywords [], status seed), filled by the intent agent, checked by skill_routes.py check and selftest-routes.",
+ "type": "object",
+ "required": ["skills"],
+ "properties": {
+  "_why": {"type": "string"},
+  "station": {"type": "string"},
+  "skills": {"type": "array", "items": {
+   "type": "object",
+   "required": ["id", "name", "kind", "path", "keywords", "home"],
+   "properties": {
+    "id": {"type": "string", "pattern": "^[0-9]+:.+SKILL\\.md$"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "kind": {"type": "string", "enum": ["canonical", "variant", "mirror", "symlink", "fixture"]},
+    "path": {"type": ["string", "null"]},
+    "keywords": {"type": "array", "items": {"type": "string"}},
+    "phrases": {"type": "array", "items": {"type": "string"}},
+    "route_to": {"type": ["string", "null"]},
+    "home": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "copy_of": {"type": ["string", "null"]},
+    "depth": {"type": "string", "enum": ["seed", "description", "headings", "body"]},
+    "status": {"type": "string"},
+    "first_move": {"type": "object"},
+    "notes": {"type": "string"}
+   }
+  }}
+ }
+}

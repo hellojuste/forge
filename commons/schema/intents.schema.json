@@ -1,0 +1,32 @@
+{
+ "_why": "router/intents.json, router/intents.d/*.json and router/kit_tree.json rows (LEAN CA-06 in JSON, GOV 3.12, commons-gov contract section 4). Validated by tools/gov/_gov.py validate() in gov_check.py router_targets and by intent_router.py --selftest.",
+ "type": "object",
+ "properties": {
+  "intents": {"type": "array", "items": {
+   "type": "object",
+   "required": ["name", "description", "router", "contributed_by"],
+   "properties": {
+    "name": {"type": "string", "pattern": "^(station:)?[a-z][a-z0-9-]*$"},
+    "description": {"type": "string"},
+    "contributed_by": {"type": "string", "enum": ["governance", "map", "brain", "upstream", "station", "kit"]},
+    "scope": {"type": "string", "enum": ["main"]},
+    "router": {"type": "object", "required": ["keywords", "first_move"], "properties": {
+     "keywords": {"type": "array", "items": {"type": "string"}},
+     "phrases": {"type": "array", "items": {"type": "string"}},
+     "path_patterns": {"type": "array", "items": {"type": "string"}},
+     "file_types": {"type": "array", "items": {"type": "string"}},
+     "patterns": {"type": "array", "items": {"type": "string"}},
+     "first_move": {"type": "object", "properties": {
+      "skill": {"type": "string"}, "workflow": {"type": "string"},
+      "args": {"type": "string"}, "inline_gather": {"type": "string"}}}}}}}},
+  "router_tie_rule": {"type": "object", "required": ["order", "reason", "multi_intent_cap"], "properties": {
+   "order": {"type": "array", "items": {"type": "string"}},
+   "reason": {"type": "string"},
+   "multi_intent_cap": {"type": "integer", "minimum": 2}}},
+  "harness_prefixes": {"type": "array", "items": {"type": "string"}},
+  "negators": {"type": "array", "items": {"type": "string"}},
+  "neg_window": {"type": "integer", "minimum": 0},
+  "max_out_bytes": {"type": "integer", "minimum": 200},
+  "skill_also_min_hits": {"type": "integer", "minimum": 1}
+ }
+}

@@ -1,0 +1,488 @@
+{
+ "_why": "governance's own check rows (PROGRAMME_GOVERNANCE 3.9/3.10). Other programmes and stations register theirs in governance/checks.d/*.json; the runner (tools/station_audit.py) loads both. Admission fields earned_by/selftest/retires are required (check: admission).",
+ "checks": [
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "claudemd"
+   ],
+   "earned_by": "lettuce CLAUDE.md reached 10,229 B against a 10,240 B cap only after a diet; every hot-path byte is paid every turn (GOV 1.1, LEAN LL-01)",
+   "gate_subcount": null,
+   "inputs": [
+    "CLAUDE.md",
+    ".claude/rules/**",
+    "station.json",
+    "commons/defaults.json",
+    "governance/rules.json",
+    "governance/rules.d/**"
+   ],
+   "name": "claudemd",
+   "programme": "governance",
+   "retires": "lettuce audit_summon L-check + CLAUDE_SECTIONS.yml spot-check",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "claudemd",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "station"
+   ],
+   "earned_by": "lettuce hard-coded thresholds in hooks and the M2 cadence rule (BEAT_S x 3 = CADENCE) drifted between files (GOV 3.3)",
+   "gate_subcount": null,
+   "inputs": [
+    "station.json",
+    "commons/defaults.json",
+    "commons/schema/**"
+   ],
+   "name": "station",
+   "programme": "governance",
+   "retires": "nothing (first station-constant check); LEAN CA-01 station_yml",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "station",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "rules"
+   ],
+   "earned_by": "lettuce ownership.md and hooks README Table A drifted apart ('listed six and drifted', GOV 3.4)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/**",
+    ".claude/settings.json",
+    "station.json",
+    "commons/defaults.json",
+    "router/**",
+    ".claude/hooks/**",
+    "CLAUDE.md"
+   ],
+   "name": "rules",
+   "programme": "governance",
+   "retires": "lettuce ownership.md hand table + tools/hooks/README.md Tables A/B",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "rules",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "canon"
+   ],
+   "earned_by": "three lettuce instruments printed the same symbol with different arithmetic; a duplicated block is a claim that copies agree (audit_canon)",
+   "gate_subcount": null,
+   "inputs": [
+    "*"
+   ],
+   "name": "canon",
+   "programme": "governance",
+   "retires": "lettuce tools/audit_canon.py block mode (its CLAUDE.md list gate is retired: the registry is the only list)",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "canon",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "decisions"
+   ],
+   "earned_by": "lettuce RATIFICATIONS.md: two ordinal series collided at 'sixth'; verbatim words were paraphrased in copies (GOV 1.3)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/DECISIONS.md",
+    "governance/STATION_DECISIONS.md"
+   ],
+   "name": "decisions",
+   "programme": "governance",
+   "retires": "lettuce R30 social rule 'NOTHING IS RENUMBERED' (now mechanical)",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "decisions",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "history"
+   ],
+   "earned_by": "RAT-057: superseded hot-path text must move verbatim to a history file, not vanish (GOV 3.6)",
+   "gate_subcount": null,
+   "inputs": [
+    "*"
+   ],
+   "name": "history",
+   "programme": "governance",
+   "retires": "nothing (RAT-057 was enforced by review only)",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "history",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "ledger"
+   ],
+   "earned_by": "lettuce LEDGER rows that said 'be more careful' recurred; SUMMON_LEDGER required an amendment naming a mechanism (GOV 3.7, LEAN LL-47)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/LEDGER.md",
+    "governance/STATION_LEDGER.md"
+   ],
+   "name": "ledger",
+   "programme": "governance",
+   "retires": "lettuce audit_hooks ledger half",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "ledger",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "WORKLIST",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "ledger_owed"
+   ],
+   "earned_by": "lettuce L99 census: OWED hooks were invisible debt until counted (GOV 3.7)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/LEDGER.md",
+    "governance/STATION_LEDGER.md"
+   ],
+   "name": "ledger_owed",
+   "programme": "governance",
+   "retires": "nothing",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "ledger_owed",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "defects"
+   ],
+   "earned_by": "invariant 14: a defect found and only written down is a defect shipped (lettuce 2026-10-09 amendment)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/DEFECTS.md",
+    "governance/STATION_DEFECTS.md"
+   ],
+   "name": "defects",
+   "programme": "governance",
+   "retires": "lettuce OPERATOR_RULES invariant 14 prose",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "defects",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "WORKLIST",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "defects_due"
+   ],
+   "earned_by": "OPEN defects whose trigger date passed were never re-tested (GOV 3.8)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/DEFECTS.md",
+    "governance/STATION_DEFECTS.md"
+   ],
+   "name": "defects_due",
+   "programme": "governance",
+   "retires": "nothing",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "defects_due",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "releases"
+   ],
+   "earned_by": "lettuce Rule 25: an operator exception is a committed row quoting the human, never an env var (SEAL_RELEASES.yml)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/RELEASES.json",
+    ".claude/settings.json",
+    "station.json",
+    "commons/defaults.json"
+   ],
+   "name": "releases",
+   "programme": "governance",
+   "retires": "lettuce SEAL_RELEASES.yml review",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "releases",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "hooks_wired"
+   ],
+   "earned_by": "lettuce audit_hooks: a wired command whose script was missing failed silently; a Bash(git *) if-filter missed 'cd x && git add -A' (GOV 3.11)",
+   "gate_subcount": null,
+   "inputs": [
+    ".claude/settings.json",
+    ".claude/hooks/**",
+    "tools/**",
+    "station.json",
+    "commons/defaults.json"
+   ],
+   "name": "hooks_wired",
+   "programme": "governance",
+   "retires": "lettuce audit_hooks wiring half",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "hooks_wired",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "hooks_selftest"
+   ],
+   "earned_by": "RAT-057 admission: a hook ships with a planted-defect selftest; a red selftest is a broken guard (audit_hooks)",
+   "gate_subcount": null,
+   "inputs": [
+    ".claude/settings.json",
+    ".claude/hooks/**",
+    "tools/**",
+    "governance/checks.json"
+   ],
+   "name": "hooks_selftest",
+   "programme": "governance",
+   "retires": "lettuce audit_hooks selftest half",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "hooks_selftest",
+    "--selftest"
+   ],
+   "timeout_s": 300
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "hook_channels"
+   ],
+   "earned_by": "lettuce L335: a PostToolUse hook printed plain stdout that no one read; a report must use hookSpecificOutput (LEAN LL-13)",
+   "gate_subcount": null,
+   "inputs": [
+    ".claude/settings.json",
+    ".claude/hooks/**",
+    "tools/**"
+   ],
+   "name": "hook_channels",
+   "programme": "governance",
+   "retires": "nothing (L335 was a ledger row only)",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "hook_channels",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "WORKLIST",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "headers"
+   ],
+   "earned_by": "lettuce audit_handoff/audit_docs: documents without the five-field header could not be dated or owned; audit: fields carried counts instead of commands",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/**",
+    "docs/**",
+    "HANDOFF*.md"
+   ],
+   "name": "headers",
+   "programme": "governance",
+   "retires": "lettuce audit_handoff header half + audit_docs",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "headers",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "admission"
+   ],
+   "earned_by": "RAT-057: a check or hook is admitted only with the defect that earned it, a selftest and what it retires (LEAN LL-23)",
+   "gate_subcount": null,
+   "inputs": [
+    "governance/**",
+    ".claude/hooks/**",
+    ".claude/settings.json"
+   ],
+   "name": "admission",
+   "programme": "governance",
+   "retires": "lettuce RAT-057 review step",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "admission",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "router_targets"
+   ],
+   "earned_by": "lettuce audit_intents: a first_move naming a skill or workflow absent on disk routed every prompt to nothing (LEAN CA-06)",
+   "gate_subcount": null,
+   "inputs": [
+    "router/**",
+    ".claude/skills/**",
+    ".claude/workflows/**",
+    "governance/checks.d/**"
+   ],
+   "name": "router_targets",
+   "programme": "governance",
+   "retires": "lettuce tools/audit_intents.py target half",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "router_targets",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "commons_drift"
+   ],
+   "earned_by": "branch discipline (KIT_PLAN 3.3): a commons file edited on a station turns every later merge into a conflict",
+   "gate_subcount": null,
+   "inputs": [
+    "*"
+   ],
+   "name": "commons_drift",
+   "programme": "governance",
+   "retires": "nothing (new with the overlay layout)",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "commons_drift",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "main_purity"
+   ],
+   "earned_by": "branch discipline (KIT_PLAN 3.3): a station-only file landing on main is inherited by every future station",
+   "gate_subcount": null,
+   "inputs": [
+    "*"
+   ],
+   "name": "main_purity",
+   "programme": "governance",
+   "retires": "nothing (new with the overlay layout)",
+   "selftest": [
+    "python3",
+    "tools/gov/gov_check.py",
+    "main_purity",
+    "--selftest"
+   ],
+   "timeout_s": 120
+  }
+ ],
+ "hook_selftests": {
+  "_why": "selftest argv for a wired script whose selftest is not '<script> --selftest'",
+  "tools/brain.py": [
+   "python3",
+   "tools/brain.py",
+   "selftest",
+   "--hook-channels"
+  ]
+ }
+}

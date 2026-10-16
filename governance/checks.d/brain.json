@@ -1,0 +1,55 @@
+{
+ "_why": "brain programme check rows (PROGRAMME_BRAIN 3.10, 3.14, 6.2). brain.py selftest --hook-channels is the selftest of both.",
+ "checks": [
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/brain.py",
+    "audit",
+    "--check"
+   ],
+   "earned_by": "lettuce L267 (19% of line-pinned anchors wrong a week later, audit green), BRAIN_G16_UNDONE shelfware verdict, N-register preamble",
+   "gate_subcount": null,
+   "inputs": [
+    "brain/**",
+    "station.json",
+    ".claude/settings.json",
+    "governance/checks.d/**"
+   ],
+   "name": "brain_audit",
+   "programme": "brain",
+   "retires": "lettuce audit_bank.py + bank_anchor.py",
+   "selftest": [
+    "python3",
+    "tools/brain.py",
+    "selftest"
+   ],
+   "timeout_s": 120
+  },
+  {
+   "class": "MUST_BE_CLEAN",
+   "cmd": [
+    "python3",
+    "tools/brain.py",
+    "index",
+    "--check"
+   ],
+   "earned_by": "lettuce 'a generated file in git is a CLAIM': docs/bank/INDEX.md is regenerated, never hand-edited",
+   "gate_subcount": null,
+   "inputs": [
+    "brain/nodes/**",
+    "brain/INDEX.md"
+   ],
+   "name": "brain_index",
+   "programme": "brain",
+   "retires": "lettuce render_bank.py --check",
+   "selftest": [
+    "python3",
+    "tools/brain.py",
+    "selftest"
+   ],
+   "timeout_s": 120
+  }
+ ]
+}

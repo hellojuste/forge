@@ -1,0 +1,37 @@
+{
+ "_why": "commons constants for every branch (PROGRAMME_GOVERNANCE 3.3, KIT_PLAN 8.2). station.json (station-only) overrides any key by deep merge; lists are replaced, except hooks.<Event> which is a UNION (commons modules + station modules). On main there is no station.json and the station name is 'core'. No hook or check hard-codes a value that lives here.",
+ "name": "core",
+ "knobs": {"_why": "programme size per station (KIT_PLAN 8.3); main = standard/L/small", "gov": "standard", "map": "L", "brain": "small"},
+ "claude_md_budget": {"_why": "bytes per gov knob (GOV 4.1); the commons CLAUDE.md is <= core so a station's .claude/rules/station.md fits under standard", "core": 4096, "standard": 6144, "fleet": 10240},
+ "listing_budget_bytes": 2400,
+ "listed_max": 6,
+ "sessionstart_budget_bytes": 1500,
+ "gov": {
+  "_why": "every governance constant; no hook or check hard-codes one (GOV 3.3)",
+  "claude_md_sections": ["First moves", "Invariants", "Governance", "Token sinks"],
+  "hot_path": ["CLAUDE.md", ".claude/rules/*.md", ".claude/skills/*/SKILL.md"],
+  "state_budget": 600,
+  "ctx_warn": 150000,
+  "ctx_handoff": 200000,
+  "ctx_repeat": 50000,
+  "beat_s": 180,
+  "ceiling_s": 600,
+  "margin_s": 60,
+  "stale_beats": 2,
+  "block_max_agents": 4,
+  "block_window_s": 1200,
+  "model_roster": {"small": "<set me>", "medium": "<set me>", "large": "<set me>"},
+  "efforts": ["low", "medium", "high", "xhigh"],
+  "defect_watch": ["governance/*.md", "docs/**/*.md", ".summon/returns/*.json"],
+  "hedge_regex": "not mine|pre-existing|unexplained|not explained|(?<![\\w-])noted(?![\\w-])|for the next author|presumed|TODO later",
+  "protected_branches": ["main"],
+  "upstream_dirs": ["upstream/", "repertoire/", "study/", "nc-lane/"],
+  "patch_dir_name": "_PATCHES",
+  "protect_stash": false,
+  "release_scopes": ["deny_destructive", "deny_noted_defect", "deny_upstream_write", "deny_generated_edit", "act_gate", "quarantine_gate", "connector_scope"]
+ },
+ "hooks": {
+  "_why": "station_dispatch.py runs these modules in-process on PreToolUse (decision 4). Bare name -> .claude/hooks/<name>.py; 'station/<name>' -> .claude/hooks/station/<name>.py. station.json hooks.PreToolUse is UNIONED with this list, never replaces it.",
+  "PreToolUse": ["act_gate", "quarantine_gate", "connector_scope"]
+ }
+}

@@ -1,0 +1,200 @@
+{
+ "_why": "one rule row per mapping mechanism (owner, enforcement). Path-only owners own the whole file.",
+ "rules": [
+  {
+   "earned_by": "lettuce L205/L276/L285",
+   "enforcement": {
+    "kind": "check",
+    "ref": "paths",
+    "why": "MUST_BE_CLEAN check over live docs"
+   },
+   "headline": "Every path a live document claims resolves",
+   "id": "R-map-paths",
+   "owner": "tools/map/check_paths.py",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce R18/R47, L310",
+   "enforcement": {
+    "kind": "check",
+    "ref": "dirs",
+    "why": "MUST_BE_CLEAN check"
+   },
+   "headline": "Every directory is registered with one role; generated READMEs never drift",
+   "id": "R-map-dirs",
+   "owner": "map/dirs.json",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce vendor/USAGE.yml gaps",
+   "enforcement": {
+    "kind": "check",
+    "ref": "upstream",
+    "why": "MUST_BE_CLEAN check; precedence itself is owned by governance (upstream/PRECEDENCE.json)"
+   },
+   "headline": "Every held upstream has a usage row, a 40-hex pin, live paths and listed instruction files",
+   "id": "R-map-upstream",
+   "owner": "tools/map/upstream_check.py",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "SUBTREE"
+  },
+  {
+   "earned_by": "lettuce LIB_OVERLAP 2026-07-31, audit_catalog eleven-day miss",
+   "enforcement": {
+    "kind": "check",
+    "ref": "catalog",
+    "why": "MUST_BE_CLEAN check"
+   },
+   "headline": "Check whether it exists before building: every tool/skill/workflow is catalogued under closed tags",
+   "id": "R-map-catalog",
+   "owner": "map/catalog.json",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce L290, L368, L294",
+   "enforcement": {
+    "kind": "check",
+    "ref": "usage",
+    "why": "MUST_BE_CLEAN check (MISSING/STALE/INVALID/NO-HOME)"
+   },
+   "headline": "Every tool has a home; triggers are verifiable textual references, never guesses",
+   "id": "R-map-usage",
+   "owner": "tools/map/usage_map.py",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce L290",
+   "enforcement": {
+    "kind": "check",
+    "ref": "cold",
+    "why": "WORKLIST"
+   },
+   "headline": "An entry with no trigger is counted until it is wired or declared cold with evidence",
+   "id": "R-map-cold",
+   "owner": "tools/map/usage_map.py",
+   "pointers": [],
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce ARTIFACTS.md 2026-08-26, G16.1",
+   "enforcement": {
+    "kind": "check",
+    "ref": "atlas",
+    "why": "MUST_BE_CLEAN check"
+   },
+   "headline": "One id space; the census is derived from owners and every edge carries re-read evidence",
+   "id": "R-map-atlas",
+   "owner": "map/atlas_schema.json",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce BRAIN_SUBSTRATE_PLAN 338 components",
+   "enforcement": {
+    "kind": "check",
+    "ref": "orphans",
+    "why": "WORKLIST"
+   },
+   "headline": "Unconnected atlas nodes are counted",
+   "id": "R-map-orphans",
+   "owner": "tools/map/gen_atlas.py",
+   "pointers": [],
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce L310",
+   "enforcement": {
+    "kind": "check",
+    "ref": "placement",
+    "why": "WORKLIST"
+   },
+   "headline": "Scripts live under tools/ or .claude/hooks/; space-paths are counted",
+   "id": "R-map-placement",
+   "owner": "map/dirs.json",
+   "pointers": [],
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce BRANCH_MAP.md",
+   "enforcement": {
+    "kind": "check",
+    "ref": "station_map",
+    "why": "WORKLIST: refs move outside the repo's text"
+   },
+   "headline": "Every station branch is rendered against main (main only)",
+   "id": "R-map-station-map",
+   "owner": "tools/map/gen_station_map.py",
+   "pointers": [],
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce deny_generated_edit (489-file bare-word bug; stuck checkout gate)",
+   "enforcement": {
+    "kind": "hook",
+    "ref": "tools/map/hooks/deny_generated_edit.py",
+    "why": "PreToolUse Bash|Edit|Write|MultiEdit|NotebookEdit DENY; the only generated-edit guard (GOV 6.4 c)"
+   },
+   "headline": "Never hand-edit a GENERATED file; edit its source and regenerate (restores exempt)",
+   "id": "R-map-generated-edit",
+   "owner": "tools/map/hooks/deny_generated_edit.py",
+   "pointers": [],
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER"
+  },
+  {
+   "earned_by": "lettuce E46 remind_prior_art",
+   "enforcement": {
+    "kind": "hook",
+    "ref": "tools/map/hooks/prior_art.py",
+    "why": "PreToolUse Write REPORT (never blocks); brain hits ride in the same message"
+   },
+   "headline": "A new tool/skill/workflow is pointed at prior art at the moment it is born",
+   "id": "R-map-prior-art",
+   "owner": "tools/map/hooks/prior_art.py",
+   "pointers": [],
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  },
+  {
+   "earned_by": "lettuce M4 gap + L265",
+   "enforcement": {
+    "kind": "hook",
+    "ref": "tools/map/hooks/usage_log.py",
+    "why": "PostToolUse Bash|Skill|Read|Task append (map M+)"
+   },
+   "headline": "Observed use is logged per call and deduped by call id, never committed",
+   "id": "R-map-usage-log",
+   "owner": "tools/map/hooks/usage_log.py",
+   "pointers": [],
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "N/A"
+  }
+ ]
+}

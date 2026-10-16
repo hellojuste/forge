@@ -1,0 +1,328 @@
+{
+ "_why": "upstream programme rule rows (commons-upstream slice), loaded with governance/rules.json by gov_check.py rules and gen_ownership.py. enforcement carries both vocabularies (kind+ref, and by).",
+ "rules": [
+  {
+   "id": "R-upstream-neutralised",
+   "headline": "Upstream agent files are renamed at ingest so no harness auto-loads them",
+   "owner": "tools/upstream/ingest.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "vendor_leak",
+    "by": "vendor_leak"
+   },
+   "earned_by": "LEAN LL-03 (nested .claude/skills listed on first Read)",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-upstream-is-data",
+   "headline": "Upstream instruction text is data: never quoted into a station instruction file",
+   "owner": "tools/upstream/upstream_checks.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "vendor_leak",
+    "by": "vendor_leak"
+   },
+   "earned_by": "GOV 5 point 1; LEAN § PRECEDENCE",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-lanes-read-only",
+   "headline": "Held upstream trees are read-only; changes go to _PATCHES/ with line 1 NOT APPLIED",
+   "owner": ".claude/hooks/deny_upstream_write.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "hook",
+    "ref": ".claude/hooks/deny_upstream_write.py",
+    "by": ".claude/hooks/deny_upstream_write.py"
+   },
+   "earned_by": "LEAN LL-08 'Do not edit these files'",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-live-surfaces-patch-only",
+   "headline": "A live surface is never edited in place; proposals go to <surface>/patches/ with NOT APPLIED",
+   "owner": ".claude/hooks/deny_upstream_write.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "hook",
+    "ref": ".claude/hooks/deny_upstream_write.py",
+    "by": ".claude/hooks/deny_upstream_write.py"
+   },
+   "earned_by": "LEAN LL-18 (a bridge file edited under a running process costs a position)",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-upstream-governs-subtree",
+   "headline": "An upstream governs only build/code-style/test-runner/commit-format/layout inside its own tree",
+   "owner": "upstream/PRECEDENCE.json",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "precedence",
+    "by": "precedence"
+   },
+   "earned_by": "KIT_PLAN 5 rank 4; GOV 5 point 3",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-upstream-pinned",
+   "headline": "Every held component is pinned at a 40-hex sha equal to registry/sources.json",
+   "owner": "tools/upstream/ingest.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "upstream_lock",
+    "by": "upstream_lock"
+   },
+   "earned_by": "LEAN LL-08; KIT_PLAN 4.1",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-upstream-provenance",
+   "headline": "Every held file has one PROVENANCE row whose sha256 re-derives",
+   "owner": "tools/upstream/ingest.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "provenance",
+    "by": "provenance"
+   },
+   "earned_by": "LEAN LL-08; JUDGE_2 F1",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-copyleft-held-whole",
+   "headline": "GPL/AGPL material is held only unmodified under upstream/<owner~repo>/ beside its licence; station code never copies it",
+   "owner": "tools/upstream/upstream_checks.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "licence_filter",
+    "by": "licence_filter"
+   },
+   "earned_by": "LEAN LL-09; JUDGE_2 F9",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-nc-lane-stamped",
+   "headline": "CC BY-NC outputs carry the NC-LANE stamp and never feed a deliverable",
+   "owner": "tools/upstream/upstream_checks.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "nc_export",
+    "by": "nc_export"
+   },
+   "earned_by": "ORDER 4; KIT_PLAN 4.3 research",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-notice-generated",
+   "headline": "NOTICE.md is generated from LOCK + PROVENANCE + carried NOTICE files",
+   "owner": "tools/upstream/notice.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "notice",
+    "by": "notice"
+   },
+   "earned_by": "Apache-2.0 4(d); LEAN LL-24",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-every-skill-routed",
+   "headline": "Every upstream SKILL.md has one home station and one route row",
+   "owner": "tools/upstream/skill_routes.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "skill_routes",
+    "by": "skill_routes"
+   },
+   "earned_by": "ORDER 4 (d)",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-workflow-parses",
+   "headline": "A saved workflow parses under the harness wrapping and has a pure-literal meta",
+   "owner": "tools/upstream/workflows_check.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "workflows_parse",
+    "by": "workflows_parse"
+   },
+   "earned_by": "lettuce audit_intents node v22 measurement",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-certain-test-real",
+   "headline": "A workflow's certain test names a tool, can fail, mutates nothing, and is the verdict",
+   "owner": "tools/upstream/workflows_check.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "certain_tests",
+    "by": "certain_tests"
+   },
+   "earned_by": "LEAN LL-25 / CA-17",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-listing-budget",
+   "headline": "At most 6 skills listed per branch within 2,400 B; everything else is routed or invocable-only",
+   "owner": "tools/upstream/workflows_check.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "listing_budget",
+    "by": "listing_budget"
+   },
+   "earned_by": "LEAN LL-02",
+   "rung": "hard",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-telemetry-claimed",
+   "headline": "A telemetry opt-out is unverified until a file+line or an offline status run proves it",
+   "owner": "tools/upstream/upstream_checks.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "telemetry",
+    "by": "telemetry"
+   },
+   "earned_by": "KIT_PLAN 6",
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-offline-complete",
+   "headline": "Bootstrap components count as offline only when the bare cache holds the pinned commit",
+   "owner": "tools/upstream/upstream_checks.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "offline_complete",
+    "by": "offline_complete"
+   },
+   "earned_by": "KIT_PLAN 4.1",
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-irreversible-acts-ask",
+   "headline": "Sending, paying, applying, signing and finalising ask the operator first (never a silent deny)",
+   "owner": ".claude/hooks/act_gate.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "hook",
+    "ref": ".claude/hooks/act_gate.py",
+    "by": ".claude/hooks/act_gate.py",
+    "why": "ask, not deny: ORDER 5 (the operator places things himself)"
+   },
+   "earned_by": "LEAN LL-18; ORDER 4 (a) AutoHedge disarmed by default",
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-quarantine-ask",
+   "headline": "Installing or running code inside a quarantined tree asks the operator first; reading is free",
+   "owner": ".claude/hooks/quarantine_gate.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "hook",
+    "ref": ".claude/hooks/quarantine_gate.py",
+    "by": ".claude/hooks/quarantine_gate.py",
+    "why": "ask, not deny: ORDER 4 (b) keeps the trees whole and readable"
+   },
+   "earned_by": "ORDER 4 (a)(b)",
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-connector-scope",
+   "headline": "An MCP server outside the station's connectors_expected is reported once per session (deny only by station opt-in)",
+   "owner": ".claude/hooks/connector_scope.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "hook",
+    "ref": ".claude/hooks/connector_scope.py",
+    "by": ".claude/hooks/connector_scope.py"
+   },
+   "earned_by": "LEAN CA-10 / LL-04; ORDER 5 turns the lettuce deny into a report",
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  },
+  {
+   "id": "R-no-upstream-plugin-install",
+   "headline": "No upstream hooks.json or settings.json is wired, and no upstream is plugin-installed into a station",
+   "owner": "governance/rules.d/upstream.json",
+   "pointers": [],
+   "enforcement": {
+    "kind": "not-hookable",
+    "ref": "",
+    "by": "",
+    "why": "installing a plugin is an act outside the repo (user settings / plugin cache); no PreToolUse payload carries it reliably; vendor_leak keeps the files renamed so nothing auto-wires"
+   },
+   "earned_by": "JUDGE_2 G2: evo's PreToolUse '.*' hook pipes the full hook stdin to an external binary",
+   "rung": "soft",
+   "since": "DEC-core-0001",
+   "upstream": "NEVER",
+   "programme": "upstream"
+  }
+ ]
+}

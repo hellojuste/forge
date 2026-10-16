@@ -1,0 +1,35 @@
+{
+ "_why": "brain programme router row (PROGRAMME_BRAIN 6.3): retrieval before building or re-testing. The per-prompt surface is appended by the router in-process (brain.surface).",
+ "intents": [
+  {
+   "contributed_by": "brain",
+   "description": "what did we already learn, decide or refute about this?",
+   "name": "recall",
+   "router": {
+    "file_types": [],
+    "first_move": {
+     "inline_gather": "python3 tools/brain.py near <words>"
+    },
+    "keywords": [
+     "recall",
+     "remember",
+     "falsified",
+     "refuted",
+     "lesson learned",
+     "negative result"
+    ],
+    "path_patterns": [
+     "brain/"
+    ],
+    "patterns": [],
+    "phrases": [
+     "what did we learn",
+     "did we decide",
+     "have we seen this",
+     "did that fail before",
+     "what do we know about"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1371 @@
+{
+ "_generated_by": "tools/map/usage_map.py",
+ "_note": "declared triggers only; observed use lives in .usage/log.jsonl (--observed)",
+ "entries": {
+  ".claude/hooks/_cmdscan.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/_cmdscan.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/hooks/deny_destructive.py:25",
+     "ref": ".claude/hooks/deny_destructive.py",
+     "source": "import"
+    },
+    {
+     "evidence": ".claude/hooks/deny_noted_defect.py:25",
+     "ref": ".claude/hooks/deny_noted_defect.py",
+     "source": "import"
+    },
+    {
+     "evidence": ".claude/hooks/stop.py:27",
+     "ref": ".claude/hooks/stop.py",
+     "source": "import"
+    }
+   ]
+  },
+  ".claude/hooks/_release.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/_release.py",
+   "kind": "hook",
+   "triggers": []
+  },
+  ".claude/hooks/_report.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/_report.py",
+   "kind": "hook",
+   "triggers": []
+  },
+  ".claude/hooks/act_gate.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/act_gate.py",
+   "kind": "hook",
+   "triggers": []
+  },
+  ".claude/hooks/connector_scope.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/connector_scope.py",
+   "kind": "hook",
+   "triggers": []
+  },
+  ".claude/hooks/context_threshold.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/context_threshold.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:101",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  ".claude/hooks/deny_destructive.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/deny_destructive.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:55",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  ".claude/hooks/deny_noted_defect.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/deny_noted_defect.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:59",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  ".claude/hooks/deny_upstream_write.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/deny_upstream_write.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:68",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  ".claude/hooks/intent_router.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/intent_router.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:44",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  ".claude/hooks/quarantine_gate.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/quarantine_gate.py",
+   "kind": "hook",
+   "triggers": []
+  },
+  ".claude/hooks/station_dispatch.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/station_dispatch.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:90",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  ".claude/hooks/stop.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 .claude/hooks/stop.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:129",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  ".claude/skills/checkpoint/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/checkpoint",
+   "kind": "skill",
+   "triggers": []
+  },
+  ".claude/skills/closeout/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/closeout",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.json:22",
+     "ref": "router/intents.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/skills/handoff/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/handoff",
+   "kind": "skill",
+   "triggers": []
+  },
+  ".claude/skills/summon/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/summon",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.json:29",
+     "ref": "router/intents.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.json:9",
+     "ref": "router/intents.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/skills/tier/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/tier",
+   "kind": "skill",
+   "triggers": []
+  },
+  ".claude/skills/upstream-intake/SKILL.md": {
+   "cold": null,
+   "hand": [],
+   "home": "/upstream-intake",
+   "kind": "skill",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/upstream.json:35",
+     "ref": "router/intents.d/upstream.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/workflows/_template.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow _template",
+   "kind": "workflow",
+   "triggers": []
+  },
+  ".claude/workflows/orient.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow orient",
+   "kind": "workflow",
+   "triggers": []
+  },
+  "tools/brain.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/brain.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/brain.json:25",
+     "ref": "governance/checks.d/brain.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/brain.json:34",
+     "ref": "governance/checks.d/brain.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/brain.json:49",
+     "ref": "governance/checks.d/brain.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/brain.json:8",
+     "ref": "governance/checks.d/brain.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:481",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:483",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:8",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/settings.json:110",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    },
+    {
+     "evidence": ".claude/settings.json:24",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    },
+    {
+     "evidence": ".claude/settings.json:34",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    },
+    {
+     "evidence": "router/intents.d/brain.json:11",
+     "ref": "router/intents.d/brain.json",
+     "source": "router"
+    }
+   ]
+  },
+  "tools/gov/_gov.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/gov/_gov.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "tools/gov/gen_manifest.py:21",
+     "ref": "tools/gov/gen_manifest.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/gov/gen_ownership.py:19",
+     "ref": "tools/gov/gen_ownership.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/gov/gov_check.py:28",
+     "ref": "tools/gov/gov_check.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/gov/new_row.py:24",
+     "ref": "tools/gov/new_row.py",
+     "source": "import"
+    }
+   ]
+  },
+  "tools/gov/gen_manifest.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/gov/gen_manifest.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/closeout/SKILL.md:19",
+     "ref": ".claude/skills/closeout/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/gov/gen_ownership.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/gov/gen_ownership.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "tools/map/map_check.py:8",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/gov/gov_check.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/gov/gov_check.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.json:103",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:113",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:127",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:137",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:150",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:160",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:174",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:184",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:198",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:208",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:222",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:232",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:246",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:256",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:26",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:272",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:282",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:299",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:309",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:325",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:335",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:350",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:36",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:360",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:375",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:385",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:400",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:410",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:426",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:436",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:449",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:459",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:472",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:51",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:61",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:8",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:80",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:90",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/settings.json:22",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  "tools/gov/new_row.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/gov/new_row.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/closeout/SKILL.md:30",
+     "ref": ".claude/skills/closeout/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/kit/_kit.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/_kit.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "tools/kit/bootstrap.py:29",
+     "ref": "tools/kit/bootstrap.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/kit/skills_index.py:61",
+     "ref": "tools/kit/skills_index.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/kit/sync.py:34",
+     "ref": "tools/kit/sync.py",
+     "source": "import"
+    }
+   ]
+  },
+  "tools/kit/assemble.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/assemble.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/bootstrap.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/bootstrap.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/upstream-intake/SKILL.md:11",
+     "ref": ".claude/skills/upstream-intake/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/kit/doctor.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/doctor.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/kit_check.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/kit_check.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/make_zip.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/make_zip.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/repin.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/repin.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/runtree.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/runtree.py",
+   "kind": "tool",
+   "triggers": []
+  },
+  "tools/kit/skills_index.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/skills_index.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:213",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/kit/sync.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/sync.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "tools/map/map_check.py:9",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/map/_common.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/_common.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "tools/map/check_paths.py:27",
+     "ref": "tools/map/check_paths.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/find.py:19",
+     "ref": "tools/map/find.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/gen_atlas.py:22",
+     "ref": "tools/map/gen_atlas.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/gen_dir_readmes.py:21",
+     "ref": "tools/map/gen_dir_readmes.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/gen_solutions.py:17",
+     "ref": "tools/map/gen_solutions.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/gen_station_map.py:18",
+     "ref": "tools/map/gen_station_map.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/map_check.py:21",
+     "ref": "tools/map/map_check.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/upstream_check.py:32",
+     "ref": "tools/map/upstream_check.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/map/usage_map.py:24",
+     "ref": "tools/map/usage_map.py",
+     "source": "import"
+    }
+   ]
+  },
+  "tools/map/check_paths.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/check_paths.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:27",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:8",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:31",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/map/find.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/find.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:23",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    },
+    {
+     "evidence": "router/intents.d/map.json:11",
+     "ref": "router/intents.d/map.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.json:10",
+     "ref": "router/intents.json",
+     "source": "router"
+    }
+   ]
+  },
+  "tools/map/gen_atlas.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/gen_atlas.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:144",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:163",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:195",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:210",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:28",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:33",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:35",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/map.json:38",
+     "ref": "router/intents.d/map.json",
+     "source": "router"
+    }
+   ]
+  },
+  "tools/map/gen_dir_readmes.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/gen_dir_readmes.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:172",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:186",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:36",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:51",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:25",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:32",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:34",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/map/gen_solutions.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/gen_solutions.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:106",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:89",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:26",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:32",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/map/gen_station_map.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/gen_station_map.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:242",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:255",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:35",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/map/hooks/deny_generated_edit.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/hooks/deny_generated_edit.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:72",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  "tools/map/hooks/prior_art.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/hooks/prior_art.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:81",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  "tools/map/hooks/usage_log.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/hooks/usage_log.py",
+   "kind": "hook",
+   "triggers": [
+    {
+     "evidence": ".claude/settings.json:119",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    }
+   ]
+  },
+  "tools/map/map_check.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/map_check.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/map.json:63",
+     "ref": "router/intents.d/map.json",
+     "source": "router"
+    }
+   ]
+  },
+  "tools/map/upstream_check.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/upstream_check.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:60",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:80",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:31",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/map/usage_map.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/map/usage_map.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/map.json:115",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:135",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:219",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/map.json:233",
+     "ref": "governance/checks.d/map.json",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:108",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:113",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:27",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:33",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    },
+    {
+     "evidence": "tools/map/map_check.py:34",
+     "ref": "tools/map/map_check.py",
+     "source": "check"
+    }
+   ]
+  },
+  "tools/station_audit.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/station_audit.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:2",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:2",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/settings.json:21",
+     "ref": ".claude/settings.json",
+     "source": "hook"
+    },
+    {
+     "evidence": "router/intents.json:16",
+     "ref": "router/intents.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.json:23",
+     "ref": "router/intents.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.json:30",
+     "ref": "router/intents.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/checkpoint/SKILL.md:12",
+     "ref": ".claude/skills/checkpoint/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/closeout/SKILL.md:10",
+     "ref": ".claude/skills/closeout/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/closeout/SKILL.md:39",
+     "ref": ".claude/skills/closeout/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/handoff/SKILL.md:11",
+     "ref": ".claude/skills/handoff/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/handoff/SKILL.md:19",
+     "ref": ".claude/skills/handoff/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/upstream-intake/SKILL.md:60",
+     "ref": ".claude/skills/upstream-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/workflows/_template.js:22",
+     "ref": ".claude/workflows/_template.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/_template.js:24",
+     "ref": ".claude/workflows/_template.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/orient.js:17",
+     "ref": ".claude/workflows/orient.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/orient.js:19",
+     "ref": ".claude/workflows/orient.js",
+     "source": "workflow"
+    }
+   ]
+  },
+  "tools/upstream/_uplib.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/_uplib.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "tools/upstream/ingest.py:42",
+     "ref": "tools/upstream/ingest.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/upstream/notice.py:22",
+     "ref": "tools/upstream/notice.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/upstream/skill_routes.py:52",
+     "ref": "tools/upstream/skill_routes.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/upstream/upstream_checks.py:48",
+     "ref": "tools/upstream/upstream_checks.py",
+     "source": "import"
+    },
+    {
+     "evidence": "tools/upstream/workflows_check.py:43",
+     "ref": "tools/upstream/workflows_check.py",
+     "source": "import"
+    }
+   ]
+  },
+  "tools/upstream/ingest.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/ingest.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": ".claude/skills/upstream-intake/SKILL.md:38",
+     "ref": ".claude/skills/upstream-intake/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/upstream/notice.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/notice.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:176",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:186",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/skills/closeout/SKILL.md:18",
+     "ref": ".claude/skills/closeout/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/upstream-intake/SKILL.md:57",
+     "ref": ".claude/skills/upstream-intake/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/upstream/skill_routes.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/skill_routes.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:202",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:210",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": ".claude/skills/closeout/SKILL.md:18",
+     "ref": ".claude/skills/closeout/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/upstream-intake/SKILL.md:58",
+     "ref": ".claude/skills/upstream-intake/SKILL.md",
+     "source": "skill"
+    },
+    {
+     "evidence": ".claude/skills/upstream-intake/SKILL.md:59",
+     "ref": ".claude/skills/upstream-intake/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/upstream/upstream_checks.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/upstream_checks.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:101",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:120",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:128",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:150",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:158",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:16",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:305",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:313",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:328",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:336",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:37",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:45",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:65",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:73",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:8",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:93",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/upstream.json:37",
+     "ref": "router/intents.d/upstream.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/skills/upstream-intake/SKILL.md:56",
+     "ref": ".claude/skills/upstream-intake/SKILL.md",
+     "source": "skill"
+    }
+   ]
+  },
+  "tools/upstream/workflows_check.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/upstream/workflows_check.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/upstream.json:229",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:239",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:254",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:264",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:278",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/upstream.json:288",
+     "ref": "governance/checks.d/upstream.json",
+     "source": "check"
+    }
+   ]
+  }
+ }
+}

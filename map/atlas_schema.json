@@ -1,0 +1,116 @@
+{
+ "_schema": "station-atlas/1",
+ "_why": "owner of node classes and edge kinds; a pending kind is never emitted",
+ "edge_kinds": {
+  "depends": {
+   "rule": "declared so a later slice can add it without a schema edit; never emitted while pending",
+   "status": "pending"
+  },
+  "imports": {
+   "from": [
+    "tool"
+   ],
+   "rule": "module-level import, in-repo, one hop (map L)",
+   "status": "derived",
+   "to": [
+    "tool"
+   ]
+  },
+  "in": {
+   "from": [
+    "skill",
+    "workflow",
+    "tool"
+   ],
+   "rule": "longest registered dir prefix of the node's path",
+   "status": "derived",
+   "to": [
+    "dir"
+   ]
+  },
+  "ports-from": {
+   "from": [
+    "tool",
+    "skill",
+    "workflow"
+   ],
+   "rule": "literal <lane>/<owner~repo>/ path in source, or catalog kin upstream:<name>",
+   "status": "derived",
+   "to": [
+    "upstream"
+   ]
+  },
+  "routes": {
+   "from": [
+    "intent"
+   ],
+   "rule": "router row first_move names it (map L)",
+   "status": "derived",
+   "to": [
+    "workflow",
+    "skill",
+    "tool"
+   ]
+  },
+  "runs": {
+   "from": [
+    "workflow",
+    "skill",
+    "tool"
+   ],
+   "rule": "literal path in code (comments stripped) or a skill line",
+   "status": "derived",
+   "to": [
+    "tool"
+   ]
+  },
+  "wires": {
+   "from": [
+    "hook"
+   ],
+   "rule": "settings.json command names the path",
+   "status": "derived",
+   "to": [
+    "tool"
+   ]
+  }
+ },
+ "node_classes": {
+  "dir": {
+   "count_rule": "one per dirs entry",
+   "id": "dir:<path>",
+   "owner": "map/dirs.json"
+  },
+  "hook": {
+   "count_rule": "one per hook command",
+   "id": "hook:<event>:<matcher>:<n>",
+   "owner": ".claude/settings.json"
+  },
+  "intent": {
+   "count_rule": "one per router row",
+   "id": "intent:<name>",
+   "optional": true,
+   "owner": "router/intents.json + router/intents.d/*.json"
+  },
+  "skill": {
+   "count_rule": "one per SKILL.md",
+   "id": "skill:<name>",
+   "owner": ".claude/skills/*/SKILL.md"
+  },
+  "tool": {
+   "count_rule": "one per tracked script outside held lanes",
+   "id": "tool:<path>",
+   "owner": "tools/**/*.py, tools/**/*.sh, .claude/hooks/**/*.py"
+  },
+  "upstream": {
+   "count_rule": "one per name",
+   "id": "upstream:<owner~repo>",
+   "owner": "map/upstream.json + map/station_upstream.json + upstream/LOCK.json"
+  },
+  "workflow": {
+   "count_rule": "one per file",
+   "id": "workflow:<stem>",
+   "owner": ".claude/workflows/*"
+  }
+ }
+}

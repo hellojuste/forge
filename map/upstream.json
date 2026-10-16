@@ -1,0 +1,5 @@
+{
+ "_schema": "station-upstream/1",
+ "_why": "commons is empty of trees (KIT contract commons-mapbrain 1.2): a station's held trees come from upstream/LOCK.json and their usage rows (what/when/entry/solves/instructions/note, optional pinned.tree) live in map/station_upstream.json, keyed owner~repo. tools/map/upstream_check.py fails a LOCK row with no usage row.",
+ "upstreams": {}
+}

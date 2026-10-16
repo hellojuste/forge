@@ -1,0 +1,3 @@
+# append-only brain logs: concurrent branches both append; union keeps every line (KIT_PLAN 3.3)
+brain/considered.jsonl merge=union
+brain/surface.jsonl merge=union
