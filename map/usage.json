@@ -156,7 +156,13 @@
    "hand": [],
    "home": "/checkpoint",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "router/intents.json:37",
+     "ref": "router/intents.json",
+     "source": "router"
+    }
+   ]
   },
   ".claude/skills/closeout/SKILL.md": {
    "cold": null,
@@ -165,7 +171,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:22",
+     "evidence": "router/intents.json:23",
      "ref": "router/intents.json",
      "source": "router"
     }
@@ -176,7 +182,13 @@
    "hand": [],
    "home": "/handoff",
    "kind": "skill",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "router/intents.json:30",
+     "ref": "router/intents.json",
+     "source": "router"
+    }
+   ]
   },
   ".claude/skills/summon/SKILL.md": {
    "cold": null,
@@ -185,7 +197,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": "router/intents.json:29",
+     "evidence": "router/intents.json:44",
      "ref": "router/intents.json",
      "source": "router"
     },
@@ -1058,17 +1070,22 @@
      "source": "hook"
     },
     {
-     "evidence": "router/intents.json:16",
+     "evidence": "router/intents.json:17",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:23",
+     "evidence": "router/intents.json:24",
      "ref": "router/intents.json",
      "source": "router"
     },
     {
-     "evidence": "router/intents.json:30",
+     "evidence": "router/intents.json:31",
+     "ref": "router/intents.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.json:45",
      "ref": "router/intents.json",
      "source": "router"
     },

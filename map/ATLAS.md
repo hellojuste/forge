@@ -3,7 +3,7 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 16 · hook 12 · intent 9 · skill 6 · tool 49 · total 94 · workflow 2
+census: dir 16 · hook 12 · intent 11 · skill 6 · tool 49 · total 96 · workflow 2
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
@@ -172,18 +172,21 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-62 nodes > cap 60: table instead of a hairball.
+64 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
 | `intent:build` | routes | `skill:summon` | router/intents.json:9 |
 | `intent:build` | routes | `tool:tools/map/find.py` | router/intents.json:10 |
-| `intent:closeout` | routes | `skill:closeout` | router/intents.json:17 |
-| `intent:closeout` | routes | `tool:tools/station_audit.py` | router/intents.json:16 |
+| `intent:checkpoint` | routes | `skill:checkpoint` | router/intents.json:32 |
+| `intent:closeout` | routes | `skill:closeout` | router/intents.json:18 |
+| `intent:closeout` | routes | `tool:tools/station_audit.py` | router/intents.json:17 |
 | `intent:delegate` | routes | `skill:summon` | router/intents.json:9 |
-| `intent:delegate` | routes | `tool:tools/station_audit.py` | router/intents.json:16 |
+| `intent:delegate` | routes | `tool:tools/station_audit.py` | router/intents.json:17 |
 | `intent:find` | routes | `tool:tools/map/find.py` | router/intents.d/map.json:11 |
-| `intent:governance-admin` | routes | `tool:tools/station_audit.py` | router/intents.json:16 |
+| `intent:governance-admin` | routes | `tool:tools/station_audit.py` | router/intents.json:17 |
+| `intent:handoff` | routes | `skill:handoff` | router/intents.json:25 |
+| `intent:handoff` | routes | `tool:tools/station_audit.py` | router/intents.json:17 |
 | `intent:ingest` | routes | `skill:upstream-intake` | router/intents.d/upstream.json:35 |
 | `intent:ingest` | routes | `tool:tools/upstream/upstream_checks.py` | router/intents.d/upstream.json:37 |
 | `intent:map-regen` | routes | `tool:tools/map/map_check.py` | router/intents.d/map.json:63 |
@@ -205,8 +208,9 @@ flowchart LR
 | `tool:.claude/hooks/deny_noted_defect.py` | runs | `tool:tools/gov/new_row.py` | .claude/hooks/deny_noted_defect.py:115 |
 | `tool:.claude/hooks/deny_upstream_write.py` | runs | `tool:tools/upstream/ingest.py` | .claude/hooks/deny_upstream_write.py:176 |
 | `tool:.claude/hooks/deny_upstream_write.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/deny_upstream_write.py:284 |
-| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/brain.py` | .claude/hooks/intent_router.py:27 |
-| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/intent_router.py:493 |
+| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/brain.py` | .claude/hooks/intent_router.py:36 |
+| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/map/find.py` | .claude/hooks/intent_router.py:195 |
+| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/intent_router.py:585 |
 | `tool:.claude/hooks/quarantine_gate.py` | runs | `tool:tools/station_audit.py` | .claude/hooks/quarantine_gate.py:211 |
 | `tool:.claude/hooks/stop.py` | runs | `tool:tools/brain.py` | .claude/hooks/stop.py:13 |
 | `tool:tools/brain.py` | runs | `tool:tools/map/gen_station_map.py` | tools/brain.py:441 |
