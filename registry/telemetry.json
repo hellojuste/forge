@@ -179,7 +179,8 @@
    "station": "commons",
    "tool": "design_catalog roll client",
    "verified": true,
-   "evidence_line": "93-129"
+   "evidence_line": "93-129",
+   "verified_by_run": "2026-10-16 reconcile-01: python3 tools/design/design_catalog.py --selftest -> selftest OK (8 cases: roll hand tagged impeccable · opted-out request, no project data · timeout + offline -> local with notice · no choice ping · local-only no network · seeded · contrast plant); the kit's own client, so its offline status is this stubbed run"
   }
  ]
 }
