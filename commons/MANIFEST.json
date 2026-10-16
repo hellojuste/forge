@@ -212,7 +212,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "af1a82754ad1c33c38b29549572c391840531f3722168f8b0bd873b550d5301f"
+   "sha256": "0c0263eb5fb6a72b931fd8c5c25e6032e5b31050046bc17a9d468448f3a927b7"
   },
   "map/README.md": {
    "generated": true,
@@ -228,7 +228,7 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "1f524dcdb5c6ba92b952b06177b37cf44b65bdf24a8688abd98aaf4f8af2b5d1"
+   "sha256": "ec5551b7d3abc348f247214abd99b9eec944d635c795f72559b0bd61fb1f0d67"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
@@ -247,7 +247,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "007de5a0ae0cb4fdeb58fe4b5851284092ed75555e52c4cb983d1c7dbafca869"
+   "sha256": "7c6400263d7236efbbd22e73a38351cee785106069828fa3736b9784aa77c098"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
