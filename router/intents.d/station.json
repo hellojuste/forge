@@ -1,5 +1,5 @@
 {
- "_why": "forge station intents (contract station-forge section 5; contributed_by station, tie class station:* so they win over the commons ingest intent on this branch). Keywords are the contract's frozen lists, never widened to fit a prompt. Selftest prompts: router/intents.d/station.selftest.json, written after the keywords were frozen. First moves name the seven station workflows (built by equip-forge, 2026-10-16; tool-trial/upstream-intake workflows are named trial-run/intake-run because a workflow may not share a skill's name, DEC-forge-0002), each with an inline_gather. Equip added five skill intents (telemetry, noise, ci-audit, skill-build, maintain) for the gap skills, keywords frozen before their selftest prompts.",
+ "_why": "forge station intents (contract station-forge section 5; contributed_by station, tie class station:* so they win over the commons ingest intent on this branch). Keywords are the contract's frozen lists, never widened to fit a prompt. Selftest prompts: router/intents.d/station.selftest.json, written after the keywords were frozen. First moves name the seven station workflows (built by equip-forge, 2026-10-16; tool-trial/upstream-intake workflows are named trial-run/intake-run because a workflow may not share a skill's name, DEC-forge-0002), each with an inline_gather. Equip added five skill intents (telemetry, noise, ci-audit, skill-build, maintain) for the gap skills, keywords frozen before their selftest prompts. Forge-setup (2026-10-16) added the setup intent: its keywords are tool-qualified (\"set up evo\", \"install rea\", ...) so the bare words set up / install keep routing elsewhere (\"set up autoresearch\" stays optimize); frozen in this file before router/intents.d/station.selftest.json got its setup prompts.",
  "intents": [
   {
    "name": "trial",
@@ -260,6 +260,57 @@
      "skill": "kit-maintain",
      "inline_gather": "python3 tools/kit/repin.py --check"
     }
+   }
+  },
+  {
+   "name": "setup",
+   "description": "one-step setup (or --remove) of rea, evo, openwiki or ProjectAtlas: prerequisites, pin, run tree, install at the pin, telemetry off, keys, smoke",
+   "contributed_by": "station",
+   "router": {
+    "keywords": [
+     "set up rea",
+     "set up evo",
+     "set up openwiki",
+     "set up projectatlas",
+     "setup rea",
+     "setup evo",
+     "setup openwiki",
+     "setup projectatlas",
+     "install rea",
+     "install evo",
+     "install openwiki",
+     "install projectatlas",
+     "uninstall",
+     "setup_tool",
+     "one-step setup"
+    ],
+    "phrases": [],
+    "path_patterns": [
+     "tools/station/setup_tool.py"
+    ],
+    "file_types": [],
+    "patterns": [],
+    "first_move": {
+     "workflow": "setup",
+     "inline_gather": "python3 tools/station/setup_tool.py --list"
+    },
+    "claims": [
+     "set up rea",
+     "set up evo",
+     "set up openwiki",
+     "set up projectatlas",
+     "setup rea",
+     "setup evo",
+     "setup openwiki",
+     "setup projectatlas",
+     "install rea",
+     "install evo",
+     "install openwiki",
+     "install projectatlas",
+     "setup_tool",
+     "one-step setup",
+     "uninstall"
+    ]
    }
   }
  ]

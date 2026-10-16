@@ -264,6 +264,34 @@
    "see_also": [
     ".claude/skills/kit-maintain/SKILL.md"
    ]
+  },
+  "tools/station/setup_tool.py": {
+   "title": "setup_tool",
+   "purpose": "one command per forge tool (rea/evo/openwiki/projectatlas): prereqs, pin, run tree, install at the pin, telemetry off, keys, smoke; --check = start gate",
+   "solves": [
+    "tool-setup",
+    "telemetry-audit"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/kit/runtree.py",
+    "tools/station/telemetry_plan.py"
+   ]
+  },
+  ".claude/workflows/setup.js": {
+   "title": "setup",
+   "purpose": "runs setup_tool.py for one tool (or all) and verifies it with setup_tool.py --check",
+   "solves": [
+    "tool-setup"
+   ],
+   "status": "working",
+   "doc": null,
+   "kin": [],
+   "see_also": [
+    "tools/station/setup_tool.py"
+   ]
   }
  }
 }

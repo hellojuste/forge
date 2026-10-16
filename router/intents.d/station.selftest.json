@@ -197,6 +197,30 @@
   {
    "prompt": "Trial the evo optimizer on our prompts and measure token cost with a denominator",
    "expect": "trial"
+  },
+  {
+   "prompt": "set up rea",
+   "expect": "setup"
+  },
+  {
+   "prompt": "install evo please",
+   "expect": "setup"
+  },
+  {
+   "prompt": "set up openwiki for the docs repo",
+   "expect": "setup"
+  },
+  {
+   "prompt": "setup projectatlas on my laptop",
+   "expect": "setup"
+  },
+  {
+   "prompt": "uninstall openwiki",
+   "expect": "setup"
+  },
+  {
+   "prompt": "never install projectatlas here",
+   "must_route": false
   }
  ]
 }

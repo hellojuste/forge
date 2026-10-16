@@ -3,7 +3,7 @@ export const meta = {
   description: 'evo autoresearch with a holdout frozen first: telemetry gate, discover, freeze holdout + noise floor, optimize in a run-tree, re-measure the winner on the holdout, report',
   whenToUse: 'let evo improve a score on a non-client repo; args {slug, repo (path), metric, budget_iterations?: 3, dry?}',
   phases: [
-    { title: 'Gather', detail: 'audit state, the evo telemetry start gate, the evo-guard + noise-floor skills, existing optimise reports' },
+    { title: 'Gather', detail: 'audit state, the evo telemetry start gate, evo readiness (setup_tool.py --check evo), the evo-guard + noise-floor skills' },
     { title: 'Discover', detail: 'evo discover in a run-tree: benchmark + baseline commit, no plugin hooks installed' },
     { title: 'Freeze', detail: 'holdout split hashed and timestamped BEFORE the first optimise run; K >= 5 baseline repeats' },
     { title: 'Optimize', detail: 'evo optimize for the given iterations on the in-sample split only' },
@@ -14,7 +14,8 @@ export const meta = {
 
 // Station forge · method: .claude/skills/evo-guard/SKILL.md (holdout) + .claude/skills/noise-floor/SKILL.md (spread);
 // evo's own skills (.claude/skills/discover, optimize, report) are upstream text read as data.
-// Refusals: evo telemetry row not verified by a run (gate exit != 0) -> stop before Discover; a client repo; any
+// Refusals: evo telemetry row not verified by a run (gate exit != 0) or evo not set up (setup_tool.py --check evo != 0,
+// the refusal names the one command `python3 tools/station/setup_tool.py evo`) -> stop before Discover; a client repo; any
 // `evo ship` (act_gate asks; landing the winner is the operator's call); `evo telemetry off` (it sends an event).
 const WORKFLOW = 'optimize-loop'
 const CERTAIN_TEST = 'python3 tools/station/forge_check.py output optimize {path}'
@@ -28,6 +29,7 @@ const GATHER = [
   'python3 tools/station_audit.py --state',
   'python3 tools/station/telemetry_plan.py gate evo',
   'python3 tools/station/telemetry_plan.py show evo',
+  'python3 tools/station/setup_tool.py --check evo',
   'python3 tools/station/forge_check.py check',
   'sed -n "1,120p" .claude/skills/evo-guard/SKILL.md',
   'sed -n "1,80p" .claude/skills/noise-floor/SKILL.md',
@@ -61,10 +63,15 @@ if (!gate || gate.exit !== 0) {
   log(WORKFLOW + ': refused -- evo telemetry row is not verified by a run; see `telemetry_plan.py show evo`')
   return { workflow: WORKFLOW, refused: true, reason: 'telemetry gate', gate: gate || null, exit: gate ? gate.exit : null }
 }
+const ready = ((out.gather && out.gather.rows) || []).filter(function (r) { return r.cmd.indexOf('setup_tool.py --check') >= 0 })[0]
+if (!ready || ready.exit !== 0) {
+  log(WORKFLOW + ': refused -- evo is not set up at its pin; one command: python3 tools/station/setup_tool.py evo')
+  return { workflow: WORKFLOW, refused: true, reason: 'evo not ready', setup: 'python3 tools/station/setup_tool.py evo', ready: ready || null, exit: ready ? ready.exit : null }
+}
 
 phase('Discover')
-out.discover = await agent(head('Discover') + 'Make a run-tree for evo (`python3 tools/kit/runtree.py evo-hq~evo --station forge`) and run evo discover against ' + A.repo +
-  ' with the opt-out env printed by the gathered `telemetry_plan.py show evo`. Target metric: ' + A.metric + '. Return {runtree, benchmark_cmd, baseline_commit, baseline_score, refused, reason}.',
+out.discover = await agent(head('Discover') + 'Run evo ONLY through the wrapper the gathered `setup_tool.py --check evo` row prints after `run:` (`bash <tree>/.kit-tool/kit-bin/evo ...`: evo at the pin, ' +
+  'EVO_TELEMETRY=0 + DO_NOT_TRACK=1 + EVO_HOME inside the run tree, set by tools/station/setup_tool.py), and run evo discover against ' + A.repo + ' (runtree = the dir above .kit-tool). Target metric: ' + A.metric + '. Return {runtree, benchmark_cmd, baseline_commit, baseline_score, refused, reason}.',
   opts('Discover', 'medium', 'medium', { type: 'object', properties: { runtree: { type: 'string' }, benchmark_cmd: { type: 'string' }, baseline_commit: { type: 'string' }, baseline_score: { type: 'number' }, refused: { type: 'boolean' }, reason: { type: 'string' } }, required: ['benchmark_cmd', 'baseline_commit', 'refused'] }))
 if (!out.discover || out.discover.refused) { return { workflow: WORKFLOW, refused: true, discover: out.discover } }
 

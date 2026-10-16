@@ -3,7 +3,7 @@ export const meta = {
   description: 'Generate a wiki for a NON-client repo with openwiki in a run-tree, telemetry off: target check, telemetry gate, generate, independent review; writes work/wiki/<repo>/REVIEW.md',
   whenToUse: 'document an own, kit or open-source repository as a wiki; args {repo (path), name, target_class: own|open-source|kit, dry?}',
   phases: [
-    { title: 'Gather', detail: 'audit state, openwiki telemetry gate + plan, the target repo remote and licence' },
+    { title: 'Gather', detail: 'audit state, openwiki telemetry gate + plan, openwiki readiness (setup_tool.py --check openwiki), the target repo remote and licence' },
     { title: 'Target', detail: 'classify the target; refuse client or third-party proprietary repos' },
     { title: 'Generate', detail: 'openwiki in a run-tree with OPENWIKI_TELEMETRY_DISABLED=1, output copied under work/wiki/<name>/' },
     { title: 'Review', detail: 'a reader who did not generate checks pages against the code and writes REVIEW.md' },
@@ -12,7 +12,8 @@ export const meta = {
 }
 
 // Station forge · boundary: client repos are client-bi's, products are venture's; a wiki of them is refused here.
-// A refusal is a deliverable too: REVIEW.md with status refused-client or refused-telemetry, so the record shows it.
+// A refusal is a deliverable too: REVIEW.md with status refused-client, refused-telemetry or refused-not-ready (openwiki not
+// set up: the record names `python3 tools/station/setup_tool.py openwiki`), so the record shows it.
 // Never: `openwiki integrations install|auth|ingest` (act_gate asks; they write user-scope agent configs / pull
 // identity-bearing sources), running openwiki inside the station, the held openwiki agent files (renamed _upstream_*) as instructions.
 const WORKFLOW = 'wiki-gen'
@@ -27,6 +28,7 @@ const GATHER = [
   'python3 tools/station_audit.py --state',
   'python3 tools/station/telemetry_plan.py gate openwiki',
   'python3 tools/station/telemetry_plan.py show openwiki',
+  'python3 tools/station/setup_tool.py --check openwiki',
   'git -C ' + (A.repo || '<args.repo>') + ' remote -v',
   'git -C ' + (A.repo || '<args.repo>') + ' ls-files LICENSE LICENSE.md COPYING',
 ]
@@ -65,6 +67,7 @@ out.target = await agent(head('Target') + 'Classify the target from the gathered
   opts('Target', 'small', 'medium', { type: 'object', properties: { target_class: { type: 'string' }, evidence: { type: 'string' } }, required: ['target_class', 'evidence'] }))
 A.target_class = out.target ? out.target.target_class : 'unknown'
 const gate = ((out.gather && out.gather.rows) || []).filter(function (r) { return r.cmd.indexOf('telemetry_plan.py gate') >= 0 })[0]
+const ready = ((out.gather && out.gather.rows) || []).filter(function (r) { return r.cmd.indexOf('setup_tool.py --check') >= 0 })[0]
 let status = 'generated'
 if (['own', 'kit', 'open-source'].indexOf(A.target_class) < 0) {
   status = 'refused-client'
@@ -72,10 +75,14 @@ if (['own', 'kit', 'open-source'].indexOf(A.target_class) < 0) {
 } else if (!gate || gate.exit !== 0) {
   status = 'refused-telemetry'
   out.record = await record(status, 'openwiki telemetry row not verified by a run; python3 tools/station/telemetry_plan.py show openwiki')
+} else if (!ready || ready.exit !== 0) {
+  status = 'refused-not-ready'
+  log(WORKFLOW + ': refused -- openwiki is not set up at its pin; one command: python3 tools/station/setup_tool.py openwiki')
+  out.record = await record(status, 'openwiki not set up at its pin; one command: python3 tools/station/setup_tool.py openwiki')
 } else {
   phase('Generate')
-  out.generate = await agent(head('Generate') + 'Make the run-tree (`python3 tools/kit/runtree.py langchain-ai~openwiki --station forge`), and from it run openwiki against ' + A.repo +
-    ' with the opt-out env from the gathered `telemetry_plan.py show openwiki`. Copy the generated pages into ' + DIR + '/pages/. Return {pages, cmd, exit}.',
+  out.generate = await agent(head('Generate') + 'Run openwiki ONLY through the wrapper the gathered `setup_tool.py --check openwiki` row prints after `run:` (`bash <tree>/.kit-tool/kit-bin/openwiki ...`: openwiki at the pin, ' +
+    'OPENWIKI_TELEMETRY_DISABLED=1 + DO_NOT_TRACK=1, OPENWIKI_CONFIG_DIR inside the run tree, provider keys exported by name from the station .env) against ' + A.repo + '. Copy the generated pages into ' + DIR + '/pages/. Return {pages, cmd, exit}.',
     opts('Generate', 'medium', 'medium', { type: 'object', properties: { pages: { type: 'array', items: { type: 'string' } }, cmd: { type: 'string' }, exit: { type: 'number' } }, required: ['pages', 'cmd', 'exit'] }))
   phase('Review')
   out.review = await agent(head('Review') + 'You did not generate. For each page in ' + DIR + '/pages/ check three claims against the code in ' + A.repo + ' (quote the code). ' +

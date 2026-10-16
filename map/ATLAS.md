@@ -3,13 +3,13 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 18 · hook 12 · skill 16 · tool 54 · total 115 · upstream 6 · workflow 9
+census: dir 18 · hook 12 · skill 16 · tool 55 · total 117 · upstream 6 · workflow 10
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
 ## Dirs and what is in them
 
-81 nodes > cap 60: table instead of a hairball.
+83 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -74,6 +74,7 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `tool:tools/map/upstream_check.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/map/usage_map.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station/forge_check.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/station/setup_tool.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station/telemetry_plan.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/station_audit.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/upstream/_uplib.py` | in | `dir:tools` | map/dirs.json:199 |
@@ -90,6 +91,7 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `workflow:optimize-loop` | in | `dir:.claude` | map/dirs.json:7 |
 | `workflow:orient` | in | `dir:.claude` | map/dirs.json:7 |
 | `workflow:reverse` | in | `dir:.claude` | map/dirs.json:7 |
+| `workflow:setup` | in | `dir:.claude` | map/dirs.json:7 |
 | `workflow:trial-run` | in | `dir:.claude` | map/dirs.json:7 |
 | `workflow:wiki-gen` | in | `dir:.claude` | map/dirs.json:7 |
 
@@ -136,7 +138,7 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-77 nodes > cap 60: table instead of a hairball.
+79 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -268,6 +270,8 @@ flowchart LR
 | `tool:tools/map/map_check.py` | runs | `tool:tools/map/usage_map.py` | tools/map/map_check.py:113 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/hooks/usage_log.py` | tools/map/usage_map.py:10 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/map_check.py` | tools/map/usage_map.py:83 |
+| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/setup_tool.py:552 |
+| `tool:tools/station/setup_tool.py` | runs | `tool:tools/kit/runtree.py` | tools/station/setup_tool.py:544 |
 | `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/bootstrap.py` | tools/station/telemetry_plan.py:74 |
 | `tool:tools/station/telemetry_plan.py` | runs | `tool:tools/kit/runtree.py` | tools/station/telemetry_plan.py:75 |
 | `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/station_audit.py:331 |
@@ -286,31 +290,37 @@ flowchart LR
 | `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/station_audit.py` | tools/upstream/workflows_check.py:320 |
 | `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/upstream/skill_surface.py` | tools/upstream/workflows_check.py:230 |
 | `workflow:_template` | runs | `tool:tools/station_audit.py` | .claude/workflows/_template.js:24 |
-| `workflow:arch-review` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/arch-review.js:17 |
-| `workflow:arch-review` | runs | `tool:tools/station_audit.py` | .claude/workflows/arch-review.js:25 |
-| `workflow:intake-run` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/intake-run.js:20 |
-| `workflow:intake-run` | runs | `tool:tools/station_audit.py` | .claude/workflows/intake-run.js:71 |
-| `workflow:intake-run` | runs | `tool:tools/upstream/ingest.py` | .claude/workflows/intake-run.js:69 |
-| `workflow:intake-run` | runs | `tool:tools/upstream/notice.py` | .claude/workflows/intake-run.js:71 |
-| `workflow:intake-run` | runs | `tool:tools/upstream/skill_routes.py` | .claude/workflows/intake-run.js:20 |
-| `workflow:intake-run` | runs | `tool:tools/upstream/skill_surface.py` | .claude/workflows/intake-run.js:20 |
+| `workflow:arch-review` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/arch-review.js:18 |
+| `workflow:arch-review` | runs | `tool:tools/station/setup_tool.py` | .claude/workflows/arch-review.js:65 |
+| `workflow:arch-review` | runs | `tool:tools/station_audit.py` | .claude/workflows/arch-review.js:26 |
+| `workflow:intake-run` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/intake-run.js:21 |
+| `workflow:intake-run` | runs | `tool:tools/station/setup_tool.py` | .claude/workflows/intake-run.js:66 |
+| `workflow:intake-run` | runs | `tool:tools/station_audit.py` | .claude/workflows/intake-run.js:85 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/ingest.py` | .claude/workflows/intake-run.js:83 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/notice.py` | .claude/workflows/intake-run.js:85 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/skill_routes.py` | .claude/workflows/intake-run.js:21 |
+| `workflow:intake-run` | runs | `tool:tools/upstream/skill_surface.py` | .claude/workflows/intake-run.js:21 |
 | `workflow:kit-repin` | runs | `tool:tools/kit/bootstrap.py` | .claude/workflows/kit-repin.js:56 |
 | `workflow:kit-repin` | runs | `tool:tools/kit/repin.py` | .claude/workflows/kit-repin.js:71 |
 | `workflow:kit-repin` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/kit-repin.js:17 |
 | `workflow:kit-repin` | runs | `tool:tools/station_audit.py` | .claude/workflows/kit-repin.js:25 |
-| `workflow:optimize-loop` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/optimize-loop.js:66 |
-| `workflow:optimize-loop` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/optimize-loop.js:31 |
-| `workflow:optimize-loop` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/optimize-loop.js:30 |
-| `workflow:optimize-loop` | runs | `tool:tools/station_audit.py` | .claude/workflows/optimize-loop.js:28 |
+| `workflow:optimize-loop` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/optimize-loop.js:37 |
+| `workflow:optimize-loop` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/optimize-loop.js:33 |
+| `workflow:optimize-loop` | runs | `tool:tools/station/setup_tool.py` | .claude/workflows/optimize-loop.js:74 |
+| `workflow:optimize-loop` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/optimize-loop.js:31 |
+| `workflow:optimize-loop` | runs | `tool:tools/station_audit.py` | .claude/workflows/optimize-loop.js:29 |
 | `workflow:orient` | runs | `tool:tools/station_audit.py` | .claude/workflows/orient.js:19 |
-| `workflow:reverse` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/reverse.js:68 |
-| `workflow:reverse` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/reverse.js:60 |
-| `workflow:reverse` | runs | `tool:tools/station_audit.py` | .claude/workflows/reverse.js:25 |
-| `workflow:trial-run` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/trial-run.js:84 |
-| `workflow:trial-run` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/trial-run.js:30 |
-| `workflow:trial-run` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/trial-run.js:31 |
-| `workflow:trial-run` | runs | `tool:tools/station_audit.py` | .claude/workflows/trial-run.js:29 |
-| `workflow:wiki-gen` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/wiki-gen.js:77 |
-| `workflow:wiki-gen` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/wiki-gen.js:19 |
-| `workflow:wiki-gen` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/wiki-gen.js:74 |
-| `workflow:wiki-gen` | runs | `tool:tools/station_audit.py` | .claude/workflows/wiki-gen.js:27 |
+| `workflow:reverse` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/reverse.js:68 |
+| `workflow:reverse` | runs | `tool:tools/station/setup_tool.py` | .claude/workflows/reverse.js:61 |
+| `workflow:reverse` | runs | `tool:tools/station_audit.py` | .claude/workflows/reverse.js:26 |
+| `workflow:setup` | runs | `tool:tools/station/setup_tool.py` | .claude/workflows/setup.js:29 |
+| `workflow:setup` | runs | `tool:tools/station_audit.py` | .claude/workflows/setup.js:27 |
+| `workflow:trial-run` | runs | `tool:tools/kit/runtree.py` | .claude/workflows/trial-run.js:99 |
+| `workflow:trial-run` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/trial-run.js:34 |
+| `workflow:trial-run` | runs | `tool:tools/station/setup_tool.py` | .claude/workflows/trial-run.js:73 |
+| `workflow:trial-run` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/trial-run.js:35 |
+| `workflow:trial-run` | runs | `tool:tools/station_audit.py` | .claude/workflows/trial-run.js:33 |
+| `workflow:wiki-gen` | runs | `tool:tools/station/forge_check.py` | .claude/workflows/wiki-gen.js:20 |
+| `workflow:wiki-gen` | runs | `tool:tools/station/setup_tool.py` | .claude/workflows/wiki-gen.js:81 |
+| `workflow:wiki-gen` | runs | `tool:tools/station/telemetry_plan.py` | .claude/workflows/wiki-gen.js:77 |
+| `workflow:wiki-gen` | runs | `tool:tools/station_audit.py` | .claude/workflows/wiki-gen.js:28 |

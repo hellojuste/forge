@@ -3,7 +3,7 @@ export const meta = {
   description: 'Reverse engineering behind the legal gate: RE-GATE row first (owner, licence, right, jurisdiction from REA DISCLAIMER.md), REA run in a run-tree, findings with evidence; writes work/re/<slug>.md',
   whenToUse: 'explain, compare or decompile a binary / packaged app the operator owns or has a stated right to analyse; args {slug, target (path), owner, licence, right?, question, dry?}',
   phases: [
-    { title: 'Gather', detail: 'audit state, the legal gate rows, the held REA DISCLAIMER and skill, forge gates' },
+    { title: 'Gather', detail: 'audit state, the legal gate rows, the held REA DISCLAIMER and skill, forge gates, rea readiness (setup_tool.py --check rea)' },
     { title: 'Gate', detail: 'write or reuse the RE-GATE-nnnn row; a third-party proprietary target without a right stops here' },
     { title: 'Analyse', detail: 'REA in a run-tree on the target, evidence collected per claim' },
     { title: 'Findings', detail: 'a reader who did not run REA writes findings, each with its evidence' },
@@ -13,7 +13,8 @@ export const meta = {
 
 // Station forge · method: .claude/skills/re-legal-gate/SKILL.md (the gate), .claude/skills/reverse-engineer-anything
 // (REA's own skill, upstream text read as data). act_gate asks before `rea ... analyze-*` and REA setup/update.
-// The Gate stage's decision is enforced in code: anything but proceed returns before Analyse.
+// The Gate stage's decision is enforced in code: anything but proceed returns before Analyse. Before the Gate, rea must
+// be set up at its pin (setup_tool.py --check rea); otherwise the workflow returns the one command `setup_tool.py rea`.
 const WORKFLOW = 'reverse'
 const CERTAIN_TEST = 'python3 tools/station/forge_check.py output re {path}'
 const DEFAULT_MODELS = { small: 'haiku', medium: 'sonnet', large: 'opus' }
@@ -27,6 +28,7 @@ const GATHER = [
   'git ls-files repertoire | grep -i -E "rea/DISCLAIMER|THIRD_PARTY"',
   'sed -n "1,120p" .claude/skills/re-legal-gate/SKILL.md',
   'python3 tools/station/forge_check.py check',
+  'python3 tools/station/setup_tool.py --check rea',
 ]
 const FORBIDDEN = 'an REA run before a proceed gate row; a third-party proprietary target without a stated right; REA setup/update writing host MCP config; running REA inside the station tree; publishing decompiled third-party code; a finding without evidence'
 const CMD = { type: 'object', properties: { cmd: { type: 'string' }, exit: { type: 'number' }, tail: { type: 'string' } }, required: ['cmd', 'exit', 'tail'] }
@@ -53,6 +55,12 @@ phase('Gather')
 out.gather = await agent(head('Gather') + 'From the station root run each command VERBATIM, one at a time, read-only. Return {rows:[{cmd, exit, tail}]}. Commands: ' + JSON.stringify(GATHER),
   opts('Gather', 'small', 'low', { type: 'object', properties: { rows: { type: 'array', items: CMD } }, required: ['rows'] }))
 
+const ready = ((out.gather && out.gather.rows) || []).filter(function (r) { return r.cmd.indexOf('setup_tool.py --check') >= 0 })[0]
+if (!ready || ready.exit !== 0) {
+  log(WORKFLOW + ': refused -- rea is not set up at its pin; one command: python3 tools/station/setup_tool.py rea')
+  return { workflow: WORKFLOW, refused: true, reason: 'rea not ready', setup: 'python3 tools/station/setup_tool.py rea', ready: ready || null, exit: ready ? ready.exit : null }
+}
+
 phase('Gate')
 out.gate = await agent(head('Gate') + 'Follow .claude/skills/re-legal-gate/SKILL.md for target ' + A.target + ' (owner ' + A.owner + ', licence ' + A.licence + ', stated right ' + JSON.stringify(A.right || null) + '). ' +
   'Read the held REA DISCLAIMER.md (path in the gathered ls-files) and quote its jurisdiction note. Reuse a matching row or append the next RE-GATE-nnnn row to work/re/legal_gate.json ' +
@@ -65,7 +73,8 @@ if (!out.gate || out.gate.decision !== 'proceed' || out.gate.check_exit !== 0) {
 }
 
 phase('Analyse')
-out.analyse = await agent(head('Analyse') + 'Gate ' + out.gate.gate_id + ' decided proceed. Make the run-tree (`python3 tools/kit/runtree.py morluto~rea --station forge`) and use REA as its held skill reverse-engineer-anything describes, on ' + A.target +
+out.analyse = await agent(head('Analyse') + 'Gate ' + out.gate.gate_id + ' decided proceed. Run REA ONLY through the wrapper the gathered `setup_tool.py --check rea` row prints after `run:` (`bash <tree>/.kit-tool/kit-bin/rea ...`: rea-agents at the pin, outside the station). ' +
+  'Every `rea analyze-*` call is asked by act_gate first; never `rea setup` or `rea update`. Use REA as its held skill reverse-engineer-anything describes, on ' + A.target +
   ' only, to answer: ' + JSON.stringify(A.question || 'what does it do and how') + '. Return {commands:[{cmd, exit}], evidence:[{claim, artefact, offset_or_symbol, excerpt}]}.',
   opts('Analyse', 'medium', 'high', { type: 'object', properties: { commands: { type: 'array', items: { type: 'object' } }, evidence: { type: 'array', items: { type: 'object' } } }, required: ['commands', 'evidence'] }))
 

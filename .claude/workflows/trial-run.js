@@ -3,7 +3,7 @@ export const meta = {
   description: 'Tool trial with a denominator: freeze N >= 5 tasks, run each without and with the tool, grade, read the authors failed runs, verdict promote/park as a TRIAL row',
   whenToUse: 'the operator wants to know whether a tool (ProjectAtlas first) makes agents cheaper or better; args {tool, tasks?: [...], n?: 5, dry?}',
   phases: [
-    { title: 'Gather', detail: 'audit state, the tool telemetry row, the held benchmarks incl. failed runs, existing TRIAL rows' },
+    { title: 'Gather', detail: 'audit state, the tool telemetry row, the held benchmarks incl. failed runs, existing TRIAL rows, setup_tool.py --check for evo (the experiment ledger) and the tool' },
     { title: 'Freeze', detail: 'write work/trials/<tool>/tasks.json (N >= 5) and its sha256 BEFORE any run' },
     { title: 'Noise', detail: 'K >= 5 baseline repeats of one frozen task: the run-to-run spread' },
     { title: 'Run', detail: 'one agent per task per arm: A without the tool, B with it; tokens and pass/fail each' },
@@ -17,6 +17,8 @@ export const meta = {
 // Named trial-run, not tool-trial: a workflow may not share a skill's name (workflows_check LL-02, DEC-forge-0002).
 // Refusals: N < 5; tasks edited after the freeze; a tool whose registry/telemetry.json row is verified:false is run
 // only inside a run-tree with its opt-out env set (the B arm stops otherwise); no upstream plugin/hook is installed.
+// evo is the experiment ledger (noise repeats + arms are evo experiments) and the trialled tool, when it is one of the
+// four setup tools, runs through its setup_tool.py wrapper: either not ready -> refused with the one setup command.
 const WORKFLOW = 'trial-run'
 const CERTAIN_TEST = 'python3 tools/station/forge_check.py output trial {path}'
 const DEFAULT_MODELS = { small: 'haiku', medium: 'sonnet', large: 'opus' }
@@ -25,6 +27,8 @@ const A = args || {}
 const TOOL = String(A.tool || '').replace(/[^A-Za-z0-9._-]/g, '')
 const N = Math.max(5, Number(A.n || 5))
 const REPORT = 'work/trials/' + TOOL + '.md'
+const SETUPABLE = ['rea', 'evo', 'openwiki', 'projectatlas']
+const NEED = ['evo'].concat(SETUPABLE.indexOf(TOOL) >= 0 && TOOL !== 'evo' ? [TOOL] : [])
 const GATHER = [
   'python3 tools/station_audit.py --state',
   'python3 tools/station/forge_check.py check',
@@ -32,7 +36,7 @@ const GATHER = [
   'git ls-files repertoire | grep -i -E "benchmark|failed" | head -40',
   'sed -n "/^## TRIALS/,$p" governance/STATION_LEDGER.md',
   'sed -n "1,200p" .claude/skills/tool-trial/SKILL.md',
-]
+].concat(NEED.map(function (t) { return 'python3 tools/station/setup_tool.py --check ' + t }))
 const FORBIDDEN = 'editing any lane (repertoire/, upstream/) outside _PATCHES/; installing a plugin or its hooks; starting a tool whose telemetry row is verified:false outside a run-tree with its opt-out env; editing tasks.json after its sha256 is written; inventing a number'
 const RUN = { type: 'object', properties: { task: { type: 'string' }, arm: { type: 'string' }, passed: { type: 'boolean' }, tokens: { type: 'number' }, notes: { type: 'string' } }, required: ['task', 'arm', 'passed', 'tokens'] }
 const CMD = { type: 'object', properties: { cmd: { type: 'string' }, exit: { type: 'number' }, tail: { type: 'string' } }, required: ['cmd', 'exit', 'tail'] }
@@ -60,6 +64,16 @@ phase('Gather')
 out.gather = await agent(head('Gather') + 'From the station root run each command VERBATIM, one at a time, read-only. Return {rows:[{cmd, exit, tail (last 40 lines)}]}. Commands: ' + JSON.stringify(GATHER),
   opts('Gather', 'small', 'low', { type: 'object', properties: { rows: { type: 'array', items: CMD } }, required: ['rows'] }))
 
+const notReady = NEED.filter(function (t) {
+  const r = ((out.gather && out.gather.rows) || []).filter(function (x) { return x.cmd === 'python3 tools/station/setup_tool.py --check ' + t })[0]
+  return !r || r.exit !== 0
+})
+if (notReady.length) {
+  log(WORKFLOW + ': refused -- not set up at the pin: ' + notReady.join(', ') + '; one command each: ' + notReady.map(function (t) { return 'python3 tools/station/setup_tool.py ' + t }).join(' ; '))
+  return { workflow: WORKFLOW, refused: true, reason: 'tool not ready', setup: notReady.map(function (t) { return 'python3 tools/station/setup_tool.py ' + t }), gather: out.gather }
+}
+const EVO = 'evo through the wrapper the gathered `setup_tool.py --check evo` row prints after `run:` (evo at the pin, telemetry off, EVO_HOME in its run tree; never `evo ship` or `evo telemetry on|off`)'
+
 phase('Freeze')
 out.freeze = await agent(head('Freeze') + 'Write work/trials/' + TOOL + '/tasks.json: exactly ' + N + ' tasks (operator-given first: ' + JSON.stringify(A.tasks || []) +
   '; fill the rest from real repos on this machine that are NOT client repos), each {id, prompt, rubric (pass condition a grader can check), repo}. ' +
@@ -72,6 +86,7 @@ if (!out.freeze || out.freeze.refused || out.freeze.n < 5 || !out.freeze.telemet
 
 phase('Noise')
 out.noise = await agent(head('Noise') + 'Run frozen task ' + out.freeze.task_ids[0] + ' WITHOUT the tool 5 times (fresh context each) and record tokens and pass/fail. ' +
+  'Record each repeat as an evo experiment with ' + EVO + ' in an evo workspace under the evo run tree (never in the station), so the spread is read back from evo output, not recollection. ' +
   'Return {k, scores:[tokens...], spread (max-min of tokens divided by the mean), seed_policy}. Follow .claude/skills/noise-floor/SKILL.md (the K repeats).',
   opts('Noise', 'medium', 'medium', { type: 'object', properties: { k: { type: 'number' }, scores: { type: 'array', items: { type: 'number' } }, spread: { type: 'number' }, seed_policy: { type: 'string' } }, required: ['k', 'scores', 'spread'] }))
 
@@ -81,7 +96,8 @@ out.freeze.task_ids.forEach(function (t) { arms.push({ task: t, arm: 'A-without'
 out.runs = (await parallel(arms.map(function (x) {
   return function () {
     return agent(head('Run') + 'Task ' + x.task + ' from work/trials/' + TOOL + '/tasks.json (read it; do not edit it). Arm ' + x.arm + ': ' +
-      (x.arm === 'B-with' ? 'use ' + TOOL + ' as its held skill/CLI describes, inside a tools/kit/runtree.py run-tree with the opt-out env the gathered telemetry plan prints.' : 'do NOT use ' + TOOL + ' or anything it installed.') +
+      (x.arm === 'B-with' ? 'use ' + TOOL + ' as its held skill/CLI describes' + (NEED.indexOf(TOOL) >= 0 ? ', ONLY through the wrapper the gathered `setup_tool.py --check ' + TOOL + '` row prints after `run:`' : ', inside a tools/kit/runtree.py run-tree with the opt-out env the gathered telemetry plan prints') + '.' : 'do NOT use ' + TOOL + ' or anything it installed.') +
+      ' Record the arm result as an evo experiment (task id + arm as its name) with ' + EVO + '.' +
       ' Do the task, then return {task, arm, passed (rubric met, your honest read), tokens (your total tokens for the task), notes}.',
       opts('Run', 'medium', 'medium', RUN))
   }

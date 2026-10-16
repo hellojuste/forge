@@ -4,10 +4,10 @@
   "dir": 18,
   "hook": 12,
   "skill": 16,
-  "tool": 54,
-  "total": 115,
+  "tool": 55,
+  "total": 117,
   "upstream": 6,
-  "workflow": 9
+  "workflow": 10
  },
  "edges": [
   {
@@ -1419,6 +1419,27 @@
   },
   {
    "evidence": "map/dirs.json:199",
+   "from": "tool:tools/station/setup_tool.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/station/setup_tool.py:552",
+   "from": "tool:tools/station/setup_tool.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/bootstrap.py",
+   "token": "tools/kit/bootstrap.py"
+  },
+  {
+   "evidence": "tools/station/setup_tool.py:544",
+   "from": "tool:tools/station/setup_tool.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/runtree.py",
+   "token": "tools/kit/runtree.py"
+  },
+  {
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/station/telemetry_plan.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1621,14 +1642,21 @@
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/workflows/arch-review.js:17",
+   "evidence": ".claude/workflows/arch-review.js:18",
    "from": "workflow:arch-review",
    "kind": "runs",
    "to": "tool:tools/station/forge_check.py",
    "token": "tools/station/forge_check.py"
   },
   {
-   "evidence": ".claude/workflows/arch-review.js:25",
+   "evidence": ".claude/workflows/arch-review.js:65",
+   "from": "workflow:arch-review",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
+  },
+  {
+   "evidence": ".claude/workflows/arch-review.js:26",
    "from": "workflow:arch-review",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -1642,42 +1670,49 @@
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/workflows/intake-run.js:20",
+   "evidence": ".claude/workflows/intake-run.js:21",
    "from": "workflow:intake-run",
    "kind": "runs",
    "to": "tool:tools/station/forge_check.py",
    "token": "tools/station/forge_check.py"
   },
   {
-   "evidence": ".claude/workflows/intake-run.js:71",
+   "evidence": ".claude/workflows/intake-run.js:66",
+   "from": "workflow:intake-run",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
+  },
+  {
+   "evidence": ".claude/workflows/intake-run.js:85",
    "from": "workflow:intake-run",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": ".claude/workflows/intake-run.js:69",
+   "evidence": ".claude/workflows/intake-run.js:83",
    "from": "workflow:intake-run",
    "kind": "runs",
    "to": "tool:tools/upstream/ingest.py",
    "token": "tools/upstream/ingest.py"
   },
   {
-   "evidence": ".claude/workflows/intake-run.js:71",
+   "evidence": ".claude/workflows/intake-run.js:85",
    "from": "workflow:intake-run",
    "kind": "runs",
    "to": "tool:tools/upstream/notice.py",
    "token": "tools/upstream/notice.py"
   },
   {
-   "evidence": ".claude/workflows/intake-run.js:20",
+   "evidence": ".claude/workflows/intake-run.js:21",
    "from": "workflow:intake-run",
    "kind": "runs",
    "to": "tool:tools/upstream/skill_routes.py",
    "token": "tools/upstream/skill_routes.py"
   },
   {
-   "evidence": ".claude/workflows/intake-run.js:20",
+   "evidence": ".claude/workflows/intake-run.js:21",
    "from": "workflow:intake-run",
    "kind": "runs",
    "to": "tool:tools/upstream/skill_surface.py",
@@ -1726,28 +1761,35 @@
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/workflows/optimize-loop.js:66",
+   "evidence": ".claude/workflows/optimize-loop.js:37",
    "from": "workflow:optimize-loop",
    "kind": "runs",
    "to": "tool:tools/kit/runtree.py",
    "token": "tools/kit/runtree.py"
   },
   {
-   "evidence": ".claude/workflows/optimize-loop.js:31",
+   "evidence": ".claude/workflows/optimize-loop.js:33",
    "from": "workflow:optimize-loop",
    "kind": "runs",
    "to": "tool:tools/station/forge_check.py",
    "token": "tools/station/forge_check.py"
   },
   {
-   "evidence": ".claude/workflows/optimize-loop.js:30",
+   "evidence": ".claude/workflows/optimize-loop.js:74",
+   "from": "workflow:optimize-loop",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
+  },
+  {
+   "evidence": ".claude/workflows/optimize-loop.js:31",
    "from": "workflow:optimize-loop",
    "kind": "runs",
    "to": "tool:tools/station/telemetry_plan.py",
    "token": "tools/station/telemetry_plan.py"
   },
   {
-   "evidence": ".claude/workflows/optimize-loop.js:28",
+   "evidence": ".claude/workflows/optimize-loop.js:29",
    "from": "workflow:optimize-loop",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -1778,19 +1820,40 @@
    "evidence": ".claude/workflows/reverse.js:68",
    "from": "workflow:reverse",
    "kind": "runs",
-   "to": "tool:tools/kit/runtree.py",
-   "token": "tools/kit/runtree.py"
-  },
-  {
-   "evidence": ".claude/workflows/reverse.js:60",
-   "from": "workflow:reverse",
-   "kind": "runs",
    "to": "tool:tools/station/forge_check.py",
    "token": "tools/station/forge_check.py"
   },
   {
-   "evidence": ".claude/workflows/reverse.js:25",
+   "evidence": ".claude/workflows/reverse.js:61",
    "from": "workflow:reverse",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
+  },
+  {
+   "evidence": ".claude/workflows/reverse.js:26",
+   "from": "workflow:reverse",
+   "kind": "runs",
+   "to": "tool:tools/station_audit.py",
+   "token": "tools/station_audit.py"
+  },
+  {
+   "evidence": "map/dirs.json:7",
+   "from": "workflow:setup",
+   "kind": "in",
+   "to": "dir:.claude",
+   "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/setup.js:29",
+   "from": "workflow:setup",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
+  },
+  {
+   "evidence": ".claude/workflows/setup.js:27",
+   "from": "workflow:setup",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
    "token": "tools/station_audit.py"
@@ -1803,28 +1866,35 @@
    "token": "\".claude\""
   },
   {
-   "evidence": ".claude/workflows/trial-run.js:84",
+   "evidence": ".claude/workflows/trial-run.js:99",
    "from": "workflow:trial-run",
    "kind": "runs",
    "to": "tool:tools/kit/runtree.py",
    "token": "tools/kit/runtree.py"
   },
   {
-   "evidence": ".claude/workflows/trial-run.js:30",
+   "evidence": ".claude/workflows/trial-run.js:34",
    "from": "workflow:trial-run",
    "kind": "runs",
    "to": "tool:tools/station/forge_check.py",
    "token": "tools/station/forge_check.py"
   },
   {
-   "evidence": ".claude/workflows/trial-run.js:31",
+   "evidence": ".claude/workflows/trial-run.js:73",
+   "from": "workflow:trial-run",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
+  },
+  {
+   "evidence": ".claude/workflows/trial-run.js:35",
    "from": "workflow:trial-run",
    "kind": "runs",
    "to": "tool:tools/station/telemetry_plan.py",
    "token": "tools/station/telemetry_plan.py"
   },
   {
-   "evidence": ".claude/workflows/trial-run.js:29",
+   "evidence": ".claude/workflows/trial-run.js:33",
    "from": "workflow:trial-run",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -1836,30 +1906,30 @@
    "kind": "in",
    "to": "dir:.claude",
    "token": "\".claude\""
+  },
+  {
+   "evidence": ".claude/workflows/wiki-gen.js:20",
+   "from": "workflow:wiki-gen",
+   "kind": "runs",
+   "to": "tool:tools/station/forge_check.py",
+   "token": "tools/station/forge_check.py"
+  },
+  {
+   "evidence": ".claude/workflows/wiki-gen.js:81",
+   "from": "workflow:wiki-gen",
+   "kind": "runs",
+   "to": "tool:tools/station/setup_tool.py",
+   "token": "tools/station/setup_tool.py"
   },
   {
    "evidence": ".claude/workflows/wiki-gen.js:77",
    "from": "workflow:wiki-gen",
    "kind": "runs",
-   "to": "tool:tools/kit/runtree.py",
-   "token": "tools/kit/runtree.py"
-  },
-  {
-   "evidence": ".claude/workflows/wiki-gen.js:19",
-   "from": "workflow:wiki-gen",
-   "kind": "runs",
-   "to": "tool:tools/station/forge_check.py",
-   "token": "tools/station/forge_check.py"
-  },
-  {
-   "evidence": ".claude/workflows/wiki-gen.js:74",
-   "from": "workflow:wiki-gen",
-   "kind": "runs",
    "to": "tool:tools/station/telemetry_plan.py",
    "token": "tools/station/telemetry_plan.py"
   },
   {
-   "evidence": ".claude/workflows/wiki-gen.js:27",
+   "evidence": ".claude/workflows/wiki-gen.js:28",
    "from": "workflow:wiki-gen",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -2415,6 +2485,12 @@
   },
   {
    "class": "tool",
+   "id": "tool:tools/station/setup_tool.py",
+   "label": "setup_tool.py",
+   "source": "tools/station/setup_tool.py"
+  },
+  {
+   "class": "tool",
    "id": "tool:tools/station/telemetry_plan.py",
    "label": "telemetry_plan.py",
    "source": "tools/station/telemetry_plan.py"
@@ -2544,6 +2620,12 @@
    "id": "workflow:reverse",
    "label": "reverse",
    "source": ".claude/workflows/reverse.js"
+  },
+  {
+   "class": "workflow",
+   "id": "workflow:setup",
+   "label": "setup",
+   "source": ".claude/workflows/setup.js"
   },
   {
    "class": "workflow",

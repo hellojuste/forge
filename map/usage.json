@@ -212,7 +212,7 @@
      "source": "router"
     },
     {
-     "evidence": ".claude/workflows/arch-review.js:28",
+     "evidence": ".claude/workflows/arch-review.js:29",
      "ref": ".claude/workflows/arch-review.js",
      "source": "workflow"
     }
@@ -225,7 +225,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": ".claude/workflows/optimize-loop.js:32",
+     "evidence": ".claude/workflows/optimize-loop.js:34",
      "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     }
@@ -274,12 +274,12 @@
      "source": "router"
     },
     {
-     "evidence": ".claude/workflows/optimize-loop.js:33",
+     "evidence": ".claude/workflows/optimize-loop.js:35",
      "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/trial-run.js:75",
+     "evidence": ".claude/workflows/trial-run.js:90",
      "ref": ".claude/workflows/trial-run.js",
      "source": "workflow"
     }
@@ -292,12 +292,12 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": ".claude/workflows/reverse.js:28",
+     "evidence": ".claude/workflows/reverse.js:29",
      "ref": ".claude/workflows/reverse.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/reverse.js:57",
+     "evidence": ".claude/workflows/reverse.js:65",
      "ref": ".claude/workflows/reverse.js",
      "source": "workflow"
     }
@@ -323,7 +323,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": ".claude/workflows/intake-run.js:74",
+     "evidence": ".claude/workflows/intake-run.js:88",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     }
@@ -374,7 +374,7 @@
    "kind": "skill",
    "triggers": [
     {
-     "evidence": ".claude/workflows/trial-run.js:34",
+     "evidence": ".claude/workflows/trial-run.js:38",
      "ref": ".claude/workflows/trial-run.js",
      "source": "workflow"
     }
@@ -397,12 +397,12 @@
      "source": "router"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:34",
+     "evidence": ".claude/workflows/intake-run.js:35",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:62",
+     "evidence": ".claude/workflows/intake-run.js:76",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     }
@@ -488,6 +488,19 @@
    "triggers": [
     {
      "evidence": "router/intents.d/station.json:83",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    }
+   ]
+  },
+  ".claude/workflows/setup.js": {
+   "cold": null,
+   "hand": [],
+   "home": "workflow setup",
+   "kind": "workflow",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:294",
      "ref": "router/intents.d/station.json",
      "source": "router"
     }
@@ -1036,28 +1049,13 @@
      "source": "skill"
     },
     {
-     "evidence": ".claude/workflows/optimize-loop.js:35",
+     "evidence": ".claude/workflows/optimize-loop.js:37",
      "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/optimize-loop.js:66",
-     "ref": ".claude/workflows/optimize-loop.js",
-     "source": "workflow"
-    },
-    {
-     "evidence": ".claude/workflows/reverse.js:68",
-     "ref": ".claude/workflows/reverse.js",
-     "source": "workflow"
-    },
-    {
-     "evidence": ".claude/workflows/trial-run.js:84",
+     "evidence": ".claude/workflows/trial-run.js:99",
      "ref": ".claude/workflows/trial-run.js",
-     "source": "workflow"
-    },
-    {
-     "evidence": ".claude/workflows/wiki-gen.js:77",
-     "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
     }
    ]
@@ -1549,12 +1547,12 @@
      "source": "skill"
     },
     {
-     "evidence": ".claude/workflows/arch-review.js:17",
+     "evidence": ".claude/workflows/arch-review.js:18",
      "ref": ".claude/workflows/arch-review.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:20",
+     "evidence": ".claude/workflows/intake-run.js:21",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     },
@@ -1564,22 +1562,115 @@
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/optimize-loop.js:20",
+     "evidence": ".claude/workflows/optimize-loop.js:21",
      "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/optimize-loop.js:31",
+     "evidence": ".claude/workflows/optimize-loop.js:33",
      "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/reverse.js:18",
+     "evidence": ".claude/workflows/reverse.js:19",
      "ref": ".claude/workflows/reverse.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/reverse.js:29",
+     "evidence": ".claude/workflows/reverse.js:30",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/reverse.js:68",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:23",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:34",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:20",
+     "ref": ".claude/workflows/wiki-gen.js",
+     "source": "workflow"
+    }
+   ]
+  },
+  "tools/station/setup_tool.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/station/setup_tool.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "router/intents.d/station.json:289",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/station.json:295",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
+     "evidence": ".claude/workflows/arch-review.js:30",
+     "ref": ".claude/workflows/arch-review.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/arch-review.js:64",
+     "ref": ".claude/workflows/arch-review.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/arch-review.js:65",
+     "ref": ".claude/workflows/arch-review.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:36",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:65",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/intake-run.js:66",
+     "ref": ".claude/workflows/intake-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:32",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:68",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:69",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/optimize-loop.js:74",
+     "ref": ".claude/workflows/optimize-loop.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/reverse.js:31",
      "ref": ".claude/workflows/reverse.js",
      "source": "workflow"
     },
@@ -1589,17 +1680,62 @@
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/trial-run.js:21",
+     "evidence": ".claude/workflows/reverse.js:61",
+     "ref": ".claude/workflows/reverse.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/setup.js:17",
+     "ref": ".claude/workflows/setup.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/setup.js:25",
+     "ref": ".claude/workflows/setup.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/setup.js:28",
+     "ref": ".claude/workflows/setup.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/setup.js:29",
+     "ref": ".claude/workflows/setup.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:39",
      "ref": ".claude/workflows/trial-run.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/trial-run.js:30",
+     "evidence": ".claude/workflows/trial-run.js:68",
      "ref": ".claude/workflows/trial-run.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/wiki-gen.js:19",
+     "evidence": ".claude/workflows/trial-run.js:72",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:73",
+     "ref": ".claude/workflows/trial-run.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:31",
+     "ref": ".claude/workflows/wiki-gen.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:80",
+     "ref": ".claude/workflows/wiki-gen.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:81",
      "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
     }
@@ -1632,23 +1768,18 @@
      "source": "skill"
     },
     {
-     "evidence": ".claude/workflows/optimize-loop.js:29",
-     "ref": ".claude/workflows/optimize-loop.js",
-     "source": "workflow"
-    },
-    {
      "evidence": ".claude/workflows/optimize-loop.js:30",
      "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/trial-run.js:31",
-     "ref": ".claude/workflows/trial-run.js",
+     "evidence": ".claude/workflows/optimize-loop.js:31",
+     "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/wiki-gen.js:28",
-     "ref": ".claude/workflows/wiki-gen.js",
+     "evidence": ".claude/workflows/trial-run.js:35",
+     "ref": ".claude/workflows/trial-run.js",
      "source": "workflow"
     },
     {
@@ -1657,7 +1788,12 @@
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/wiki-gen.js:74",
+     "evidence": ".claude/workflows/wiki-gen.js:30",
+     "ref": ".claude/workflows/wiki-gen.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/wiki-gen.js:77",
      "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
     }
@@ -1765,12 +1901,12 @@
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/arch-review.js:25",
+     "evidence": ".claude/workflows/arch-review.js:26",
      "ref": ".claude/workflows/arch-review.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:71",
+     "evidence": ".claude/workflows/intake-run.js:85",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     },
@@ -1780,7 +1916,7 @@
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/optimize-loop.js:28",
+     "evidence": ".claude/workflows/optimize-loop.js:29",
      "ref": ".claude/workflows/optimize-loop.js",
      "source": "workflow"
     },
@@ -1795,17 +1931,22 @@
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/reverse.js:25",
+     "evidence": ".claude/workflows/reverse.js:26",
      "ref": ".claude/workflows/reverse.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/trial-run.js:29",
+     "evidence": ".claude/workflows/setup.js:27",
+     "ref": ".claude/workflows/setup.js",
+     "source": "workflow"
+    },
+    {
+     "evidence": ".claude/workflows/trial-run.js:33",
      "ref": ".claude/workflows/trial-run.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/wiki-gen.js:27",
+     "evidence": ".claude/workflows/wiki-gen.js:28",
      "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
     }
@@ -1871,12 +2012,12 @@
      "source": "skill"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:69",
+     "evidence": ".claude/workflows/intake-run.js:83",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:8",
+     "evidence": ".claude/workflows/intake-run.js:9",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     }
@@ -1909,7 +2050,7 @@
      "source": "skill"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:71",
+     "evidence": ".claude/workflows/intake-run.js:85",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     }
@@ -1962,7 +2103,7 @@
      "source": "skill"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:20",
+     "evidence": ".claude/workflows/intake-run.js:21",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     }
@@ -2005,7 +2146,7 @@
      "source": "skill"
     },
     {
-     "evidence": ".claude/workflows/intake-run.js:20",
+     "evidence": ".claude/workflows/intake-run.js:21",
      "ref": ".claude/workflows/intake-run.js",
      "source": "workflow"
     }

@@ -4,6 +4,7 @@ export const meta = {
   whenToUse: 'a new repo or skill should join the stable; args {slug, repo: owner/repo, clone (local path), sha?, paths?: [...], dry?}',
   phases: [
     { title: 'Gather', detail: 'pin, nearest LICENSE, agent files, hooks, MCP and telemetry grep from the clone; existing LOCK rows' },
+    { title: 'Map', detail: 'ProjectAtlas scan + map of a throwaway copy of the clone (static index; no upstream code runs): where its skills, agent files and installers sit' },
     { title: 'Place', detail: 'one judge places it on the component tree: lane, station, held paths or bootstrap or attic or refuse' },
     { title: 'Ingest', detail: 'tools/upstream/ingest.py for held paths (renames agent files), PRECEDENCE row, NOTICE regenerated' },
     { title: 'Route', detail: 'skill-route-intake: freeze keywords, then prompts, selftest-routes, skill_surface --write' },
@@ -32,8 +33,9 @@ const GATHER = [
   'git -C ' + C + ' ls-tree -r ' + (A.sha || 'HEAD') + ' | grep -c "^120000"',
   'python3 -m json.tool upstream/LOCK.json',
   'sed -n "1,140p" .claude/skills/upstream-intake/SKILL.md',
+  'python3 tools/station/setup_tool.py --check projectatlas',
 ]
-const FORBIDDEN = 'running any upstream code (no install, no node/python on its files); plugin install; copying hooks/settings outside ingest.py renames; writing a lane by hand; editing registry/ or other commons files on this station; a client-bearing repo; inventing a licence'
+const FORBIDDEN = 'running any upstream code (no install, no node/python on its files; ProjectAtlas indexing a throwaway copy is reading, not running); projectatlas init; plugin install; copying hooks/settings outside ingest.py renames; writing a lane by hand; editing registry/ or other commons files on this station; a client-bearing repo; inventing a licence'
 const CMD = { type: 'object', properties: { cmd: { type: 'string' }, exit: { type: 'number' }, tail: { type: 'string' } }, required: ['cmd', 'exit', 'tail'] }
 
 function opts(phaseName, tier, effort, schema) {
@@ -58,9 +60,21 @@ phase('Gather')
 out.gather = await agent(head('Gather') + 'From the station root run each command VERBATIM, one at a time, read-only (grep exit 1 = no match, record it). Return {rows:[{cmd, exit, tail (last 60 lines)}]}. Commands: ' + JSON.stringify(GATHER),
   opts('Gather', 'small', 'low', { type: 'object', properties: { rows: { type: 'array', items: CMD } }, required: ['rows'] }))
 
+const ready = ((out.gather && out.gather.rows) || []).filter(function (r) { return r.cmd.indexOf('setup_tool.py --check') >= 0 })[0]
+if (!ready || ready.exit !== 0) {
+  log(WORKFLOW + ': refused -- projectatlas is not set up at its pin; one command: python3 tools/station/setup_tool.py projectatlas')
+  return { workflow: WORKFLOW, refused: true, reason: 'projectatlas not ready', setup: 'python3 tools/station/setup_tool.py projectatlas', ready: ready || null, exit: ready ? ready.exit : null }
+}
+
+phase('Map')
+out.map = await agent(head('Map') + 'Map the candidate with ProjectAtlas, ONLY through the wrapper the gathered `setup_tool.py --check projectatlas` row prints after `run:`. ' +
+  'ProjectAtlas only indexes files (static; the candidate\'s code never runs). Index a throwaway copy, never ' + C + ' itself and never the station: `git clone --local --no-hardlinks ' + C + '` into a scratch dir beside the ProjectAtlas run tree, check out ' + (A.sha || 'HEAD') +
+  ', run `projectatlas scan` then `projectatlas map --json` there (`projectatlas init` writes MCP configs, act_gate asks: use scan). Return {copy, commands:[{cmd, exit}], top_dirs:[{path, files}], skill_dirs:[...], installer_paths:[...]}.',
+  opts('Map', 'medium', 'medium', { type: 'object', properties: { copy: { type: 'string' }, commands: { type: 'array', items: { type: 'object' } }, top_dirs: { type: 'array', items: { type: 'object' } }, skill_dirs: { type: 'array', items: { type: 'string' } }, installer_paths: { type: 'array', items: { type: 'string' } } }, required: ['commands', 'top_dirs'] }))
+
 phase('Place')
 out.place = await agent(head('Place') + 'Using the gathered census and the component tree in .claude/skills/upstream-intake/SKILL.md, decide for ' + A.repo + ': decision ingest|bootstrap|attic|refuse, home station (by noun), lane (repertoire|upstream|study|nc-lane), held paths (' + JSON.stringify(A.paths || []) + ' or your pick: methods and skills, never hooks/settings/installers), ' +
-  'licence (from the nearest LICENSE text, SPDX id), agent files found and their ingest renames, telemetry senders with file:line, symlink count. If the home is not forge, decision is still recorded here and the ingest is a proposal for that station. ' +
+  'licence (from the nearest LICENSE text, SPDX id), agent files found and their ingest renames, telemetry senders with file:line, symlink count; use the ProjectAtlas map (' + JSON.stringify(out.map) + ') to find skill dirs and installers. If the home is not forge, decision is still recorded here and the ingest is a proposal for that station. ' +
   'Write ' + REPORT + ' with lines `repo:`, `sha:` (40 hex from Gather), `licence:`, `agent_files:`, `telemetry:`, `home:`, `lane:`, `decision:`, `held_paths:`, and a `registry_proposal:` JSON line for registry/sources.json on main. Return {decision, home, lane, held_paths, sha}. Gathered: ' + JSON.stringify(out.gather),
   opts('Place', 'large', 'high', { type: 'object', properties: { decision: { type: 'string' }, home: { type: 'string' }, lane: { type: 'string' }, held_paths: { type: 'array', items: { type: 'string' } }, sha: { type: 'string' } }, required: ['decision', 'home', 'lane', 'held_paths', 'sha'] }))
 

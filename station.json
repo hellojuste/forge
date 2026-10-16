@@ -41,8 +41,9 @@
   "\\bopenwiki\\s+(auth|ingest)\\b",
   "\\binstall-runtime\\.(sh|ps1)\\b",
   "\\b(claude|codex)\\s+plugin\\s+(install|marketplace\\s+add)\\b",
-  "\\brea-agents(@\\S+)?\\s+setup\\b|\\brea\\s+update\\b",
+  "\\brea(-agents)?(@\\S+)?\\s+(setup|update)\\b",
   "\\brea(-agents(@\\S+)?)?\\s+analy[sz]e-",
+  "\\bprojectatlas\\s+init\\b",
   "\\btools/kit/repin\\.py\\s+--apply\\b",
   "\\bgit\\s+push\\b"
  ],
@@ -53,8 +54,9 @@
   "\\bopenwiki\\s+(auth|ingest)\\b": "auth runs an OAuth flow and saves tokens into ~/.openwiki/.env; ingest pulls Gmail/Notion/Slack/X data -- identity-bearing sources do not belong on forge (boundary)",
   "\\binstall-runtime\\.(sh|ps1)\\b": "ProjectAtlas packaged installer downloads the runtime binary and writes MCP/plugin config (plugins/projectatlas/scripts/)",
   "\\b(claude|codex)\\s+plugin\\s+(install|marketplace\\s+add)\\b": "installing an upstream plugin wires its hooks (evo's PreToolUse '.*' hook-drain, ProjectAtlas readiness.sh) into the host -- never done on this station",
-  "\\brea-agents(@\\S+)?\\s+setup\\b|\\brea\\s+update\\b": "REA setup/update writes MCP configuration into host agents and fetches engines (morluto/rea README)",
+  "\\brea(-agents)?(@\\S+)?\\s+(setup|update)\\b": "REA setup/update writes MCP configuration into host agents and fetches engines (morluto/rea README); both bins (rea, rea-agents; package.json:40-43 at 1bd5c5c) are matched, including through the setup_tool.py wrapper .kit-tool/kit-bin/rea (2026-10-16 forge-setup: `rea setup` was unmatched)",
   "\\brea(-agents(@\\S+)?)?\\s+analy[sz]e-": "an REA analysis run on a target needs a re-legal-gate row first (work/re/legal_gate.json)",
+  "\\bprojectatlas\\s+init\\b": "projectatlas init writes a project-local index DB AND version-matched Claude Code/OpenCode MCP configs into the repo it runs in (README.md:53-58 at bed8ba3); run it only on a throwaway local clone",
   "\\btools/kit/repin\\.py\\s+--apply\\b": "rewrites a pin (registry/sources.json on main, upstream/LOCK.json here); only after the repin report is green",
   "\\bgit\\s+push\\b": "pushes this branch off the machine (the operator places things himself)"
  },

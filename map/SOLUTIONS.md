@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-80 catalogued thing(s) · 6 upstream(s) · 33 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+82 catalogued thing(s) · 6 upstream(s) · 34 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## architecture-review
 
@@ -244,7 +244,15 @@ _what does a tool send, where, and which switch provably turns it off at the pin
 
 - `.claude/skills/telemetry-audit/SKILL.md` — telemetry-audit (working): find a tool's senders and opt-out switch at the pin (file:line), record the offline status run · see also tools/station/forge_check.py
 - `tools/station/forge_check.py` — forge_check (working): the five forge refusals: TRIAL N>=5, holdout hash, telemetry verified-by-run, RE gate row, repin STOP · see also .claude/skills/tool-trial/SKILL.md, .claude/skills/evo-guard/SKILL.md
+- `tools/station/setup_tool.py` — setup_tool (working): one command per forge tool (rea/evo/openwiki/projectatlas): prereqs, pin, run tree, install at the pin, telemetry off, keys, smoke; --check = start gate · see also tools/kit/runtree.py, tools/station/telemetry_plan.py
 - `tools/station/telemetry_plan.py` — telemetry_plan (working): per registry/telemetry.json row: opt-out env, bootstrap + run-tree, offline status run, flip fields; gate = start check · see also .claude/skills/telemetry-audit/SKILL.md
+
+## tool-setup
+
+_make a forge tool usable with one command: install at its pin in a run tree outside the station, telemetry off, keys by name, smoke-tested_
+
+- `.claude/workflows/setup.js` — setup (working): runs setup_tool.py for one tool (or all) and verifies it with setup_tool.py --check · see also tools/station/setup_tool.py
+- `tools/station/setup_tool.py` — setup_tool (working): one command per forge tool (rea/evo/openwiki/projectatlas): prereqs, pin, run tree, install at the pin, telemetry off, keys, smoke; --check = start gate · see also tools/kit/runtree.py, tools/station/telemetry_plan.py
 
 ## tool-trial
 
