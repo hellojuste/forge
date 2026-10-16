@@ -3,10 +3,10 @@
  "census": {
   "dir": 18,
   "hook": 12,
-  "intent": 14,
+  "intent": 15,
   "skill": 9,
-  "tool": 87,
-  "total": 142,
+  "tool": 88,
+  "total": 144,
   "workflow": 2
  },
  "edges": [
@@ -240,6 +240,13 @@
    "kind": "routes",
    "to": "tool:tools/protect/self_check.py",
    "token": "tools/protect/self_check.py"
+  },
+  {
+   "evidence": "router/intents.d/understand.json:22",
+   "from": "intent:understand",
+   "kind": "routes",
+   "to": "tool:tools/kit/understand.py",
+   "token": "tools/kit/understand.py"
   },
   {
    "evidence": "router/intents.d/map.json:38",
@@ -634,7 +641,14 @@
    "token": "\"tools\""
   },
   {
-   "evidence": "tools/brain.py:1182",
+   "evidence": "tools/brain.py:942",
+   "from": "tool:tools/brain.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/understand.py",
+   "token": "tools/kit/understand.py"
+  },
+  {
+   "evidence": "tools/brain.py:1204",
    "from": "tool:tools/brain.py",
    "kind": "runs",
    "to": "tool:tools/map/find.py",
@@ -648,7 +662,7 @@
    "token": "tools/map/gen_station_map.py"
   },
   {
-   "evidence": "tools/brain.py:926",
+   "evidence": "tools/brain.py:948",
    "from": "tool:tools/brain.py",
    "kind": "runs",
    "to": "tool:tools/station_audit.py",
@@ -1524,6 +1538,41 @@
   },
   {
    "evidence": "map/dirs.json:199",
+   "from": "tool:tools/kit/understand.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/kit/understand.py:52",
+   "from": "tool:tools/kit/understand.py",
+   "kind": "imports",
+   "to": "tool:tools/kit/_kit.py",
+   "token": "_kit"
+  },
+  {
+   "evidence": "tools/kit/understand.py:53",
+   "from": "tool:tools/kit/understand.py",
+   "kind": "imports",
+   "to": "tool:tools/kit/bootstrap.py",
+   "token": "bootstrap"
+  },
+  {
+   "evidence": "tools/kit/understand.py:191",
+   "from": "tool:tools/kit/understand.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/bootstrap.py",
+   "token": "tools/kit/bootstrap.py"
+  },
+  {
+   "evidence": "tools/kit/understand.py:54",
+   "from": "tool:tools/kit/understand.py",
+   "kind": "imports",
+   "to": "tool:tools/kit/runtree.py",
+   "token": "runtree"
+  },
+  {
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/_common.py",
    "kind": "in",
    "to": "dir:tools",
@@ -2365,6 +2414,12 @@
   },
   {
    "class": "intent",
+   "id": "intent:understand",
+   "label": "understand",
+   "source": "router/intents.d/understand.json"
+  },
+  {
+   "class": "intent",
    "id": "intent:where",
    "label": "where",
    "source": "router/intents.d/map.json"
@@ -2800,6 +2855,12 @@
    "id": "tool:tools/kit/sync.py",
    "label": "sync.py",
    "source": "tools/kit/sync.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/kit/understand.py",
+   "label": "understand.py",
+   "source": "tools/kit/understand.py"
   },
   {
    "class": "tool",

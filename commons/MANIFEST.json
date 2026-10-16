@@ -138,7 +138,7 @@
    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "commons/defaults.json": {
-   "sha256": "7b7820d6df159cbb29cac671010ce7f586112119e5c44987a5ba2ce0b8f14ebb"
+   "sha256": "6c27e5ecc15ae0afa2d7fc75afa4a633ffb4ab98ab083d431fb9e478160f874f"
   },
   "commons/packs/design/HANDOFF.md": {
    "sha256": "134034acad47c257a6e809c15e7a2ce50833e69c876d65009afe7d36f43a1bfd"
@@ -223,7 +223,7 @@
    "sha256": "479965e7ad244f6f3009aece8c6586491bc44d62136e0bde991385d8eb858b6f"
   },
   "governance/DECISIONS.md": {
-   "sha256": "3f62d8a6e84ea6447e0347fbe4dcc044a467ddee3f583b2f785a1422f376f535"
+   "sha256": "babe7db5d0eebaa533335047bde658e5d1a07f7ce355de54ed38e1978a069508"
   },
   "governance/DEFECTS.md": {
    "sha256": "07358be17a209e3afa48f726671a0d3d81bf8532b8f30e60fc27648d667194bc"
@@ -256,6 +256,9 @@
   "governance/checks.d/research.json": {
    "sha256": "760b79ac9190721265bcf4187d2e7d0598b7be77f11841acd395f526ae10644c"
   },
+  "governance/checks.d/understand.json": {
+   "sha256": "9faa562ff985266051ffeb143b2d85e2c955c9d4bb476fa69e797c1425f48b4c"
+  },
   "governance/checks.d/upstream.json": {
    "sha256": "614e6a14bd12158c26e8b36c98b0e82de203007d6d844a9b1c6096f72a7e6c17"
   },
@@ -276,6 +279,9 @@
   },
   "governance/rules.d/research.json": {
    "sha256": "d56850b25eaaa29cd758cf753b7a16c8a6f09fd1e6d24d21e27b567f00aadd8b"
+  },
+  "governance/rules.d/understand.json": {
+   "sha256": "4fcaa5d221e5d295a1a392dc78e9d8cf6cbd572115bf8e78d6cf32afd9fa5cac"
   },
   "governance/rules.d/upstream.json": {
    "sha256": "63516b7dff4abc96febcf55eb8d501a6c50799345416f28f98063d7785f0c1ab"
@@ -307,13 +313,13 @@
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
   },
   "map/catalog.json": {
-   "sha256": "3ef3dbdea2cca4fa4e5c3085a7fe44a41499cbf28fc06cee140cb10d2ad7cc9f"
+   "sha256": "5962e99becdb80ed8cdfc1d04d300bf9976ea6f0756307aa0a37d63ae39a8881"
   },
   "map/dirs.json": {
    "sha256": "02d23166e74dfb54d2e8cc90cd86123012e2ebc9e460cfe8c098dc1707d1cf07"
   },
   "map/tags.json": {
-   "sha256": "d5a1b2154b50bd1d5a0b9e028de2fb5d7d544eeebab32053491f3513127653fd"
+   "sha256": "c88a9f7b3ea5d33f4e223d43e12deb08603d7314e184eb8107163270b22f8c1c"
   },
   "map/upstream.json": {
    "sha256": "854b9158bd899e51ba5a994801ee9e0fa32dbb8affb619aa10435501ca658703"
@@ -377,11 +383,14 @@
   "router/intents.d/research.json": {
    "sha256": "deba523df66e51a38f014e08c6a5c70874e40e8ab7de56c6c3efe939b16755ca"
   },
+  "router/intents.d/understand.json": {
+   "sha256": "11fa7ce6962342977b319c839fb21111dfb6724fb6ac6da4e807cb3e8c1294e9"
+  },
   "router/intents.d/upstream.json": {
    "sha256": "28ec200b6b4cbdb956b9520b6ae3662d6ba3ecdd23992ce22af226ea7b57e99f"
   },
   "router/intents.json": {
-   "sha256": "c6ed1091a810e102ce537cffbd7a43299f1cfa80edeb11a3d30b749ad509192c"
+   "sha256": "e9818ac11775aad3a67f7b171a04856a9e507377384d2915dee4723ff022fbb6"
   },
   "router/kit_tree.json": {
    "sha256": "84ea800dc17bbc00906f86c526b7a682a507567b5257c4f70ac3edf0f3e8be58"
@@ -399,7 +408,7 @@
    "sha256": "373170395bc646c6249bdd26e5f56db539d063af82771e920570c47634a2ff5b"
   },
   "tools/brain.py": {
-   "sha256": "8747d436fc8baf098c485b456f2a0bfe3ed20ea248f174b497c321c0ddff5111"
+   "sha256": "41b9f1975f0f22be8a8ee3afab4c746752018231472d8fada4596b9b0d84b4eb"
   },
   "tools/design/contrast.py": {
    "sha256": "8c1b3f3d7b9742033828554a186e31cfd724dac5b33920b8c76771bab8cf13b1"
@@ -1280,6 +1289,9 @@
   },
   "tools/kit/sync.py": {
    "sha256": "86b523c5b4ed58016d1877a5af9fd659dccbac54befebe3273f0df93e75ac5d4"
+  },
+  "tools/kit/understand.py": {
+   "sha256": "052e1753dc454760604dc67d1d9bfb83caabf7042b9ff7e74e6986fb8c5ffd6f"
   },
   "tools/map/_common.py": {
    "sha256": "4884aa0c138103478268d1ba4768a040394a51ff2a9912612699dbb4f80ce171"

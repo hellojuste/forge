@@ -3,13 +3,13 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 18 · hook 12 · intent 14 · skill 9 · tool 87 · total 142 · workflow 2
+census: dir 18 · hook 12 · intent 15 · skill 9 · tool 88 · total 144 · workflow 2
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
 ## Dirs and what is in them
 
-100 nodes > cap 60: table instead of a hairball.
+101 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -85,6 +85,7 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `tool:tools/kit/runtree.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/kit/skills_index.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/kit/sync.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/understand.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/map/_common.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/map/check_paths.py` | in | `dir:tools` | map/dirs.json:199 |
 | `tool:tools/map/find.py` | in | `dir:tools` | map/dirs.json:199 |
@@ -155,7 +156,7 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-80 nodes > cap 60: table instead of a hairball.
+82 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -180,6 +181,7 @@ flowchart LR
 | `intent:shared-market-scan` | routes | `tool:tools/research/sizing.py` | router/intents.d/research.json:25 |
 | `intent:site-protection` | routes | `skill:site-protection` | router/intents.d/protect.json:5 |
 | `intent:site-protection` | routes | `tool:tools/protect/self_check.py` | router/intents.d/protect.json:34 |
+| `intent:understand` | routes | `tool:tools/kit/understand.py` | router/intents.d/understand.json:22 |
 | `intent:where` | routes | `tool:tools/map/gen_atlas.py` | router/intents.d/map.json:38 |
 | `skill:checkpoint` | runs | `tool:tools/station_audit.py` | .claude/skills/checkpoint/SKILL.md:12 |
 | `skill:closeout` | runs | `tool:tools/gov/gen_manifest.py` | .claude/skills/closeout/SKILL.md:19 |
@@ -210,9 +212,10 @@ flowchart LR
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_surface.py` | .claude/hooks/intent_router.py:235 |
 | `tool:.claude/hooks/quarantine_gate.py` | runs | `tool:tools/station_audit.py` | .claude/hooks/quarantine_gate.py:239 |
 | `tool:.claude/hooks/stop.py` | runs | `tool:tools/brain.py` | .claude/hooks/stop.py:13 |
-| `tool:tools/brain.py` | runs | `tool:tools/map/find.py` | tools/brain.py:1182 |
+| `tool:tools/brain.py` | runs | `tool:tools/kit/understand.py` | tools/brain.py:942 |
+| `tool:tools/brain.py` | runs | `tool:tools/map/find.py` | tools/brain.py:1204 |
 | `tool:tools/brain.py` | runs | `tool:tools/map/gen_station_map.py` | tools/brain.py:449 |
-| `tool:tools/brain.py` | runs | `tool:tools/station_audit.py` | tools/brain.py:926 |
+| `tool:tools/brain.py` | runs | `tool:tools/station_audit.py` | tools/brain.py:948 |
 | `tool:tools/design/contrast.py` | runs | `tool:tools/design/handoff.py` | tools/design/contrast.py:4 |
 | `tool:tools/design/handoff.py` | runs | `tool:tools/design/contrast.py` | tools/design/handoff.py:314 |
 | `tool:tools/gov/_gov.py` | runs | `tool:.claude/hooks/_cmdscan.py` | tools/gov/_gov.py:469 |
@@ -269,6 +272,7 @@ flowchart LR
 | `tool:tools/kit/sync.py` | runs | `tool:tools/station_audit.py` | tools/kit/sync.py:257 |
 | `tool:tools/kit/sync.py` | runs | `tool:tools/upstream/notice.py` | tools/kit/sync.py:49 |
 | `tool:tools/kit/sync.py` | runs | `tool:tools/upstream/skill_routes.py` | tools/kit/sync.py:50 |
+| `tool:tools/kit/understand.py` | runs | `tool:tools/kit/bootstrap.py` | tools/kit/understand.py:191 |
 | `tool:tools/map/_common.py` | runs | `tool:tools/gov/_gov.py` | tools/map/_common.py:8 |
 | `tool:tools/map/gen_solutions.py` | runs | `tool:tools/map/find.py` | tools/map/gen_solutions.py:32 |
 | `tool:tools/map/gen_station_map.py` | runs | `tool:tools/kit/sync.py` | tools/map/gen_station_map.py:155 |

@@ -960,6 +960,11 @@
      "evidence": "tools/kit/sync.py:36",
      "ref": "tools/kit/sync.py",
      "source": "import"
+    },
+    {
+     "evidence": "tools/kit/understand.py:52",
+     "ref": "tools/kit/understand.py",
+     "source": "import"
     }
    ]
   },
@@ -1023,7 +1028,13 @@
    "hand": [],
    "home": "python3 tools/kit/runtree.py",
    "kind": "tool",
-   "triggers": []
+   "triggers": [
+    {
+     "evidence": "tools/kit/understand.py:54",
+     "ref": "tools/kit/understand.py",
+     "source": "import"
+    }
+   ]
   },
   "tools/kit/skills_index.py": {
    "cold": null,
@@ -1048,6 +1059,39 @@
      "evidence": "tools/map/map_check.py:9",
      "ref": "tools/map/map_check.py",
      "source": "check"
+    }
+   ]
+  },
+  "tools/kit/understand.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/understand.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.d/understand.json:16",
+     "ref": "governance/checks.d/understand.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/understand.json:21",
+     "ref": "governance/checks.d/understand.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.d/understand.json:8",
+     "ref": "governance/checks.d/understand.json",
+     "source": "check"
+    },
+    {
+     "evidence": "router/intents.d/understand.json:22",
+     "ref": "router/intents.d/understand.json",
+     "source": "router"
+    },
+    {
+     "evidence": "router/intents.d/understand.json:28",
+     "ref": "router/intents.d/understand.json",
+     "source": "router"
     }
    ]
   },

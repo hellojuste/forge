@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-88 catalogued thing(s) · 0 upstream(s) · 27 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+89 catalogued thing(s) · 0 upstream(s) · 28 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## closeout
 
@@ -217,6 +217,12 @@ _bring commons changes to a station without a broken merge_
 - `tools/kit/split.sh` — station split (working): turn one station branch into a one-branch repo with a kit remote
 - `tools/kit/sync.py` — station sync (working): merge main into a station, regenerate GENERATED conflicts, abort on any other
 - `tools/map/gen_station_map.py` — station map (working): render map/STATIONS.md: every station branch against main
+
+## target-memory
+
+_decipher a repo or folder once and keep its index and wiki as memory every station can read_
+
+- `tools/kit/understand.py` — understand (shared target memory) (working): decipher and remember any target: ProjectAtlas index + grounded openwiki wiki in one shared memory outside every station; --check is audit row understand · see also commons/defaults.json
 
 ## ui-critique
 

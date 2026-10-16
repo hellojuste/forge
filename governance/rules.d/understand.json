@@ -1,0 +1,23 @@
+{
+ "_why": "the understand rule (commons since reconcile-01 wave 2, DEC-core-0012). The installer of ProjectAtlas and openwiki stays station forge's.",
+ "rules": [
+  {
+   "id": "R-kit-understand",
+   "headline": "Any station deciphers and remembers a target with one command: one memory per target OUTSIDE every station tree (manifest, atlas.db, openwiki pages), the target only read, a missing tool refused (never faked), an MCP server opted into only with a verified telemetry row",
+   "owner": "tools/kit/understand.py",
+   "pointers": [
+    "commons/defaults.json",
+    "tools/brain.py"
+   ],
+   "enforcement": {
+    "kind": "check",
+    "ref": "understand",
+    "by": "understand"
+   },
+   "earned_by": "operator 2026-10-16 (deciphering, understanding and keeping memory); forge ba78f34 proof runs",
+   "rung": "hard",
+   "since": "DEC-core-0012",
+   "upstream": "NEVER"
+  }
+ ]
+}

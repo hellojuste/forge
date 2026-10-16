@@ -1031,6 +1031,21 @@
    ],
    "status": "working",
    "title": "shared-market-scan skill"
+  },
+  "tools/kit/understand.py": {
+   "doc": null,
+   "kin": [
+    "tools/map/gen_atlas.py"
+   ],
+   "purpose": "decipher and remember any target: ProjectAtlas index + grounded openwiki wiki in one shared memory outside every station; --check is audit row understand",
+   "see_also": [
+    "commons/defaults.json"
+   ],
+   "solves": [
+    "target-memory"
+   ],
+   "status": "working",
+   "title": "understand (shared target memory)"
   }
  },
  "exclusions": [
