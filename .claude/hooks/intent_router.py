@@ -575,6 +575,11 @@ SHADOW_CASES = [
 def _load_cases(p):
     """Tolerant reader for station selftest files: list | {cases|prompts: [...]} | {prompt: expect}."""
     d = _load(p)
+    if isinstance(d, dict) and ("positive" in d or "negative" in d):
+        # the shape tools/upstream/skill_routes.py documents (ASSEMBLY_NOTES C2: one shape, two readers)
+        d = {"cases": [c if isinstance(c, dict) else {"prompt": c[0], "expect": c[1]} if isinstance(c, list) else {"prompt": c}
+                       for c in d.get("positive") or []] +
+                      [{"prompt": c if isinstance(c, str) else c.get("prompt"), "negative": True} for c in d.get("negative") or []]}
     if isinstance(d, dict) and not any(k in d for k in ("cases", "prompts", "tests")):
         items = [{"prompt": k, "expect": v} for k, v in d.items() if not k.startswith("_")]
     else:
@@ -708,6 +713,9 @@ def selftest(root=None):
         r = match_skills("market sizing for tam", FIXTURE_SKILLS["skills"], k=2)
         ok([x["id"] for x in r] == ["s1", "s2"], "match_skills top-2 canonical then variant: %r" % [x["id"] for x in r])
         ok(match_skills("nothing relevant", FIXTURE_SKILLS["skills"]) == [], "match_skills empty")
+        # ASSEMBLY_NOTES C2 / CRITIC F14: the positive/negative shape skill_routes.py documents is read too
+        (rt / "pn.json").write_text(json.dumps({"positive": [{"prompt": "draw a mermaid", "expect": "s4"}], "negative": ["hello there"]}))
+        ok(_load_cases(rt / "pn.json") == [("draw a mermaid", "s4"), ("hello there", None)], "positive/negative shape: %r" % _load_cases(rt / "pn.json"))
         # DEC-core-0010: a surfaced skill (.claude/skills/<n> -> its lane dir) is named as /<n> beside the read path
         (rt / "repertoire/c/mermaid").mkdir(parents=True)
         (rt / "repertoire/c/mermaid/SKILL.md").write_text("---\nname: mermaid\n---\n")
