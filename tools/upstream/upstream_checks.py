@@ -102,6 +102,20 @@ def _long_lines(text):
             if len(l.strip()) >= LONG_LINE and sum(c.isalnum() for c in l) >= LONG_LINE // 2}
 
 
+def _own_licence(root, rel):
+    """The nearest LICENSE/LICENCE/COPYING file in an ancestor dir of <rel> BELOW the repo root (KIT_PLAN 4.1: nearest
+    licence wins), or None. reconcile-01: impeccable's Apache-2.0 detector fixtures (vendored beside their LICENSE)
+    share a boilerplate `<meta name="viewport" ...>` line with held AGPL Maxun; they are not station-authored text."""
+    parts = rel.split("/")[:-1]
+    while parts:
+        d = Path(root, *parts)
+        for name in ("LICENSE", "LICENSE.md", "LICENSE.txt", "LICENCE", "COPYING"):
+            if (d / name).is_file():
+                return "/".join(parts + [name])
+        parts.pop()
+    return None
+
+
 def station_authored_files(root):
     """Files outside lanes, registries and generated notices: what the station itself wrote."""
     out = []
@@ -358,6 +372,9 @@ def check_licence_filter(root):
                 copyleft_lines.setdefault(l, p)
     if copyleft_lines:
         for f in station_authored_files(root):
+            own = _own_licence(root, f)
+            if own and lic_of(own) in ("Apache-2.0", "MIT", "BSD", "ISC"):
+                continue  # vendored with its own nearer non-copyleft licence (e.g. tools/design/detector/tests/upstream/LICENSE)
             t = _read_text(root / f)
             if not t:
                 continue
@@ -597,6 +614,16 @@ def selftest(name):
                 rc, out = _quiet(fn, r2)
                 assert rc == 0, ("a shared ruler line must not count as copyleft", out)
             cases += 1
+            # a file vendored beside its own permissive LICENSE is not station-authored; one beside a copyleft one is
+            with tempfile.TemporaryDirectory() as t3:
+                r3 = fixture(t3, {"tools/x/vendored/LICENSE": "Permission is hereby granted, free of charge, to any person "
+                                  "obtaining a copy of this software (MIT License)\n", "tools/x/vendored/f.html": COPYLEFT_LINE + "\n"})
+                rc, out = _quiet(fn, r3)
+                assert rc == 0, ("a file under its own permissive LICENSE is skipped", out)
+                (r3 / "tools/x/vendored/LICENSE").write_text(GPL)
+                rc, out = _quiet(fn, r3)
+                assert rc == 1, ("a file under its own copyleft LICENSE outside upstream/ still fails", out)
+            cases += 2
         if name == "telemetry":
             U.write_json(root / "registry/telemetry.json", {"rows": [
                 {"tool": "evo", "verified": False, "opt_out": "unknown"},

@@ -300,10 +300,10 @@ flowchart LR
 | `tool:tools/upstream/skill_routes.py` | runs | `tool:tools/kit/skills_index.py` | tools/upstream/skill_routes.py:976 |
 | `tool:tools/upstream/skill_surface.py` | runs | `tool:tools/gov/_gov.py` | tools/upstream/skill_surface.py:27 |
 | `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/gov/_gov.py` | tools/upstream/upstream_checks.py:99 |
-| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/_kit.py` | tools/upstream/upstream_checks.py:640 |
-| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/bootstrap.py` | tools/upstream/upstream_checks.py:452 |
-| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/repin.py` | tools/upstream/upstream_checks.py:284 |
-| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/upstream/ingest.py` | tools/upstream/upstream_checks.py:138 |
+| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/_kit.py` | tools/upstream/upstream_checks.py:667 |
+| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/bootstrap.py` | tools/upstream/upstream_checks.py:469 |
+| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/kit/repin.py` | tools/upstream/upstream_checks.py:298 |
+| `tool:tools/upstream/upstream_checks.py` | runs | `tool:tools/upstream/ingest.py` | tools/upstream/upstream_checks.py:152 |
 | `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/station_audit.py` | tools/upstream/workflows_check.py:320 |
 | `tool:tools/upstream/workflows_check.py` | runs | `tool:tools/upstream/skill_surface.py` | tools/upstream/workflows_check.py:230 |
 | `workflow:_template` | runs | `tool:tools/station_audit.py` | .claude/workflows/_template.js:24 |
