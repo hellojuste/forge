@@ -16,7 +16,7 @@ amendment: <path or path#heading of the mechanism that changed> (never "be more 
 
 Never delete a row; a later row whose amendment names it supersedes it. Allocate ids with
 `python3 tools/gov/new_row.py ledger "<HEADLINE>" --kind procedural`. Station rows go in governance/STATION_LEDGER.md.
-The seed rows below are the lettuce lessons that earned each commons hook (source: _design/LEAN_LESSONS.md, carried as data).
+The seed rows below are the lettuce lessons that earned each commons hook (source: docs/design/LEAN_LESSONS.md, carried as data).
 -->
 
 ## L-core-0001 — A WHOLE-TREE STAGE SWEEPS ANOTHER WRITER'S FILES; A PATTERN KILL KILLS A SIBLING'S RUN

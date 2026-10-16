@@ -98,7 +98,7 @@
   },
   "brain/INDEX.md": {
    "generated": true,
-   "sha256": "a0f7283f8dbeb5f23cab3ab895cd3e594df2894e27731597beddc4b6d862049b"
+   "sha256": "054f0789732e40aa4df6ef745b464b4d639d1f601404b513a09b82c4bd35aa24"
   },
   "brain/LOOPS.md": {
    "sha256": "8dd74af4ad4311d685d229e0d0c6e6e34eaf6a3c9455493b2baaae21355d33e2"
@@ -111,10 +111,10 @@
    "sha256": "a1f96e98011dc7d62ac18d227fd397c83e452f754905a1d35a21a68950968bbc"
   },
   "brain/nodes/idea/core-0001--lean-lessons-carried-from-lettuce-every-count-carries-its-de.md": {
-   "sha256": "eb2f623498e196468ed92ba4579b67c05fe0576be5246db91f6cd95df5c3f79d"
+   "sha256": "20de48dce8bbbd5035f9a6f029943b54f5e726e19af8357171b4115da585d5ef"
   },
   "brain/nodes/negative/core-0002--a-falsification-kept-outside-the-searched-store-is-found-aga.md": {
-   "sha256": "0d44de6538202777a7df3cdc97cf6f17e9a3bfe108bf302b3b44b263ce3e0dbe"
+   "sha256": "7ac49fe6ceddd9ff35f504291f5732fbd5d8dce85d3b6e06c74a0ef6e31ba927"
   },
   "brain/nodes/paper/core-0003--kit-md-how-main-the-station-branches-sync-bootstrap-split-an.md": {
    "sha256": "01bffbbf54369223e6481a0f9ba13900a6a84539cc4c8e5a7105795e97e0d0df"
@@ -170,6 +170,22 @@
   "commons/schema/upstream_lock.schema.json": {
    "sha256": "698167c94af4bf98b7b43f0aa7e1be1dfbe91f76916c83272075ffe8d40017c2"
   },
+  "docs/design/LEAN_LESSONS.md": {
+   "generated": true,
+   "sha256": "2dd53f91f7c799e540f5bd9b88896f23b979c2fde535b7b07419ffa537588c3a"
+  },
+  "docs/design/PROGRAMME_BRAIN.md": {
+   "generated": true,
+   "sha256": "6a4643079642fc0f07fe79a566b32b9dba80b8386ffe9b1af6f484bfc048319d"
+  },
+  "docs/design/PROGRAMME_GOVERNANCE.md": {
+   "generated": true,
+   "sha256": "808f522846ed728f38c0721070a0fc7b78410c46660f6b2fcbdd07732abb6142"
+  },
+  "docs/design/PROGRAMME_MAPPING.md": {
+   "generated": true,
+   "sha256": "479965e7ad244f6f3009aece8c6586491bc44d62136e0bde991385d8eb858b6f"
+  },
   "governance/DECISIONS.md": {
    "sha256": "1c64c88017dc0d232ff24df3904e01fc7a379a067246058f14a6f1a2f970149f"
   },
@@ -180,11 +196,11 @@
    "sha256": "8c3cb62e4644fa98f6d5697c52048a406639b14a9d2bd58e3651e0f264516af2"
   },
   "governance/LEDGER.md": {
-   "sha256": "cca8e73d1d988d167c3558247885045b88fd58a5fb7f798dfc375ac5de4fca07"
+   "sha256": "71b0e1033c7c7244f33d9006a84f22045a70add8cc2c336f92c137a6423cc16e"
   },
   "governance/OWNERSHIP.md": {
    "generated": true,
-   "sha256": "a900c4325b762d6ab3aedeb63daf1cb148f29ec8c8ec99a80ebf2fbae716c911"
+   "sha256": "a0a67982c7ccc811fe57618cf2d51f59fd56f3b37a8deb19c6a356cf03687c32"
   },
   "governance/RELEASES.json": {
    "sha256": "e1e90988acf76001e7d96bd0aae111610534cdb5f27e5f98ea7953320e400be8"
@@ -199,7 +215,7 @@
    "sha256": "614e6a14bd12158c26e8b36c98b0e82de203007d6d844a9b1c6096f72a7e6c17"
   },
   "governance/checks.json": {
-   "sha256": "d4f230ae32ccb55f44eb59f4638581cc7065a8211b2e8fabe2cf718800017169"
+   "sha256": "f26a5e121eca244dd8269ccfb1325f6e561897e593a757aa7a04e59aa43862eb"
   },
   "governance/rules.d/brain.json": {
    "sha256": "226142b4faf61c05592e4b9f3fad1c02614fb9e16cf4b572e4ca041213faf6f2"
@@ -211,11 +227,11 @@
    "sha256": "63516b7dff4abc96febcf55eb8d501a6c50799345416f28f98063d7785f0c1ab"
   },
   "governance/rules.json": {
-   "sha256": "24122b878e8497dd46f381a9760ed45b195ba3a3e09d185c0589780112d0169d"
+   "sha256": "c2b1d0772899f445c693bebcf2ebea8a28cf25ba073b1a73f6026d892a7db634"
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "652c900cbf119eeac9dca53f787a4446eeec195158edcb27401ea931bbaf62fd"
+   "sha256": "e34363ade31a03416746b1de4e83230b87d701b0d68ee3cde28c5eb93de0ff2f"
   },
   "map/README.md": {
    "generated": true,
@@ -223,7 +239,7 @@
   },
   "map/SOLUTIONS.md": {
    "generated": true,
-   "sha256": "94ace97837f88aac470ea989397bb554baa8164a423587ce6ffaec292bc21aef"
+   "sha256": "16ae6e9d62f1ab7a72823ddc756b16d60ed2b7d0de3499c85bb5f631a375a880"
   },
   "map/STATIONS.md": {
    "generated": true,
@@ -231,16 +247,16 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "da48543de55858ca356b4f41929cf7eefc14516d0e35e2ea8923de5e214e14f3"
+   "sha256": "63aead7577ce0e2abafe75ee30c616e9c4c0b6a4f5ef214340fd42047af894c7"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
   },
   "map/catalog.json": {
-   "sha256": "af4ed1558ee52349c9c6296fa848bee9514937d5201b790e2be1a46878d45eea"
+   "sha256": "56dca798424db519dffa64c31a47bbc41a99eb07bfeef6f8da59977241b55f19"
   },
   "map/dirs.json": {
-   "sha256": "3c65f1871bcb49b71f113fdba7ad2fcb58b9d83fdc8a8b6b21c315f626a85c67"
+   "sha256": "02d23166e74dfb54d2e8cc90cd86123012e2ebc9e460cfe8c098dc1707d1cf07"
   },
   "map/tags.json": {
    "sha256": "b221c048d20e76cff4b244bf52d12ca6939bd56e4cc18a73b74fc0c96d748d34"
@@ -250,7 +266,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "2a2fef1ad17acab887cb6fc62aa33d960ae77a6b688eded9b2e096d808197312"
+   "sha256": "3e5f6540aff04b2f207f75b4ae5efef011907d476f41ffd3a8631d8c652485e3"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -324,6 +340,9 @@
   },
   "tools/gov/_gov.py": {
    "sha256": "701ec3b13734e2a99c562469f707d21f724a9b1168765e2358d2b5cbb76e190b"
+  },
+  "tools/gov/carry_design.py": {
+   "sha256": "5380176a6592e603a0e4c430587eee871401015632444e41a41459441318c2b7"
   },
   "tools/gov/gen_manifest.py": {
    "sha256": "98a21268d449522f690ec580bd53795dfb8166e933343bafc892b0629b14c6ef"

@@ -18,7 +18,7 @@ owner: tools/brain.py · status: GENERATED · date: see git log · supersedes: n
 
 | id | title | status | touches | trigger | source |
 |---|---|---|---|---|---|
-| core-0001 | Lean lessons carried from lettuce: every count carries its denominator, every rule its owner and its mechanism | promoted | lean, denominator, governance, map:tool:tools/brain.py | none | _design/LEAN_LESSONS.md |
+| core-0001 | Lean lessons carried from lettuce: every count carries its denominator, every rule its owner and its mechanism | promoted | lean, denominator, governance, map:tool:tools/brain.py | none | docs/design/LEAN_LESSONS.md |
 
 ## paper
 
@@ -30,7 +30,7 @@ owner: tools/brain.py · status: GENERATED · date: see git log · supersedes: n
 
 | id | title | status | touches | trigger | source |
 |---|---|---|---|---|---|
-| core-0002 | A falsification kept outside the searched store is found again by the next session | parked | falsification, negative, map:tool:tools/map/find.py | a new attempt at a falsified idea is not stopped by near (n >= 1 miss) · cmd: `python3 tools/brain.py near <idea words> --class negative` · recheck: 2027-01-16 | _design/LEAN_LESSONS.md |
+| core-0002 | A falsification kept outside the searched store is found again by the next session | parked | falsification, negative, map:tool:tools/map/find.py | a new attempt at a falsified idea is not stopped by near (n >= 1 miss) · cmd: `python3 tools/brain.py near <idea words> --class negative` · recheck: 2027-01-16 | docs/design/LEAN_LESSONS.md |
 
 ## Falsifications
 

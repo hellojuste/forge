@@ -3,13 +3,13 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 17 · hook 12 · intent 11 · skill 6 · tool 51 · total 99 · workflow 2
+census: dir 18 · hook 12 · intent 11 · skill 6 · tool 52 · total 101 · workflow 2
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
 ## Dirs and what is in them
 
-61 nodes > cap 60: table instead of a hairball.
+62 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -32,44 +32,45 @@ One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`)
 | `tool:.claude/hooks/quarantine_gate.py` | in | `dir:.claude` | map/dirs.json:7 |
 | `tool:.claude/hooks/station_dispatch.py` | in | `dir:.claude` | map/dirs.json:7 |
 | `tool:.claude/hooks/stop.py` | in | `dir:.claude` | map/dirs.json:7 |
-| `tool:tools/brain.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/gov/_gov.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/gov/gen_manifest.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/gov/gen_ownership.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/gov/gov_check.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/gov/new_row.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/_kit.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/assemble.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/bootstrap.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/doctor.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/held_modes.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/kit_check.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/make_zip.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/repin.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/runtree.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/skills_index.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/kit/sync.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/_common.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/check_paths.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/find.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/gen_atlas.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/gen_dir_readmes.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/gen_solutions.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/gen_station_map.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/hooks/deny_generated_edit.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/hooks/prior_art.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/hooks/usage_log.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/map_check.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/upstream_check.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/map/usage_map.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/station_audit.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/upstream/_uplib.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/upstream/ingest.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/upstream/notice.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/upstream/skill_routes.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/upstream/skill_surface.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/upstream/upstream_checks.py` | in | `dir:tools` | map/dirs.json:188 |
-| `tool:tools/upstream/workflows_check.py` | in | `dir:tools` | map/dirs.json:188 |
+| `tool:tools/brain.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/gov/_gov.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/gov/carry_design.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/gov/gen_manifest.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/gov/gen_ownership.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/gov/gov_check.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/gov/new_row.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/_kit.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/assemble.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/bootstrap.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/doctor.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/held_modes.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/kit_check.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/make_zip.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/repin.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/runtree.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/skills_index.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/kit/sync.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/_common.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/check_paths.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/find.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/gen_atlas.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/gen_dir_readmes.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/gen_solutions.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/gen_station_map.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/hooks/deny_generated_edit.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/hooks/prior_art.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/hooks/usage_log.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/map_check.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/upstream_check.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/map/usage_map.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/station_audit.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/upstream/_uplib.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/upstream/ingest.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/upstream/notice.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/upstream/skill_routes.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/upstream/skill_surface.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/upstream/upstream_checks.py` | in | `dir:tools` | map/dirs.json:199 |
+| `tool:tools/upstream/workflows_check.py` | in | `dir:tools` | map/dirs.json:199 |
 | `workflow:_template` | in | `dir:.claude` | map/dirs.json:7 |
 | `workflow:orient` | in | `dir:.claude` | map/dirs.json:7 |
 

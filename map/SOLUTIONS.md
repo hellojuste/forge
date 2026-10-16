@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-60 catalogued thing(s) · 0 upstream(s) · 20 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+61 catalogued thing(s) · 0 upstream(s) · 20 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## closeout
 
@@ -40,6 +40,7 @@ _never lose a falsification; check it before testing again_
 _one runner, one exit code: which checks are red?_
 
 - `tools/gov/_gov.py` — governance library (working): shared loaders, schema validator, headline and git helpers for the governance tools
+- `tools/gov/carry_design.py` — design docs carry (working): carry the lean lessons and programme specs verbatim into docs/design/ and prove every cited LL id resolves
 - `tools/gov/gov_check.py` — governance checks (working): claudemd, station, rules, canon, decisions, ledger, defects, releases, hooks, admission, commons_drift, main_purity, router_targets
 - `tools/gov/new_row.py` — register row writer (working): append a DEC/L/DEF row with the station's prefix and next id
 - `tools/station_audit.py` — the one audit runner (working): run every registered check (checks.json + checks.d/*.json) with MUST_BE_CLEAN/WORKLIST classes, one exit code and a --state line

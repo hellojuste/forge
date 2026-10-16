@@ -1,12 +1,12 @@
 {
  "_generated_by": "tools/map/gen_atlas.py",
  "census": {
-  "dir": 17,
+  "dir": 18,
   "hook": 12,
   "intent": 11,
   "skill": 6,
-  "tool": 51,
-  "total": 99,
+  "tool": 52,
+  "total": 101,
   "workflow": 2
  },
  "edges": [
@@ -515,7 +515,7 @@
    "token": "tools/brain.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/brain.py",
    "kind": "in",
    "to": "dir:tools",
@@ -543,7 +543,7 @@
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/gov/_gov.py",
    "kind": "in",
    "to": "dir:tools",
@@ -655,7 +655,14 @@
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
+   "from": "tool:tools/gov/carry_design.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/gov/gen_manifest.py",
    "kind": "in",
    "to": "dir:tools",
@@ -676,7 +683,7 @@
    "token": "tools/gov/gen_ownership.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/gov/gen_ownership.py",
    "kind": "in",
    "to": "dir:tools",
@@ -690,7 +697,7 @@
    "token": "_gov"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/gov/gov_check.py",
    "kind": "in",
    "to": "dir:tools",
@@ -760,7 +767,7 @@
    "token": "tools/map/_common.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/gov/new_row.py",
    "kind": "in",
    "to": "dir:tools",
@@ -781,14 +788,14 @@
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/_kit.py",
    "kind": "in",
    "to": "dir:tools",
    "token": "\"tools\""
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/assemble.py",
    "kind": "in",
    "to": "dir:tools",
@@ -886,7 +893,7 @@
    "token": "tools/upstream/skill_routes.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/bootstrap.py",
    "kind": "in",
    "to": "dir:tools",
@@ -907,7 +914,7 @@
    "token": "tools/kit/runtree.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/doctor.py",
    "kind": "in",
    "to": "dir:tools",
@@ -942,7 +949,7 @@
    "token": "tools/station_audit.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/held_modes.py",
    "kind": "in",
    "to": "dir:tools",
@@ -963,7 +970,7 @@
    "token": "tools/kit/runtree.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/kit_check.py",
    "kind": "in",
    "to": "dir:tools",
@@ -991,7 +998,7 @@
    "token": "tools/map/gen_station_map.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/make_zip.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1005,7 +1012,7 @@
    "token": "_kit"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/repin.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1047,7 +1054,7 @@
    "token": "tools/upstream/ingest.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/runtree.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1089,7 +1096,7 @@
    "token": "tools/kit/bootstrap.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/skills_index.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1103,7 +1110,7 @@
    "token": "_kit"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/kit/sync.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1159,7 +1166,7 @@
    "token": "tools/upstream/skill_routes.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/_common.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1173,7 +1180,7 @@
    "token": "tools/gov/_gov.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/check_paths.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1187,7 +1194,7 @@
    "token": "_common"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/find.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1201,7 +1208,7 @@
    "token": "_common"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/gen_atlas.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1222,7 +1229,7 @@
    "token": "usage_map"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/gen_dir_readmes.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1236,7 +1243,7 @@
    "token": "_common"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/gen_solutions.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1257,7 +1264,7 @@
    "token": "tools/map/find.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/gen_station_map.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1278,7 +1285,7 @@
    "token": "_common"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/hooks/deny_generated_edit.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1306,7 +1313,7 @@
    "token": "tools/map/map_check.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/hooks/prior_art.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1327,7 +1334,7 @@
    "token": "tools/map/find.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/hooks/usage_log.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1348,7 +1355,7 @@
    "token": "tools/map/usage_map.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/map_check.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1432,7 +1439,7 @@
    "token": "tools/map/usage_map.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/upstream_check.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1446,7 +1453,7 @@
    "token": "_common"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/map/usage_map.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1474,7 +1481,7 @@
    "token": "tools/map/map_check.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/station_audit.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1495,7 +1502,7 @@
    "token": ".claude/hooks/stop.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/upstream/_uplib.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1509,7 +1516,7 @@
    "token": "tools/map/_common.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/upstream/ingest.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1530,7 +1537,7 @@
    "token": "_uplib"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/upstream/notice.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1551,7 +1558,7 @@
    "token": "_uplib"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/upstream/skill_routes.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1579,7 +1586,7 @@
    "token": "_uplib"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/upstream/skill_surface.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1600,7 +1607,7 @@
    "token": "_uplib"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/upstream/upstream_checks.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1642,7 +1649,7 @@
    "token": "tools/upstream/ingest.py"
   },
   {
-   "evidence": "map/dirs.json:188",
+   "evidence": "map/dirs.json:199",
    "from": "tool:tools/upstream/workflows_check.py",
    "kind": "in",
    "to": "dir:tools",
@@ -1728,6 +1735,12 @@
    "class": "dir",
    "id": "dir:commons",
    "label": "commons/",
+   "source": "map/dirs.json"
+  },
+  {
+   "class": "dir",
+   "id": "dir:docs",
+   "label": "docs/",
    "source": "map/dirs.json"
   },
   {
@@ -2071,6 +2084,12 @@
    "id": "tool:tools/gov/_gov.py",
    "label": "_gov.py",
    "source": "tools/gov/_gov.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/gov/carry_design.py",
+   "label": "carry_design.py",
+   "source": "tools/gov/carry_design.py"
   },
   {
    "class": "tool",

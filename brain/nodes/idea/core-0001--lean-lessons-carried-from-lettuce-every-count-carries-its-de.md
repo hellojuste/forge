@@ -7,7 +7,7 @@ touches: ["lean", "denominator", "governance", "map:tool:tools/brain.py"]
 links: ["core-0002"]
 trigger: "none"
 created: "2026-10-16"
-source: "_design/LEAN_LESSONS.md"
+source: "docs/design/LEAN_LESSONS.md"
 quote: "The lettuce lesson behind all of them is L99: *a rule in prose that a tool could enforce is a rule the next session will break*."
 beats: "prose rules read hours before the act (lettuce measured them broken; LEAN LL-01, L99)"
 ---

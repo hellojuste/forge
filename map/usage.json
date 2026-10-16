@@ -269,12 +269,12 @@
      "source": "check"
     },
     {
-     "evidence": "governance/checks.json:481",
+     "evidence": "governance/checks.json:503",
      "ref": "governance/checks.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.json:483",
+     "evidence": "governance/checks.json:505",
      "ref": "governance/checks.json",
      "source": "check"
     },
@@ -330,6 +330,24 @@
      "evidence": "tools/gov/new_row.py:24",
      "ref": "tools/gov/new_row.py",
      "source": "import"
+    }
+   ]
+  },
+  "tools/gov/carry_design.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/gov/carry_design.py",
+   "kind": "tool",
+   "triggers": [
+    {
+     "evidence": "governance/checks.json:482",
+     "ref": "governance/checks.json",
+     "source": "check"
+    },
+    {
+     "evidence": "governance/checks.json:495",
+     "ref": "governance/checks.json",
+     "source": "check"
     }
    ]
   },

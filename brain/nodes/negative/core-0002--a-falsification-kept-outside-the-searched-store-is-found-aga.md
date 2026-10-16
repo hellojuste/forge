@@ -7,7 +7,7 @@ touches: ["falsification", "negative", "map:tool:tools/map/find.py"]
 links: ["core-0001"]
 trigger: "a new attempt at a falsified idea is not stopped by near (n >= 1 miss) · cmd: `python3 tools/brain.py near <idea words> --class negative` · recheck: 2027-01-16"
 created: "2026-10-16"
-source: "_design/LEAN_LESSONS.md"
+source: "docs/design/LEAN_LESSONS.md"
 hypothesis: "recording a falsification anywhere in the repo (a commit message, another register) is enough for the next attempt to find it"
 test: "lettuce history read as data: LEDGER L4 and the N-register preamble (LEAN LL-D3)"
 statistic: "lettuce LEDGER L4: 1 falsification preserved in the wrong file was undiscoverable; the N-register preamble: falsifications in commit messages were invisible to anyone proposing the same idea again"

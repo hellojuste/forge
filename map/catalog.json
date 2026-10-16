@@ -262,6 +262,17 @@
    "status": "working",
    "title": "governance library"
   },
+  "tools/gov/carry_design.py": {
+   "doc": "docs/design/LEAN_LESSONS.md",
+   "kin": [],
+   "purpose": "carry the lean lessons and programme specs verbatim into docs/design/ and prove every cited LL id resolves",
+   "see_also": [],
+   "solves": [
+    "governance-audit"
+   ],
+   "status": "working",
+   "title": "design docs carry"
+  },
   "tools/gov/gen_manifest.py": {
    "doc": null,
    "kin": [],
