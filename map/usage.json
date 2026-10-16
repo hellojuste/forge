@@ -1465,6 +1465,11 @@
      "source": "check"
     },
     {
+     "evidence": "router/intents.d/station.json:2",
+     "ref": "router/intents.d/station.json",
+     "source": "router"
+    },
+    {
      "evidence": "router/intents.d/understand.json:22",
      "ref": "router/intents.d/understand.json",
      "source": "router"
@@ -2255,34 +2260,6 @@
      "evidence": ".claude/workflows/wiki-gen.js:77",
      "ref": ".claude/workflows/wiki-gen.js",
      "source": "workflow"
-    }
-   ]
-  },
-  "tools/station/understand.py": {
-   "cold": null,
-   "hand": [],
-   "home": "python3 tools/station/understand.py",
-   "kind": "tool",
-   "triggers": [
-    {
-     "evidence": "governance/checks.d/understand.json:19",
-     "ref": "governance/checks.d/understand.json",
-     "source": "check"
-    },
-    {
-     "evidence": "router/intents.d/station.json:2",
-     "ref": "router/intents.d/station.json",
-     "source": "router"
-    },
-    {
-     "evidence": "router/intents.d/station.json:333",
-     "ref": "router/intents.d/station.json",
-     "source": "router"
-    },
-    {
-     "evidence": "router/intents.d/station.json:339",
-     "ref": "router/intents.d/station.json",
-     "source": "router"
     }
    ]
   },

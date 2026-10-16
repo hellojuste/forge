@@ -47,8 +47,8 @@ bash ~/.stable-kit/run/forge/evo@c70c04b/.kit-tool/kit-bin/evo --help   # run it
 ## Which tool for what
 | you want to | tool | one command |
 |---|---|---|
-| navigate code (any repo, pin or folder) | ProjectAtlas | `python3 tools/station/understand.py <path\|owner~repo\|kit> --atlas` |
-| document it (grounded wiki) | openwiki | `python3 tools/station/understand.py <target> --wiki` (needs a provider key in `.env`) |
+| navigate code (any repo, pin or folder) | ProjectAtlas | `python3 tools/kit/understand.py <path\|owner~repo\|kit> --atlas` |
+| document it (grounded wiki) | openwiki | `python3 tools/kit/understand.py <target> --wiki` (needs a provider key in `.env`) |
 | optimise a measurable | evo | workflow `optimize-loop` (holdout frozen first) |
 | understand a closed binary or app | rea | workflow `reverse` (legal gate first; analyses are asked) |
 | what is ready, where, which version, telemetry | all four | `python3 tools/station/setup_tool.py --list` |

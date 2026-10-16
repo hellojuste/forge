@@ -78,14 +78,14 @@
  "skill_hide": {},
  "skill_listing_budget_fraction": 0.013,
  "memory": {
-  "_why": "tools/station/understand.py: one shared memory per target OUTSIDE every station tree (atlas.db + openwiki pages + manifest.json); targets feed `understand.py --card` (SessionStart memory line, proposed for main)",
+  "_why": "tools/kit/understand.py: one shared memory per target OUTSIDE every station tree (atlas.db + openwiki pages + manifest.json); targets feed `understand.py --card` (SessionStart memory line, proposed for main)",
   "root": "~/.stable-kit/memory",
   "targets": [
    "kit"
   ]
  },
  "mcp_optin": {
-  "_why": "per-station opt-in for the forge tools' MCP servers: list a tool here, then `python3 tools/station/understand.py --mcp kit` (atlas) prints the .mcp.json entry; nothing is wired while this list is empty (connectors_expected stays [] and connector_scope reports any server). Enable only after the tool's TRIAL row says promote and its registry/telemetry.json row is verified (.mcp.local.example.json rule).",
+  "_why": "per-station opt-in for the forge tools' MCP servers: list a tool here, then `python3 tools/kit/understand.py --mcp kit` (atlas) prints the .mcp.json entry; nothing is wired while this list is empty (connectors_expected stays [] and connector_scope reports any server). Enable only after the tool's TRIAL row says promote and its registry/telemetry.json row is verified (.mcp.local.example.json rule).",
   "enabled": []
  }
 }

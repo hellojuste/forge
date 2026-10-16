@@ -3,7 +3,7 @@ owner: map/catalog.json · status: GENERATED · date: see git log · supersedes:
 
 # Solutions — read before building
 
-111 catalogued thing(s) · 6 upstream(s) · 42 problem tag(s). Search: `python3 tools/map/find.py <words>`.
+110 catalogued thing(s) · 6 upstream(s) · 42 problem tag(s). Search: `python3 tools/map/find.py <words>`.
 
 ## architecture-review
 
@@ -33,7 +33,6 @@ _end a pass: ledger, defects, handoff, asides_
 
 _answer navigation questions from an index instead of broad file reads_
 
-- `tools/station/understand.py` — understand (working): decipher + remember any target: ProjectAtlas index and grounded openwiki wiki in ~/.stable-kit/memory/<target>/ with a manifest; --check-wiki ownership · see also tools/station/setup_tool.py
 - upstream:langchain-ai~openwiki — when wiki-gen workflow on a non-client repository, CLI in a run-tree with OPENWIKI_TELEMETRY_DISABLED=1 · entry `repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md`
 - upstream:styler-ai~ProjectAtlas — when tool-trial workflow: the first trial subject (tokens saved vs. arm A without the tool, N >= 5); the failed benchmark runs are read as part of the denominator · entry `repertoire/styler-ai~ProjectAtlas/plugins/projectatlas/skills/projectatlas/SKILL.md`
 
@@ -374,5 +373,4 @@ _is this tool/skill/upstream actually used, declared or observed?_
 _generate and serve a repository wiki with source evidence_
 
 - `.claude/workflows/wiki-gen.js` — wiki-gen (working): openwiki on a non-client repo, telemetry gate, independent claim review -> REVIEW.md · see also tools/station/telemetry_plan.py
-- `tools/station/understand.py` — understand (working): decipher + remember any target: ProjectAtlas index and grounded openwiki wiki in ~/.stable-kit/memory/<target>/ with a manifest; --check-wiki ownership · see also tools/station/setup_tool.py
 - upstream:langchain-ai~openwiki — when wiki-gen workflow on a non-client repository, CLI in a run-tree with OPENWIKI_TELEMETRY_DISABLED=1 · entry `repertoire/langchain-ai~openwiki/integrations/openwiki/SKILL.md`

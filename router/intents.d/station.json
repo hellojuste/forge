@@ -1,5 +1,5 @@
 {
- "_why": "forge station intents (contract station-forge section 5; contributed_by station, tie class station:* so they win over the commons ingest intent on this branch). Keywords are the contract's frozen lists, never widened to fit a prompt. Selftest prompts: router/intents.d/station.selftest.json, written after the keywords were frozen. First moves name the seven station workflows (built by equip-forge, 2026-10-16; tool-trial/upstream-intake workflows are named trial-run/intake-run because a workflow may not share a skill's name, DEC-forge-0002), each with an inline_gather. Equip added five skill intents (telemetry, noise, ci-audit, skill-build, maintain) for the gap skills, keywords frozen before their selftest prompts. Forge-setup (2026-10-16) added the setup intent: its keywords are tool-qualified (\"set up evo\", \"install rea\", ...) so the bare words set up / install keep routing elsewhere (\"set up autoresearch\" stays optimize); frozen in this file before router/intents.d/station.selftest.json got its setup prompts. The understand intent (forge-setup scope upgrade, 2026-10-16) routes to tools/station/understand.py; keywords frozen here before its selftest prompts.",
+ "_why": "forge station intents (contract station-forge section 5; contributed_by station, tie class station:* so they win over the commons ingest intent on this branch). Keywords are the contract's frozen lists, never widened to fit a prompt. Selftest prompts: router/intents.d/station.selftest.json, written after the keywords were frozen. First moves name the seven station workflows (built by equip-forge, 2026-10-16; tool-trial/upstream-intake workflows are named trial-run/intake-run because a workflow may not share a skill's name, DEC-forge-0002), each with an inline_gather. Equip added five skill intents (telemetry, noise, ci-audit, skill-build, maintain) for the gap skills, keywords frozen before their selftest prompts. Forge-setup (2026-10-16) added the setup intent: its keywords are tool-qualified (\"set up evo\", \"install rea\", ...) so the bare words set up / install keep routing elsewhere (\"set up autoresearch\" stays optimize); frozen in this file before router/intents.d/station.selftest.json got its setup prompts. The understand intent (forge-setup scope upgrade, 2026-10-16) moved to the commons row router/intents.d/understand.json (tools/kit/understand.py, DEC-core-0012); its old row is kept verbatim in governance/STATION_HISTORY.md, and its selftest prompts stay here.",
  "intents": [
   {
    "name": "trial",
@@ -310,43 +310,6 @@
      "setup_tool",
      "one-step setup",
      "uninstall"
-    ]
-   }
-  },
-  {
-   "name": "understand",
-   "description": "decipher and remember any target (path, owner~repo pin, or the kit): ProjectAtlas index + grounded openwiki wiki in one memory outside the station",
-   "contributed_by": "station",
-   "router": {
-    "keywords": [
-     "understand this repo",
-     "understand this codebase",
-     "index this repo",
-     "code map",
-     "atlas index",
-     "memory for",
-     "decipher",
-     "understand.py"
-    ],
-    "phrases": [],
-    "path_patterns": [
-     "tools/station/understand.py"
-    ],
-    "file_types": [],
-    "patterns": [],
-    "first_move": {
-     "args": "<path|owner~repo|kit> [--atlas] [--wiki] [--refresh]",
-     "inline_gather": "python3 tools/station/understand.py --list"
-    },
-    "claims": [
-     "understand this repo",
-     "understand this codebase",
-     "index this repo",
-     "code map",
-     "atlas index",
-     "memory for",
-     "decipher",
-     "understand.py"
     ]
    }
   }
