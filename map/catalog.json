@@ -356,6 +356,19 @@
    "status": "working",
    "title": "doctor"
   },
+  "tools/kit/held_modes.py": {
+   "doc": null,
+   "kin": [],
+   "purpose": "record and check every held upstream file whose git mode at the pin differs from its station branch (SAFETY 5)",
+   "see_also": [
+    "tools/kit/kit_check.py"
+   ],
+   "solves": [
+    "kit-assembly"
+   ],
+   "status": "working",
+   "title": "held-file mode record"
+  },
   "tools/kit/kit_check.py": {
    "doc": null,
    "kin": [],

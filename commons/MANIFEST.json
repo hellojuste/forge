@@ -81,7 +81,7 @@
    "sha256": "6db25d299614afd6e4138ee9c303a755b2b115f926b82567fce6e53757ded346"
   },
   "KIT.md": {
-   "sha256": "7f1e924f443f7f4fa0bfe19469a50fb34f29c15e075b98abbc11f6c28f60ad29"
+   "sha256": "92d4923e1e6f95c1cb4c397fbbb682884cb4f3c11d53cca51277be25ead5da4a"
   },
   "README.md": {
    "sha256": "d10df1bf28b0548a426f884b23fc281554aa5c1ccc4b836705f21605b2f85bf5"
@@ -212,7 +212,7 @@
   },
   "map/ATLAS.md": {
    "generated": true,
-   "sha256": "691b953c41266886c62eecc38906e7cf1632018286adca6505759ec073f92029"
+   "sha256": "9705fd50976e18485b5b565cb8a1444ad44a2897d43d490fef394b183dbeabc6"
   },
   "map/README.md": {
    "generated": true,
@@ -220,7 +220,7 @@
   },
   "map/SOLUTIONS.md": {
    "generated": true,
-   "sha256": "8f0024c5d4cccc68fa417363ef92b345915818f0ffc3b1741ba5c92ab1e7c096"
+   "sha256": "78f218caa757b615cfe3e068a5565d8bc9933e4be0ed93a91f30e0e7839b6967"
   },
   "map/STATIONS.md": {
    "generated": true,
@@ -228,13 +228,13 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "26a2536f953326ad9c30f0d8a9250a24d9a5708f949a3043cf276570af4ce65b"
+   "sha256": "4a857254bbe9a55d659eae874027948b34c62382b1f8333d7449acc121e63e71"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
   },
   "map/catalog.json": {
-   "sha256": "895445993d240b1b9aa6fedda82cf1b01732fd1d5909ceaab5501886688b8261"
+   "sha256": "d2047ded6f4e8cb4f610c7119c38f44955c33434b41cc874e12a894f9ef09dc1"
   },
   "map/dirs.json": {
    "sha256": "f3dec79e55937bde4a74f68e9f600d15bb602bcd6a7a4741a39a159e42ab4576"
@@ -247,7 +247,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "39261b16d144c78615699d9232ee35822f9b2f6f4cc1f35b6e59635b5260d92c"
+   "sha256": "0ef2d196fdcb5800136760f84152fb0b72b54a3619b310a13a2777386fc663c6"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
@@ -258,6 +258,10 @@
   },
   "registry/attic.json": {
    "sha256": "92d248a0ce5233b8d233a80604749c9b2ea825e3a42ba4f8b2b52877ee9adcb4"
+  },
+  "registry/held_modes.json": {
+   "generated": true,
+   "sha256": "05c134793a8ba0485219f6b07ac5cc0b6020afe5d41be5c7a49f1c25cf68001c"
   },
   "registry/homes.json": {
    "sha256": "1bc38817887ce01f46cbed6629c1dd70e9d85328c68f68a2f87f914f5374f814"
@@ -283,7 +287,7 @@
    "sha256": "43fd9e92bb13bac0744c7b5989379eec8314467b1fc51a21851649351c5a4b0c"
   },
   "registry/telemetry.json": {
-   "sha256": "90de919e27cdfc0e9ca939089e12184b4ece6e5289d806eb30fcefcf1060a7c1"
+   "sha256": "0434a32d0844173c0960bbbe5a3e9dde10e1c28a77b12142951c64351a75da6c"
   },
   "router/intents.d/brain.json": {
    "sha256": "93dd315862fef677f2c571f370c65331775370a645a47bc2c762a27e7b2b4d66"
@@ -342,8 +346,11 @@
   "tools/kit/doctor.py": {
    "sha256": "a107942cc9bf99ca217d092e3e65a25bf3db199801308f857b571fa121792cc0"
   },
+  "tools/kit/held_modes.py": {
+   "sha256": "0f0574ed251f17f3f94c250979bc044331c1cc8ce5e35480b8f651fc367ef812"
+  },
   "tools/kit/kit_check.py": {
-   "sha256": "6e38400842bfbdd92dd2443dcd4c63d9d069f52368ae3643df6a172d39c943ff"
+   "sha256": "df296dfc9852267a1dce3298698793782dfea90dd093f5d06bd561e9cb72f196"
   },
   "tools/kit/make_zip.py": {
    "sha256": "dd430ce3ac145b2f1eb1dd9fca0beb41a47fffbd00a066a85390acf546abde9c"

@@ -625,6 +625,13 @@
    "kind": "tool",
    "triggers": []
   },
+  "tools/kit/held_modes.py": {
+   "cold": null,
+   "hand": [],
+   "home": "python3 tools/kit/held_modes.py",
+   "kind": "tool",
+   "triggers": []
+  },
   "tools/kit/kit_check.py": {
    "cold": null,
    "hand": [],

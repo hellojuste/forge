@@ -235,10 +235,28 @@ def check_registry(root):
         bad = sorted({r.get("home") for r in rows} - set(tree_st))
         if bad:
             v.append("skill_assignment.json homes %s are not decision-tree stations" % bad)
+    # SAFETY 5: the held-file mode record (registry/held_modes.json) must match the station refs, when both exist
+    hm = os.path.join(R, "held_modes.json")
+    modes_note = "held modes: no record"
+    if os.path.isfile(hm):
+        import held_modes  # noqa: E402 (sibling kit tool, imported by path via sys.path[0])
+        try:
+            has_refs = bool(_kit.station_refs(root))
+        except _kit.KitError:
+            has_refs = False
+        if has_refs:
+            hl = []
+            if held_modes.cmd_check(root, log=hl.append) != 0:
+                v.extend("held_modes: " + x.strip()[len("VIOLATION "):] for x in hl if x.strip().startswith("VIOLATION"))
+            d = _kit.read_json(hm)
+            modes_note = "held modes %d / %d changed, recorded" % (d.get("changed", 0), d.get("denominator", 0))
+        else:
+            modes_note = "held modes: no station refs, record not compared"
     print(_kit.headline("kit_registry", len(v), 0, len(src)))
     print("  sources %d / %d · attic %d · quarantine rows %d · telemetry rows %d (verified %d) · skill rows %d / %d"
           % (len(src), EXPECTED_SOURCES, len(att), len(quar), len(tel), sum(1 for t in tel if t.get("verified") is True),
              n_sk, EXPECTED_SKILLS))
+    print("  " + modes_note)
     for x in v:
         print("  VIOLATION " + x)
     return 1 if v else 0

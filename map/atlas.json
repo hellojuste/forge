@@ -5,8 +5,8 @@
   "hook": 12,
   "intent": 11,
   "skill": 6,
-  "tool": 49,
-  "total": 96,
+  "tool": 50,
+  "total": 97,
   "workflow": 2
  },
  "edges": [
@@ -929,6 +929,27 @@
   },
   {
    "evidence": "map/dirs.json:177",
+   "from": "tool:tools/kit/held_modes.py",
+   "kind": "in",
+   "to": "dir:tools",
+   "token": "\"tools\""
+  },
+  {
+   "evidence": "tools/kit/held_modes.py:34",
+   "from": "tool:tools/kit/held_modes.py",
+   "kind": "imports",
+   "to": "tool:tools/kit/_kit.py",
+   "token": "_kit"
+  },
+  {
+   "evidence": "tools/kit/held_modes.py:40",
+   "from": "tool:tools/kit/held_modes.py",
+   "kind": "runs",
+   "to": "tool:tools/kit/runtree.py",
+   "token": "tools/kit/runtree.py"
+  },
+  {
+   "evidence": "map/dirs.json:177",
    "from": "tool:tools/kit/kit_check.py",
    "kind": "in",
    "to": "dir:tools",
@@ -949,7 +970,7 @@
    "token": "tools/kit/assemble.py"
   },
   {
-   "evidence": "tools/kit/kit_check.py:343",
+   "evidence": "tools/kit/kit_check.py:361",
    "from": "tool:tools/kit/kit_check.py",
    "kind": "runs",
    "to": "tool:tools/map/gen_station_map.py",
@@ -2043,6 +2064,12 @@
    "id": "tool:tools/kit/doctor.py",
    "label": "doctor.py",
    "source": "tools/kit/doctor.py"
+  },
+  {
+   "class": "tool",
+   "id": "tool:tools/kit/held_modes.py",
+   "label": "held_modes.py",
+   "source": "tools/kit/held_modes.py"
   },
   {
    "class": "tool",

@@ -3,7 +3,7 @@ owner: map/atlas_schema.json · status: GENERATED · date: see git log · supers
 
 # Atlas
 
-census: dir 16 · hook 12 · intent 11 · skill 6 · tool 49 · total 96 · workflow 2
+census: dir 16 · hook 12 · intent 11 · skill 6 · tool 50 · total 97 · workflow 2
 
 One id space: the mermaid ids below are the atlas ids (non-alphanumerics -> `_`). Where is X? `python3 tools/map/gen_atlas.py --show <id|word>`.
 
@@ -42,6 +42,7 @@ flowchart LR
   tool_tools_kit_assemble_py["assemble.py"]
   tool_tools_kit_bootstrap_py["bootstrap.py"]
   tool_tools_kit_doctor_py["doctor.py"]
+  tool_tools_kit_held_modes_py["held_modes.py"]
   tool_tools_kit_kit_check_py["kit_check.py"]
   tool_tools_kit_make_zip_py["make_zip.py"]
   tool_tools_kit_repin_py["repin.py"]
@@ -99,6 +100,7 @@ flowchart LR
   tool_tools_kit_assemble_py -->|in| dir_tools
   tool_tools_kit_bootstrap_py -->|in| dir_tools
   tool_tools_kit_doctor_py -->|in| dir_tools
+  tool_tools_kit_held_modes_py -->|in| dir_tools
   tool_tools_kit_kit_check_py -->|in| dir_tools
   tool_tools_kit_make_zip_py -->|in| dir_tools
   tool_tools_kit_repin_py -->|in| dir_tools
@@ -172,7 +174,7 @@ flowchart LR
 
 ## Intent -> workflow/skill -> tool -> upstream
 
-64 nodes > cap 60: table instead of a hairball.
+65 nodes > cap 60: table instead of a hairball.
 
 | from | kind | to | evidence |
 |---|---|---|---|
@@ -254,8 +256,9 @@ flowchart LR
 | `tool:tools/kit/bootstrap.py` | runs | `tool:tools/kit/runtree.py` | tools/kit/bootstrap.py:8 |
 | `tool:tools/kit/doctor.py` | runs | `tool:tools/kit/bootstrap.py` | tools/kit/doctor.py:107 |
 | `tool:tools/kit/doctor.py` | runs | `tool:tools/station_audit.py` | tools/kit/doctor.py:110 |
+| `tool:tools/kit/held_modes.py` | runs | `tool:tools/kit/runtree.py` | tools/kit/held_modes.py:40 |
 | `tool:tools/kit/kit_check.py` | runs | `tool:tools/kit/assemble.py` | tools/kit/kit_check.py:118 |
-| `tool:tools/kit/kit_check.py` | runs | `tool:tools/map/gen_station_map.py` | tools/kit/kit_check.py:343 |
+| `tool:tools/kit/kit_check.py` | runs | `tool:tools/map/gen_station_map.py` | tools/kit/kit_check.py:361 |
 | `tool:tools/kit/repin.py` | runs | `tool:tools/kit/bootstrap.py` | tools/kit/repin.py:99 |
 | `tool:tools/kit/repin.py` | runs | `tool:tools/station_audit.py` | tools/kit/repin.py:142 |
 | `tool:tools/kit/repin.py` | runs | `tool:tools/upstream/ingest.py` | tools/kit/repin.py:167 |
