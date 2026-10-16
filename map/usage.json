@@ -269,12 +269,12 @@
      "source": "check"
     },
     {
-     "evidence": "governance/checks.json:503",
+     "evidence": "governance/checks.json:481",
      "ref": "governance/checks.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.json:505",
+     "evidence": "governance/checks.json:483",
      "ref": "governance/checks.json",
      "source": "check"
     },
@@ -340,13 +340,13 @@
    "kind": "tool",
    "triggers": [
     {
-     "evidence": "governance/checks.json:482",
-     "ref": "governance/checks.json",
+     "evidence": "governance/checks.d/map.json:264",
+     "ref": "governance/checks.d/map.json",
      "source": "check"
     },
     {
-     "evidence": "governance/checks.json:495",
-     "ref": "governance/checks.json",
+     "evidence": "governance/checks.d/map.json:277",
+     "ref": "governance/checks.d/map.json",
      "source": "check"
     }
    ]

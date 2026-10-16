@@ -195,6 +195,22 @@
    "rung": "soft",
    "since": "DEC-core-0001",
    "upstream": "N/A"
+  },
+  {
+   "id": "R-lessons-resolve",
+   "headline": "Every LL-nn the kit cites resolves to a heading in docs/design/LEAN_LESSONS.md; the lessons and the three programme specs ship as verbatim data",
+   "owner": "tools/gov/carry_design.py",
+   "pointers": [],
+   "enforcement": {
+    "kind": "check",
+    "ref": "design_docs",
+    "why": "mechanical: the audit re-derives it from source"
+   },
+   "rung": "hard",
+   "upstream": "NEVER",
+   "earned_by": "LEAN review F3; operator ORDER 2 (backfill the efficiency programmes)",
+   "since": "DEC-core-0001",
+   "programme": "map"
   }
  ]
 }
