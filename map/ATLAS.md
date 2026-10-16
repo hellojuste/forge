@@ -154,7 +154,8 @@ flowchart LR
 | `tool:.claude/hooks/deny_upstream_write.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/deny_upstream_write.py:290 |
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/brain.py` | .claude/hooks/intent_router.py:36 |
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/map/find.py` | .claude/hooks/intent_router.py:195 |
-| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/intent_router.py:585 |
+| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/intent_router.py:603 |
+| `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_surface.py` | .claude/hooks/intent_router.py:235 |
 | `tool:.claude/hooks/quarantine_gate.py` | runs | `tool:tools/station_audit.py` | .claude/hooks/quarantine_gate.py:239 |
 | `tool:.claude/hooks/stop.py` | runs | `tool:tools/brain.py` | .claude/hooks/stop.py:13 |
 | `tool:tools/brain.py` | runs | `tool:tools/map/gen_station_map.py` | tools/brain.py:441 |

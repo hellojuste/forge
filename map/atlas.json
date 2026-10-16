@@ -459,11 +459,18 @@
    "token": "tools/map/find.py"
   },
   {
-   "evidence": ".claude/hooks/intent_router.py:585",
+   "evidence": ".claude/hooks/intent_router.py:603",
    "from": "tool:.claude/hooks/intent_router.py",
    "kind": "runs",
    "to": "tool:tools/upstream/skill_routes.py",
    "token": "tools/upstream/skill_routes.py"
+  },
+  {
+   "evidence": ".claude/hooks/intent_router.py:235",
+   "from": "tool:.claude/hooks/intent_router.py",
+   "kind": "runs",
+   "to": "tool:tools/upstream/skill_surface.py",
+   "token": "tools/upstream/skill_surface.py"
   },
   {
    "evidence": "map/dirs.json:7",

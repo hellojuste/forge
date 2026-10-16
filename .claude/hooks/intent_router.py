@@ -231,8 +231,25 @@ def scored_skills(prompt, rows, k=2, negators=NEGATORS_DEFAULT, window=3):
     return out
 
 
-def skill_line(r):
-    return "SKILL: read %s (%s)" % (r.get("path") or r.get("id"), r.get("name") or r.get("id"))
+def surfaced(root):
+    """{lane skill dir: surface name} for the .claude/skills/<n> symlinks tools/upstream/skill_surface.py wrote."""
+    d = Path(root) / ".claude" / "skills"
+    out = {}
+    try:
+        for p in d.iterdir():
+            if p.is_symlink():
+                out[os.path.normpath(os.path.join(".claude/skills", os.readlink(str(p)))).replace("\\", "/")] = p.name
+    except OSError:
+        pass
+    return out
+
+
+def skill_line(r, links=None):
+    """SKILL: read <path> (<name>), plus ` · /<surface>` when the skill is natively invocable (DEC-core-0010)."""
+    path = r.get("path") or r.get("id")
+    line = "SKILL: read %s (%s)" % (path, r.get("name") or r.get("id"))
+    n = (links or {}).get(str(Path(str(path)).parent.as_posix())) if path else None
+    return line + (" · /%s" % n if n else "")
 
 
 def first_move_line(root, row):
@@ -326,8 +343,9 @@ def route(prompt, root, payload=None):
     sk = Path(root) / "router" / "skills.json"
     if sk.exists():
         rows = _load(sk).get("skills", [])
+        links = surfaced(root)
         for r in match_skills(prompt, rows, 2, negators, window):
-            lines.append(skill_line(r))
+            lines.append(skill_line(r, links))
     return lines
 
 
@@ -347,7 +365,7 @@ def skill_also(prompt, root, table, win, lines, negators, window):
     own = ((win.get("router") or {}).get("first_move") or {}).get("skill")
     if own and (r.get("path") or "").rstrip("/") in (".claude/skills/%s/SKILL.md" % own, ".claude/skills/%s" % own):
         return None
-    line = skill_line(r)
+    line = skill_line(r, surfaced(root))
     if len("\n".join(lines + [line]).encode("utf-8")) > int(table.get("max_out_bytes", 1200)):
         return None
     return line
@@ -690,6 +708,13 @@ def selftest(root=None):
         r = match_skills("market sizing for tam", FIXTURE_SKILLS["skills"], k=2)
         ok([x["id"] for x in r] == ["s1", "s2"], "match_skills top-2 canonical then variant: %r" % [x["id"] for x in r])
         ok(match_skills("nothing relevant", FIXTURE_SKILLS["skills"]) == [], "match_skills empty")
+        # DEC-core-0010: a surfaced skill (.claude/skills/<n> -> its lane dir) is named as /<n> beside the read path
+        (rt / "repertoire/c/mermaid").mkdir(parents=True)
+        (rt / "repertoire/c/mermaid/SKILL.md").write_text("---\nname: mermaid\n---\n")
+        os.symlink("../../repertoire/c/mermaid", str(rt / ".claude/skills/mermaid"))
+        ok(route("draw a mermaid flowchart", rt) == ["SKILL: read repertoire/c/mermaid/SKILL.md (mermaid) · /mermaid"],
+           "surfaced skill named natively: %r" % route("draw a mermaid flowchart", rt))
+        (rt / ".claude/skills/mermaid").unlink()
         # broken table -> one 'could not classify' line, exit 0
         (rt / "router" / "intents.json").write_text("{broken")
         out = respond({"prompt": "build"}, rt)
