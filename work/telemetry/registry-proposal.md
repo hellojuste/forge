@@ -15,4 +15,8 @@ flips it, with `verified_by_run`.
 | langchain-ai/openwiki | `opt_out` | "...the reading branch of the code is not yet cited" | "truthy OPENWIKI_TELEMETRY_DISABLED or DO_NOT_TRACK skips the send (gates.ts:28-32, senders.ts:136)" | same |
 | styler-ai/ProjectAtlas | `evidence` | (see main) | "crates/projectatlas-db/src/telemetry.rs:1: local token accounting in the project DB; no network sender recorded" | station.json `telemetry` row for ProjectAtlas |
 
+SUPERSEDED in part 2026-10-16 (the words above stay): after merging main at 74b7eca, `registry/telemetry.json` already
+carries the evo and openwiki opt-out evidence (main commit 79ec056, "telemetry rows re-read at the pins (SAFETY 7-9)"),
+so those four rows are LANDED. Still open for main: the ProjectAtlas row (`opt_out: unread`) — proposed text above.
+
 The offline status runs that would then flip each row are printed by `python3 tools/station/telemetry_plan.py all`.
