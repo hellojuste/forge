@@ -211,7 +211,7 @@ flowchart LR
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/brain.py` | .claude/hooks/intent_router.py:36 |
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/map/find.py` | .claude/hooks/intent_router.py:195 |
 | `tool:.claude/hooks/intent_router.py` | runs | `tool:tools/upstream/skill_routes.py` | .claude/hooks/intent_router.py:585 |
-| `tool:.claude/hooks/quarantine_gate.py` | runs | `tool:tools/station_audit.py` | .claude/hooks/quarantine_gate.py:211 |
+| `tool:.claude/hooks/quarantine_gate.py` | runs | `tool:tools/station_audit.py` | .claude/hooks/quarantine_gate.py:239 |
 | `tool:.claude/hooks/stop.py` | runs | `tool:tools/brain.py` | .claude/hooks/stop.py:13 |
 | `tool:tools/brain.py` | runs | `tool:tools/map/gen_station_map.py` | tools/brain.py:441 |
 | `tool:tools/brain.py` | runs | `tool:tools/station_audit.py` | tools/brain.py:894 |
@@ -290,8 +290,8 @@ flowchart LR
 | `tool:tools/map/map_check.py` | runs | `tool:tools/map/usage_map.py` | tools/map/map_check.py:113 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/hooks/usage_log.py` | tools/map/usage_map.py:10 |
 | `tool:tools/map/usage_map.py` | runs | `tool:tools/map/map_check.py` | tools/map/usage_map.py:83 |
-| `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/station_audit.py:323 |
-| `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/stop.py` | tools/station_audit.py:319 |
+| `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/context_threshold.py` | tools/station_audit.py:331 |
+| `tool:tools/station_audit.py` | runs | `tool:.claude/hooks/stop.py` | tools/station_audit.py:327 |
 | `tool:tools/upstream/_uplib.py` | runs | `tool:tools/map/_common.py` | tools/upstream/_uplib.py:8 |
 | `tool:tools/upstream/ingest.py` | runs | `tool:tools/kit/bootstrap.py` | tools/upstream/ingest.py:21 |
 | `tool:tools/upstream/notice.py` | runs | `tool:tools/kit/bootstrap.py` | tools/upstream/notice.py:40 |

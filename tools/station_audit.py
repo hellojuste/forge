@@ -225,12 +225,20 @@ def print_table(results, total, ran_names, reused, secs, fl, names):
         print("ran %d/%d checks; the other %d were NOT run" % (len(results), total, total - len(results)))
     if reused:
         print("reused %d/%d" % (reused, len(results)))
+    print(headline(results, fl, secs))
+    return 1 if any(is_red(r, fl) for r in results) else 0
+
+
+def headline(results, fl, secs):
+    """LEAN F5 / LL-22 (a green must never be misreadable): a SKIPped MUST is NOT RUN, never counted as clean."""
     must = [r for r in results if r["class"] == "MUST_BE_CLEAN"]
     red = [r for r in results if is_red(r, fl)]
-    print("station_audit: %d red · %d/%d clean · worklists %d · %ss" % (
-        len(red), len([r for r in must if not is_red(r, fl)]), len(must),
-        sum(r.get("worklist", 0) for r in results if r["class"] == "WORKLIST"), secs))
-    return 1 if red else 0
+    skipped = [r for r in must if r.get("status") == "SKIP"]
+    clean = [r for r in must if not is_red(r, fl) and r.get("status") != "SKIP"]
+    notrun = (" · %d NOT RUN (%s)" % (len(skipped), ", ".join(r["name"] for r in skipped))) if skipped else ""
+    return "station_audit: %d red · %d/%d clean%s · worklists %d · %ss" % (
+        len(red), len(clean), len(must), notrun,
+        sum(r.get("worklist", 0) for r in results if r["class"] == "WORKLIST"), secs)
 
 
 # ---------------------------------------------------------------- selftest
@@ -463,6 +471,7 @@ def selftest(root):
             dict(adm, name="g", cmd=[sys.executable, "-c", "print('g: skipped (knob XS)')"], **{"class": "MUST_BE_CLEAN"}, inputs=["*"], timeout_s=30)]}))
         rc, out, _ = _sa(r, "-k", "g")
         ok(rc == 0 and "SKIP" in out, "named skip: %s" % out)
+        ok("0/1 clean · 1 NOT RUN (g)" in out and "1/1 clean" not in out, "a skipped MUST is never counted clean (LEAN F5): %s" % out)
         # --state with nothing cached
         shutil.rmtree(r / ".cache")
         rc, out, _ = _sa(r, "--state")

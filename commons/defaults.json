@@ -6,6 +6,8 @@
  "listing_budget_bytes": 2400,
  "listed_max": 6,
  "sessionstart_budget_bytes": 1500,
+ "live_keys": ["SOLANA_PRIVATE_KEY"],
+ "_why_live_keys": "act_gate: env names whose NON-EMPTY value (station .env, study/*/.env, process environment, or inline in the command) arms the live-key patterns (REPRODUCE F5, SAFETY 4). A station adds names in station.json live_keys (a list replaces this one: keep SOLANA_PRIVATE_KEY in it).",
  "gov": {
   "_why": "every governance constant; no hook or check hard-codes one (GOV 3.3)",
   "claude_md_sections": ["First moves", "Invariants", "Governance", "Token sinks"],
