@@ -228,7 +228,7 @@
   },
   "map/atlas.json": {
    "generated": true,
-   "sha256": "7299c8adbce9ba515e4a4acd11843b3f91dbafe63c759d3f2f53de284267a994"
+   "sha256": "26a2536f953326ad9c30f0d8a9250a24d9a5708f949a3043cf276570af4ce65b"
   },
   "map/atlas_schema.json": {
    "sha256": "5e93eaa51feae6912bb3afaf797f604d252b1100c66c0dd9cebd9bdfe915281e"
@@ -247,7 +247,7 @@
   },
   "map/usage.json": {
    "generated": true,
-   "sha256": "7c6400263d7236efbbd22e73a38351cee785106069828fa3736b9784aa77c098"
+   "sha256": "39261b16d144c78615699d9232ee35822f9b2f6f4cc1f35b6e59635b5260d92c"
   },
   "map/usage_hand.json": {
    "sha256": "e12e05261d6e0a918cbece2568ae42bdfbd917b4a3cd21cd7eebc936476d79f6"
